@@ -1,0 +1,38 @@
+# LaTeX temporäre Dateien
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.bbl-SAVE-ERROR
+
+
+# Latexmk spezifisch
+latexmkrc
+
+# PDF Ausgaben (optional ignorieren, wenn nur Quellcode versioniert werden soll)
+*.pdf
+
+# Backup Dateien
+*~
+*.bak
+
+# MacOS / Windows Systemfiles
+.DS_Store
+Thumbs.db
+main.bcf
+main.run.xml

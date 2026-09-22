@@ -1,0 +1,71 @@
+\section{Methodik}
+\label{sec:methodik}
+
+\subsection{Vorgehen}
+\label{subsec:vorgehen}
+Dies ist Platzhaltertext zur Beschreibung des methodischen Vorgehens. Hier werden die
+einzelnen Arbeitsschritte erläutert.
+
+\begin{tcolorbox}[myboxstyle, title=Hinweis]
+Dies ist eine Beispiel-Hinweisbox (\texttt{tcolorbox}). Sie eignet sich, um wichtige
+Hinweise, Annahmen oder Einschränkungen hervorzuheben.
+\end{tcolorbox}
+
+\subsection{Beispielrechnung}
+\label{subsec:beispielrechnung}
+Formeln können mit \texttt{amsmath} gesetzt werden, zum Beispiel die Berechnung einer
+Bodenauflösung (GSD) in Abhängigkeit der Flughöhe:
+\begin{equation}
+    \text{GSD} = \frac{h \cdot p}{f}
+    \label{eq:gsd}
+\end{equation}
+mit Flughöhe $h$, Pixelgrösse $p$ und Kamerakonstante $f$. Mit dem Paket \texttt{siunitx}
+können Einheiten konsistent gesetzt werden, zum Beispiel eine Flughöhe von \SI{60}{\meter}.
+Gleichung~\ref{eq:gsd} bzw.\ \cref{eq:gsd} kann so im Text referenziert werden.
+
+\subsection{Beispieltabelle}
+\label{subsec:beispieltabelle}
+Tabelle~\ref{tab:beispieltabelle} zeigt den Aufbau einer Beispieltabelle mit
+\texttt{tabularx}, \texttt{threeparttable}, \texttt{multirow} und \texttt{makecell}.
+
+\begin{table}[h!]
+    \centering
+    \caption{Kontrollmessungen zur Bestimmung des Fehlers aus den Basisdaten.}
+    \label{tab:beispieltabelle}
+    \begin{tabularx}{\textwidth}{c | *{3}{>{\centering\arraybackslash}X}}
+        \toprule
+        \makecell{\textbf{Höhe} \\ \textbf{[m.ü.M]}} & 
+        \makecell{$\mathbf{\Delta E_{VRS} - E_{MDR}}$ \\ \textbf{[cm]}} & 
+        \makecell{$\mathbf{\Delta N_{VRS} - N_{MDR}}$ \\ \textbf{[cm]}} & 
+        \makecell{$\mathbf{\Delta H_{VRS} - H_{MDR}}$ \\ \textbf{[cm]}} \\
+        \midrule
+        1885 (Fix 1) & -2.1 & 0.8 & \textcolor{red}{\textbf{5.5}} \\
+        1885 (Fix 2) & -2.6 & 1.8 & \textcolor{red}{\textbf{5.2}} \\
+        2085 & -0.6 & -2.5 & \textcolor{red}{\textbf{3.6}} \\
+        2145 & -0.7 & -2.9 & \textcolor{red}{\textbf{5.9}} \\
+        2205 & -0.5 & -2.4 & \textcolor{red}{\textbf{5.1}} \\
+        2255 & -1.1 & -2.1 & \textcolor{red}{\textbf{4.6}} \\
+        \midrule
+        \textbf{} & 
+        $\mathbf{RMSE_E}$ \textbf{[cm]} & 
+        $\mathbf{RMSE_N}$ \textbf{[cm]} & 
+        $\mathbf{RMSE_H}$ \textbf{[cm]} \\
+        \midrule
+        \textbf{} & 0.9 & 2.4 & \textcolor{red}{\textbf{5.0}} \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\subsection{Beispielabbildung}
+\label{subsec:beispielabbildung}
+\Cref{fig:beispielbild} zeigt eine Beispielabbildung inklusive Bildlegende und Quellenangabe.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{aufnahmeperimeter_Skipiste1.jpg}
+    \caption[Beispielabbildung zur Illustration des Bild- und Beschriftungsformats]{Beispielabbildung zur Illustration des Bild- und Beschriftungsformats.
+    \\Projektion:~LV95~|~Stand:~TT.MM.JJJJ~|~Datenquelle:~Platzhalter}
+    \label{fig:beispielbild}
+\end{figure}
+
+\FloatBarrier

@@ -1,0 +1,88 @@
+\documentclass[a4paper,12pt]{article}
+
+% Preamble einbinden
+\input{preamble.tex}
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+% Titelseite
+\parindent 0mm
+\begin{titlepage}
+    \begin{figure}[t]
+        \centering
+        \includegraphics[width=16cm]{fhnw_habg_igeo_10mm.jpg}
+    \end{figure}
+
+    \vspace*{1.5cm}
+
+    \begin{center}
+        \textsf{
+            \textbf{\LARGE Titel des Berichtes}\\[1cm]
+            {\LARGE Untertitel Bericht}
+        }
+        \vspace{0.5cm}
+    \end{center}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=14cm]{gnss_mountains.jpg}
+    \end{figure}
+
+    \vfill  % pushes the following text to the bottom
+
+    \begin{flushleft}
+        \textsf{
+            \text{ }\\
+            \textbf{Gruppe 1}\\[0.1cm]
+            \textbf {Verantwortlicher Autor}\\
+            Autorin zwei\\
+            Autor Drei\\
+            Autor vier\\[0.5cm]
+            Eingereicht bei: Betreuende - Modul Modulname\\
+            \textbf{\today}\\
+        }
+    \end{flushleft}
+\end{titlepage}
+
+
+\newpage
+\thispagestyle{empty}
+\null
+\vfill
+%\pagenumbering{Roman}
+\footnotesize{\textbf{Abbildung Titelseite:} Bildtext Titelbild, allenfalls Quelle} \\[2cm]
+Version X.X                                   \\[1cm]
+Fachhochschule Nordwestschweiz (FHNW)         \\
+Hochschule für Architektur, Bau und Geomatik  \\
+Institut Geomatik                             \\
+Hofackerstrasse 30                            \\
+CH-4132 Muttenz                               \\
+ 
+\verb"https://www.fhnw.ch"                   \\
+
+\cleardoublepage
+\tableofcontents
+\newpage
+\listoffigures
+\listoftables
+\newpage
+
+
+
+% Kapitel laden
+\input{chapters/01_einleitung.tex}
+\input{chapters/02_methodik.tex}
+\input{chapters/03_resultate.tex}
+\input{chapters/04_diskussion.tex}
+\input{chapters/05_fazit.tex}
+
+
+% Literatur
+\newpage
+\section{Quellenverzeichnis}
+\printbibliography
+
+\input{chapters/06_anhang.tex}
+
+\end{document}

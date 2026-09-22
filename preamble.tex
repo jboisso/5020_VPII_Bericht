@@ -1,0 +1,79 @@
+% --- Sprache und Kodierung ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+% --- Layout ---
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace} % Zeilenabstand
+\onehalfspacing
+\usepackage{placeins} % Floatbarrier (Kapitel)
+
+% --- Schriftarten ---
+\usepackage{lmodern}
+
+% --- Mathe und Symbole ---
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{calc}
+
+% --- Grafiken ---
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\tcbset{
+    myboxstyle/.style={
+        colframe=blue!60!black,      % border color
+        colback=blue!5,              % light background color
+        boxrule=1pt,                 % border thickness
+        arc=2mm,                     % rounded corners (optional)
+        left=3pt,right=3pt,top=3pt,bottom=3pt, % padding
+        width=\textwidth,
+        fontupper=\footnotesize
+    }
+}
+\usepackage{float} % bessere Kontrolle von Abbildungen
+\graphicspath{{figures/}}
+
+% --- Tabellen ---
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\sisetup{
+    detect-all,
+    table-format=3.2,
+    separate-uncertainty = true,
+    output-decimal-marker = {.}
+}
+
+% --- Referenzen und Links ---
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+% Deutsche Bezeichnungen für \cref/\Cref
+\crefname{figure}{Abbildung}{Abbildungen}
+\Crefname{figure}{Abbildung}{Abbildungen}
+\crefname{table}{Tabelle}{Tabellen}
+\Crefname{table}{Tabelle}{Tabellen}
+\crefname{equation}{Gleichung}{Gleichungen}
+\Crefname{equation}{Gleichung}{Gleichungen}
+\usepackage[labelfont=bf,font={footnotesize, it},labelsep=colon]{caption}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{bibliography.bib}
+% Required for APA style
+\DeclareLanguageMapping{english}{english-apa}
+
+
+% --- Sonstiges ---
+\usepackage{xcolor}
+\usepackage{csquotes} % für saubere Zitate
+\setlength{\marginparwidth}{2cm}
+\usepackage[textsize=tiny]{todonotes}
+\usepackage{ifthen}
+\usepackage{xkeyval}
+\usepackage{tikz}
+\usepackage{lscape}
+\usepackage{pdflscape}
