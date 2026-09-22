@@ -1,0 +1,71 @@
+%Die nachfolgenden 2 Zeilen gehören (ohne das Prozent-zeichen) in die Präambel
+%\usepackage{dirtree} % library for folder structure
+%\usepackage{fontawesome} % library for file types in folder structure
+
+\section{Folder Structure}
+\label{app:folderStructure}
+The tree below shows how the submission folder is structured and what files and contents are to be expected in the respective directories and files.\\[1em]
+
+\dirtree{%
+	.1 \faFolderOpen ~S:/HABG/E1311\_MSE/E1311\_GEO\_Fabian\_Rüfenacht/Submission\_MSE\_Proj2/.
+	% first folder
+	.2 \faFolderOpen ~00\_Administration/.
+	.3 \faFolderOpen ~1\_PM \dotfill Weekly reports.
+	.3 \faFolderOpen ~2\_IM1-Goal\_Definition \dotfill Minutes of the first interim meeting.
+	.3 \faFolderOpen ~3\_IM2-MathModels \dotfill Minutes of the second interim meeting.
+	.3 \faFolderOpen ~4\_Presentation/.
+	.4 \faFilePdfO ~MSEProj2-MathematicalModelGNSS.pdf \dotfill Project presentation.
+	.4 \faFilePowerpointO ~MSEProj2-MathematicalModelGNSS.pptx \dotfill Project presentation.
+	% second folder
+	.2 \faFolderOpen ~01\_Researchplan/ \dotfill PDF and LaTeX structure of the research plan.
+	% third folder
+	.2 \faFolderOpen ~02\_code/.
+	.3 \faFileCodeO ~README.md \dotfill Description of the code used and separate folder structure.
+	% fourth folder
+	.2 \faFolderOpen ~03\_data/.
+	%%
+	.3 \faFolderOpen ~01\_Fundamentals/ \dotfill Files used in Leica Infinity.
+	.4 \faFolderOpen ~01\_AntennaFiles/ \dotfill Antenna calibration file (line 193'783).
+	.4 \faFolderOpen ~02\_GeoidModels/ \dotfill Employed geoid model.
+	.4 \faFolderOpen ~03\_CoordinateSystems/ \dotfill Employed coordinate system.
+	.3 \faFolderOpen ~02\_RawData/ \dotfill Raw measurements (TPS \& GNSS).
+	%%
+	.3 \faFolderOpen ~03\_Baseline\_computation/ \dotfill Leica Infinity projects: baselines.
+	%%
+	.3 \faFolderOpen ~04\_Pseudo\_Observations/.
+	.4 \faFileArchiveO ~*.obs \dotfill Observations stored as pickle.
+	.4 \faFileArchiveO ~*.vcv \dotfill Covariance matrix stored as pickle.
+	.4 \faFileText ~README.md \dotfill Detailed explanation of filenames.
+	%%
+	.3 \faFolderOpen ~05\_TPS\_Data\_Cleaning/.
+	.4 \faFolderOpen ~Zug-TPS-Cleaning \dotfill Leica Infinity project: TPS.
+	.4 \faFileExcelO ~ApproximatesWGS\_rad.csv \dotfill Approximate coordinates CHTRF95.
+	%%
+	.3 \faFolderOpen ~06\_LTOP\_Adjustments/ \dotfill GeoSuite project.
+	%%
+	.3 \faFolderOpen ~07\_TPS\_Conventional\_Observations/.
+	.4 \faFileArchiveO ~*.obs \dotfill Observations stored as pickle.
+	.4 \faFileArchiveO ~*.vcv \dotfill Covariance matrix stored as pickle.
+	.4 \faFileText ~README.md \dotfill Detailed explanation of filenames.
+	%%
+	.3 \faFolderOpen ~08\_TPS\_Pseudo\_Observations/.
+	.4 \faFileArchiveO ~*.obs \dotfill Observations stored as pickle.
+	.4 \faFileArchiveO ~*.vcv \dotfill Covariance matrix stored as pickle.
+	.4 \faFileText ~README.md \dotfill Detailed explanation of filenames.
+	%%
+	.3 \faFolderOpen ~09\_QGIS\_Projects/ \dotfill QGIS project for visualization.
+	%%
+	.3 \faFolderOpen ~10\_Coordinate\_Results/.
+	.4 \faFileExcelO ~\_Coordinate\_Comparison.xlsx \dotfill Statistical comparison of coords.
+	.4 \faFileExcelO ~*.csv \dotfill Coordinate-results of adjustments.
+	.4 \faFileCodeO ~Visualization.ipynb \dotfill Visualizations for report.
+	%%
+	.3 \faFolderOpen ~11\_ReliabilityInvestigations/.		
+	.4 \faFileExcelO ~\_Reliability.xlsx \dotfill Comparisons for report.
+	.4 \faFileExcelO ~*.csv \dotfill Reliability-results of adjustments.
+	.4 \faFilePdfO ~Formulas-and-Reasoning-german.pdf \dotfill Notes for reliability.
+	% fifth folder
+	.2 \faFolderOpen ~04\_Documentation/ \dotfill PDF and LaTeX structure of this thesis.
+	% sixth folder		
+	.2 \faFilePdfO ~MSEProj2-MathematicalModelGNSS.pdf \dotfill Project documentation.
+}
