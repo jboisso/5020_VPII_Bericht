@@ -15,6 +15,15 @@
 4. git remote add origin https://github.com/jboisso/3030_3DA_Bericht.git
 5. git pull
 
+## GIT Setup from local folder to Github Repo:
+1. Lokaler Ordner in Terminal öffnen
+2. Folgende Befehle ausführen:
+	- git init
+	- git remote add origin [link zum Repo]
+	- git add .
+	- git commit -m "your commit message"
+	- git push --set-upstream origin master
+
 ## Öffnen in Vs Code: 
 Open Folder -> Hauptordner mit Main drin öffnen
 in VS-Code: linker Balken -> TEX -> View LaTeX PDF
