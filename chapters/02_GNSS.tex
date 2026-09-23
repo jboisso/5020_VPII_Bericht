@@ -2,11 +2,63 @@
 \section{Global Navigation Satellite System (GNSS)}
 \label{sec:gnss}
 
+Zur Verdichtung und Modernisierung des Netzes der Überwachung Schwanderbärgli wurde vermehrt auf GNSS Messungen gesetzt.
+Die Messungen erfolgten vom Dienstag, 08.09.2026 bis zum Donnerstag, 10.09.2026 mit acht Leica GS18i Empfängern der FHNW Muttenz.
+
+\begin{tcolorbox}[myboxstyle, title=Hinweis]
+Bei der Auswertung ist die erste Priorität, möglichst gute und brauchbare GNSS Daten für die weitere Auswertung der TPS-Netze zu finden.
+Als zweite Priorität steht das Ausprobieren an.
+Dabei wird die Auswirkung unterschiedlicher Troposphärenmodelle, oder die gesamt Auswertung als PPP untersucht.
+\end{tcolorbox}
+
 \subsection{Datenaufbereitung}
 \label{sec:datenaufbereitung}
 
+- keine bereiche ausgeschnitten weil alles gut (kleine Bereiche, 6011 kommen noch)
+
 \subsection{Datenauswertung}
 \label{sec:datenauswertung}
+
+Gemäss dem Messkonzept wurde ein Grundlagenetz bestehend aus vier Empfängern aufgebaut. Diese sind in \Cref{fig:abb-gnss} grün markiert.
+Diese zeichneten während der gesamten 48h Rohdaten auf und dienen in erster Linie als Anschluss an den Referenzrahmen LV95/LN02.
+Die weiteren, gelb markierten GNSS-Punkte werden anschliessend in Bezug auf diese internen Referenzstationen ausgewertet.
+Somit ist der Anschluss aller Punkte an das LV95/LN02 gewährleistet.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{01_Netzübersicht_GNSS-v4.png}
+    \caption[Bildbeschriftung]{Netzübersicht GNSS-Messung Feldkurs 2026}
+    \label{fig:abb-gnss}
+\end{figure}
+
+\FloatBarrier
+
+\subsubsection{Referenz-Stationen}
+\label{sec:referenzstationen}
+Als globale \todo{stimmt hier global?} Referenzstation kann der Dienst Refnet oder Swipos verwendet werden. 
+Da sich die Swipos-Station mit einer Entfernung von knapp 10 km deutlich näher befindet, wird sich für diese entschieden.
+In diesem Dienst kann wiederum eine virtuelle Referenz Station (VRS) berechnet werden, welche noch näher an den eigentlichen Messungen platziert werden kann.
+Die Basislinien des Grundlagenetzes wurden einmal zu der VRS und einmal zu der effektiven Swipos Referenzstation HABG berechnet.
+Daraus ergab sich eine Differenz von rund einem Zentimeter in der Höhe und wenige Millimeter in der Lage.
+Die Swipos-Station HABG befindet sich im Hasliberg auf ähnlicher Höhe wie der obere Teil unseres Perimeters.
+Zudem ist sie nur knapp 10 km von unserem Messgebiet entfernt, welches beides zu nahezu optimalen Bedingungen führt.
+Bei der VRS hingegen ist unbekannt, wie diese berechnet wird. Alle umliegenden Stationen (ausser HABG) sind mehrere Kilometer entfernt.
+Im Infinity-Bericht ist ersichtlich, dass mit der VRS deutlich mehrere GDOP Überschreitungen von bis zu einem Wert von 15 enthalten sind.
+Mit der HABG Station hingegen, wurde der GDOP Wert zwei Drittel weniger oft Überschritten und weist lediglich einen maximalen Wert von 4.5 auf.
+Somit wurde die weitere Auswertung nur mit der Station HABG ausgeführt.
+
+\todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
+
+\subsubsection{Verdichtungs-Stationen}
+\label{sec:verdichtungsstationen}
+
+Die neu erhaltenen Koordinaten der internen Referenzstationen werden nun für die weitere Auswertung als fix gesetzt.
+Alle weiteren Verdichtungsstationen werden folglich in Bezug zu diesen Referenzstationen berechnet.
+Dabei stehen über das gesamte Gebiet verteil vier Stationen zur Verfügung.
+In Infinity kann jedoch nur eine Basislinie berechnet werden, mehrere müssten dann anschliessend gemittelt werden.
+Eine Mittelung über alle, ebenfalls entfernte Referenzstationen macht nur bedingt Sinn.
+Weshalb nur die nächsten beiden Stationen für die weitere Punktberechnung verwendet werden.
+
 
 \subsection{Resultate}
 \label{sec:resultate}
@@ -14,4 +66,4 @@
 \subsection{Diskussion der Resultate}
 \label{sec:diskussion der resultate}
 
-
+- Ionosphäre I95 unauffällig
