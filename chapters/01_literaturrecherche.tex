@@ -34,7 +34,36 @@ Die troposphärische
 Laufzeitverzögerung lässt sich als Funktion der Meteoparametern Druck, Wasserdampfgehalt und Temperatur beschreiben 
 \parencite{seeber_satellite_2003}.
 
-\subsubsection{Mapping Functions}
+\subsection{Anwendung in der Meteorologie}
+Die Troposphäre kann in eine trockene (hydrostatische) und feuchte Komponente unterteilt werden.
+Der trockene Anteil verhält sich relativ vorhersehbar mit der örtlichen Temperatur und Luftdruck, 
+wobei die Schwankung innerhalb weniger Stunden weniger als 1\% beträgt.
+Der durch diese Komponente verursachte Fehler ist relativ gross und beträgt etwa 2.3 Meter in Zenitrichtung und bis zu 10 Metern bei tieferen Einfallswinkeln.
+Die feuchte Komponente der Troposphäre hingegen macht nur einige Zentimeter aus.
+Jedoch variiert die Verteilung des Wasserdampfes zeitlich und räumlich stark, was sie sehr schwer modellierbar macht
+\parencite{j_sanz_subirana_jm_juan_zornoza_and_m_hernandez-pajares_tropospheric_2011}.
+Die grösste Fehlerquelle von GNSS-Laufzeitmessungen ist somit die feuchte Komponente der troposphärischen Laufzeitverzögerung.
+
+Für die Meteorologie sind atmosphärische Parameter wie Temperatur, Luftdruck und Luftfeuchtigkeit in möglichst guter räumlicher und zeitlicher Auflösung essenziell. 
+Gerade der Wasserdampfgehalt wurde hauptsächlich mittels Ballonsondenaufstiegen ermittelt, welche jedoch aus Kostengründen weltweit seltener stattfinden.
+
+Seit 2005 wir nun versucht, den niederschlagbaren Wasserdampf in der Atmosphäre aus Trägerphasenmessungen des Signals von GNSS-Satelliten in Permanentnetzen von Bodenstationen zu bestimmen.
+Das Verfahren nützt die Refraktionseigenschaft der Mikrowellen und die enge Beziehung zwischen dem Wasserdampf und der assoziierten Laufzeitverzögerung.
+
+% noch Umschreiben (aktuell direktes zitat)
+
+%Untersuchungen innerhalb verschiedener Projekte ((Gendt et al., 2002), COST 716 (COST716, 2001), Magic (Haase et al., 1999),
+%SuomiNet (Ware et al., 2000)) bestätigen durch Validierung mit unabhängigen Instrumenten und Vergleich mit Wettermodellen
+%eine erreichbare Genauigkeit von +- 1-2mm im Wasserdampfgehalt, was für die Anwendung in der Wettervorhersage ausreichend ist.
+%(Higgins, 2000) zeigt, dass die Hinzunahme von Wasserdampfschätzungen aus GPS die Vorhersageergebnisse für Regen in Großbritannien
+%signifikant verbessert.
+
+Als Vorteil gegenüber herkömmlichen Wetterballons kann sicher die wetterunabhängige Beobachtungsmöglichkeit hervorgehoben werden.
+Andererseits sind keine diskreten Werte entlang des Beobachtungsprofils wie bei einem Radiosondenaufstieg möglich
+\parencite{klaffenbock_tropospharische_2005}.
+
+
+(noch absolut unvollständig)
 
 \subsection{Notizen zu Papers}
 \textbf{Comparative analysis of real-time precise point positioning zenith total delay estimates}
