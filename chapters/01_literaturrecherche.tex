@@ -11,7 +11,19 @@ die Zeitsynchronisation von Wechselstromnetzen auf eine Genauigkeit von $\pm 1\,
 erfordern ein detailliertes Verständnis von möglichen Fehlerquellen. Im Folgenden wird die atmosphärische 
 Laufzeitverzögerung und insbesondere der Einfluss der Troposphäre näher betrachtet.
 
-\subsection{Troposphärische Laufzeitverzögerung}
+\subsection{Atmosphärische Laufzeitverzögerung}
+Vom Moment des Aussendens bis zum Empfangen mit einem terrestrischen GNSS-Empfänger legt ein GNSS-Signal 
+rund 20'200~km Strecke zurück. Dabei durchquert es alle Schichten der Erdatmosphäre 
+sowie Teile des luftleeren Raumes (Exosphäre). Während die Exosphäre vernachlässigbare Einflüsse auf 
+das Signal hat, wird dieses in der Ionosphäre und der Troposphäre stark beeinflusst. (\cite{dodel_gpsnavstar_2009})
+
+Da die Ionosphäre als dispersives Medium verschiedene Trägerfrequenzen unterschiedlich beeinflusst, 
+lassen sich die ionosphärischen Einflüsse mit der Nutzung von Zweifrequenzempfängern eliminieren. Alternativ 
+kann auch ein präzises Ionosphärenmodell zur Korrektur von Einfrequenz-Empfängerdaten verwendet werden, wie 
+\cite{boisits_regiomontan_2020} zeigen. Anders der Einfluss der Troposphäre. Diese wirkt sich auf das gesamte 
+Frequenzspektrum von GNSS-Trägerfrequenzen gleich aus und kann nicht direkt eliminiert werden. Die troposphärische 
+Laufzeitverzögerung lässt sich als Funktion der Meteoparametern Druck, Wasserdampfgehalt und Temperatur beschreiben 
+\parencite{seeber_satellite_2003}.
 
 \subsection{Notizen zu Papers}
 \textbf{Comparative analysis of real-time precise point positioning zenith total delay estimates}
