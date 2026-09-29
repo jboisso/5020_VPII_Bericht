@@ -1,10 +1,49 @@
 \clearpage
 \section{Literaturrecherche}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis pretium urna et gravida. Nunc ornare, 
-ex id dictum dapibus, felis purus pulvinar erat, sed semper est metus eu turpis. Phasellus feugiat nisi massa, vehicula 
-tincidunt ipsum scelerisque id. Nam sem eros, venenatis vel sapien quis, rhoncus pellentesque nulla. Nullam eget dolor
- tortor. Aliquam quis massa ut metus auctor tempus et imperdiet lacus. Curabitur bibendum sagittis efficitur. In vitae 
- tristique ex, eget fringilla libero. Aliquam ullamcorper semper congue. Donec ac arcu ut quam posuere tempor ac nec metus.
+\subsection{Notizen zu Papers}
+\textbf{Comparative analysis of real-time precise point positioning zenith total delay estimates}
+ZTD ist von Wasserdampf in Atmosphäre abhängig. Kann rückwärts verwendet werden, um den Wasserdampf 
+in der Atmosphäre zu bestimmen. Wird in Wettervorhersage verwendet. Um in schnell-aktualisierenden 
+Wettermodellen ZTD verwenden zu können, müssen diese alle 5-10 mit Genauigkeit von 5-30 mm bestimmt werden. 
+IGS Stellt real time orbit und clock Daten zur Verfügung (boradcast Ephemeriden, Orbit und Uhrkorrekturen). 
+Dies ermöglicht PPP in Realtime zu berechnen, effizienter als Doppeldifferenzen.
 
+In PPP ist ZTD anfällig für die radiale Komponente im Orbitfehler. Ionosphäre-Verzögerungen erster Ordnung 
+werden durch 2-Frequenzen eliminiert. Es bleiben aber Restverzögerungen höhrerer Ordnung, welche im ZTD 
+aufgehen. Diese sind linear abhängig von der Sonnenaktivität. Bei starker Sonnenaktivität steigt somit der 
+ZTD-Fehler aus der Ionosphäre von 0.6 auf 4 mm. Weiter ist er vom Druck an der Erdoberfläche abhängig 
+(-0.1 - -0.2 mm/hPa). Anntenenfehler (Phase center offset, phase center variations, daome geometry) haben auch 
+Einfluss auf ZTD v0n 2-10 mm. Tropospheric mapping functions haben auch Einfluss auf ZTD. Dieser ist kleiner, 
+je grösser der cut-off Winkel.
 
+Je nach Software-Lösung zur Berechnung der PPP ZTD unterschiedliche Genauigkeiten. Es ist erreichbar mit 
+gewissen Lösungen. 
+
+\textbf{Pushing the sensitivity limits of RTS-based continuous deformation monitoring of an alpine valley}
+Nichts zu ZTD drin
+
+\textbf{tropospheric delay parameters derived from gnss-tracking data of a fast moving fleet of train}
+Aufbau Atmosphäre Trophosphärischer Delay: Aufteilbar in hydrostatischer Anteil (Luftdruck) und feuchter 
+Anteil (Wasserdampf).  Weitere Unterscheidung nach Richtung (Zenith Delay / Slant delay (in line of sight 
+direvtion to satellite)
+
+ZTD Verzögerung in Zenithrichtung aufgrund Troposphäre. Trockener Anteil deutlich grösser als feuchter 
+Anteil. Feuchert Anteil dafür sehr lokal und zeitlich variabel, trockener Anteil besser modellierbar 
+(z.B. Saastamoinen)
+
+Slant delay: Zenithdelay mit mapping functions auf die Elevation hochgerechnet. Vienna Mapping Function 
+aktuell als genaueste Mapping Function angesehen. Auf Relation von hydrostatischer Mappingfunktion zusammen 
+mit Höhe. Aktuell VMF3 neuste Version, insbesondere in tiefen Winkeln besser
+
+Viele Wettermodelle können heute ZTD oder Produkte die daraus abgleitet werden einberechnen. Dabei können 
+entweder Einzelmessungen verwendet werden oder GNSS Tomography gemacht werden. Hier wird über ein Referenznetz 
+alle möglichen ZTD berechnet. Daraus wird ein 3D Feld aus Voxeln berechnet, welche die Atmosphäre darstellt 
+berechnet. 
+
+GNSS Radio Occultation ist Space-based Technik zur Bestimmung von Atmosphärischen Parametern. Hierzu werden 
+GNSS-Signale von LEO Satelliten empfangen. Daraus lässt sich Laufzeitverzögerung und Biegung durch die 
+Troposphäre berechnen. Gute vertikale Auflösung, schlechte Horizontale Auflösung.
+Schätzen von Troposphärischen Parametern aus GNSS-Auswertung: Parameter können in GNSS-Berechnung geschätzt 
+werden. Hierbei ist Höhenfehler und ZTD stark korreliert. Je niedriger der Cut-off angle umso besser können 
+sie auseinandergehalten werden. Wird ZTD in Auswertung geschätzt
