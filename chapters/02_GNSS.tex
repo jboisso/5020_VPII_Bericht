@@ -41,20 +41,12 @@ Koordinaten aller langstatischen GNSS Punkte berechnet werden, um als Lagerung d
 verwendet werden zu können. In einem zweiten Schritt werden Einflüsse unterschiedlicher Auswertestrategien auf die 
 Koordinaten der GNSS-Messungen untersucht.
 
-Die Berechnung aller Basislinien erfolgt in Leica infinity (v5.1.0) \parencite{noauthor_leica_2026}.
-
-\subsubsection{Koordinatenbezugssystem}
-Die Deformationsmessung Schwanderbärgli wird im Bezugssystem CH1903+ (LV95/LHN95) ausgewertet. Durch die Verwendung der 
-streng orthometrischen Höhen LHN95 können Zwänge aus der Transformation HTRANS zwischen LHN95 und LN02 vermieden werden. 
-Die Verwendung der beiden Geoide CHGEO04-htrans und CHGEO04 führt im Talbereich zu Höhenunterschieden von knapp 3 cm. 
-Mit zunehmender Höhe steigt diese auf über 10 cm Höhendifferenz im Punkt 7000 zwischen LN02 und LHN95 an.
-
-\subsubsection{Auswertung GNSS Referenzstationen}
+Die Berechnung aller Basislinien erfolgt in Leica infinity (v5.1.0) \parencite{noauthor_leica_2026}. Die Deformationsmessung 
+Schwanderbärgli wird im Bezugssystem CH1903+ (LV95/LHN95) ausgewertet.
 
 \subsubsection{Koordinatenberechnung GNSS Grundlagennetz}
-Die Auswertung erfolgt in Leica Infinity (v5.2.0) \parencite{noauthor_leica_2026}.
-In einem ersten Schritt werden die vier lokalen Referenzstationen zur nächstgelegenen Swipos-Station (Hasliberg, HABG) berechnet.
-Die Station HABG liegt 10 km vom Projektperimeter entfernt auf 1089 m.ü.M (CH1903+). Über diese Basislinien wird der Anschluss an 
+In einem ersten Schritt werden die vier lokalen Referenzstationen zur nächstgelegenen AGNES-Station (Hasliberg, HABG) berechnet.
+Die Station HABG liegt 10 km vom Projektperimeter entfernt auf 1089 m.ü.M (CH1903+) \todo{cite swisstopoprotkoll}. Über diese Basislinien wird der Anschluss an 
 LV95 hergestellt. Gleichzeitig wird die Berechnung zu einer virtuellen Referenzstation (VRS) auf dem Punkt 9500 (siehe Abbildung \ref{fig:abb-gnss}) 
 auf 650 m.ü.M durchgeführt. Die VRS-Lösung weist für alle Stationen deutlich grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
 Die Koordinatendifferenzen zwischen den Berechnungen zur HABG und zur VRS betragen im Mittel 
@@ -71,7 +63,11 @@ Die definitiven Koordinaten \todo{Anhang Koordinatenliste einfügen} der lokalen
 deshalb aus der Berechnung zur HABG übernommen. 
 
 
-
+\subsubsection{Koordinatenbezugssystem}
+ Durch die Verwendung der 
+streng orthometrischen Höhen LHN95 können Zwänge aus der Transformation HTRANS zwischen LHN95 und LN02 vermieden werden. 
+Die Verwendung der beiden Geoide CHGEO04-htrans und CHGEO04 führt im Talbereich zu Höhenunterschieden von knapp 3 cm. 
+Mit zunehmender Höhe steigt diese auf über 10 cm Höhendifferenz im Punkt 7000 zwischen LN02 und LHN95 an.
 
 
 Gemäss dem Messkonzept wurde ein Grundlagenetz bestehend aus vier Empfängern aufgebaut. Diese sind in \Cref{fig:abb-gnss} grün markiert.
