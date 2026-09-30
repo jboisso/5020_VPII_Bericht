@@ -11,6 +11,7 @@ die Zeitsynchronisation von Wechselstromnetzen auf eine Genauigkeit von $\pm 1\,
 erfordern ein detailliertes Verständnis von möglichen Fehlerquellen. Im Folgenden wird die atmosphärische 
 Laufzeitverzögerung und insbesondere der Einfluss der Troposphäre näher betrachtet.
 
+
 \subsection{Atmosphärische Laufzeitverzögerung}
 Vom Moment des Aussendens bis zum Empfangen mit einem terrestrischen GNSS-Empfänger legt ein GNSS-Signal 
 rund 20'200~km Strecke zurück. Dabei durchquert es alle Schichten der Erdatmosphäre 
@@ -24,48 +25,54 @@ kann auch ein präzises Ionosphärenmodell zur Korrektur von Einfrequenz-Empfän
 Frequenzspektrum von GNSS-Trägerfrequenzen gleich aus und kann nicht direkt eliminiert werden 
 \parencite{seeber_satellite_2003}. 
 
-\subsection{Zenith Total Delay}
-Die troposphärische Laufzeitverzögerung oder Zenith Total Delay (ZTD) beschreibt die Gesamtheit der Signalverzögerung, 
-welche durch die Troposphäre verursacht wird. Im Zenit beträgt troposphärische Laufzeitverzögerung 
-bis zu 8~ns, was einer Höhenabweichung von 2.5~m entspricht. Mit abnehmender Elevation durchquert das Signal zunehmend 
-grössere Bereiche der Troposphäre, wodurch der Einfluss steigt und Abweichungen bis 20~m entstehen können. \parencite{subirana_gnss_nodate}
-
-
-
-Die troposphärische 
-Laufzeitverzögerung lässt sich als Funktion der Meteoparametern Druck, Wasserdampfgehalt und Temperatur beschreiben 
-\parencite{seeber_satellite_2003}.
-
-\subsection{Anwendung in der Meteorologie}
 Die Troposphäre kann in eine trockene (hydrostatische) und feuchte Komponente unterteilt werden.
 Der trockene Anteil verhält sich relativ vorhersehbar mit der örtlichen Temperatur und Luftdruck, 
 wobei die Schwankung innerhalb weniger Stunden weniger als 1\% beträgt.
-Der durch diese Komponente verursachte Fehler ist relativ gross und beträgt etwa 2.3 Meter in Zenitrichtung und bis zu 10 Metern bei tieferen Einfallswinkeln.
-Die feuchte Komponente der Troposphäre hingegen macht nur einige Zentimeter aus.
-Jedoch variiert die Verteilung des Wasserdampfes zeitlich und räumlich stark, was sie sehr schwer modellierbar macht
-\parencite{j_sanz_subirana_jm_juan_zornoza_and_m_hernandez-pajares_tropospheric_2011}.
-Die grösste Fehlerquelle von GNSS-Laufzeitmessungen ist somit die feuchte Komponente der troposphärischen Laufzeitverzögerung.
+Die feuchte Komponente der Troposphäre variiert zeitlich und räumlich stark, was sie sehr schwer modellierbar macht.
+\parencite{subirana_gnss_nodate}
 
-Für die Meteorologie sind atmosphärische Parameter wie Temperatur, Luftdruck und Luftfeuchtigkeit in möglichst guter räumlicher und zeitlicher Auflösung essenziell. 
-Gerade der Wasserdampfgehalt wurde hauptsächlich mittels Ballonsondenaufstiegen ermittelt, welche jedoch aus Kostengründen weltweit seltener stattfinden.
 
-Seit 2005 wir nun versucht, den niederschlagbaren Wasserdampf in der Atmosphäre aus Trägerphasenmessungen des Signals von GNSS-Satelliten in Permanentnetzen von Bodenstationen zu bestimmen.
-Das Verfahren nützt die Refraktionseigenschaft der Mikrowellen und die enge Beziehung zwischen dem Wasserdampf und der assoziierten Laufzeitverzögerung.
+\subsection{Zenith Total Delay}
+Die troposphärische Laufzeitverzögerung oder Zenith Total Delay (ZTD) beschreibt die Gesamtheit der Signalverzögerung, 
+welche durch die Troposphäre verursacht wird. Die vom trockenen Anteil verursachte Abweichung, namentlich die
+Zenith Hydrostatic Delay (ZHD) ist verhältnismässig gross.
+Im Zenit beträgt die ZHD bis zu 8~ns, was einer Höhenabweichung von ca. 2.3~m entspricht.
+Mit abnehmender Elevation durchquert das Signal zunehmend grössere Bereiche der Troposphäre, wodurch der Einfluss steigt
+und Abweichungen bis 10~m entstehen können. \parencite{subirana_gnss_nodate}
 
-% noch Umschreiben (aktuell direktes zitat)
+Der feuchte Anteil der Abweichung, genannt Zenith Wet Delay (ZWD), verursacht nur Abweichungen im Dezimeterbereich.
+Da sich jedoch der Wasserdampfgehalt zeitlich und räumlich schnell ändert, ist die Modellierung dieser Abweichung sehr schwierig.
+Die grösste Fehlerquelle von GNSS-Laufzeitmessungen ist somit die feuchte Komponente (ZWD)
+der totalen troposphärischen Laufzeitverzögerung (ZTD). \parencite{aichinger-rosenberger_tropospheric_2021}
+Die troposphärische Laufzeitverzögerung lässt sich als Funktion der Meteoparametern Druck,
+Wasserdampfgehalt und Temperatur beschreiben \parencite{seeber_satellite_2003}.
 
-%Untersuchungen innerhalb verschiedener Projekte ((Gendt et al., 2002), COST 716 (COST716, 2001), Magic (Haase et al., 1999),
-%SuomiNet (Ware et al., 2000)) bestätigen durch Validierung mit unabhängigen Instrumenten und Vergleich mit Wettermodellen
-%eine erreichbare Genauigkeit von +- 1-2mm im Wasserdampfgehalt, was für die Anwendung in der Wettervorhersage ausreichend ist.
-%(Higgins, 2000) zeigt, dass die Hinzunahme von Wasserdampfschätzungen aus GPS die Vorhersageergebnisse für Regen in Großbritannien
-%signifikant verbessert.
+
+\subsection{Anwendung in der Meteorologie}
+Für die Meteorologie sind atmosphärische Parameter wie Temperatur, Luftdruck und Luftfeuchtigkeit in möglichst 
+guter räumlicher und zeitlicher Auflösung essenziell. Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
+Ballonsondenaufstiegen ermittelt, welche jedoch aus Kostengründen weltweit immer seltener stattfinden.
+\parencite{klaffenbock_tropospharische_2005}
+
+\citeauthor{bevis_gps_1992} erbrachten bereits 1992 die Idee, aus GPS-Satellitenbeobachtungen den integrierten Wasserdampf
+(englisch integrated water vapor, Abkürzung IWV) Abzuleiten. Dabei formten sie die Gleichung des ZWDs so um, 
+dass daraus den IWV, also den Wasserdampfgehalt für diesen Empfänger resultierte.
+Diese Werte sind in der Wettervorhersage und weiteren Forschungsgebieten von hoher Bedeutung.
+Seit über 20 Jahren kann die ZTD anhand von mehreren permanenten GNSS-Stationen und Korrekturdaten des 
+International GNSS Service (IGS) nahezu in Echtzeit berechnet werden.
+Diese erreichen die benötigte Genauigkeit für die numerische Wettervorhersage (englisch numerical weather prediction, Abkürzung NWP).
+\parencite{dousa_real-time_2014}
 
 Als Vorteil gegenüber herkömmlichen Wetterballons kann sicher die wetterunabhängige Beobachtungsmöglichkeit hervorgehoben werden.
 Andererseits sind keine diskreten Werte entlang des Beobachtungsprofils wie bei einem Radiosondenaufstieg möglich
 \parencite{klaffenbock_tropospharische_2005}.
 
-
-(noch absolut unvollständig)
+%aktuell noch direktes Zitat aus Klaffenbock
+%Untersuchungen innerhalb verschiedener Projekte ((Gendt et al., 2002), COST 716 (COST716, 2001), Magic (Haase et al., 1999),
+%SuomiNet (Ware et al., 2000)) bestätigen durch Validierung mit unabhängigen Instrumenten und Vergleich mit Wettermodellen
+%eine erreichbare Genauigkeit von +- 1-2mm im Wasserdampfgehalt, was für die Anwendung in der Wettervorhersage ausreichend ist.
+%(Higgins, 2000) zeigt, dass die Hinzunahme von Wasserdampfschätzungen aus GPS die Vorhersageergebnisse für Regen in Großbritannien
+%signifikant verbessert.
 
 \subsection{Notizen zu Papers}
 \textbf{Comparative analysis of real-time precise point positioning zenith total delay estimates}
@@ -86,13 +93,10 @@ je grösser der cut-off Winkel.
 Je nach Software-Lösung zur Berechnung der PPP ZTD unterschiedliche Genauigkeiten. Es ist erreichbar mit 
 gewissen Lösungen. 
 
-\textbf{Pushing the sensitivity limits of RTS-based continuous deformation monitoring of an alpine valley}
-Nichts zu ZTD drin
-
 \textbf{tropospheric delay parameters derived from gnss-tracking data of a fast moving fleet of train}
 Aufbau Atmosphäre Trophosphärischer Delay: Aufteilbar in hydrostatischer Anteil (Luftdruck) und feuchter 
 Anteil (Wasserdampf).  Weitere Unterscheidung nach Richtung (Zenith Delay / Slant delay (in line of sight 
-direvtion to satellite)
+direvtion to satellite))
 
 ZTD Verzögerung in Zenithrichtung aufgrund Troposphäre. Trockener Anteil deutlich grösser als feuchter 
 Anteil. Feuchert Anteil dafür sehr lokal und zeitlich variabel, trockener Anteil besser modellierbar 
