@@ -16,9 +16,10 @@ den gesamten vertikalen Projektperimeter Referenzdaten auf ähnlicher Höhe verf
 
 Die GNSS-Messungen der Messkampagne 2026 erfolgten zwischen Dienstag und Donnerstag, 08.-10. September 2026. Die 
 lokalen Referenzstationen (9500, 7015, 7004, 7000) wurden durchgängig während 43~-~47~h gemessen. Währenddessen 
-wurden die Verdichtungspunkte in 4~-~22~h Sessionen langstatisch gemessen. Abbildung~\ref{fig:abb-gnss-zeiten} zeigt 
+wurden die Verdichtungspunkte in 4~-~22~h Sessionen gemessen. Abbildung~\ref{fig:abb-gnss-zeiten} zeigt 
 die zeitliche Verteilung und Überlappungen der verschiedenen GNSS-Stationen. Alle Messungen erfolgten mit insgesamt 
-acht Leica GS18i Empfängern der FHNW Muttenz.
+acht Leica GS18i Empfängern der FHNW Muttenz. Die Messungen wurden in einem 15~s Intervall, ohne elevations- oder 
+DOP-Abhängigem Cut-off aufgezeichnet.
 
 \begin{figure}[h!]
     \centering
@@ -35,18 +36,43 @@ Die Plausibilitätsprüfung und Kontrolle auf Vollständigkeit erfolgte bereits 
 
 \subsection{Datenauswertung}
 \label{sec:datenauswertung}
-\begin{tcolorbox}[myboxstyle, title=Hinweis]
-Bei der Auswertung ist die erste Priorität, möglichst gute und brauchbare GNSS Daten für die weitere Auswertung der TPS-Netze zu finden.
-Als zweite Priorität steht das Ausprobieren an.
-Dabei wird die Auswirkung unterschiedlicher Troposphärenmodelle, oder die gesamt Auswertung als PPP untersucht.
-\end{tcolorbox}
+Die Auswertung der GNSS Daten setzt sich aus zwei Teilen zusammen. In einem ersten Schritt sollen die definitiven 
+Koordinaten aller langstatischen GNSS Punkte berechnet werden, um als Lagerung der tachymetrischen Messungen 
+verwendet werden zu können. In einem zweiten Schritt werden Einflüsse unterschiedlicher Auswertestrategien auf die 
+Koordinaten der GNSS-Messungen untersucht.
+
+Die Berechnung aller Basislinien erfolgt in Leica infinity (v5.1.0) \parencite{noauthor_leica_2026}.
+
+\subsubsection{Koordinatenbezugssystem}
+Die Deformationsmessung Schwanderbärgli wird im Bezugssystem CH1903+ (LV95/LHN95) ausgewertet. Durch die Verwendung der 
+streng orthometrischen Höhen LHN95 können Zwänge aus der Transformation HTRANS zwischen LHN95 und LN02 vermieden werden. 
+Die Verwendung der beiden Geoide CHGEO04-htrans und CHGEO04 führt im Talbereich zu Höhenunterschieden von knapp 3 cm. 
+Mit zunehmender Höhe steigt diese auf über 10 cm Höhendifferenz im Punkt 7000 zwischen LN02 und LHN95 an.
+
+\subsubsection{Auswertung GNSS Referenzstationen}
+
 \subsubsection{Koordinatenberechnung GNSS Grundlagennetz}
 Die Auswertung erfolgt in Leica Infinity (v5.2.0) \parencite{noauthor_leica_2026}.
 In einem ersten Schritt werden die vier lokalen Referenzstationen zur nächstgelegenen Swipos-Station (Hasliberg, HABG) berechnet.
 Die Station HABG liegt 10 km vom Projektperimeter entfernt auf 1089 m.ü.M (CH1903+). Über diese Basislinien wird der Anschluss an 
-LV95 hergestellt. Alternativ wurde die Berechnung zu einer virtuellen Referenzstation (VRS) auf dem Punkt 9500 (siehe Abbildung \ref{fig:abb-gnss}) 
-durchgeführt. Die VRS-Lösung wies für alle Stationen deutlich grössere Ausreisser im GDOP über die gesamte Messzeit auf. Die Koordinatendifferenzen 
-zwischen den Berechnungen zur HABG und zur VRS betragen im Mittel \todo{Koodrdinatendifferenzen und RMSE berechnen HABG/VRS} mit einem RMSE von \todo{einfügen}.
+LV95 hergestellt. Gleichzeitig wird die Berechnung zu einer virtuellen Referenzstation (VRS) auf dem Punkt 9500 (siehe Abbildung \ref{fig:abb-gnss}) 
+auf 650 m.ü.M durchgeführt. Die VRS-Lösung weist für alle Stationen deutlich grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
+Die Koordinatendifferenzen zwischen den Berechnungen zur HABG und zur VRS betragen im Mittel 
+\todo{Koodrdinatendifferenzen und RMSE berechnen HABG/VRS} mit einem RMSE von \todo{einfügen}. 
+Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
+ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der VRS keine Genauigkeitssteigerung zu 
+erwarten. Die Zeitreihendarstellung zu GDOP und 3D-Residuen zur statischen Lösung weisen keine nennenswerten Ausreisser 
+auf, weshalb keine manuelle Bereinigung der Messdaten erfolgt. Die Berechnung wird mit den finalen Bahndaten (präzisen 
+Ephemeriden) durchgeführt und die troposphärische Laufzeitverzögerung aus den Berechnungen geschätzt. Eine Berechnung 
+mit der Vienna Mapping Function (VMF2) ergibt Koordinatendifferenzen von wenigen Millimetern in der Höhe. Da für alle Stationen 
+genügend lange Messungen vorliegen, wird die berechnete Lösung verwendet.
+
+Die definitiven Koordinaten \todo{Anhang Koordinatenliste einfügen} der lokalen Referenzstationen werden 
+deshalb aus der Berechnung zur HABG übernommen. 
+
+
+
+
 
 Gemäss dem Messkonzept wurde ein Grundlagenetz bestehend aus vier Empfängern aufgebaut. Diese sind in \Cref{fig:abb-gnss} grün markiert.
 Diese zeichneten während der gesamten 48h Rohdaten auf und dienen in erster Linie als Anschluss an den Referenzrahmen LV95/LN02.
