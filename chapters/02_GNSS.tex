@@ -15,36 +15,45 @@ zu welchen die Basislinienberechnungen der weiteren GNSS-Stationen (gelb) erfolg
 den gesamten vertikalen Projektperimeter Referenzdaten auf ähnlicher Höhe verfügbar sind. 
 
 Die GNSS-Messungen der Messkampagne 2026 erfolgten zwischen Dienstag und Donnerstag, 08.-10. September 2026. Die 
-lokalen Referenzstationen (9500, 7015, 7004, 7000) wurden durchgängig während 45~-~47 h gemessen. Währenddessen 
-wurden die Verdichtungspunkte in 4 - 22 h Sessionen langstatisch gemessen. Abbildung \ref{fig:abb-gnss-zeiten}  \todo{einfügen Quelle Feldkursbericht in Bildungerschrift} zeigt 
+lokalen Referenzstationen (9500, 7015, 7004, 7000) wurden durchgängig während 43~-~47~h gemessen. Währenddessen 
+wurden die Verdichtungspunkte in 4~-~22~h Sessionen langstatisch gemessen. Abbildung~\ref{fig:abb-gnss-zeiten} zeigt 
 die zeitliche Verteilung und Überlappungen der verschiedenen GNSS-Stationen. Alle Messungen erfolgten mit insgesamt 
 acht Leica GS18i Empfängern der FHNW Muttenz.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{GNSS_Zeitfenster.jpg}
-    \caption{Zeitliche Einteilung der GNSS-Messungen 2026. Rot die Referenzstationen, blau die Verdichtungspunkte.}
+    \caption{Zeitliche Einteilung der GNSS-Messungen 2026. Rot die Referenzstationen, blau die Verdichtungspunkte. Abbildung aus \cite{walti_vertiefungsprofil_2026} verwendet.}
     \label{fig:abb-gnss-zeiten}
 \end{figure}
 
+
+\subsection{Datenaufbereitung}
+\label{sec:datenaufbereitung}
+Die Plausibilitätsprüfung und Kontrolle auf Vollständigkeit erfolgte bereits während dem Feldkurs und ist in 
+\cite{walti_vertiefungsprofil_2026} dokumentiert. 
+
+\subsection{Datenauswertung}
+\label{sec:datenauswertung}
 \begin{tcolorbox}[myboxstyle, title=Hinweis]
 Bei der Auswertung ist die erste Priorität, möglichst gute und brauchbare GNSS Daten für die weitere Auswertung der TPS-Netze zu finden.
 Als zweite Priorität steht das Ausprobieren an.
 Dabei wird die Auswirkung unterschiedlicher Troposphärenmodelle, oder die gesamt Auswertung als PPP untersucht.
 \end{tcolorbox}
-
-\subsection{Datenaufbereitung}
-\label{sec:datenaufbereitung}
-
-- keine bereiche ausgeschnitten weil alles gut (kleine Bereiche, 6011 kommen noch)
-
-\subsection{Datenauswertung}
-\label{sec:datenauswertung}
+\subsubsection{Koordinatenberechnung GNSS Grundlagennetz}
+Die Auswertung erfolgt in Leica Infinity (v5.2.0) \parencite{noauthor_leica_2026}.
+In einem ersten Schritt werden die vier lokalen Referenzstationen zur nächstgelegenen Swipos-Station (Hasliberg, HABG) berechnet.
+Die Station HABG liegt 10 km vom Projektperimeter entfernt auf 1089 m.ü.M (CH1903+). Über diese Basislinien wird der Anschluss an 
+LV95 hergestellt. Alternativ wurde die Berechnung zu einer virtuellen Referenzstation (VRS) auf dem Punkt 9500 (siehe Abbildung \ref{fig:abb-gnss}) 
+durchgeführt. Die VRS-Lösung wies für alle Stationen deutlich grössere Ausreisser im GDOP über die gesamte Messzeit auf. Die Koordinatendifferenzen 
+zwischen den Berechnungen zur HABG und zur VRS betragen im Mittel \todo{Koodrdinatendifferenzen und RMSE berechnen HABG/VRS} mit einem RMSE von \todo{einfügen}.
 
 Gemäss dem Messkonzept wurde ein Grundlagenetz bestehend aus vier Empfängern aufgebaut. Diese sind in \Cref{fig:abb-gnss} grün markiert.
 Diese zeichneten während der gesamten 48h Rohdaten auf und dienen in erster Linie als Anschluss an den Referenzrahmen LV95/LN02.
 Die weiteren, gelb markierten GNSS-Punkte werden anschliessend in Bezug auf diese internen Referenzstationen ausgewertet.
 Somit ist der Anschluss aller Punkte an das LV95/LN02 gewährleistet.
+
+- keine bereiche ausgeschnitten weil alles gut (kleine Bereiche, 6011 kommen noch)
 
 \begin{figure}[h!]
     \centering
