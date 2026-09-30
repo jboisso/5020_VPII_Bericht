@@ -55,7 +55,7 @@ Schwanderbärgli wird im Bezugssystem CH1903+ (LV95/LHN95) ausgewertet.
 \subsubsection{Koordinatenberechnung GNSS Grundlagennetz}
 Da für die vier lokalen Referenzstationen nicht ausgeschlossen werden kann, dass sie von Deformationen betroffen sind, 
 werden deren Basislinien zur nächstgelegenen AGNES-Station Hasliberg (HABG) berechnet. Diese liegt 
-rund 10 km vom Projektperimeter entfernt auf 1089 m.ü.M (CH1903+) \cite{swisstopo_hfp1_2026}. 
+rund 10 km vom Projektperimeter entfernt auf 1089 m.ü.M (CH1903+) \parencite{swisstopo_hfp1_2026}. 
 
 Die Zeitreihendarstellung des GDOP und der 3D-Residuen zur statischen Lösung weisen keine nennenswerten Ausreisser 
 auf, weshalb die Messdaten nicht weiter manuell bereinigt werden. Für die Basislinienberechnung werden die präzisen Ephemeriden 
@@ -67,25 +67,36 @@ verwendet werden. Die finalen Koordinaten der Punkte 7000 und 7004 werden noch u
 
 Anschliessend werden die Verdichtungspunkte (gelb in Abbildung \ref{fig:abb-gnss}) zu den lokalen Referenzstationen 
 berechnet. Aufgrund erhöhter Abweichungen der Basislinien zur Station 7004 (\todo{verweis auf Vergleichskapitel}) wird 
-diese nicht zur finalen Basislinienberechnung verwendet. In der Zeitreihendarstellung der Messungen im Punkt 6011 
-sind vermehrt Ausreisser in den 3D-Residuen im Meterbereich sichtbar. Diese sind auf eine schlechte Satellitengeometrie 
-zurückzuführen und die betreffenden Zeitfenster werden manuell bereinigt. Die Positionsresiduen und der GDOP der 
+diese nicht zur finalen Basislinienberechnung verwendet, sondern ebenfalls als Verdichtungspunkt berechnet. 
+In der Zeitreihendarstellung der Messungen im Punkt 6011 
+sind vermehrt Ausreisser im Meterbereich in den 3D-Residuen sichtbar. Diese sind auf starke Abschattung im Punkt 
+und die daraus resultierende schlechte Satellitengeometrie zurückzuführen. Die betreffenden Zeitfenster 
+werden manuell bereinigt. Die Positionsresiduen und der GDOP der 
 anderen Punkte sind unauffällig. Zur Berechnung werden die gleichen Einstellungen wie zur Berechnung lokalen Referenzstationen 
 verwendet.
 
 Pro Punkt ergeben sich somit drei Koordinaten, jeweils zu jeder Basisstation. Diese werden nach der Höhendifferenz 
 des Punktes zur entsprechenden Basisstation gewichtet gemittelt, wobei die kleinste Höhendifferenz das höchste 
 Gewicht erhält. Die Gewichtung erfolgt linear. Die gemittelten Koordinaten werden ebenfalls wo nötig um den 
-Offset der Dreifusszentrierung korrigiert und anschliessend in ein .mes-File geschrieben. Es werden zwei Files erstellt, 
+Offset der Dreifusszentrierung korrigiert und anschliessend in ein .mes-File konvertiert. Es werden zwei Files erstellt, 
 eines mit ellipsoidischen Höhen zum Vergleich mit der trigonometrischen Höhenbestimmung (THB) und eines mit 
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
 sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
 
-\subsubsection{Koordinatenbezugssystem}
- Durch die Verwendung der 
-streng orthometrischen Höhen LHN95 können Zwänge aus der Transformation HTRANS zwischen LHN95 und LN02 vermieden werden. 
+\subsubsection{Einfluss des Koordinatenbezugssystem}
+Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet. Da weder die Lotabweichung 
+noch die lokale Schwere korrigiert wurde, handelt es sich um orthometrische Höhen. Der neue Höhenreferenzrahmen 
+LHN95 hingegen basiert sowohl auf Nivellementmessungen, als auch auf GNSS Messungen. Hierbei wurden die 
+Lotabweichung und die lokale Schwere korrigiert, woraus streng orthometrische Höhen resultieren. Während entlang 
+der Nivellementlinien die Differenzen zwischen LN02 und LHN95 wenige Millimeter betragen, können diese 
+ausserhalb der Linien auf bis zu 65 cm anwachsen \todo{quelle eth}.wischen den 
+beiden Referenzrahmen besteht nur eine Näherungstransformation (HTRANS), aber keine streng mathematische Beschreibung. 
+Die Transformation zwischen den beiden Systemen kann somit zu einem Genauigkeitsverlust führen. 
+Durch die Verwendung der streng orthometrischen Höhen aus LHN95 können Zwänge aus der Transformation 
+HTRANS zwischen LHN95 und LN02 vermieden werden. 
 Die Verwendung der beiden Geoide CHGEO04-htrans und CHGEO04 führt im Talbereich zu Höhenunterschieden von knapp 3 cm. 
 Mit zunehmender Höhe steigt diese auf über 10 cm Höhendifferenz im Punkt 7000 zwischen LN02 und LHN95 an.
+
 \subsubsection{Bereinigen Messungen}
 \subsubsection{Basislinienqualität Verdichtungspuntke}
 \subsubsection{Mittelbildung / Einfluss der Referenzstationen}
