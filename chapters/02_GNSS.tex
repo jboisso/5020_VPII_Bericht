@@ -76,8 +76,8 @@ anderen Punkte sind unauffällig. Zur Berechnung werden die gleichen Einstellung
 verwendet.
 
 Pro Punkt ergeben sich somit drei Koordinaten, jeweils zu jeder Basisstation. Diese werden nach der Höhendifferenz 
-des Punktes zur entsprechenden Basisstation gewichtet gemittelt, wobei die kleinste Höhendifferenz das höchste 
-Gewicht erhält. Die Gewichtung erfolgt linear. Die gemittelten Koordinaten werden ebenfalls wo nötig um den 
+des Punktes zur entsprechenden Basisstation linear gewichtet gemittelt, wobei die kleinste Höhendifferenz das höchste 
+Gewicht erhält. Die gemittelten Koordinaten werden ebenfalls wo nötig um den 
 Offset der Dreifusszentrierung korrigiert und anschliessend in ein .mes-File konvertiert. Es werden zwei Files erstellt, 
 eines mit ellipsoidischen Höhen zum Vergleich mit der trigonometrischen Höhenbestimmung (THB) und eines mit 
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
@@ -85,63 +85,40 @@ sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
 
 \subsubsection{Einfluss des Koordinatenbezugssystem}
 Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet. Da weder die Lotabweichung 
-noch die lokale Schwere korrigiert wurde, handelt es sich um orthometrische Höhen. Der neue Höhenreferenzrahmen 
-LHN95 hingegen basiert sowohl auf Nivellementmessungen, als auch auf GNSS Messungen. Hierbei wurden die 
+noch die lokale Schwere korrigiert wurden, handelt es sich um orthometrische Höhen. Der neue Höhenreferenzrahmen 
+LHN95 hingegen basiert sowohl auf Nivellement-, als auch auf GNSS-Messungen. Hierbei wurden die 
 Lotabweichung und die lokale Schwere korrigiert, woraus streng orthometrische Höhen resultieren. Während entlang 
 der Nivellementlinien die Differenzen zwischen LN02 und LHN95 wenige Millimeter betragen, können diese 
-ausserhalb der Linien auf bis zu 65 cm anwachsen \todo{quelle eth}.wischen den 
+ausserhalb der Linien auf bis zu 65 cm anwachsen \parencite{schlatter_neue_2006}. Zwischen den 
 beiden Referenzrahmen besteht nur eine Näherungstransformation (HTRANS), aber keine streng mathematische Beschreibung. 
-Die Transformation zwischen den beiden Systemen kann somit zu einem Genauigkeitsverlust führen. 
-Durch die Verwendung der streng orthometrischen Höhen aus LHN95 können Zwänge aus der Transformation 
-HTRANS zwischen LHN95 und LN02 vermieden werden. 
-Die Verwendung der beiden Geoide CHGEO04-htrans und CHGEO04 führt im Talbereich zu Höhenunterschieden von knapp 3 cm. 
-Mit zunehmender Höhe steigt diese auf über 10 cm Höhendifferenz im Punkt 7000 zwischen LN02 und LHN95 an.
+Die Transformation zwischen den beiden Systemen kann somit zu einem Genauigkeitsverlust führen. Im Schwanderbärgli 
+beträgt der Höhenoffset entlang der Fixpunkte im Tal (9000 - 9500 - TP510) rund 2.8 cm. Mit zunehmender Höhe steigt 
+die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506.
+
 
 \subsubsection{Bereinigen Messungen}
-\subsubsection{Basislinienqualität Verdichtungspuntke}
+\subsubsection{Basislinienqualität}
 \subsubsection{Mittelbildung / Einfluss der Referenzstationen}
-\subsubsection{Referenzstation VRS}
-Über diese Basislinien wird der Anschluss an 
-LV95 hergestellt. Gleichzeitig wird die Berechnung zu einer virtuellen Referenzstation (VRS) auf dem Punkt 9500 (siehe Abbildung \ref{fig:abb-gnss}) 
-auf 650 m.ü.M durchgeführt. Die VRS-Lösung weist für alle Stationen deutlich grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
+\subsubsection{Ionosphäre}
+- Ionosphäre I95 unauffällig
+- VMF2 statt berechnet Differenzen von einigen wenigen mm in Höhe
+
+\subsubsection{Einfluss der externen Referenzstation}
+Die vier lokalen Referenzstationen werden zum Verlgeich sowohl zur Agnes-Station HABG, als auch zu einer 
+virtuellen Referenzstation (VRS) berechnet. Die VRS wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
+Die Basislinien zur VRS weisen für alle Stationen deutlich mehr und grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
+Während der GDOP der Basislinien zur HABG 4.5 nicht überschreitet, steigt dieser stellenweise auf über 15 für Basislinien zur VRS.
 Die Koordinatendifferenzen zwischen den Berechnungen zur HABG und zur VRS betragen im Mittel 
 \todo{Koodrdinatendifferenzen und RMSE berechnen HABG/VRS} mit einem RMSE von \todo{einfügen}. 
 Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
 ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der VRS keine Genauigkeitssteigerung zu 
-erwarten.  Die Berechnung wird mit den finalen Bahndaten (präzisen 
-Ephemeriden) durchgeführt und die troposphärische Laufzeitverzögerung aus den Berechnungen geschätzt. Eine Berechnung 
-mit der Vienna Mapping Function (VMF2) ergibt Koordinatendifferenzen von wenigen Millimetern in der Höhe. Da für alle Stationen 
-genügend lange Messungen vorliegen, wird die berechnete Lösung verwendet.
+erwarten.
 
-- keine bereiche ausgeschnitten weil alles gut (kleine Bereiche, 6011 kommen noch)
-
-
-
-\subsubsection{Referenz-Stationen}
-\label{sec:referenzstationen}
-Als globale \todo{stimmt hier global?} Referenzstation kann der Dienst Refnet oder Swipos verwendet werden. 
-Da sich die Swipos-Station mit einer Entfernung von knapp 10 km deutlich näher befindet, wird sich für diese entschieden.
-In diesem Dienst kann wiederum eine virtuelle Referenz Station (VRS) berechnet werden, welche noch näher an den eigentlichen Messungen platziert werden kann.
-Die Basislinien des Grundlagenetzes wurden einmal zu der VRS und einmal zu der effektiven Swipos Referenzstation HABG berechnet.
-Daraus ergab sich eine Differenz von rund einem Zentimeter in der Höhe und wenige Millimeter in der Lage.
-Die Swipos-Station HABG befindet sich im Hasliberg auf ähnlicher Höhe wie der obere Teil unseres Perimeters.
-Zudem ist sie nur knapp 10 km von unserem Messgebiet entfernt, welches beides zu nahezu optimalen Bedingungen führt.
-Bei der VRS hingegen ist unbekannt, wie diese berechnet wird. Alle umliegenden Stationen (ausser HABG) sind mehrere Kilometer entfernt.
-Im Infinity-Bericht ist ersichtlich, dass mit der VRS deutlich mehrere GDOP Überschreitungen von bis zu einem Wert von 15 enthalten sind.
-Mit der HABG Station hingegen, wurde der GDOP Wert zwei Drittel weniger oft Überschritten und weist lediglich einen maximalen Wert von 4.5 auf.
-Somit wurde die weitere Auswertung nur mit der Station HABG ausgeführt.
+Welche Referenzstation in den Vorjahren verwendet wurde, ist nicht dokumentiert. Es ist jedoch naheliegend, dass eine 
+AGNES-Station verwendet wurde, da diese näher liegt als die umliegenden Refnet-Stationen. Zudem gab es zur Zeit 
+der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-Stationen in der Schweiz.
 
 \todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
-
-\subsubsection{Verdichtungs-Stationen}
-\label{sec:verdichtungsstationen}
-
-Die neu erhaltenen Koordinaten der internen Referenzstationen werden nun für die weitere Auswertung als fix gesetzt.
-Alle weiteren Verdichtungsstationen werden folglich in Bezug zu diesen Referenzstationen berechnet.
-Dabei stehen über das gesamte Gebiet verteil vier Stationen zur Verfügung.
-In Infinity kann jedoch nur eine Basislinie berechnet werden, mehrere müssten dann anschliessend gemittelt werden.
-Eine Mittelung über alle, ebenfalls entfernte Referenzstationen macht nur bedingt Sinn.
-Weshalb nur die nächsten beiden Stationen für die weitere Punktberechnung verwendet werden.
 
 
 \subsection{Resultate}
@@ -150,4 +127,3 @@ Weshalb nur die nächsten beiden Stationen für die weitere Punktberechnung verw
 \subsection{Diskussion der Resultate}
 \label{sec:diskussion der resultate}
 
-- Ionosphäre I95 unauffällig
