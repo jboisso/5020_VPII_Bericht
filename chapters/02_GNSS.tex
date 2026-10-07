@@ -99,7 +99,7 @@ die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506.
 \subsubsection{Bereinigen Messungen}
 \subsubsection{Basislinienqualität}
 \subsubsection{Mittelbildung / Einfluss der Referenzstationen}
-\subsubsection{Ionosphäre}
+\subsubsection{Verschiedene Ionosphären-Modelle}
 
 Da die Ionosphäre ein dispersives Medium ist, können die meisten ionosphärischen Effekte durch die unterschiedliche
 Verzögerung des Signals (z.B. L1 und L2) eliminiert werden. Dies ist jedoch nur möglich, wenn mit Mehrfrequenzempfängern
@@ -126,10 +126,10 @@ Die Ergebnisse sind in folgender Tabelle~\ref{tab:iono-basis} dokumentiert.
         \hline
         \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
         \hline
-        7000 &  0.0065 & -0.0028 &  0.0171 \\
-        7004 &  0.0057 & -0.0017 &  0.0080 \\
-        7015 &  0.0058 & -0.0016 & -0.0046 \\
-        9500 &  0.0057 & -0.0010 &  0.0058 \\
+        7000 &  0.0067 & -0.0023 &  0.0171 \\
+        7004 &  0.0056 & -0.0018 &  0.0095 \\
+        7015 &  0.0057 & -0.0019 & -0.0046 \\
+        9500 &  0.0059 & -0.0011 &  0.0058 \\
         \hline
     \end{tabular}
     \caption{Differenzen zwischen den Koordinaten. (Ionosphärenmodell - Basis)}
@@ -145,10 +145,10 @@ Die Ergebnisse können der Tabelle~\ref{tab:klobuchar-basis} entnommen werden.
         \hline
         \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
         \hline
-        7000 & -0.0042 &  0.0007 &  0.0107 \\
-        7004 & -0.0036 &  0.0009 & -0.0005 \\
-        7015 & -0.0034 &  0.0007 & -0.0054 \\
-        9500 & -0.0035 &  0.0000 &  0.0039 \\
+        7000 & -0.0040 &  0.0012 &  0.0107 \\
+        7004 & -0.0037 &  0.0008 &  0.0010 \\
+        7015 & -0.0035 &  0.0004 & -0.0054 \\
+        9500 & -0.0033 & -0.0001 &  0.0039 \\
         \hline
     \end{tabular}
     \caption{Differenzen zwischen den Koordinaten. (Klobucharmodell - Basis)}
@@ -159,6 +159,8 @@ Schlussendlich stellt sich heraus, dass die berechnete «Basis» Version, sich g
 In der Lage sind dabei deutlich grössere systematische Abweichungen erkennbar als in der Höhe. Deshalb kann daraus geschlossen werden,
 dass das berechnete Ionosphärenmodell die besten Lösungen erbringt. 
 
+
+\subsubsection{Verschiedene Troposphären-Modelle}
 
 
 \subsubsection{Einfluss der externen Referenzstation}
