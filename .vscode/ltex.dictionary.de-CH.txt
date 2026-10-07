@@ -3,3 +3,4 @@ Schwanderbärgli
 Swipos
 Grundlagenetzes
 GDOP
+Ionosphärenmodell

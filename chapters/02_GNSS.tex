@@ -16,9 +16,9 @@ erhalten, wird vermehrt auf GNSS-Messungen gesetzt.
 
 
 \subsection{Messkampagne 2026}
-Abbildung \ref{fig:abb-gnss} zeigt das überarbeitete Messkonzept für das GNSS Grundlagennetz 2026.
+Abbildung~\ref{fig:abb-gnss} zeigt das überarbeitete Messkonzept für das GNSS Grundlagennetz 2026.
 Nebst der Punktauswahl für die langstatischen GNSS-Messungen wurde auch der Messaufbau im Vergleich zu früheren 
-Messkampagnen angepasst. Vier der GNSS Punkte (grün in Abbildung \ref{fig:abb-gnss}) dienen neu als lokale Referenzstationen, 
+Messkampagnen angepasst. Vier der GNSS Punkte (grün in Abbildung~\ref{fig:abb-gnss}) dienen neu als lokale Referenzstationen, 
 zu welchen die Basislinienberechnungen der weiteren GNSS-Stationen (gelb) erfolgt. Dies bringt den Vorteil, dass über 
 den gesamten vertikalen Projektperimeter Referenzdaten auf ähnlicher Höhe verfügbar sind. 
 
@@ -100,8 +100,66 @@ die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506.
 \subsubsection{Basislinienqualität}
 \subsubsection{Mittelbildung / Einfluss der Referenzstationen}
 \subsubsection{Ionosphäre}
-- Ionosphäre I95 unauffällig
-- VMF2 statt berechnet Differenzen von einigen wenigen mm in Höhe
+
+Da die Ionosphäre ein dispersives Medium ist, können die meisten ionosphärischen Effekte durch die unterschiedliche
+Verzögerung des Signals (z.B. L1 und L2) eliminiert werden. Dies ist jedoch nur möglich, wenn mit Mehrfrequenzempfängern
+gemessen wurde. Infinity rechnet sobald mehr als 45min Messdauer vorhanden sind ein eigenes Modell der Verzögerungen. 
+Im Prozess der Auswertung wird untersucht, wie viel Einfluss die unterschiedliche Modellierung der ionosphärischen
+Verzögerungen auf die Messresultate hat.
+
+Grundsätzlich herrschte während der Messdauer keine besonderen Verhältnisse in der Ionosphäre, wie gemäss Abbildung~\ref{fig:abb-I95} ein Ausschnitt aus der I95 Dokumentation der Swisstopo zeigt.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{I95-Doku-triple.png}
+    \caption{Dokumentation des Ionosphäre gemäss I95 der Swisstopo}
+    \label{fig:abb-I95}
+\end{figure}
+
+Im ersten Versuch wurde als Ionosphärenmodell eine tägliche Berechnung der Uni Bern (CODE) verwendet (.ION - File).
+Diese Lösung zeigt in der Lage deutliche systematische Abweichungen zu unserer ursprünglichen Berechnung, genannt «Basis»,
+in welcher der Einfluss mittels Zweifrequenzen eliminiert wurde. 
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{rccc}
+        \hline
+        \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
+        \hline
+        7000 &  0.0065 & -0.0028 &  0.0171 \\
+        7004 &  0.0057 & -0.0017 &  0.0080 \\
+        7015 &  0.0058 & -0.0016 & -0.0046 \\
+        9500 &  0.0057 & -0.0010 &  0.0058 \\
+        \hline
+    \end{tabular}
+    \caption{Differenzen zwischen den Koordinaten. (Basis - Ionosphärenmodell)}
+    \label{tab:iono-basis}
+\end{table}
+
+Im zweiten Versuch wird das weltweite Ionosphärenmodell von Klobuchar (1996) \parencite{j_sanz_subirana_klobuchar_2011},
+verwendet. Dies wurde  hauptsächlich für Einfrequenzempfänger entwickelt und aus empirisch aus Erfahrungswerten bestimmt.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{rccc}
+        \hline
+        \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
+        \hline
+        7000 & -0.0042 &  0.0007 &  0.0107 \\
+        7004 & -0.0036 &  0.0009 & -0.0005 \\
+        7015 & -0.0034 &  0.0007 & -0.0054 \\
+        9500 & -0.0035 &  0.0000 &  0.0039 \\
+        \hline
+    \end{tabular}
+    \caption{Differenzen zwischen den Koordinaten. (Basis - Klobucharmodell)}
+    \label{tab:kolbular-basis}
+\end{table}
+
+Schlussendlich stellt sich heraus, dass die berechnete «Basis» Version, sich grob in der Mitte der beiden anderen Versionen befindet.
+In der Lage sind dabei deutlich grössere systematische Abweichungen erkennbar als in der Höhe. Deshalb kann daraus geschlossen werden,
+dass das berechnete Ionosphärenmodell die besten Lösungen erbringt. 
+
+
 
 \subsubsection{Einfluss der externen Referenzstation}
 Die vier lokalen Referenzstationen werden zum Verlgeich sowohl zur Agnes-Station HABG, als auch zu einer 
