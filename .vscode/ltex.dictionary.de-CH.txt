@@ -4,3 +4,6 @@ Swipos
 Grundlagenetzes
 GDOP
 Ionosphärenmodell
+Troposphärenmodell
+Infinity
+Saastamoinen

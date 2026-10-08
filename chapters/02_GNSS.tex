@@ -99,8 +99,10 @@ die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506.
 \subsubsection{Bereinigen Messungen}
 \subsubsection{Basislinienqualität}
 \subsubsection{Mittelbildung / Einfluss der Referenzstationen}
-\subsubsection{Verschiedene Ionosphären-Modelle}
 
+
+\subsubsection{Verschiedene Ionosphären-Modelle}
+\label{sec:ionosphäre}
 Da die Ionosphäre ein dispersives Medium ist, können die meisten ionosphärischen Effekte durch die unterschiedliche
 Verzögerung des Signals (z.B. L1 und L2) eliminiert werden. Dies ist jedoch nur möglich, wenn mit Mehrfrequenzempfängern
 gemessen wurde. Infinity rechnet sobald mehr als 45min Messdauer vorhanden sind ein eigenes Modell der Verzögerungen. 
@@ -117,50 +119,109 @@ Grundsätzlich herrschte während der Messdauer keine besonderen Verhältnisse i
 \end{figure}
 
 Im ersten Versuch wurde als Ionosphärenmodell eine tägliche Berechnung der Uni Bern (CODE) verwendet (.ION - File).
-Diese Lösung zeigt in der Lage deutliche systematische Abweichungen zu unserer ursprünglichen Berechnung, genannt «Basis»,
+Diese Lösung zeigt in der Lage deutliche systematische Abweichungen zu unserer ursprünglichen Berechnung,
 in welcher der Einfluss mittels Zweifrequenzen eliminiert wurde.
-Die Ergebnisse sind in folgender Tabelle~\ref{tab:iono-basis} dokumentiert.
+Die Ergebnisse sind in folgender Tabelle~\ref{tab:iono-ber} dokumentiert.
 \begin{table}[htbp]
     \centering
+    \caption{Differenzen zwischen den Koordinaten. (Ionosphärenmodell - Berechnet)}
+    \label{tab:iono-ber}
     \begin{tabular}{rccc}
-        \hline
+        \toprule
         \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
-        \hline
-        7000 &  0.0067 & -0.0023 &  0.0171 \\
+        \midrule
+        \rowcolor{lightgray}
+        7000 &  0.0067 & -0.0023 &  \textcolor{red}{0.0171} \\
         7004 &  0.0056 & -0.0018 &  0.0095 \\
         7015 &  0.0057 & -0.0019 & -0.0046 \\
         9500 &  0.0059 & -0.0011 &  0.0058 \\
-        \hline
+        \bottomrule
     \end{tabular}
-    \caption{Differenzen zwischen den Koordinaten. (Ionosphärenmodell - Basis)}
-    \label{tab:iono-basis}
 \end{table}
 
 Im zweiten Versuch wird das weltweite Ionosphärenmodell von Klobuchar (1996) \parencite{j_sanz_subirana_klobuchar_2011},
 verwendet. Dies wurde  hauptsächlich für Einfrequenzempfänger entwickelt und aus empirisch aus Erfahrungswerten bestimmt.
-Die Ergebnisse können der Tabelle~\ref{tab:klobuchar-basis} entnommen werden.
+Die Ergebnisse können der Tabelle~\ref{tab:klobuchar-ber} entnommen werden.
 \begin{table}[htbp]
     \centering
+    \caption{Differenzen zwischen den Koordinaten. (Klobucharmodell - Berechnet)}
+    \label{tab:klobuchar-ber}
     \begin{tabular}{rccc}
-        \hline
+        \toprule
         \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
-        \hline
-        7000 & -0.0040 &  0.0012 &  0.0107 \\
+        \midrule
+        \rowcolor{lightgray}
+        7000 & -0.0040 &  0.0012 &  \textcolor{red}{0.0107} \\
         7004 & -0.0037 &  0.0008 &  0.0010 \\
         7015 & -0.0035 &  0.0004 & -0.0054 \\
         9500 & -0.0033 & -0.0001 &  0.0039 \\
-        \hline
+        \bottomrule
     \end{tabular}
-    \caption{Differenzen zwischen den Koordinaten. (Klobucharmodell - Basis)}
-    \label{tab:klobuchar-basis}
 \end{table}
 
-Schlussendlich stellt sich heraus, dass die berechnete «Basis» Version, sich grob in der Mitte der beiden anderen Versionen befindet.
+Schlussendlich stellt sich heraus, dass die ursprünglich berechnete Version, sich grob in der Mitte der beiden anderen Versionen befindet.
 In der Lage sind dabei deutlich grössere systematische Abweichungen erkennbar als in der Höhe. Deshalb kann daraus geschlossen werden,
 dass das berechnete Ionosphärenmodell die besten Lösungen erbringt. 
 
 
 \subsubsection{Verschiedene Troposphären-Modelle}
+
+Die Troposphäre ist kein dispersives Medium, weshalb ihre Verzögerung nicht mittels Mehrfrequenzempfängern eliminiert werden kann.
+Wie in Kapitel~\ref{sec:literaturrecherche} behandelt, besteht die Troposphäre aus einem homogenen, gut modellierbaren - sowie einen
+hydrostatischen, schlecht modellierbaren Teil. Je nach Elevationswinkel kann die Signalverzögerung bis zu mehreren Metern ausmachen,
+was sich stark auf die Positionsgenauigkeit auswirkt. Ziel ist es also, für diese Korrektur das bestmögliche Modell zu verwenden
+oder zu berechnen. In Infinity stehen rund fünf verschiedene Methoden als Auswertestrategie für das Troposphärenmodell zur Verfügung.
+Die wichtigsten beiden sind «Berechnet» und «VMF mit GPT2-Modell». Die übrigen, namentlich: Essen und Froome (1951),
+Hopfield/Modifiziertes Hopfield (1969) und Saastamoinen (1972) sind bereits etwas veraltet und ziehen einen Qualitätsverlust mit sich.
+Infinity verwendet für Messungen von weniger als 45min die Vienna Mapping Function und für Messungen darüber berechnet sie ihr
+eigenes Troposphärenmodell.
+
+Wie im Kapitel~\ref{sec:ionosphäre} wird die Auswirkung dieser Auswertemethoden auf die Punktgenauigkeit untersucht.
+Dabei wird das Resultat des berechneten Modells mit jenem der VMF mit GPT2-Modell verglichen. Tabelle~\ref{tab:vmf-ber} ist zu entnehmen,
+dass sich die beiden Punkte in der Lage mit einem Wert von weniger als einem Millimeter kaum unterscheiden. In der Höhe jedoch
+variiert der höchste Punkt 7000 wiederum um über einem Zentimeter. Die übrigen Punkte bewegen sich im Rahmen von lediglich 1-5 mm.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Differenzen zwischen den Koordinaten. (VMF - Berechnet)}
+    \label{tab:vmf-ber}
+    \begin{tabular}{rccc}
+        \toprule
+        \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
+        \midrule
+        \rowcolor{lightgray}
+        7000 &  0.0000 &  0.0000 &  \textcolor{red}{-0.0118} \\
+        7004 &  0.0001 &  0.0000 & -0.0016 \\
+        7015 &  0.0001 &  0.0001 &  0.0042 \\
+        9500 &  0.0001 &  0.0000 & -0.0053 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Um den Einfluss der alten Modelle besser einschätzen zu können, werden alle Beispielpunkte noch mit dem Saastamoinen Modell berechnet.
+Dies wird stellvertretend für alle älteren Modelle verwendet. Gemäss Tabelle~\ref{tab:saas-ber} sind in der Lage hierbei wider minimale systematische
+Abweichungen von bis zu einem halben Millimeter zu erkennen. In der Höhe ist das Modell um 2-4 mm auffallend nahe an der VMF.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Differenzen zwischen den Koordinaten. (Saastamoinen - Berechnet)}
+    \label{tab:saas-ber}
+    \begin{tabular}{rccc}
+        \toprule
+        \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
+        \midrule
+        \rowcolor{lightgray}
+        7000 & -0.0005 &  0.0001 &  \textcolor{red}{-0.0143} \\
+        7004 & -0.0004 &  0.0001 &  0.0007 \\
+        7015 & -0.0003 &  0.0002 &  0.0075 \\
+        9500 & -0.0004 &  0.0001 & -0.0013 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Dies liegt vermutlich daran, dass beide Modell auf weltweiten Meteoparametern basieren. Wie Infinity jedoch die «berechnete»
+Version erstellt ist weiterhin unklar. Gemäss Empfehlung wird für die finalen GNSS-Koordinaten das Modell «Berechnet» verwendet.
+(\todo{Effektiv Koord neu rechnen oder Satz anpassen})
 
 
 \subsubsection{Einfluss der externen Referenzstation}
