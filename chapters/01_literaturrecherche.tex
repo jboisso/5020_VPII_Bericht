@@ -16,8 +16,8 @@ Laufzeitverzögerung und insbesondere der Einfluss der Troposphäre näher betra
 \subsection{Atmosphärische Laufzeitverzögerung}
 Vom Moment des Aussendens bis zum Empfangen mit einem terrestrischen GNSS-Empfänger legt ein GNSS-Signal 
 rund 20'200~km Strecke zurück. Dabei durchquert es alle Schichten der Erdatmosphäre 
-sowie Teile des luftleeren Raumes (Exosphäre). Während die Exosphäre vernachlässigbare Einflüsse auf 
-das Signal hat, wird dieses in der Ionosphäre und der Troposphäre stark beeinflusst. (\cite{dodel_gpsnavstar_2009})
+sowie Teile des luftleeren Raumes (Exosphäre). Wie Während die Exosphäre vernachlässigbare Einflüsse auf 
+das Signal hat, wird dieses in der Ionosphäre und der Troposphäre stark beeinflusst. \parencite{dodel_gpsnavstar_2009}
 
 Da die Ionosphäre als dispersives Medium verschiedene Trägerfrequenzen unterschiedlich beeinflusst, 
 lassen sich die ionosphärischen Einflüsse mit der Nutzung von Zweifrequenzempfängern eliminieren. Alternativ 
@@ -29,20 +29,26 @@ Frequenzspektrum von GNSS-Trägerfrequenzen gleich aus und kann nicht direkt eli
 Die Troposphäre kann in eine trockene (hydrostatische) und feuchte Komponente unterteilt werden.
 Der trockene Anteil verhält sich relativ vorhersehbar mit der örtlichen Temperatur und Luftdruck, 
 wobei die Schwankung innerhalb weniger Stunden weniger als 1\% beträgt. 
-Die feuchte Komponente der Troposphäre variiert zeitlich und räumlich stark, was sie sehr schwer modellierbar macht.
-\parencite{subirana_gnss_2013}
+Wie in \cite{subirana_gnss_2013} erwähnt variiert die feuchte Komponente der Troposphäre zeitlich und räumlich stark,
+was sie sehr schwer modellierbar macht.
+
 
 
 \subsection{Zenith Total Delay}
-Die troposphärische Laufzeitverzögerung, auch Zenith Total Delay (ZTD) genannt, beschreibt die Gesamtheit der Signalverzögerung, 
-welche durch die Troposphäre verursacht wird. 
-Die vom trockenen Anteil verursachte Abweichung, der sogenannte Zenith Hydrostativ Delay (ZHD), ist der anteilsmässig grössere 
-Einfluss.
+Die troposphärische Laufzeitverzögerung, auch Zenith Total Delay oder Zenith Tropospheric Delay (ZTD) genannt,
+beschreibt die Gesamtheit der Signalverzögerung, welche durch die Troposphäre verursacht wird. 
+Die vom trockenen Anteil verursachte Abweichung, der sogenannte Zenith Hydrostativ Delay (ZHD), ist der anteilsmässig grössere Einfluss.
 Im Zenit beträgt die ZHD bis zu 8~ns, was einer Höhenabweichung von ca. 2.3~m entspricht.
-Mit abnehmender Elevation durchquert das Signal zunehmend grössere Bereiche der Troposphäre, wodurch der Einfluss weiter steigt
-und Abweichungen bis 10~m entstehen können. \parencite{subirana_gnss_2013}
-Durch die geringe temporale Variabilität und einfache räumliche Modellierung kann der ZHD anhand globaler 
-Druck- und Temperaturmodelle (GPT) ausreichend exakt modelliert werden, um den ZHD zu korrigieren \parencite{boehm_short_2007}.
+Die eigentliche Signalverzögerung quer durch die Luftschichten wird Slant Troposphere Delay (STD) genannt.
+Mit abnehmender Elevation durchquert das Signal zunehmend grössere Bereiche der Troposphäre, wodurch der Einfluss weiter steigt.
+Dabei sind in der Literatur Abweichungen von bis zu 10~m \parencite{subirana_gnss_2013} oder von bis zu 20~m \parencite{li_unraveling_2024} 
+anzutreffen. \cite{klaffenbock_tropospharische_2005} spricht sogar von bis zu 25~m in der Vertikalen Komponente.
+Um diese Verzögerung besser zu modellieren werden sogenannte Mapping Functions (MF) eingesetzt.
+Dabei wird die Verzögerung aus dem Zenith Total Delay mittels dem Elevationswinkel zu einer Schrägverzögerung transformiert.
+Im Kapitel~\ref{sec:MappingFunctions} wird weiter darauf eingegangen.
+
+Durch die geringe temporale Variabilität und einfache räumliche Modellierung kann der hydrostatische Anteil anhand globaler 
+Druck- und Temperaturmodelle (GPT) ausreichend exakt modelliert werden, um den ZHD zu korrigieren \parencite{boehm_short_2007}. % de Satz igwie abändere
 
 Anders der feuchte Anteil der Abweichung, genannt Zenith Wet Delay (ZWD). Dieser verursacht zwar nur Abweichungen im Dezimeterbereich, 
 lässt sich aber aufgrund der hohen räumlichen und temporalen Variabilität schwer modellieren \parencite{aichinger-rosenberger_tropospheric_2021}. 
@@ -50,31 +56,33 @@ Globale Troposphären-Modelle wie das GPT2 verbessern die Stabilität in der Hö
 um bis zu 40 \% \parencite{lagler_gpt2_2013}. Jedoch bleibt eine erhebliche Unsicherheit bestehen.
 
 Ergänzen:
-Ungenauigkeiten, bessere Modellierungsmöglichkeiten.
+Ungenauigkeiten, bessere Modellierungsmöglichkeiten. % -> das mit mapping functions gemeint?
 
 
 \subsection{Anwendung in der Meteorologie}
-Für die Meteorologie sind atmosphärische Parameter wie Temperatur, Luftdruck und Luftfeuchtigkeit in möglichst 
-guter räumlicher und zeitlicher Auflösung essenziell. Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
+Gemäss \cite{klaffenbock_tropospharische_2005} sind für die Meteorologie atmosphärische Parameter wie Temperatur, Luftdruck
+und Luftfeuchtigkeit in möglichst guter räumlicher und zeitlicher Auflösung essenziell.
+Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
 Ballonsondenaufstiegen ermittelt, welche jedoch aus Kostengründen weltweit immer seltener stattfinden.
-\parencite{klaffenbock_tropospharische_2005}
 
-\citeauthor{bevis_gps_1992} dokumentierten bereits 1992 die Idee, aus GPS-Satellitenbeobachtungen den integrierten Wasserdampf
-(englisch integrated water vapor, Abkürzung IWV) Abzuleiten. Hierzu nutzten sie aus, dass sich bei bekanntem Standpunkt des 
+
+Wie im Journal of Geophysical Research von 1992 erschienen, dokumentierte \citeauthor{bevis_gps_1992} bereits damals die Idee,
+aus GPS-Satellitenbeobachtungen den integrierten Wasserdampf (englisch integrated water vapor, Abkürzung IWV) Abzuleiten.
+Hierzu nutzten sie den Fakt, dass sich bei bekanntem Standpunkt des 
 GNSS Empfängers die Gleichung zur Berechnung des ZWD so umstellen lässt, dass der Wasserdampfgehalt bestimmt werden kann.   
 Diese Werte sind in der Wettervorhersage und weiteren Forschungsgebieten von hoher Bedeutung.
 
 Ergänzen: 
 detaillierter ausführen wozu, Paper zu Sturmvorhersage, Vorhersage von lokalen Starkregen  sehr abhängig von Luftfeuchte.
+-> z.B.: Paper Ground-based GNSS ZTD/IWV estimation system for numerical weather prediction in challenging weather conditions
 
-Seit über 20 Jahren kann die ZTD anhand von mehreren permanenten GNSS-Stationen und Korrekturdaten des 
-International GNSS Service (IGS) nahezu in Echtzeit berechnet werden.
+Wie in \cite{dousa_real-time_2014} berichtet, kann seit über 20 Jahren die ZTD anhand von mehreren permanenten
+GNSS-Stationen und Korrekturdaten des International GNSS Service (IGS) nahezu in Echtzeit berechnet werden.
 Diese erreichen die benötigte Genauigkeit für die numerische Wettervorhersage (englisch numerical weather prediction, Abkürzung NWP).
-\parencite{dousa_real-time_2014}
 
 Als Vorteil gegenüber herkömmlichen Wetterballons kann sicher die wetterunabhängige Beobachtungsmöglichkeit hervorgehoben werden.
-Andererseits sind keine diskreten Werte entlang des Beobachtungsprofils wie bei einem Radiosondenaufstieg möglich
-\parencite{klaffenbock_tropospharische_2005}.
+Andererseits betont \cite{klaffenbock_tropospharische_2005}, dass keine diskreten Werte entlang des Beobachtungsprofils
+wie bei einem Radiosondenaufstieg möglich sind.
 
 %aktuell noch direktes Zitat aus Klaffenbock
 %Untersuchungen innerhalb verschiedener Projekte ((Gendt et al., 2002), COST 716 (COST716, 2001), Magic (Haase et al., 1999),
@@ -87,6 +95,7 @@ Andererseits sind keine diskreten Werte entlang des Beobachtungsprofils wie bei 
 oder so
 
 \subsection{Mapping Functions}
+\label{sec:MappingFunctions}
 oder so
 
 Paper:
