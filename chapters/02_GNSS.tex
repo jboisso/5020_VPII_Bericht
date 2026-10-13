@@ -32,7 +32,8 @@ DOP-Abhängigem Cut-off aufgezeichnet.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{GNSS_Zeitfenster.jpg}
-    \caption{Zeitliche Einteilung der GNSS-Messungen 2026. Rot die Referenzstationen, blau die Verdichtungspunkte. Abbildung aus \cite{walti_vertiefungsprofil_2026} verwendet.}
+    \caption{Zeitliche Einteilung der GNSS-Messungen 2026. Rot die Referenzstationen, blau die Verdichtungspunkte. 
+    Abbildung aus \cite{walti_vertiefungsprofil_2026} verwendet.}
     \label{fig:abb-gnss-zeiten}
 \end{figure}
 
@@ -83,25 +84,30 @@ eines mit ellipsoidischen Höhen zum Vergleich mit der trigonometrischen Höhenb
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
 sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
 
-\subsubsection{Einfluss des Koordinatenbezugssystem}
-Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet. Da weder die Lotabweichung 
-noch die lokale Schwere korrigiert wurden, handelt es sich um orthometrische Höhen. Der neue Höhenreferenzrahmen 
-LHN95 hingegen basiert sowohl auf Nivellement-, als auch auf GNSS-Messungen. Hierbei wurden die 
-Lotabweichung und die lokale Schwere korrigiert, woraus streng orthometrische Höhen resultieren. Während entlang 
-der Nivellementlinien die Differenzen zwischen LN02 und LHN95 wenige Millimeter betragen, können diese 
-ausserhalb der Linien auf bis zu 65 cm anwachsen \parencite{schlatter_neue_2006}. Zwischen den 
-beiden Referenzrahmen besteht nur eine Näherungstransformation (HTRANS), aber keine streng mathematische Beschreibung. 
-Die Transformation zwischen den beiden Systemen kann somit zu einem Genauigkeitsverlust führen. Im Schwanderbärgli 
-beträgt der Höhenoffset entlang der Fixpunkte im Tal (9000 - 9500 - TP510) rund 2.8 cm. Mit zunehmender Höhe steigt 
-die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506.
-
-
 \subsubsection{Bereinigen Messungen}
 \subsubsection{Basislinienqualität}
-\subsubsection{Mittelbildung / Einfluss der Referenzstationen}
 
+\subsection{Untersuchung von GNSS-Einflüssen}
+Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
+auf die GNSS-Messungen am Schwanderbärgli untersucht.
 
-\subsubsection{Verschiedene Ionosphären-Modelle}
+\subsubsection{Einfluss des Koordinatenbezugssystem}
+Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet, ohne die Lotabweichung oder lokale 
+Schwere zu korrigieren. Der neue Höhenreferenzrahmen 
+LHN95 hingegen basiert sowohl auf Nivellement-, GNSS- und Schweremessungen. Die  
+Lotabweichung und die lokale Schwere korrigiert wurden korrigiert, woraus streng orthometrische Höhen resultieren. Während entlang 
+der Nivellementlinien die Differenzen zwischen LN02 und LHN95 wenige Millimeter betragen, können diese 
+ausserhalb der Linien auf bis zu 65 cm anwachsen. Zwischen den 
+beiden Referenzrahmen besteht nur eine Näherungstransformation (HTRANS), aber keine streng mathematische Beschreibung. 
+Die Transformation zwischen den beiden Systemen kann somit zu einem Genauigkeitsverlust führen. \parencite{schlatter_neue_2006}
+
+Im Schwanderbärgli beträgt der Höhenoffset zwischen LN02 und LHN95 entlang der Fixpunkte im Tal (9000 - 9500 - TP510) 
+rund 2.8 cm. Mit zunehmender Höhe steigt die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506. 
+Die GNSS-Messungen werden in LHN95 berechnet, um Abweichungen aus der HTRANS nicht in das Netz zu integrieren. 
+Weiter werden die Höhen im Netz aber als Gebrauchshöhen behandelt. Einzig in den TPS-Messungen und der THB werden 
+die Lotabweichung und Geoidundulation korrigiert.
+
+\subsubsection{Einfluss des Ionosphärenmodells}
 \label{sec:ionosphäre}
 Da die Ionosphäre ein dispersives Medium ist, können die meisten ionosphärischen Effekte durch die unterschiedliche
 Verzögerung des Signals (z.B. L1 und L2) eliminiert werden. Dies ist jedoch nur möglich, wenn mit Mehrfrequenzempfängern
@@ -166,8 +172,7 @@ Dabei wird er von beiden Modellen höher geschätzt als die berechnete Lösung e
 Da die örtlichen Gegebenheiten am besten im berechneten Modell repräsentiert werden,
 wird diesem die beste Genauigkeit zugesprochen und für die weiteren Auswertungen verwendet.
 
-
-\subsubsection{Verschiedene Troposphären-Modelle}
+\subsubsection{Einfluss des Troposphärenmodells}
 Die Troposphäre ist kein dispersives Medium, weshalb ihre Verzögerung nicht mittels Mehrfrequenzempfängern eliminiert werden kann.
 Wie in Kapitel~\ref{sec:literaturrecherche} behandelt, besteht die Troposphäre aus einem homogenen, gut modellierbaren - sowie einen
 hydrostatischen, schlecht modellierbaren Teil. Je nach Elevationswinkel kann die Signalverzögerung bis zu mehreren Metern betragen,
@@ -247,10 +252,19 @@ der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-S
 
 \todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
 
+\subsubsection{Auswertung als PPP}
+Alle GNSS-Messungen werden versuchshalber auch im Precise Point Positioning (PPP) Verfahren ausgewertet. Hierzu 
+wird der kanadische PPP-Dienst CSRS-PPP \todo{cite PPP Dienst} verwendet. Dieser ermöglicht es, Rinex-Observation Dateien 
+hochzuladen und direkt zu prozessieren. Die Berechnung wird als statischer Punkt in ITRF ausgeführt. 
+Die in ITRF2020 (2026.7) erhaltenen Koordinaten werden gemäss Lennström (2026) nach CHTRS95 transformiert. \todo{Quelle lef erfassen}
+CSRS-PPP kann nur Galileo, GPS und Glonass verarbeiten, Beidou-Satelliten werden nicht berechnet. Zur Modellierung 
+der Troposphäre nutzt CSRS-PPP Grid-Werte der VMF3 \todo{cite page ppp}. Diese beruhen auf tatsächlichen Meteobeobachtungen 
+während des Messzeitraums, aus welchen ein Raster von Korrekturwerten für die ZTD berechnet werden. Zudem schätzt die PPP-Auswertung 
+immer auch den verbleibenden ZTD-Wert aus den Messdaten mit. Tabelle \todo{ref table} zeigt die Standardabweichung der einzelen 
+PPP-Berechnungen. Auffällig sind die erhöhten Werte bei den Punkten mit kürzerer Messdauer (\todo{punktnr.}). Die lokalen 
+Referenzstationen weisen sehr kleine Standardabweichungen auf von \todo{insert values}.
 
-\subsection{Resultate}
-\label{sec:resultate}
 
-\subsection{Diskussion der Resultate}
-\label{sec:diskussion der resultate}
+\subsection{Diskussion}
+\label{sec:diskussion_Schwanderbärgli}
 
