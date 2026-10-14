@@ -85,10 +85,14 @@ orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrisch
 sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
 
 \subsubsection{Bereinigen Messungen}
+Die Messungen wurden durch das gezielte Ausschalten einzelner Satelliten sowie ganzer Zeitperioden bereinigt und dadurch verbessert.
+Dabei wurden Satelliten mit geringer Elevation, starkem Multipath oder schlechtem Signal-Rausch-Verhältnis (SNR) ausgeschlossen, ebenso Zeitperioden mit ungünstiger Satellitengeometrie (hoher GDOP) oder Signalabschattungen.
+Dies führte zu einer höheren Anzahl fixierter Ambiguitäten und zu einer geringeren Streuung der Koordinatenlösungen.
+Die resultierenden Abweichungen sind in Tabelle \ref{tab:abweichungen} dargestellt. 
+Die Konvergenszeit wurde ebensfall bei jeder Messung abgeschnitten.
 
-Die Messungen wurden durch das Ausschalten einzelner Satelliten verbessert. Die resultierenden Abweichungen sind in Tabelle \ref{tab:abweichungen} dargestellt. 
-Die Konvergenzzeit wurde bei jeder Messung abgeschnitten. Beim Punkt 6011, der eine schlechte GDOP aufwies, wurde ein grösserer Teil der Messung entfernt,
-um die Koordinaten bestmöglich zu verbessern.
+\newpage
+
 % Im Preamble: \usepackage{booktabs}
 \begin{table}[htbp]
   \centering
@@ -113,9 +117,13 @@ um die Koordinaten bestmöglich zu verbessern.
   \label{tab:abweichungen}
 \end{table}
 
+Die Lagekoordinaten veränderten sich dadurch nur geringfügig, während sich die Höhe stark änderte (84.5\,mm).
+Zudem wurden alle Messungen so bereinigt, dass nur Epochen berücksichtigt wurden, in denen alle Referenzstationen aktiv waren.
 
-Die Lagekoordinaten veränderten sich dadurch nur geringfügig, während sich die Höhe stark änderte (8,5\,cm).
-Zudem wurden alle Messungen so bereinigt, dass nur Epochen berücksichtigt wurden, in denen alle Referenzstationen aktiv waren (siehe Abbildung~\ref{fig:dop-basislinie-7000-6011}).
+Beim Punkt 6011, der eine schlechte GDOP aufwies, wurde ein grösserer Teil der Messung entfernt, um die Koordinatenlösung bestmöglich zu verbessern.
+Trotz dieser umfangreichen Bereinigung weist die Messung weiterhin einen mittleren GDOP von 3.8 sowie Spitzenwerte von bis zu 7.4 auf.
+Die Spitzen treten nur kurzzeitig auf und sind auf Zeitfenster mit ungünstiger Satellitengeometrie zurückzuführen. (siehe Abbildung~\ref{fig:dop-basislinie-7000-6011}).
+
 
 \begin{figure}[h!]
     \centering
@@ -124,7 +132,6 @@ Zudem wurden alle Messungen so bereinigt, dass nur Epochen berücksichtigt wurde
     \label{fig:dop-basislinie-7000-6011}
 \end{figure}
 
-\subsubsection{Basislinienqualität}
 
 \subsection{Untersuchung von GNSS-Einflüssen}
 Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
