@@ -84,14 +84,16 @@ eines mit ellipsoidischen Höhen zum Vergleich mit der trigonometrischen Höhenb
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
 sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
 
+\subsection{Untersuchung von GNSS-Einflüssen}
+Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
+auf die GNSS-Messungen am Schwanderbärgli untersucht.
+
 \subsubsection{Bereinigen Messungen}
 Die Messungen wurden durch das gezielte Ausschalten einzelner Satelliten sowie ganzer Zeitperioden bereinigt und dadurch verbessert.
 Dabei wurden Satelliten mit geringer Elevation, starkem Multipath oder schlechtem Signal-Rausch-Verhältnis (SNR) ausgeschlossen, ebenso Zeitperioden mit ungünstiger Satellitengeometrie (hoher GDOP) oder Signalabschattungen.
 Dies führte zu einer höheren Anzahl fixierter Ambiguitäten und zu einer geringeren Streuung der Koordinatenlösungen.
 Die resultierenden Abweichungen sind in Tabelle \ref{tab:abweichungen} dargestellt. 
 Die Konvergenszeit wurde ebensfall bei jeder Messung abgeschnitten.
-
-\newpage
 
 % Im Preamble: \usepackage{booktabs}
 \begin{table}[htbp]
@@ -128,16 +130,10 @@ Die Spitzen treten nur kurzzeitig auf und sind auf Zeitfenster mit ungünstiger 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Basislinie_7000-6011.png}
-    \caption{DOP-Verlauf der Basislinie 7000--6011}
+    \caption{DOP-Verlauf der Basislinie 7000--6011(Leica infinity 5.2.0)}
     \label{fig:dop-basislinie-7000-6011}
 \end{figure}
 
-
-\subsection{Untersuchung von GNSS-Einflüssen}
-Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
-auf die GNSS-Messungen am Schwanderbärgli untersucht.
-
-\subsubsection{Bereinigen Messungen}
 
 \subsubsection{Einfluss des Koordinatenbezugssystem}
 Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet, ohne die Lotabweichung oder lokale 
@@ -288,8 +284,7 @@ Die vier lokalen Referenzstationen werden zum Verlgeich sowohl zur Agnes-Station
 virtuellen Referenzstation (VRS) berechnet. Die VRS wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
 Die Basislinien zur VRS weisen für alle Stationen deutlich mehr und grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
 Während der GDOP der Basislinien zur HABG 4.5 nicht überschreitet, steigt dieser stellenweise auf über 15 für Basislinien zur VRS.
-Die Koordinatendifferenzen zwischen den Berechnungen zur HABG und zur VRS betragen im Mittel 
-\todo{Koodrdinatendifferenzen und RMSE berechnen HABG/VRS} mit einem RMSE von \todo{einfügen}. 
+Die Koordinatendifferenzen zwischen den Berechnungen mit der HABG und mit der VRS betragen im Mittel 1.7 mm in der Lage (2D) und 7.4 mm in der Höhe (RMSE). 
 Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
 ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der VRS keine Genauigkeitssteigerung zu 
 erwarten.
