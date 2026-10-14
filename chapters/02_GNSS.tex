@@ -84,11 +84,17 @@ eines mit ellipsoidischen Höhen zum Vergleich mit der trigonometrischen Höhenb
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
 sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
 
-\subsubsection{Bereinigen Messungen}
+\subsection{Untersuchung von GNSS-Einflüssen}
+Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
+auf die GNSS-Messungen am Schwanderbärgli untersucht.
 
-Die Messungen wurden durch das Ausschalten einzelner Satelliten verbessert. Die resultierenden Abweichungen sind in Tabelle \ref{tab:abweichungen} dargestellt. 
-Die Konvergenzzeit wurde bei jeder Messung abgeschnitten. Beim Punkt 6011, der eine schlechte GDOP aufwies, wurde ein grösserer Teil der Messung entfernt,
-um die Koordinaten bestmöglich zu verbessern.
+\subsubsection{Bereinigen Messungen}
+Die Messungen wurden durch das gezielte Ausschalten einzelner Satelliten sowie ganzer Zeitperioden bereinigt und dadurch verbessert.
+Dabei wurden Satelliten mit geringer Elevation, starkem Multipath oder schlechtem Signal-Rausch-Verhältnis (SNR) ausgeschlossen, ebenso Zeitperioden mit ungünstiger Satellitengeometrie (hoher GDOP) oder Signalabschattungen.
+Dies führte zu einer höheren Anzahl fixierter Ambiguitäten und zu einer geringeren Streuung der Koordinatenlösungen.
+Die resultierenden Abweichungen sind in Tabelle \ref{tab:abweichungen} dargestellt. 
+Die Konvergenszeit wurde ebensfall bei jeder Messung abgeschnitten.
+
 % Im Preamble: \usepackage{booktabs}
 \begin{table}[htbp]
   \centering
@@ -113,26 +119,24 @@ um die Koordinaten bestmöglich zu verbessern.
   \label{tab:abweichungen}
 \end{table}
 
+Die Lagekoordinaten veränderten sich dadurch nur geringfügig, während sich die Höhe stark änderte (84.5\,mm).
+Zudem wurden alle Messungen so bereinigt, dass nur Epochen berücksichtigt wurden, in denen alle Referenzstationen aktiv waren.
 
-Die Lagekoordinaten veränderten sich dadurch nur geringfügig, während sich die Höhe stark änderte (8,5\,cm).
-Zudem wurden alle Messungen so bereinigt, dass nur Epochen berücksichtigt wurden, in denen alle Referenzstationen aktiv waren (siehe Abbildung~\ref{fig:dop-basislinie-7000-6011}).
+Beim Punkt 6011, der eine schlechte GDOP aufwies, wurde ein grösserer Teil der Messung entfernt, um die Koordinatenlösung bestmöglich zu verbessern.
+Trotz dieser umfangreichen Bereinigung weist die Messung weiterhin einen mittleren GDOP von 3.8 sowie Spitzenwerte von bis zu 7.4 auf.
+Die Spitzen treten nur kurzzeitig auf und sind auf Zeitfenster mit ungünstiger Satellitengeometrie zurückzuführen. (siehe Abbildung~\ref{fig:dop-basislinie-7000-6011}).
+
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{Basislinie_7000-6011.png}
-    \caption{DOP-Verlauf der Basislinie 7000--6011}
+    \includegraphics[width=\textwidth]{Basislinie_7000-6011.jpg}
+    \caption{DOP-Verlauf der Basislinie 7000--6011(Leica infinity 5.2.0)}
     \label{fig:dop-basislinie-7000-6011}
 \end{figure}
 
-\subsubsection{Basislinienqualität}
-
-\subsection{Untersuchung von GNSS-Einflüssen}
-Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
-auf die GNSS-Messungen am Schwanderbärgli untersucht.
-
-\subsubsection{Bereinigen Messungen}
 
 \subsubsection{Einfluss des Koordinatenbezugssystem}
+\label{sec:koordbezsys}
 Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet, ohne die Lotabweichung oder lokale 
 Schwere zu korrigieren. Der neue Höhenreferenzrahmen 
 LHN95 hingegen basiert sowohl auf Nivellement-, GNSS- und Schweremessungen. Die  
@@ -281,8 +285,7 @@ Die vier lokalen Referenzstationen werden zum Verlgeich sowohl zur Agnes-Station
 virtuellen Referenzstation (VRS) berechnet. Die VRS wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
 Die Basislinien zur VRS weisen für alle Stationen deutlich mehr und grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
 Während der GDOP der Basislinien zur HABG 4.5 nicht überschreitet, steigt dieser stellenweise auf über 15 für Basislinien zur VRS.
-Die Koordinatendifferenzen zwischen den Berechnungen zur HABG und zur VRS betragen im Mittel 
-\todo{Koodrdinatendifferenzen und RMSE berechnen HABG/VRS} mit einem RMSE von \todo{einfügen}. 
+Die Koordinatendifferenzen zwischen den Berechnungen mit der HABG und mit der VRS betragen im Mittel 1.7 mm in der Lage (2D) und 7.4 mm in der Höhe (RMSE). 
 Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
 ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der VRS keine Genauigkeitssteigerung zu 
 erwarten.
@@ -388,4 +391,42 @@ Tabelle \todo{zite table} zeigt die a priori und die empirische Standardabweichu
 
 \subsection{Diskussion}
 \label{sec:diskussion_Schwanderbärgli}
+Ziel dieses Feldkurses war das bestehende Netz des Schwanderbärgli zu erneuern und zu vereinfachen.
+Dabei sollten neue Ansätze präsentiert werden, welche jedoch dieselbe Genauigkeit und Vergleichbarkeit aufweisen.
+Somit wurden deutlich mehr GNSS-Messungen durchgeführt im Vergleich zu den vorjährigen Messungen.
+Das erhoffte Ziel, das innere Netz 'Brunni' lediglich mittels GNSS-Messungen in
+das Gesamtnetz zu integrieren konnte leider nicht erreicht werden.
+Ein ausschlaggebender Grund war, dass der GDOP des Punktes 6011 nahezu permanent den Wert vier übersteigt.
+In Anbetracht der Umliegenden Bewaldung und Abdeckung ist dies auch nicht sehr erstaunlich, wollte jedoch nicht unversucht bleiben.
+
+Weiter soll das Gesamtnetz aussagekräftig ausgewertet werden.
+Hierzu ist es jedoch essenziell zu Wissen, wie es in den Vorjahren ausgewertet wurde.
+Da diese Grundlagen nicht oder nur bedingt zur Verfügung gestellt wurden, mussten gewisse Annahmen getroffen werden.
+Wie in Kapitel~\ref{sec:koordbezsys} erläutert kann die Wahl des Koordinatenbezugssystems
+bereits einen systematischen Einfluss von bis über 10 cm erreichen.
+Um Abweichungen aus der HTRANS nicht in das Netz zu integrieren wurden die GNSS-Messungen in LHN95 berechnet.
+Dies soll gemäss Angaben der Kursleitung ebenfalls dem Vorgehen von letzter Auswertung entsprechen.
+Weiter wurden die Höhen im Netz aber als Gebrauchshöhen behandelt.      % bitzali nahezu direkes zitat aus kap koord bez sys
+Einzig in den TPS-Messungen und der THB wurden die Lotabweichung und Geoidundulation korrigiert.
+
+Zudem wurden bei den Austwertungen unterschiedliche Höhenbezüge festgestellt.
+Die bis anhin verwendete Höhe des Punktes 9000 ist nicht nachvollziehbar dokumentiert.
+Sie stimmt nicht mit jener der Swisstopo überein und ein Vergleich mit derselben Höhe in LHN95 ist auch nicht aufschlussreich.
+\todo{Ergänzen wie nun bestimmt wurde welche verwendet}
+
+
+
+%Notitzen:
+%ziel neues netz design, jedoch an bestehendem anschliessen und vereinfachen
+%mit bestem wissen und gewissen netzplanung erarbeitet
+%bei datenaufbereitung einige unstimmigkeiten gefunden (grosse gdop, stockhöhe, )
+%schwierig ein monitoring im bezug zu letzter aufnahme auswerten, ohne zu wissen wie diese damals gemacht
+%gnss in lhn95 statt ln02 um differenz geoid und schwere nicht systematisch mit einzubeziehen
+%schlussendlich doch in ln02 da bishher immer so gemacht -> woher höhe von 9000? auch anderst als swisstopo? schwierig zu beurteilen ohne info, einfach so entschieden
+%habg anstatt vrs da näher und weniger verfälscht
+%einfluss ionosphäre und troposphäre systematisch, grosse unterschiede nicht erklärbar, berechnet verwendet da empfohlen und sinnvollsten
+%nächstes mal evtl meteo bei gnss aufzeichnen? jedoch nicht in infinity berechenbar (saastamoinen modell mit eigenen werten, da auch offline funktonieren muss)
+
+
+
 
