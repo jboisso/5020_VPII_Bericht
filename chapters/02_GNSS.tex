@@ -89,6 +89,7 @@ Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen
 auf die GNSS-Messungen am Schwanderbärgli untersucht.
 
 \subsubsection{Bereinigen Messungen}
+\label{sec:bereinigung_gnss}
 Die Messungen wurden durch das gezielte Ausschalten einzelner Satelliten sowie ganzer Zeitperioden bereinigt und dadurch verbessert.
 Dabei wurden Satelliten mit geringer Elevation, starkem Multipath oder schlechtem Signal-Rausch-Verhältnis (SNR) ausgeschlossen, ebenso Zeitperioden mit ungünstiger Satellitengeometrie (hoher GDOP) oder Signalabschattungen.
 Dies führte zu einer höheren Anzahl fixierter Ambiguitäten und zu einer geringeren Streuung der Koordinatenlösungen.
@@ -352,7 +353,7 @@ Referenzstationen hingegen weisen besonders in der Lage hohe Genauigkeiten von $
 
 Der Vergleich mit den GNSS-Koordinaten aus der Basislinienberechnung zeigt besonders in der Höhe mittlere Differenzen 
 von 16~mm, mit einer maximalen Differenz von 45~mm im Punkt 6011. Diese resultieren aus der schlechten Messqualität 
-in 6011 (siehe Kapitel \todo{kapitel verlinken}). Um Einflüsse aus dem Geoidmodell zu vermeiden, wurde der Vergleich anhand 
+in 6011 (siehe Kapitel \ref{sec:bereinigung_gnss}). Um Einflüsse aus dem Geoidmodell zu vermeiden, wurde der Vergleich anhand 
 der ellipsoidischen Höhen durchgeführt. Die Abweichungen zeigen keine systematischen Effekte aufgrund der Lage oder Höhe 
 der einzelnen Punkte. Auch die Messdauer korreliert nicht mit den erhaltenen Abweichungen. 
 
@@ -423,14 +424,31 @@ dass weitere, nicht berücksichtigte Einflüsse bestehen, welche nicht durch die
 eliminiert werden. Da eine exakt gleichzeitige Messung die EDM-Systeme der Tachymeter stören würde, kann ein leichter 
 Einfluss der Refraktion nicht ausgeschlossen werden. Dieser müsste allerdings bereits in der Standardabweichung der 
 Satzmittel sichtbar werden und erklärt somit die hohen Abweichungen nicht. 
-Wie das geometrische Nivellement, ist auch die trigonometrische Höhenbestimmung wegabhängig. Dieser Effekt dürfte aber 
+Wie das geometrische Nivellement, ist auch die trigonometrische Höhenbestimmung wegabhängig \cite{elmiger_landesvermessung_1997}. Dieser Effekt dürfte aber 
 deutlich kleiner ausfallen, da das Geoid innerhalb des Messperimeters relativ homogen verläuft. Auch liessen sich 
 hiermit die Differenzen zwischen den fast identischen Strecken 6003-6015-7000 und 6003-EX6015-7000 nicht erklären.
 
 Abschliessend sind somit für die THB Genauigkeiten von ca. 2-3~cm anzunehmen für die gemessenen Distanzen von maximal 
-2.4 km und 575 Höhenmeter.
+2.4~km und 575 Höhenmeter.
 
 \subsubsection{THB und GNSS}
+Der Vergleich der Höhendiffernzen aus der THB mit den aus den GNSS-Messungen berechneten Höhen zeigt Abweichungen 
+von -11~mm bis +40~mm (siehe Tabelle \todo{link table}). Dabei ist keine Korrelation von Höhe über Meer des GNSS-Punktes 
+und Abweichung zu erkennen, diese scheinen viel mehr zufällig verteilt zu sein. Die grösste Differenz ist in der längsten 
+Visur, die weiteren Visuren weisen aber auch keinen Zusammenhang zwischen Abweichung und Länge der Visur auf. 
+
+Ein freier, robuster Netzauslgeich aller Nivellement-, GNSS- und THB-Messungen bestätigt die Spannungen innerhalb der THB. 
+Dabei weisen die kurzen Messungen zu den Exzentren (EX7000-7000 und EX6015-6003) die grössten normierten Verbesserungen 
+($wi \leq 18$) auf. Werden diese deaktiviert, erhalten alle Messungen einen ($wi \leq 3$), es entfällt aber auch jegliche 
+Redundanz aus der THB. Allfällige Wiedersprüche zwischen den GNSS-Höhen, dem Nivellement und der THB werden in den langen Visuren 
+der THB ``verdrückt'' und fallen dort kaum ins Gewicht. Werden die GNSS-Messungen deaktiviert und die Exzenter-Messungen mit 
+Nivellementgenauigkeit eingeführt, lassen sich die Spannungen ebenfalls auf die langen Visuren verteilen. Der Vergleich der 
+ausgeglichenen THB-Höhen mit den GNSS Höhen lässt jedoch auch keine Systematik erkennen. Mit den vorhandenen Messdaten 
+lässt sich keine der THB-Visuren als eindeutig fehlerhaft identifizieren.
+
+Die GNSS-Messungen lassen sich nicht realistisch anhand der THB-Messungen korrigieren. Die THB kann 
+als zusätzliche Kontrolle in einen hybriden Gesamtnetzausgleich eingeführt werden, dabei muss aber darauf geachtet werden, 
+dass die Spannungen aus der THB nicht auf das Netz übergehen und sie einen reinen Kontrolleffekt hat. 
 
 
 
