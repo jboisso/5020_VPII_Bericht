@@ -356,7 +356,7 @@ in 6011 (siehe Kapitel \todo{kapitel verlinken}). Um Einflüsse aus dem Geoidmod
 der ellipsoidischen Höhen durchgeführt. Die Abweichungen zeigen keine systematischen Effekte aufgrund der Lage oder Höhe 
 der einzelnen Punkte. Auch die Messdauer korreliert nicht mit den erhaltenen Abweichungen. 
 
-\subsubsection{THB und GNSS}
+\subsection{THB und GNSS}
 Ziel der THB war es, mögliche Abweichungen aus dem ZTD in den GNSS-Messungen korrigieren zu können. Hierzu wurden in den 
 früheren Messkampagnen zwei Strecken zwischen insgesamt vier GNSS-Punkten mittels THB bestimmt. Aus den Differenzen der THB- und der 
 GNSS-Höhenunterschiede wurde ein Höhenmassstab für die GNSS-Messungen bestimmt und an diesen angebracht. Hierbei resultierten 
@@ -364,7 +364,7 @@ Massstäbe von bis zu 300~ppm.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{03_Trigo_Hoehe-v1.jpg}
+    \includegraphics[width=\textwidth]{03_Trigo_Hoehe-small.jpg}
     \caption[Bildbeschriftung]{Übersicht über die trigonometrische Höhenbestimmung und das geometrische Nivellement 
     im Feldkurs 2026.}
     \label{fig:abb-THB}
@@ -372,6 +372,8 @@ Massstäbe von bis zu 300~ppm.
 
 Abbildung \ref{fig:abb-THB} zeigt den Aufbau der THB aus 2026. Dieser erlaubt erstmals eine Kontrolle der THB Messungen 
 untereinander, in dem sowohl ein Dreieck (7000 - 6015 - 9000), als auch weitere redundante Höhenunterschiede gemessen wurden. 
+Zum Anschluss an die GNSS-Messungen und bilden des Dreiecks wurden die Exzenterpunkte 6003 und EX7000 mitgemessen. Da dies 
+sehr kurze Visuren sind, wurden sie einseitig in acht Sätzen eingemessen. 
 Die Berechnung der gleichzeitig gegenseitigen Messungen erfolgt nach Gleichung \eqref{eq:delta_h} \parencite{ingensand_einfuhrung_2011} 
 unter Berücksichtigung der Lotabweichung und Geoidundulation. 
 
@@ -387,13 +389,16 @@ unter Berücksichtigung der Lotabweichung und Geoidundulation.
 Dabei ist $d$ die meteokorrigierte, gemittelte (I + II Lage) Schrägdistanz, $z_{A,B}$ die reduzierten Zenitwinkel und $I_{A,B}$ respektive 
 $S_{A,B}$ die Instrumenten- und Zielhöhen.
 
-Tabelle \ref{tab:THB_Stdabw} zeigt die a priori- und empirischen Standardabweichungen für die THB-Höhen. Die Unterschiede zwischen a priori 
-und a posteriori sind statistisch nicht signifikant.  
+
+\subsubsection{Genauigkeiten THB}
+Tabelle \ref{tab:THB_Stdabw} zeigt die a priori- und empirischen Standardabweichungen für die THB-Höhen. Der gepaarte t-Test zeigt, dass die 
+Unterschiede zwischen a priori und a posteriori statistisch nicht signifikant sind. Alle Höhenunterschiede wurden achtfach in beiden 
+Lagen gegenseitig gemessen. Um der Korrelation zwischen den Sätzen Rechnung zu tragen, wurden die a priori Werte mit vier Sätzen berechnet.  
 
 \begin{table}[h]
     \centering
     \caption{A priori und empirische Standardabweichungen aller THB Höhendifferenzen unter der Berücksichtigung, dass die Mehrfachmessungen 
-    nicht unabhängig sind.}
+    korreliert sind.}
     \label{tab:THB_Stdabw}
     \begin{tabular}{rcc}
         \toprule
@@ -409,6 +414,24 @@ und a posteriori sind statistisch nicht signifikant.
         \bottomrule
     \end{tabular}
 \end{table}
+
+Der Vergleich der redundanten Strecken [9000-7000] - [9000-6015-7000] ergibt eine Höhendifferenz von 28~mm. 
+Auch die Höhe [6003-6015-7000] - [6003-EX6015-7000] weist 15~mm Differenz auf.
+Beide Differenzen liegen deutlich über den erwarteten Genauigkeiten aus a priori Standardabweichung der einzelnen Höhendifferenzen.
+Dies deutet darauf hin, 
+dass weitere, nicht berücksichtigte Einflüsse bestehen, welche nicht durch die gleichzeitig gegenseitigen Messungen 
+eliminiert werden. Da eine exakt gleichzeitige Messung die EDM-Systeme der Tachymeter stören würde, kann ein leichter 
+Einfluss der Refraktion nicht ausgeschlossen werden. Dieser müsste allerdings bereits in der Standardabweichung der 
+Satzmittel sichtbar werden und erklärt somit die hohen Abweichungen nicht. 
+Wie das geometrische Nivellement, ist auch die trigonometrische Höhenbestimmung wegabhängig. Dieser Effekt dürfte aber 
+deutlich kleiner ausfallen, da das Geoid innerhalb des Messperimeters relativ homogen verläuft. Auch liessen sich 
+hiermit die Differenzen zwischen den fast identischen Strecken 6003-6015-7000 und 6003-EX6015-7000 nicht erklären.
+
+Abschliessend sind somit für die THB Genauigkeiten von ca. 2-3~cm anzunehmen für die gemessenen Distanzen von maximal 
+2.4 km und 575 Höhenmeter.
+
+\subsubsection{THB und GNSS}
+
 
 
 \subsection{Diskussion}
