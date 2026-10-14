@@ -294,17 +294,97 @@ der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-S
 \todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
 
 \subsubsection{Auswertung als PPP}
-Alle GNSS-Messungen werden versuchshalber auch im Precise Point Positioning (PPP) Verfahren ausgewertet. Hierzu 
-wird der kanadische PPP-Dienst CSRS-PPP \parencite{noauthor_precise_2026} verwendet. Dieser ermöglicht es, Rinex-Observation Dateien 
-hochzuladen und direkt zu prozessieren. Die Berechnung wird als statischer Punkt in ITRF ausgeführt. 
-Die in ITRF2020 (2026.7) erhaltenen Koordinaten werden gemäss Lennström (2026) nach CHTRS95 transformiert. \todo{Quelle lef erfassen}
-CSRS-PPP kann nur Galileo, GPS und Glonass verarbeiten, Beidou-Satelliten werden nicht berechnet. Zur Modellierung 
-der Troposphäre nutzt CSRS-PPP VMF3 Grid-Werte \parencite{noauthor_precise_2026}. Diese beruhen auf tatsächlichen Meteobeobachtungen 
+Alle GNSS-Messungen werden zum Vergleich auch im Precise Point Positioning (PPP) Verfahren ausgewertet. Hierzu 
+wird der kanadische online-PPP-Dienst CSRS-PPP \parencite{government_of_canada_precise_2026} verwendet. 
+Die Berechnung wird als statischer Punkt im Bezugsrahmen ITRF ausgeführt. 
+Die in ITRF2020 (2026.7) erhaltenen Koordinaten werden gemäss \cite{lennstrom_uebung_2026}, nach CHTRS95 transformiert.
+CSRS-PPP verarbeitet nur Galileo, GPS und Glonass, Beidou-Satelliten werden nicht berechnet. Zur Modellierung 
+der Troposphäre nutzt CSRS-PPP VMF3 Grid-Werte \parencite{government_of_canada_precise_2026}. Diese beruhen auf tatsächlichen Meteobeobachtungen 
 während des Messzeitraums, aus welchen ein Raster von Korrekturwerten für die ZTD berechnet werden. Zudem schätzt die PPP-Auswertung 
-immer auch den verbleibenden ZTD-Wert aus den Messdaten mit. Tabelle \todo{ref table} zeigt die Standardabweichung der einzelen 
-PPP-Berechnungen. Auffällig sind die erhöhten Werte bei den Punkten mit kürzerer Messdauer (\todo{punktnr.}). Die lokalen 
-Referenzstationen weisen sehr kleine Standardabweichungen auf von \todo{insert values}.
+immer auch den verbleibenden ZTD-Wert aus den Messdaten mit. Tabelle \ref{tab:ppp_baseline} zeigt die Standardabweichung der einzelnen 
+PPP-Berechnungen. Auffällig sind die erhöhten Werte bei den Punkten mit kürzerer Messdauer wie 6006 und 6010. Die lokalen 
+Referenzstationen hingegen weisen besonders in der Lage hohe Genauigkeiten von $ \leq $ 3~mm  auf. 
 
+\begin{table}[h!]
+    \centering
+    \caption{Standardabweichung der PPP-Berechnung und Differenzen zur definitiven Basislinienauswertung. In Fett sind die 
+    lokalen Referenzstationen.}
+    \label{tab:ppp_baseline}
+    \begin{tabularx}{\textwidth}{c c | *{3}{>{\centering\arraybackslash}X} | *{2}{>{\centering\arraybackslash}X}}
+        \toprule
+        \textbf{Punkt} & 
+        \textbf{Dauer [h]} &
+        $\mathbf{\sigma_E [mm]}$ & 
+        $\mathbf{\sigma_N [mm]}$ &
+        $\mathbf{\sigma_H [mm]}$ &
+        $\mathbf{\Delta_{XY} [mm]}$ &
+        $\mathbf{\Delta_{Z} [mm]}$ \\
+        \midrule
+        6000 & 16:09 & 4 & 8 & 22 & 11 & -4 \\
+        \rowcolor{lightgray}
+        6003 & 21:02 & 3 & 2 & 10 & 4 & -5 \\
+        6006 & 02:23 & 9 & 7 & 35 & 9 & -29 \\
+        \rowcolor{lightgray}
+        6010 & 03:12 & 13 & 24 & 43 & 8 & 4 \\
+        6011 & 20:51 & 8 & 12 & 32 & 2 & 45 \\
+        \rowcolor{lightgray}
+        6012 & 20:45 & 4 & 5 & 17 & 4 & 6 \\
+        \textbf{7000} & 46:54 & 2 & 2 & 8 & 5 & 13 \\
+        \rowcolor{lightgray}
+        7003 & 20:57 & 4 & 6 & 19 & 5 & 15 \\
+        \textbf{7004} & 45:28 & 3 & 2 & 13 & 3 & -4 \\
+        \rowcolor{lightgray}
+        \textbf{7015} & 45:37 & 2 & 2 & 10 & 6 & 8 \\
+        9000 & 15:33 & 4 & 5 & 12 & 5 & 4 \\
+        \rowcolor{lightgray}
+        \textbf{EX9500} & 43:31 & 2 & 2 & 7 & 5 & 2 \\
+        TP506 & 17:00 & 3 & 3 & 12 & 4 & -3 \\
+        \rowcolor{lightgray}
+        TP510 & 15:45 & 4 & 6 & 15 & 7 & 7 \\
+        \midrule
+        \textbf{} & \textbf{RMSE} & \textbf{5.6} & \textbf{8.4} & \textbf{21.1} & \textbf{6.0} & \textbf{15.8} \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+Der Vergleich mit den GNSS-Koordinaten aus der Basislinienberechnung zeigt besonders in der Höhe mittlere Differenzen 
+von 16~mm, mit einer maximalen Differenz von 45~mm im Punkt 6011. Diese resultieren aus der schlechten Messqualität 
+in 6011 (siehe Kapitel \todo{kapitel verlinken}). Um Einflüsse aus dem Geoidmodell zu vermeiden, wurde der Vergleich anhand 
+der ellipsoidischen Höhen durchgeführt. Die Abweichungen zeigen keine systematischen Effekte aufgrund der Lage oder Höhe 
+der einzelnen Punkte. Auch die Messdauer korreliert nicht mit den erhaltenen Abweichungen. 
+
+\subsubsection{THB und GNSS}
+Ziel der THB war es, mögliche Abweichungen aus dem ZTD in den GNSS-Messungen korrigieren zu können. Hierzu wurden in den 
+früheren Messkampagnen zwei Strecken zwischen insgesamt vier GNSS-Punkten mittels THB bestimmt. Aus den Differenzen der THB- und der 
+GNSS-Höhenunterschiede wurde ein Höhenmassstab für die GNSS-Messungen bestimmt und an diesen angebracht. Hierbei resultierten 
+Massstäbe von bis zu 300~ppm.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{03_Trigo_Hoehe-v1.jpg}
+    \caption[Bildbeschriftung]{Übersicht über die trigonometrische Höhenbestimmung und das geometrische Nivellement 
+    im Feldkurs 2026.}
+    \label{fig:abb-THB}
+\end{figure}
+
+Abbildung \ref{fig:abb-THB} zeigt den Aufbau der THB aus 2026. Dieser erlaubt erstmals eine Kontrolle der THB Messungen 
+untereinander, in dem sowohl ein Dreieck (7000 - 6015 - 9000), als auch weitere redundante Höhenunterschiede gemessen wurden. 
+Die Berechnung der gleichzeitig gegenseitigen Messungen erfolgt nach Gleichung \eqref{eq:delta_h} \parencite{ingensand_einfuhrung_2011} 
+unter Berücksichtigung der Lotabweichung und Geoidundulation. 
+
+\begin{equation}
+    \Delta h = \frac{1}{2}\biggl[
+    d \cdot (\cos z_{A} - \cos z_{B})
+    + (I_{A}-I_{B})
+    + (S_{A}-S_{B})
+    \biggr]
+    \label{eq:delta_h}
+\end{equation}
+
+Dabei ist $d$ die meteokorrigierte, gemittelte (I + II Lage) Schrägdistanz, $z_{A,B}$ die reduzierten Zenitwinkel und $I_{A,B}$ respektive 
+$S_{A,B}$ die Instrumenten- und Zielhöhen.
+
+Tabelle \todo{zite table} zeigt die a priori und die empirische Standardabweichung für die 
 
 \subsection{Diskussion}
 \label{sec:diskussion_Schwanderbärgli}
