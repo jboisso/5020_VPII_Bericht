@@ -85,6 +85,45 @@ orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrisch
 sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
 
 \subsubsection{Bereinigen Messungen}
+
+Die Messungen wurden durch das Ausschalten einzelner Satelliten verbessert. Die resultierenden Abweichungen sind in Tabelle \ref{tab:abweichungen} dargestellt. 
+Die Konvergenzzeit wurde bei jeder Messung abgeschnitten. Beim Punkt 6011, der eine schlechte GDOP aufwies, wurde ein grösserer Teil der Messung entfernt,
+um die Koordinaten bestmöglich zu verbessern.
+% Im Preamble: \usepackage{booktabs}
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{lrrr}
+    \toprule
+    Punktnr. & Ost [mm] & Nord [mm] & Ortho. Höhe [mm] \\
+    \midrule
+    7004   & $-0.1$ & $0.0$  & $0.0$   \\
+    7003.1 & $0.0$  & $0.0$  & $0.1$   \\
+    6003   & $-0.1$ & $0.0$  & $0.0$   \\
+    6011   & $-2.7$ & $-2.0$ & $-84.5$ \\
+    6012   & $-0.1$ & $0.0$  & $0.0$   \\
+    6000   & $-0.1$ & $0.0$  & $0.0$   \\
+    TP506  & $-0.1$ & $0.0$  & $0.0$   \\
+    TP510  & $-0.1$ & $0.0$  & $0.0$   \\
+    9000   & $-0.1$ & $0.0$  & $0.0$   \\
+    6010   & $-0.2$ & $-0.2$ & $0.2$   \\
+    6006   & $-0.2$ & $0.7$  & $2.0$   \\
+    \bottomrule
+  \end{tabular}
+  \caption{Abweichungen in den Koordinaten der Punkte nach der Bereinigung}
+  \label{tab:abweichungen}
+\end{table}
+
+
+Die Lagekoordinaten veränderten sich dadurch nur geringfügig, während sich die Höhe stark änderte (8,5\,cm).
+Zudem wurden alle Messungen so bereinigt, dass nur Epochen berücksichtigt wurden, in denen alle Referenzstationen aktiv waren (siehe Abbildung~\ref{fig:dop-basislinie-7000-6011}).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Basislinie_7000-6011.png}
+    \caption{DOP-Verlauf der Basislinie 7000--6011}
+    \label{fig:dop-basislinie-7000-6011}
+\end{figure}
+
 \subsubsection{Basislinienqualität}
 
 \subsection{Untersuchung von GNSS-Einflüssen}
