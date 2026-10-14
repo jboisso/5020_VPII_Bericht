@@ -84,12 +84,14 @@ eines mit ellipsoidischen Höhen zum Vergleich mit der trigonometrischen Höhenb
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
 sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
 
-\subsubsection{Bereinigen Messungen}
-\subsubsection{Basislinienqualität}
+
+
 
 \subsection{Untersuchung von GNSS-Einflüssen}
 Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
 auf die GNSS-Messungen am Schwanderbärgli untersucht.
+
+\subsubsection{Bereinigen Messungen}
 
 \subsubsection{Einfluss des Koordinatenbezugssystem}
 Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet, ohne die Lotabweichung oder lokale 
@@ -235,7 +237,7 @@ Wie Infinity jedoch die «berechnete» Version erstellt ist weiterhin unklar.
 Gemäss Empfehlung wird für die finalen GNSS-Koordinaten das Modell «Berechnet» verwendet.
 
 
-\subsubsection{Einfluss der externen Referenzstation}
+\subsubsection{Einfluss der Referenzstation}
 Die vier lokalen Referenzstationen werden zum Verlgeich sowohl zur Agnes-Station HABG, als auch zu einer 
 virtuellen Referenzstation (VRS) berechnet. Die VRS wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
 Die Basislinien zur VRS weisen für alle Stationen deutlich mehr und grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
@@ -254,11 +256,11 @@ der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-S
 
 \subsubsection{Auswertung als PPP}
 Alle GNSS-Messungen werden versuchshalber auch im Precise Point Positioning (PPP) Verfahren ausgewertet. Hierzu 
-wird der kanadische PPP-Dienst CSRS-PPP \todo{cite PPP Dienst} verwendet. Dieser ermöglicht es, Rinex-Observation Dateien 
+wird der kanadische PPP-Dienst CSRS-PPP \parencite{noauthor_precise_2026} verwendet. Dieser ermöglicht es, Rinex-Observation Dateien 
 hochzuladen und direkt zu prozessieren. Die Berechnung wird als statischer Punkt in ITRF ausgeführt. 
 Die in ITRF2020 (2026.7) erhaltenen Koordinaten werden gemäss Lennström (2026) nach CHTRS95 transformiert. \todo{Quelle lef erfassen}
 CSRS-PPP kann nur Galileo, GPS und Glonass verarbeiten, Beidou-Satelliten werden nicht berechnet. Zur Modellierung 
-der Troposphäre nutzt CSRS-PPP Grid-Werte der VMF3 \todo{cite page ppp}. Diese beruhen auf tatsächlichen Meteobeobachtungen 
+der Troposphäre nutzt CSRS-PPP VMF3 Grid-Werte \parencite{noauthor_precise_2026}. Diese beruhen auf tatsächlichen Meteobeobachtungen 
 während des Messzeitraums, aus welchen ein Raster von Korrekturwerten für die ZTD berechnet werden. Zudem schätzt die PPP-Auswertung 
 immer auch den verbleibenden ZTD-Wert aus den Messdaten mit. Tabelle \todo{ref table} zeigt die Standardabweichung der einzelen 
 PPP-Berechnungen. Auffällig sind die erhöhten Werte bei den Punkten mit kürzerer Messdauer (\todo{punktnr.}). Die lokalen 
