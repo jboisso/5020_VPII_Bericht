@@ -140,6 +140,7 @@ auf die GNSS-Messungen am Schwanderbärgli untersucht.
 \subsubsection{Bereinigen Messungen}
 
 \subsubsection{Einfluss des Koordinatenbezugssystem}
+\label{sec:koordbezsys}
 Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet, ohne die Lotabweichung oder lokale 
 Schwere zu korrigieren. Der neue Höhenreferenzrahmen 
 LHN95 hingegen basiert sowohl auf Nivellement-, GNSS- und Schweremessungen. Die  
@@ -315,4 +316,42 @@ Referenzstationen weisen sehr kleine Standardabweichungen auf von \todo{insert v
 
 \subsection{Diskussion}
 \label{sec:diskussion_Schwanderbärgli}
+Ziel dieses Feldkurses war das bestehende Netz des Schwanderbärgli zu erneuern und zu vereinfachen.
+Dabei sollten neue Ansätze präsentiert werden, welche jedoch dieselbe Genauigkeit und Vergleichbarkeit aufweisen.
+Somit wurden deutlich mehr GNSS-Messungen durchgeführt im Vergleich zu den vorjährigen Messungen.
+Das erhoffte Ziel, das innere Netz 'Brunni' lediglich mittels GNSS-Messungen in
+das Gesamtnetz zu integrieren konnte leider nicht erreicht werden.
+Ein ausschlaggebender Grund war, dass der GDOP des Punktes 6011 nahezu permanent den Wert vier übersteigt.
+In Anbetracht der Umliegenden Bewaldung und Abdeckung ist dies auch nicht sehr erstaunlich, wollte jedoch nicht unversucht bleiben.
+
+Weiter soll das Gesamtnetz aussagekräftig ausgewertet werden.
+Hierzu ist es jedoch essenziell zu Wissen, wie es in den Vorjahren ausgewertet wurde.
+Da diese Grundlagen nicht oder nur bedingt zur Verfügung gestellt wurden, mussten gewisse Annahmen getroffen werden.
+Wie in Kapitel~\ref{sec:koordbezsys} erläutert kann die Wahl des Koordinatenbezugssystems
+bereits einen systematischen Einfluss von bis über 10 cm erreichen.
+Um Abweichungen aus der HTRANS nicht in das Netz zu integrieren wurden die GNSS-Messungen in LHN95 berechnet.
+Dies soll gemäss Angaben der Kursleitung ebenfalls dem Vorgehen von letzter Auswertung entsprechen.
+Weiter wurden die Höhen im Netz aber als Gebrauchshöhen behandelt.      % bitzali nahezu direkes zitat aus kap koord bez sys
+Einzig in den TPS-Messungen und der THB wurden die Lotabweichung und Geoidundulation korrigiert.
+
+Zudem wurden bei den Austwertungen unterschiedliche Höhenbezüge festgestellt.
+Die bis anhin verwendete Höhe des Punktes 9000 ist nicht nachvollziehbar dokumentiert.
+Sie stimmt nicht mit jener der Swisstopo überein und ein Vergleich mit derselben Höhe in LHN95 ist auch nicht aufschlussreich.
+\todo{Ergänzen wie nun bestimmt wurde welche verwendet}
+
+
+
+%Notitzen:
+%ziel neues netz design, jedoch an bestehendem anschliessen und vereinfachen
+%mit bestem wissen und gewissen netzplanung erarbeitet
+%bei datenaufbereitung einige unstimmigkeiten gefunden (grosse gdop, stockhöhe, )
+%schwierig ein monitoring im bezug zu letzter aufnahme auswerten, ohne zu wissen wie diese damals gemacht
+%gnss in lhn95 statt ln02 um differenz geoid und schwere nicht systematisch mit einzubeziehen
+%schlussendlich doch in ln02 da bishher immer so gemacht -> woher höhe von 9000? auch anderst als swisstopo? schwierig zu beurteilen ohne info, einfach so entschieden
+%habg anstatt vrs da näher und weniger verfälscht
+%einfluss ionosphäre und troposphäre systematisch, grosse unterschiede nicht erklärbar, berechnet verwendet da empfohlen und sinnvollsten
+%nächstes mal evtl meteo bei gnss aufzeichnen? jedoch nicht in infinity berechenbar (saastamoinen modell mit eigenen werten, da auch offline funktonieren muss)
+
+
+
 
