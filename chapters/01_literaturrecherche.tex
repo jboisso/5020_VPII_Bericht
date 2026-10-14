@@ -55,16 +55,15 @@ lässt sich aber aufgrund der hohen räumlichen und temporalen Variabilität sch
 Globale Troposphären-Modelle wie das GPT2 verbessern die Stabilität in der Höhenbestimmung gegenüber einfacherer Modelle wie dem GPT 
 um bis zu 40 \% \parencite{lagler_gpt2_2013}. Jedoch bleibt eine erhebliche Unsicherheit bestehen.
 
-Ergänzen:
-Ungenauigkeiten, bessere Modellierungsmöglichkeiten. % -> das mit mapping functions gemeint?
+\todo{Ergänzen:
+Ungenauigkeiten, bessere Modellierungsmöglichkeiten. -> das mit mapping functions gemeint?}
 
 
 \subsection{Anwendung in der Meteorologie}
 Gemäss \cite{klaffenbock_tropospharische_2005} sind für die Meteorologie atmosphärische Parameter wie Temperatur, Luftdruck
 und Luftfeuchtigkeit in möglichst guter räumlicher und zeitlicher Auflösung essenziell.
 Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
-Ballonsondenaufstiegen ermittelt, welche jedoch aus Kostengründen weltweit immer seltener stattfinden.
-
+Ballonsonden aufstiegen ermittelt, welche jedoch aus Kostengründen weltweit immer seltener stattfinden.
 
 Wie im Journal of Geophysical Research von 1992 erschienen, dokumentierte \citeauthor{bevis_gps_1992} bereits damals die Idee,
 aus GPS-Satellitenbeobachtungen den integrierten Wasserdampf (englisch integrated water vapor, Abkürzung IWV) Abzuleiten.
@@ -72,9 +71,13 @@ Hierzu nutzten sie den Fakt, dass sich bei bekanntem Standpunkt des
 GNSS Empfängers die Gleichung zur Berechnung des ZWD so umstellen lässt, dass der Wasserdampfgehalt bestimmt werden kann.   
 Diese Werte sind in der Wettervorhersage und weiteren Forschungsgebieten von hoher Bedeutung.
 
-Ergänzen: 
-detaillierter ausführen wozu, Paper zu Sturmvorhersage, Vorhersage von lokalen Starkregen  sehr abhängig von Luftfeuchte.
--> z.B.: Paper Ground-based GNSS ZTD/IWV estimation system for numerical weather prediction in challenging weather conditions
+Wissenschaftler wie \citeauthor{de_haan_assimilation_2013} stellte im 2013 erschienenen Paper 
+eine deutliche Verbesserung der Regenradar Prognose in den Niederlanden fest.
+Gemäss \cite{rohm_ground-based_2014} wird erwartet, dass die bodengestützten GNSS-Daten zu einer Verbesserung der Vorhersage von Starkregen
+um 80\% (von 40\%) beitragen werden.
+
+\todo{Ergänzen: 
+detaillierter ausführen wozu, Paper zu Sturmvorhersage, Vorhersage von lokalen Starkregen  sehr abhängig von Luftfeuchte.}
 
 Wie in \cite{dousa_real-time_2014} berichtet, kann seit über 20 Jahren die ZTD anhand von mehreren permanenten
 GNSS-Stationen und Korrekturdaten des International GNSS Service (IGS) nahezu in Echtzeit berechnet werden.
@@ -84,15 +87,15 @@ Als Vorteil gegenüber herkömmlichen Wetterballons kann sicher die wetterunabh�
 Andererseits betont \cite{klaffenbock_tropospharische_2005}, dass keine diskreten Werte entlang des Beobachtungsprofils
 wie bei einem Radiosondenaufstieg möglich sind.
 
-%aktuell noch direktes Zitat aus Klaffenbock
-%Untersuchungen innerhalb verschiedener Projekte ((Gendt et al., 2002), COST 716 (COST716, 2001), Magic (Haase et al., 1999),
-%SuomiNet (Ware et al., 2000)) bestätigen durch Validierung mit unabhängigen Instrumenten und Vergleich mit Wettermodellen
-%eine erreichbare Genauigkeit von +- 1-2mm im Wasserdampfgehalt, was für die Anwendung in der Wettervorhersage ausreichend ist.
-%(Higgins, 2000) zeigt, dass die Hinzunahme von Wasserdampfschätzungen aus GPS die Vorhersageergebnisse für Regen in Großbritannien
-%signifikant verbessert.
-
 \subsection{GNSS Radio Occultation}
 oder so
+% aus Notizen zu Papers kopiert
+GNSS Radio Occultation ist Space-based Technik zur Bestimmung von Atmosphärischen Parametern. Hierzu werden 
+GNSS-Signale von LEO Satelliten empfangen. Daraus lässt sich Laufzeitverzögerung und Biegung durch die 
+Troposphäre berechnen. Gute vertikale Auflösung, schlechte Horizontale Auflösung.
+Schätzen von Troposphärischen Parametern aus GNSS-Auswertung: Parameter können in GNSS-Berechnung geschätzt 
+werden. Hierbei ist Höhenfehler und ZTD stark korreliert. Je niedriger der Cut-off angle umso besser können 
+sie auseinandergehalten werden. Wird ZTD in Auswertung geschätzt
 
 \subsection{Mapping Functions}
 \label{sec:MappingFunctions}
