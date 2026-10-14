@@ -153,6 +153,22 @@ Die GNSS-Messungen werden in LHN95 berechnet, um Abweichungen aus der HTRANS nic
 Weiter werden die Höhen im Netz aber als Gebrauchshöhen behandelt. Einzig in den TPS-Messungen und der THB werden 
 die Lotabweichung und Geoidundulation korrigiert.
 
+\subsubsection{Einfluss der Referenzstation}
+\label{sec:refstation}
+Die vier lokalen Referenzstationen werden zum Verlgeich sowohl zur Agnes-Station HABG, als auch zu einer 
+virtuellen Referenzstation (VRS) berechnet. Die VRS wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
+Die Basislinien zur VRS weisen für alle Stationen deutlich mehr und grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
+Während der GDOP der Basislinien zur HABG 4.5 nicht überschreitet, steigt dieser stellenweise auf über 15 für Basislinien zur VRS.
+Die Koordinatendifferenzen zwischen den Berechnungen mit der HABG und mit der VRS betragen im Mittel 1.7 mm in der Lage (2D) und 7.4 mm in der Höhe (RMSE). 
+Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
+ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der VRS keine Genauigkeitssteigerung zu 
+erwarten.
+
+Welche Referenzstation in den Vorjahren verwendet wurde, ist nicht dokumentiert. Es ist jedoch naheliegend, dass eine 
+AGNES-Station verwendet wurde, da diese näher liegt als die umliegenden Refnet-Stationen. Zudem gab es zur Zeit 
+der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-Stationen in der Schweiz.
+\todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
+
 \subsubsection{Einfluss des Ionosphärenmodells}
 \label{sec:ionosphäre}
 Da die Ionosphäre ein dispersives Medium ist, können die meisten ionosphärischen Effekte durch die unterschiedliche
@@ -165,10 +181,12 @@ Grundsätzlich herrschte während der Messdauer keine besonderen Verhältnisse i
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{I95-Doku-triple.png}
+    \includegraphics[width=\textwidth]{I95-Doku-triple.jpg}
     \caption{Dokumentation des Ionosphäre gemäss I95 der Swisstopo}
     \label{fig:abb-I95}
 \end{figure}
+
+\FloatBarrier
 
 Im ersten Versuch wurde als Ionosphärenmodell (.ION - File) eine tägliche Berechnung der Uni Bern (CODE) verwendet.
 Diese Lösung zeigt in der Lage deutliche systematische Abweichungen zu unserer ursprünglichen Berechnung,
@@ -219,6 +237,7 @@ Da die örtlichen Gegebenheiten am besten im berechneten Modell repräsentiert w
 wird diesem die beste Genauigkeit zugesprochen und für die weiteren Auswertungen verwendet.
 
 \subsubsection{Einfluss des Troposphärenmodells}
+\label{sec:troposphäre}
 Die Troposphäre ist kein dispersives Medium, weshalb ihre Verzögerung nicht mittels Mehrfrequenzempfängern eliminiert werden kann.
 Wie in Kapitel~\ref{sec:literaturrecherche} behandelt, besteht die Troposphäre aus einem homogenen, gut modellierbaren - sowie einen
 hydrostatischen, schlecht modellierbaren Teil. Je nach Elevationswinkel kann die Signalverzögerung bis zu mehreren Metern betragen,
@@ -280,24 +299,8 @@ welche die aktuell herschenden Einflüsse nicht berücksichtigen.
 Wie Infinity jedoch die «berechnete» Version erstellt ist weiterhin unklar.
 Gemäss Empfehlung wird für die finalen GNSS-Koordinaten das Modell «Berechnet» verwendet.
 
-
-\subsubsection{Einfluss der Referenzstation}
-Die vier lokalen Referenzstationen werden zum Verlgeich sowohl zur Agnes-Station HABG, als auch zu einer 
-virtuellen Referenzstation (VRS) berechnet. Die VRS wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
-Die Basislinien zur VRS weisen für alle Stationen deutlich mehr und grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
-Während der GDOP der Basislinien zur HABG 4.5 nicht überschreitet, steigt dieser stellenweise auf über 15 für Basislinien zur VRS.
-Die Koordinatendifferenzen zwischen den Berechnungen mit der HABG und mit der VRS betragen im Mittel 1.7 mm in der Lage (2D) und 7.4 mm in der Höhe (RMSE). 
-Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
-ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der VRS keine Genauigkeitssteigerung zu 
-erwarten.
-
-Welche Referenzstation in den Vorjahren verwendet wurde, ist nicht dokumentiert. Es ist jedoch naheliegend, dass eine 
-AGNES-Station verwendet wurde, da diese näher liegt als die umliegenden Refnet-Stationen. Zudem gab es zur Zeit 
-der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-Stationen in der Schweiz.
-
-\todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
-
 \subsubsection{Auswertung als PPP}
+\label{sec:ppp}
 Alle GNSS-Messungen werden zum Vergleich auch im Precise Point Positioning (PPP) Verfahren ausgewertet. Hierzu 
 wird der kanadische online-PPP-Dienst CSRS-PPP \parencite{government_of_canada_precise_2026} verwendet. 
 Die Berechnung wird als statischer Punkt im Bezugsrahmen ITRF ausgeführt. 
@@ -454,9 +457,9 @@ dass die Spannungen aus der THB nicht auf das Netz übergehen und sie einen rein
 
 \subsection{Diskussion}
 \label{sec:diskussion_Schwanderbärgli}
-Ziel dieses Feldkurses war das bestehende Netz des Schwanderbärgli zu erneuern und zu vereinfachen.
+Ziel dieses Feldkurses war das bestehende Netz Überwachung des Schwanderbärgli zu erneuern und zu vereinfachen.
 Dabei sollten neue Ansätze präsentiert werden, welche jedoch dieselbe Genauigkeit und Vergleichbarkeit aufweisen.
-Somit wurden deutlich mehr GNSS-Messungen durchgeführt im Vergleich zu den vorjährigen Messungen.
+In dieser Messkampagne wurden deutlich mehr GNSS-Messungen durchgeführt im Vergleich zu den vorjährigen Messungen.
 Das erhoffte Ziel, das innere Netz 'Brunni' lediglich mittels GNSS-Messungen in
 das Gesamtnetz zu integrieren konnte leider nicht erreicht werden.
 Ein ausschlaggebender Grund war, dass der GDOP des Punktes 6011 nahezu permanent den Wert vier übersteigt.
@@ -464,29 +467,28 @@ In Anbetracht der Umliegenden Bewaldung und Abdeckung ist dies auch nicht sehr e
 
 Weiter soll das Gesamtnetz aussagekräftig ausgewertet werden.
 Hierzu ist es jedoch essenziell zu Wissen, wie es in den Vorjahren ausgewertet wurde.
-Da diese Grundlagen nicht oder nur bedingt zur Verfügung gestellt wurden, mussten gewisse Annahmen getroffen werden.
+Da diese Grundlagen nicht oder nur bedingt zur Verfügung standen, mussten gewisse Annahmen getroffen werden.
 Wie in Kapitel~\ref{sec:koordbezsys} erläutert kann die Wahl des Koordinatenbezugssystems
 bereits einen systematischen Einfluss von bis über 10 cm erreichen.
 Um Abweichungen aus der HTRANS nicht in das Netz zu integrieren wurden die GNSS-Messungen in LHN95 berechnet.
 Dies soll gemäss Angaben der Kursleitung ebenfalls dem Vorgehen von letzter Auswertung entsprechen.
 Weiter wurden die Höhen im Netz aber als Gebrauchshöhen behandelt.      % bitzali nahezu direkes zitat aus kap koord bez sys
 Einzig in den TPS-Messungen und der THB wurden die Lotabweichung und Geoidundulation korrigiert.
+Somit ist das gesamte Netz nun mit 'LN02-Eigenschaften' auf der Höhe von LHN95 gelagert.
 
-Zudem wurden bei den Austwertungen unterschiedliche Höhenbezüge festgestellt.
+Im Laufe der Auswertungen wurden unterschiedliche Höhenbezüge festgestellt.
 Die bis anhin verwendete Höhe des Punktes 9000 ist nicht nachvollziehbar dokumentiert.
 Sie stimmt nicht mit jener der Swisstopo überein und ein Vergleich mit derselben Höhe in LHN95 ist auch nicht aufschlussreich.
 \todo{Ergänzen wie nun bestimmt wurde welche verwendet}
 
+Ebenfalls ist unbekannt, in Bezug zu welcher Referenzstation die bisherigen Daten ausgewertet wurden.
+Wie in Kapitel~\ref{sec:refstation} erwähnt wird durch die VRS keine Verbesserung in der Basislinienberechnung erreicht,
+weshalb sich für die AGNES-Station HABG entschieden wurde.
+Es wird davon ausgegangen, dass diese auch bisher verwendet wurde, da sie näher liegt als die umliegenden Refnet-Stationen und
+dass zur Zeit der ersten GNSS-Messungen am Schwanderbärgli vermutlich noch keine anderen Referenzsysteme in der Schweiz vorhanden waren.
 
 
 %Notitzen:
-%ziel neues netz design, jedoch an bestehendem anschliessen und vereinfachen
-%mit bestem wissen und gewissen netzplanung erarbeitet
-%bei datenaufbereitung einige unstimmigkeiten gefunden (grosse gdop, stockhöhe, )
-%schwierig ein monitoring im bezug zu letzter aufnahme auswerten, ohne zu wissen wie diese damals gemacht
-%gnss in lhn95 statt ln02 um differenz geoid und schwere nicht systematisch mit einzubeziehen
-%schlussendlich doch in ln02 da bishher immer so gemacht -> woher höhe von 9000? auch anderst als swisstopo? schwierig zu beurteilen ohne info, einfach so entschieden
-%habg anstatt vrs da näher und weniger verfälscht
 %einfluss ionosphäre und troposphäre systematisch, grosse unterschiede nicht erklärbar, berechnet verwendet da empfohlen und sinnvollsten
 %nächstes mal evtl meteo bei gnss aufzeichnen? jedoch nicht in infinity berechenbar (saastamoinen modell mit eigenen werten, da auch offline funktonieren muss)
 
