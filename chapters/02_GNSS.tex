@@ -387,7 +387,29 @@ unter Berücksichtigung der Lotabweichung und Geoidundulation.
 Dabei ist $d$ die meteokorrigierte, gemittelte (I + II Lage) Schrägdistanz, $z_{A,B}$ die reduzierten Zenitwinkel und $I_{A,B}$ respektive 
 $S_{A,B}$ die Instrumenten- und Zielhöhen.
 
-Tabelle \todo{zite table} zeigt die a priori und die empirische Standardabweichung für die 
+Tabelle \ref{tab:THB_Stdabw} zeigt die a priori- und empirischen Standardabweichungen für die THB-Höhen. Die Unterschiede zwischen a priori 
+und a posteriori sind statistisch nicht signifikant.  
+
+\begin{table}[h]
+    \centering
+    \caption{A priori und empirische Standardabweichungen aller THB Höhendifferenzen unter der Berücksichtigung, dass die Mehrfachmessungen 
+    nicht unabhängig sind.}
+    \label{tab:THB_Stdabw}
+    \begin{tabular}{rcc}
+        \toprule
+        \textbf{Strecke} & $\mathbf{\sigma}$\textbf{A Priori [mm]} & $\mathbf{\sigma}$\textbf{Empirisch [mm]} \\
+        \midrule
+        9000 - EX7000 & 4.0 & 6.6  \\
+        \rowcolor{lightgray}
+        9000 - 6015 & 3.3 & 3.2 \\
+        EX9500 - EX6015 & 2.7 & 6.9 \\
+        \rowcolor{lightgray}
+        EX6015 - 7000 & 1.6 & 1.7  \\
+        6015 - 7000 & 1.6 & 1.3 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 \subsection{Diskussion}
 \label{sec:diskussion_Schwanderbärgli}
