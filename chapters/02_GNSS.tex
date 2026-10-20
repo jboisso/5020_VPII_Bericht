@@ -56,14 +56,12 @@ Schwanderbärgli wird im Bezugssystem CH1903+ (LV95/LHN95) ausgewertet.
 \subsubsection{Koordinatenberechnung GNSS Grundlagennetz}
 Da für die vier lokalen Referenzstationen nicht ausgeschlossen werden kann, dass sie von Deformationen betroffen sind, 
 werden deren Basislinien zur nächstgelegenen AGNES-Station Hasliberg (HABG) berechnet. Diese liegt 
-rund 10 km vom Projektperimeter entfernt auf 1089 m.ü.M (CH1903+) \parencite{swisstopo_hfp1_2026}. 
+rund 10 km vom Projektperimeter entfernt auf 1098 m.ü.M (CH1903+)\parencite{swisstopo_hfp1_2026}. 
 
 Die Zeitreihendarstellung des GDOP und der 3D-Residuen zur statischen Lösung weisen keine nennenswerten Ausreisser 
 auf, weshalb die Messdaten nicht weiter manuell bereinigt werden. Für die Basislinienberechnung werden die präzisen Ephemeriden 
-des Center for Orbit Determination in Europe (CODE) verwendet. Die ionosphärischen Korrekturen werden aus den 
-Messdaten geschätzt, während zur Modellierung der Troposphäre die Vienna Mapping Function (VMF) 
-\parencite{boehm_vienna_2004} mit dem Global Pressure and Temperature Model GPT2 \parencite{lagler_gpt2_2013} 
-verwendet werden. Die finalen Koordinaten der Punkte 7000 und 7004 werden noch um den Offset aus der Dreifusszentrierung 
+des Center for Orbit Determination in Europe (CODE) verwendet. Die ionosphärischen sowie die troposphärischen Korrekturen werden jeweils aus den 
+Messdaten geschätzt. Die finalen Koordinaten der Punkte 7000 und 7004 werden noch um den Offset aus der Dreifusszentrierung 
 (vgl. hierzu auch \cite{walti_vertiefungsprofil_2026}) korrigiert.
 
 Anschliessend werden die Verdichtungspunkte (gelb in Abbildung \ref{fig:abb-gnss}) zu den lokalen Referenzstationen 
@@ -82,7 +80,7 @@ Gewicht erhält. Die gemittelten Koordinaten werden ebenfalls wo nötig um den
 Offset der Dreifusszentrierung korrigiert und anschliessend in ein .mes-File konvertiert. Es werden zwei Files erstellt, 
 eines mit ellipsoidischen Höhen zum Vergleich mit der trigonometrischen Höhenbestimmung (THB) und eines mit 
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
-sind in den Anhängen \todo{ANhang referenzieren} beigelegt.
+sind in den Anhängen \todo{Anhang referenzieren} beigelegt.
 
 \subsection{Untersuchung von GNSS-Einflüssen}
 Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
@@ -94,7 +92,7 @@ Die Messungen wurden durch das gezielte Ausschalten einzelner Satelliten sowie g
 Dabei wurden Satelliten mit geringer Elevation, starkem Multipath oder schlechtem Signal-Rausch-Verhältnis (SNR) ausgeschlossen, ebenso Zeitperioden mit ungünstiger Satellitengeometrie (hoher GDOP) oder Signalabschattungen.
 Dies führte zu einer höheren Anzahl fixierter Ambiguitäten und zu einer geringeren Streuung der Koordinatenlösungen.
 Die resultierenden Abweichungen sind in Tabelle \ref{tab:abweichungen} dargestellt. 
-Die Konvergenszeit wurde ebensfall bei jeder Messung abgeschnitten.
+Die Konvergenzzeit wurde ebenfalls bei jeder Messung abgeschnitten.
 
 % Im Preamble: \usepackage{booktabs}
 \begin{table}[htbp]
@@ -141,7 +139,7 @@ Die Spitzen treten nur kurzzeitig auf und sind auf Zeitfenster mit ungünstiger 
 Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet, ohne die Lotabweichung oder lokale 
 Schwere zu korrigieren. Der neue Höhenreferenzrahmen 
 LHN95 hingegen basiert sowohl auf Nivellement-, GNSS- und Schweremessungen. Die  
-Lotabweichung und die lokale Schwere korrigiert wurden korrigiert, woraus streng orthometrische Höhen resultieren. Während entlang 
+Lotabweichung und die lokale Schwere wurden korrigiert, woraus streng orthometrische Höhen resultieren. Während entlang 
 der Nivellementlinien die Differenzen zwischen LN02 und LHN95 wenige Millimeter betragen, können diese 
 ausserhalb der Linien auf bis zu 65 cm anwachsen. Zwischen den 
 beiden Referenzrahmen besteht nur eine Näherungstransformation (HTRANS), aber keine streng mathematische Beschreibung. 
@@ -151,7 +149,7 @@ Im Schwanderbärgli beträgt der Höhenoffset zwischen LN02 und LHN95 entlang de
 rund 2.8 cm. Mit zunehmender Höhe steigt die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506. 
 Die GNSS-Messungen werden in LHN95 berechnet, um Abweichungen aus der HTRANS nicht in das Netz zu integrieren. 
 Weiter werden die Höhen im Netz aber als Gebrauchshöhen behandelt. Einzig in den TPS-Messungen und der THB werden 
-die Lotabweichung und Geoidundulation korrigiert.
+die Lotabweichung und Geoidundulation korrigiert. Somit ist das gesamte Netz nun mit ’LN02-Eigenschaften’ auf der Höhe von LHN95 gelagert.
 
 \subsubsection{Einfluss der Referenzstation}
 \label{sec:refstation}
@@ -198,13 +196,13 @@ Die Ergebnisse sind in folgender Tabelle~\ref{tab:iono-ber} dokumentiert.
     \label{tab:iono-ber}
     \begin{tabular}{rccc}
         \toprule
-        \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
+        \textbf{Pkt.-Nr.} & \textbf{Ost [mm]} & \textbf{Nord [mm]} & \textbf{Ortho. Höhe [mm]} \\
         \midrule
         \rowcolor{lightgray}
-        7000 &  0.0067 & -0.0023 &  \textcolor{red}{0.0171} \\
-        7004 &  0.0056 & -0.0018 &  0.0095 \\
-        7015 &  0.0057 & -0.0019 & -0.0046 \\
-        9500 &  0.0059 & -0.0011 &  0.0058 \\
+        7000 &  6.7 & -2.3 &  \textcolor{red}{17.1} \\
+        7004 &  5.6 & -1.8 &  9.5 \\
+        7015 &  5.7 & -1.9 & -4.6 \\
+        9500 &  5.9 & -1.1 &  5.8 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -218,13 +216,13 @@ Die Ergebnisse können der Tabelle~\ref{tab:klobuchar-ber} entnommen werden.
     \label{tab:klobuchar-ber}
     \begin{tabular}{rccc}
         \toprule
-        \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
+        \textbf{Pkt.-Nr.} & \textbf{Ost [mm]} & \textbf{Nord [mm]} & \textbf{Ortho. Höhe [mm]} \\
         \midrule
         \rowcolor{lightgray}
-        7000 & -0.0040 &  0.0012 &  \textcolor{red}{0.0107} \\
-        7004 & -0.0037 &  0.0008 &  0.0010 \\
-        7015 & -0.0035 &  0.0004 & -0.0054 \\
-        9500 & -0.0033 & -0.0001 &  0.0039 \\
+        7000 & -4.0 &  1.2 &  \textcolor{red}{10.7} \\
+        7004 & -3.7 &  0.8 &  1.0 \\
+        7015 & -3.5 &  0.4 & -5.4 \\
+        9500 & -3.3 & -0.1 &  3.9 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -239,12 +237,12 @@ wird diesem die beste Genauigkeit zugesprochen und für die weiteren Auswertunge
 \subsubsection{Einfluss des Troposphärenmodells}
 \label{sec:troposphäre}
 Die Troposphäre ist kein dispersives Medium, weshalb ihre Verzögerung nicht mittels Mehrfrequenzempfängern eliminiert werden kann.
-Wie in Kapitel~\ref{sec:literaturrecherche} behandelt, besteht die Troposphäre aus einem homogenen, gut modellierbaren - sowie einen
+Wie in der Literaturrecherche (Kapitel~\ref{sec:literaturrecherche}) behandelt, besteht die Troposphäre aus einem homogenen, gut modellierbaren - sowie einen
 hydrostatischen, schlecht modellierbaren Teil. Je nach Elevationswinkel kann die Signalverzögerung bis zu mehreren Metern betragen,
 was sich stark auf die Positionsgenauigkeit auswirkt. Ziel ist es also, für diese Korrektur das bestmögliche Modell zu verwenden
 oder zu berechnen. In Infinity stehen rund fünf verschiedene Methoden als Auswertestrategie für das Troposphärenmodell zur Verfügung.
-Die wichtigsten beiden sind «Berechnet» und «VMF mit GPT2-Modell» also den Vienna Mapping Functions mit dem
-Global Pressure and Temperature 2 Modell aus dem Jahr 2004 und 2013. Die übrigen, namentlich: Essen und Froome (1951),
+Die wichtigsten beiden sind «Berechnet» und «VMF mit GPT2-Modell» also den Vienna Mapping Functions \parencite{boehm_vienna_2004} mit dem
+Global Pressure and Temperature 2 Modell \parencite{lagler_gpt2_2013} aus dem Jahr 2004 und 2013. Die übrigen, namentlich: Essen und Froome (1951),
 Hopfield/Modifiziertes Hopfield (1969) und Saastamoinen (1972) sind bereits etwas veraltet und ziehen einen Qualitätsverlust mit sich.
 Der automatische Modus von Infinity verwendet für Messungen von weniger als 45min die Vienna Mapping Functions,
 für längere Messungen wird ein eigenes Troposphärenmodell berechnet.
@@ -260,13 +258,13 @@ variiert widerum der höchste Punkt 7000 um über einem Zentimeter. Die übrigen
     \label{tab:vmf-ber}
     \begin{tabular}{rccc}
         \toprule
-        \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
+        \textbf{Pkt.-Nr.} & \textbf{Ost [mm]} & \textbf{Nord [mm]} & \textbf{Ortho. Höhe [mm]} \\
         \midrule
         \rowcolor{lightgray}
-        7000 &  0.0000 &  0.0000 &  \textcolor{red}{-0.0118} \\
-        7004 &  0.0001 &  0.0000 & -0.0016 \\
-        7015 &  0.0001 &  0.0001 &  0.0042 \\
-        9500 &  0.0001 &  0.0000 & -0.0053 \\
+        7000 &  0.0 &  0.0 &  \textcolor{red}{-11.8} \\
+        7004 &  0.1 &  0.0 & -1.6 \\
+        7015 &  0.1 &  0.1 &  4.2 \\
+        9500 &  0.1 &  0.0 & -5.3 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -281,13 +279,13 @@ Abweichungen von bis zu einem halben Millimeter zu erkennen. In der Höhe ist da
     \label{tab:saas-ber}
     \begin{tabular}{rccc}
         \toprule
-        \textbf{Pkt.-Nr.} & \textbf{Ost [m]} & \textbf{Nord [m]} & \textbf{Ortho. Höhe [m]} \\
+        \textbf{Pkt.-Nr.} & \textbf{Ost [mm]} & \textbf{Nord [mm]} & \textbf{Ortho. Höhe [mm]} \\
         \midrule
         \rowcolor{lightgray}
-        7000 & -0.0005 &  0.0001 &  \textcolor{red}{-0.0143} \\
-        7004 & -0.0004 &  0.0001 &  0.0007 \\
-        7015 & -0.0003 &  0.0002 &  0.0075 \\
-        9500 & -0.0004 &  0.0001 & -0.0013 \\
+        7000 & -0.5 &  0.1 &  \textcolor{red}{-14.3} \\
+        7004 & -0.4 &  0.1 &  0.7 \\
+        7015 & -0.3 &  0.2 &  7.5 \\
+        9500 & -0.4 &  0.1 & -1.3 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -310,12 +308,12 @@ der Troposphäre nutzt CSRS-PPP VMF3 Grid-Werte \parencite{government_of_canada_
 während des Messzeitraums, aus welchen ein Raster von Korrekturwerten für die ZTD berechnet werden. Zudem schätzt die PPP-Auswertung 
 immer auch den verbleibenden ZTD-Wert aus den Messdaten mit. Tabelle \ref{tab:ppp_baseline} zeigt die Standardabweichung der einzelnen 
 PPP-Berechnungen. Auffällig sind die erhöhten Werte bei den Punkten mit kürzerer Messdauer wie 6006 und 6010. Die lokalen 
-Referenzstationen hingegen weisen besonders in der Lage hohe Genauigkeiten von $ \leq $ 3~mm  auf. 
+Referenzstationen hingegen weisen besonders in der Lage hohe Genauigkeiten von $ \leq $ 3~mm  auf.
 
 \begin{table}[h!]
     \centering
     \caption{Standardabweichung der PPP-Berechnung und Differenzen zur definitiven Basislinienauswertung. In Fett sind die 
-    lokalen Referenzstationen.}
+    Punkte mit > 40 h Messdauer.} 
     \label{tab:ppp_baseline}
     \begin{tabularx}{\textwidth}{c c | *{3}{>{\centering\arraybackslash}X} | *{2}{>{\centering\arraybackslash}X}}
         \toprule
@@ -419,40 +417,48 @@ Lagen gegenseitig gemessen. Um der Korrelation zwischen den Sätzen Rechnung zu 
     \end{tabular}
 \end{table}
 
-Der Vergleich der redundanten Strecken [9000-7000] - [9000-6015-7000] ergibt eine Höhendifferenz von 28~mm. 
-Auch die Höhe [6003-6015-7000] - [6003-EX6015-7000] weist 15~mm Differenz auf.
-Beide Differenzen liegen deutlich über den erwarteten Genauigkeiten aus a priori Standardabweichung der einzelnen Höhendifferenzen.
-Dies deutet darauf hin, 
-dass weitere, nicht berücksichtigte Einflüsse bestehen, welche nicht durch die gleichzeitig gegenseitigen Messungen 
-eliminiert werden. Da eine exakt gleichzeitige Messung die EDM-Systeme der Tachymeter stören würde, kann ein leichter 
-Einfluss der Refraktion nicht ausgeschlossen werden. Dieser müsste allerdings bereits in der Standardabweichung der 
-Satzmittel sichtbar werden und erklärt somit die hohen Abweichungen nicht. 
-Wie das geometrische Nivellement, ist auch die trigonometrische Höhenbestimmung wegabhängig \cite{elmiger_landesvermessung_1997}. Dieser Effekt dürfte aber 
-deutlich kleiner ausfallen, da das Geoid innerhalb des Messperimeters relativ homogen verläuft. Auch liessen sich 
-hiermit die Differenzen zwischen den fast identischen Strecken 6003-6015-7000 und 6003-EX6015-7000 nicht erklären.
+Aus den gemessenen THB-Strecken lassen sich zusammen mit dem Nivellement zwischen 9000 und EX9500 mehrere Schlaufen 
+berechnen, in denen der Höhenunterschied 0~mm ergeben sollte. Mit Ausnahme einer Schlaufe weisen alle Differenzen von 
+15~mm bis 32~mm auf. Die einzige Schlaufe, die eine Differenz nahe der erwarteten Standardabweichung zeigt, ist der Vergleich 
+von 9000-EX7000-7000 zu 9000-EX9500-EX6015-7000 mit 9~mm. Dabei fällt auf, dass die Station 6015 die einzige ist, welche 
+in allen Schlaufen mit hohen Abweichungen vertreten ist, nicht aber in der passenden. Die Ursache für eine Mögliche 
+Abweichung in 6015 kann nicht identifiziert werden. Die Messungen von und zu dieser Station weisen keine Unregelmässigkeiten auf, 
+die Instrumenten- und Zielhöhen sind gemäss Dokumentation alle richtig gesetzt und die Prismenkonstante ist korrekt ausgewählt. 
 
-Abschliessend sind somit für die THB Genauigkeiten von ca. 2-3~cm anzunehmen für die gemessenen Distanzen von maximal 
-2.4~km und 575 Höhenmeter.
+Für die weiteren Berechnungen werden alle THB-Messungen von und zu 6015 eliminiert. Dennoch ist die Möglichkeit in Betracht zu ziehen, 
+dass es Zufall ist, dass die Messungen ohne 6015 passen. Dies insbesondere, da kein Fehlereinfluss identifiziert werden konnte und 
+kaum Redundanz in den THB-Messungen besteht ohne 6015. Die verbleibenden THB-Messungen werden zusammen mit dem Nivellement in einem 
+freien Netzausgleich ausgeglichen, um Widersprüche innerhalb der THB auf die einzelnen Messungen zu verteilen. Das Netz hat eine 
+Überbestimmung von 1 und ermöglicht keine zuverlässigen Aussagen über die Genauigkeit. 
 
 \subsubsection{THB und GNSS}
-Der Vergleich der Höhendiffernzen aus der THB mit den aus den GNSS-Messungen berechneten Höhen zeigt Abweichungen 
-von -11~mm bis +40~mm (siehe Tabelle \todo{link table}). Dabei ist keine Korrelation von Höhe über Meer des GNSS-Punktes 
-und Abweichung zu erkennen, diese scheinen viel mehr zufällig verteilt zu sein. Die grösste Differenz ist in der längsten 
-Visur, die weiteren Visuren weisen aber auch keinen Zusammenhang zwischen Abweichung und Länge der Visur auf. 
+Ein erster Vergleich der unausgeglichenen THB-Höhen (inkl. 6015) mit Höhendifferenzen aus den GNSS-Messungen ergibt 
+Unterschiede von -11~mm bis +40~mm. Diese sind scheinbar zufällig verteilt und es ist keine Korrelation zwischen 
+Höhenunterschied und Differenzen sichtbar.
+Erst der Vergleich der bereinigten und ausgeglichenen Höhendifferenzen zeigt eine Korrelation der Abweichungen 
+und der GNSS-Höhen (siehe Tabelle \ref{tab:THB_GNSS}).
 
-Ein freier, robuster Netzauslgeich aller Nivellement-, GNSS- und THB-Messungen bestätigt die Spannungen innerhalb der THB. 
-Dabei weisen die kurzen Messungen zu den Exzentren (EX7000-7000 und EX6015-6003) die grössten normierten Verbesserungen 
-($wi \leq 18$) auf. Werden diese deaktiviert, erhalten alle Messungen einen ($wi \leq 3$), es entfällt aber auch jegliche 
-Redundanz aus der THB. Allfällige Wiedersprüche zwischen den GNSS-Höhen, dem Nivellement und der THB werden in den langen Visuren 
-der THB ``verdrückt'' und fallen dort kaum ins Gewicht. Werden die GNSS-Messungen deaktiviert und die Exzenter-Messungen mit 
-Nivellementgenauigkeit eingeführt, lassen sich die Spannungen ebenfalls auf die langen Visuren verteilen. Der Vergleich der 
-ausgeglichenen THB-Höhen mit den GNSS Höhen lässt jedoch auch keine Systematik erkennen. Mit den vorhandenen Messdaten 
-lässt sich keine der THB-Visuren als eindeutig fehlerhaft identifizieren.
+\begin{table}[h]
+    \centering
+    \caption{Differenzen THB-GNSS Höhendifferenzen und die daraus resultierenden Höhenmassstäbe.}
+    \label{tab:THB_GNSS}
+    \begin{tabular}{rcccc}
+        \toprule
+        \textbf{Strecke} & $\mathbf{GNSS_{BL}}$\textbf{[mm]} & $\mathbf{Mst_{BL}}$ \textbf{[ppm]} & $\mathbf{GNSS_{PPP}}$\textbf{[mm]} & $\mathbf{Mst_{PPP}}$ \textbf{[ppm]}\\
+        \midrule
+        9000 - EX9500 & 13 & 535 & 10 & 450 \\
+        \rowcolor{lightgray}
+        9000 - 6003 & 26 & 51 & 30 & 60 \\
+        9000 - 7000 & 34 & 59 & 28 & 49 \\
+        \bottomrule
+    \end{tabular}
+\end{table} 
 
-Die GNSS-Messungen lassen sich nicht realistisch anhand der THB-Messungen korrigieren. Die THB kann 
-als zusätzliche Kontrolle in einen hybriden Gesamtnetzausgleich eingeführt werden, dabei muss aber darauf geachtet werden, 
-dass die Spannungen aus der THB nicht auf das Netz übergehen und sie einen reinen Kontrolleffekt hat. 
-
+Insgesamt weisen die GNSS-Koordinaten aus der PPP-Berechnung geringere Abweichungen zu den THB-Höhen auf. Aufgrund der 
+kleinen Stichprobe lässt sich jedoch keine zuverlässige Signifikanz bestimmen. Auffällig ist in beiden GNSS-Sätzen der 
+grosse Massstab zwischen 9000 und EX9500. Dieser ist aber zu relativieren, da die Höhendifferenz lediglich 23~m beträgt. 
+Bei einer GNSS-Höhengenauigkeit von 10~mm folgt eine Genauigkeit der Höhendifferenz von 14~mm. Da die Abweichung von 13~mm innerhalb 
+der Genauigkeit liegt, ist der Massstab als nicht signifikant zu betrachten.
 
 
 \subsection{Diskussion}
@@ -486,6 +492,9 @@ Wie in Kapitel~\ref{sec:refstation} erwähnt wird durch die VRS keine Verbesseru
 weshalb sich für die AGNES-Station HABG entschieden wurde.
 Es wird davon ausgegangen, dass diese auch bisher verwendet wurde, da sie näher liegt als die umliegenden Refnet-Stationen und
 dass zur Zeit der ersten GNSS-Messungen am Schwanderbärgli vermutlich noch keine anderen Referenzsysteme in der Schweiz vorhanden waren.
+
+% begründung wiso bei thb den massstab nicht verwendet (über 1cm zw. 9000 und ex9500, ergibt unten 500ppm und oben aus rund 3cm nur ca. 60ppm)
+% einheitlicher massstab macht kein sinn -> thb lediglich in ausgleich als zusätzliche beobachtung verwenden als um gnss mess zu korr
 
 
 %Notitzen:
