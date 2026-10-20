@@ -148,12 +148,10 @@ Die Transformation zwischen den beiden Systemen kann somit zu einem Genauigkeits
 Im Schwanderbärgli beträgt der Höhenoffset zwischen LN02 und LHN95 entlang der Fixpunkte im Tal (9000 - 9500 - TP510) 
 rund 2.8 cm. Mit zunehmender Höhe steigt die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506. 
 Die GNSS-Messungen werden in LHN95 berechnet, um Abweichungen aus der HTRANS nicht in das Netz zu integrieren. 
-Weiter werden die Höhen im Netz aber als Gebrauchshöhen behandelt. Einzig in den TPS-Messungen und der THB werden 
-die Lotabweichung und Geoidundulation korrigiert. Somit ist das gesamte Netz nun mit ’LN02-Eigenschaften’ auf der Höhe von LHN95 gelagert.
 
 \subsubsection{Einfluss der Referenzstation}
 \label{sec:refstation}
-Die vier lokalen Referenzstationen werden zum Verlgeich sowohl zur Agnes-Station HABG, als auch zu einer 
+Die vier lokalen Referenzstationen werden zum Vergleich sowohl zur Agnes-Station HABG, als auch zu einer 
 virtuellen Referenzstation (VRS) berechnet. Die VRS wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
 Die Basislinien zur VRS weisen für alle Stationen deutlich mehr und grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
 Während der GDOP der Basislinien zur HABG 4.5 nicht überschreitet, steigt dieser stellenweise auf über 15 für Basislinien zur VRS.
@@ -161,21 +159,20 @@ Die Koordinatendifferenzen zwischen den Berechnungen mit der HABG und mit der VR
 Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
 ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der VRS keine Genauigkeitssteigerung zu 
 erwarten.
-
-Welche Referenzstation in den Vorjahren verwendet wurde, ist nicht dokumentiert. Es ist jedoch naheliegend, dass eine 
-AGNES-Station verwendet wurde, da diese näher liegt als die umliegenden Refnet-Stationen. Zudem gab es zur Zeit 
-der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-Stationen in der Schweiz.
 \todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
+\todo{Einfluss der lokalen Referenzstation beschreiben und Boxplots einfügen}
 
 \subsubsection{Einfluss des Ionosphärenmodells}
 \label{sec:ionosphäre}
-Da die Ionosphäre ein dispersives Medium ist, können die meisten ionosphärischen Effekte durch die unterschiedliche
-Verzögerung des Signals (z.B. L1 und L2) eliminiert werden. Dies ist jedoch nur möglich, wenn mit Mehrfrequenzempfängern
-gemessen wurde. Infinity rechnet sobald mehr als 45min Messdauer vorhanden sind ein eigenes Modell der Verzögerungen. 
+Da die Ionosphäre ein dispersives Medium ist, kann die ionosphärische Laufzeitverzögerung durch die unterschiedliche
+Beeinflussung der Signale (z.B. L1 und L2) eliminiert werden. Dies ist nur möglich, wenn mit Mehrfrequenzempfängern
+gemessen wird. Leica Infinity eliminiert die ionosphärischen Einflüsse für Mehrfrequenzmessungen mit > 45~min Messdauer über ein 
+aus den Messungen berechnetes Modell. Alternativ können vordefinierte Ionosphärien-Modelle verwendet werden. 
 Im Prozess der Auswertung wird untersucht, wie viel Einfluss die unterschiedliche Modellierung der ionosphärischen
 Verzögerungen auf die Messresultate hat.
 
-Grundsätzlich herrschte während der Messdauer keine besonderen Verhältnisse in der Ionosphäre, wie gemäss Abbildung~\ref{fig:abb-I95} ein Ausschnitt aus der I95 Dokumentation der Swisstopo zeigt.
+Grundsätzlich herrschte während der Messdauer geringe ionosphärische Aktivität, wie die I95 Dokumentation der 
+Swisstopo in Abbildung~\ref{fig:abb-I95} zeigt.
 
 \begin{figure}[h!]
     \centering
@@ -187,12 +184,12 @@ Grundsätzlich herrschte während der Messdauer keine besonderen Verhältnisse i
 \FloatBarrier
 
 Im ersten Versuch wurde als Ionosphärenmodell (.ION - File) eine tägliche Berechnung der Uni Bern (CODE) verwendet.
-Diese Lösung zeigt in der Lage deutliche systematische Abweichungen zu unserer ursprünglichen Berechnung,
+Diese Lösung zeigt in der Lage deutliche systematische Abweichungen zur Modellierung aus den Messungen,
 in welcher der Einfluss mittels Zweifrequenzen eliminiert wurde.
-Die Ergebnisse sind in folgender Tabelle~\ref{tab:iono-ber} dokumentiert.
+Die Ergebnisse sind in Tabelle~\ref{tab:iono-ber} dokumentiert.
 \begin{table}[htbp]
     \centering
-    \caption{Differenzen zwischen den Koordinaten. (Ionosphärenmodell - Berechnet)}
+    \caption{Differenzen zwischen den Koordinaten (Ionosphärenmodell - Berechnet).}
     \label{tab:iono-ber}
     \begin{tabular}{rccc}
         \toprule
@@ -208,12 +205,12 @@ Die Ergebnisse sind in folgender Tabelle~\ref{tab:iono-ber} dokumentiert.
     \end{tabular}
 \end{table}
 
-Im zweiten Versuch wird das weltweite Ionosphärenmodell von Klobuchar (1996) \parencite{j_sanz_subirana_klobuchar_2011},
-verwendet. Dies wurde  hauptsächlich für Einfrequenzempfänger entwickelt und empirisch aus Erfahrungswerten bestimmt.
-Die Ergebnisse können der Tabelle~\ref{tab:klobuchar-ber} entnommen werden.
+Im zweiten Versuch wird das globale Ionosphärenmodell von Klobuchar (1996) \parencite{j_sanz_subirana_klobuchar_2011},
+verwendet. Dieses wurde  hauptsächlich für Einfrequenzempfänger entwickelt und empirisch aus Erfahrungswerten bestimmt.
+Der Vergleich mit dem berechneten Modell ist wiederum in Tabelle~\ref{tab:klobuchar-ber} zusammengefasst.
 \begin{table}[htbp]
     \centering
-    \caption{Differenzen zwischen den Koordinaten. (Klobucharmodell - Berechnet)}
+    \caption{Differenzen zwischen den Koordinaten (Klobucharmodell - Berechnet).}
     \label{tab:klobuchar-ber}
     \begin{tabular}{rccc}
         \toprule
@@ -229,10 +226,12 @@ Die Ergebnisse können der Tabelle~\ref{tab:klobuchar-ber} entnommen werden.
     \end{tabular}
 \end{table}
 
-Aus diesen beiden Tabellen wird ersichtlich, dass in der Lage systematische Abweichungen vorliegen.
-Das berechnete Modell befindet sich lagemässig inmitten der beiden globalen Modelle. 
-In der Höhe weist der höchstgelegene Punkt ebenfalls die grösste Höhendifferenz aus.
-Dabei wird er von beiden Modellen höher geschätzt als die berechnete Lösung ergibt.
+Der Vergleich zeigt, dass das Ionosphärenmodell systematische Einflüsse auf die Lage hat. Während die Differenzen der 
+beiden Modellen in der Lage unterschiedliche Vorzeichen aufweisen, sind die Veränderungen in der Höhe in beiden Modellen 
+in dieselbe Richtung. Anders als in der Lage ist dort aber keine Systematik innerhalb eines Modells erkennbar.
+Aus diesen beiden Tabellen wird ersichtlich, dass in der Lage systematische Abweichungen vorliegen. 
+Punkt 7000 liegt am höchsten der verglichenen Punkte. Dies allein erklärt jedoch nicht die markant grösseren 
+Abweichungen in beiden Modellen.
 Da die örtlichen Gegebenheiten am besten im berechneten Modell repräsentiert werden,
 wird diesem die beste Genauigkeit zugesprochen und für die weiteren Auswertungen verwendet.
 
@@ -246,10 +245,10 @@ oder zu berechnen. In Infinity stehen rund fünf verschiedene Methoden als Auswe
 Die wichtigsten beiden sind «Berechnet» und «VMF mit GPT2-Modell» also den Vienna Mapping Functions \parencite{boehm_vienna_2004} mit dem
 Global Pressure and Temperature 2 Modell \parencite{lagler_gpt2_2013} aus dem Jahr 2004 und 2013. Die übrigen, namentlich: Essen und Froome (1951),
 Hopfield/Modifiziertes Hopfield (1969) und Saastamoinen (1972) sind bereits etwas veraltet und ziehen einen Qualitätsverlust mit sich.
-Der automatische Modus von Infinity verwendet für Messungen von weniger als 45min die Vienna Mapping Functions,
+Der automatische Modus von Infinity verwendet für Messungen von weniger als 90~min die Vienna Mapping Functions,
 für längere Messungen wird ein eigenes Troposphärenmodell berechnet.
 
-Wie im vorangehenden Kapitel~\ref{sec:ionosphäre} wird die Auswirkung dieser Auswertemethoden auf die Punktgenauigkeit untersucht.
+Wie im vorangehenden Kapitel~\ref{sec:ionosphäre} wird die Auswirkung dieser Auswertemethoden auf die Koordinaten untersucht.
 Dabei wird das Resultat des berechneten Modells mit jenem der VMF mit GPT2-Modell verglichen. Der Tabelle~\ref{tab:vmf-ber} ist zu entnehmen,
 dass sich die beiden Punkte in der Lage mit einem Wert von weniger als einem Millimeter kaum unterscheiden. In der Höhe jedoch
 variiert widerum der höchste Punkt 7000 um über einem Zentimeter. Die übrigen Punkte bewegen sich im Rahmen von lediglich 1-5 mm.
@@ -468,35 +467,36 @@ der Genauigkeit liegt, ist der Massstab als nicht signifikant zu betrachten.
 
 \subsection{Diskussion}
 \label{sec:diskussion_Schwanderbärgli}
-Ziel dieses Feldkurses war das bestehende Netz 'Überwachung des Schwanderbärgli' zu erneuern und zu vereinfachen.
-Dabei sollten neue Ansätze präsentiert werden, welche jedoch dieselbe Genauigkeit und Vergleichbarkeit aufweisen.
-In dieser Messkampagne wurden deutlich mehr GNSS-Messungen durchgeführt im Vergleich zu den vorjährigen Messungen.
-Das erhoffte Ziel, das innere Netz 'Brunni' lediglich mittels GNSS-Messungen in
-das Gesamtnetz zu integrieren konnte leider nicht erreicht werden.
-Ein ausschlaggebender Grund war, dass der GDOP des Punktes 6011 nahezu permanent den Wert vier übersteigt.
-In Anbetracht der Umliegenden Bewaldung und Abdeckung ist dies auch nicht sehr erstaunlich, wollte jedoch nicht unversucht bleiben.
+Eine Schwierigkeit in der Auswertung Schwanderbärgli ist die ungenügende oder uns unbekannte Dokumentation der 
+Auswertungen der Vorjahre. Wie in der Auswertung gezeigt, haben unterschiedliche Parameter grossen Einfluss 
+auf die erhaltenen Daten, weshalb eine konsistente Auswertung aller Kontrollmessungen wichtig wäre. Um das bestmögliche 
+Ergebnis zu erzielen, wurde die, nach aktuellem Wissensstand über die früheren Auswertungen, jeweils beste Lösung gewählt.
 
-Weiter soll das Gesamtnetz aussagekräftig ausgewertet werden.
-Hierzu ist es jedoch essenziell zu Wissen, wie es in den Vorjahren ausgewertet wurde.
-Da diese Grundlagen nicht oder nur bedingt zur Verfügung standen, mussten gewisse Annahmen getroffen werden.
-Wie in Kapitel~\ref{sec:koordbezsys} erläutert kann die Wahl des Koordinatenbezugssystems
-bereits einen systematischen Einfluss von bis über 10 cm erreichen.
-Um Abweichungen aus der HTRANS nicht in das Netz zu integrieren wurden die GNSS-Messungen in LHN95 berechnet.
-Dies soll gemäss Angaben der Kursleitung ebenfalls dem Vorgehen der letzten Auswertung entsprechen.
-Weiter wurden die Höhen im Netz aber als Gebrauchshöhen behandelt.      % bitzali nahezu direkes zitat aus kap koord bez sys
-Einzig in den TPS-Messungen und der THB wurden die Lotabweichung und Geoidundulation korrigiert.
-Somit ist das gesamte Netz nun mit 'LN02-Eigenschaften' auf der Höhe von LHN95 gelagert. % tönt recht gliich wie obe...
+Der Höhenbezug ist in der Auswertung Schwanderbärgli 2022 als LHN95 angegeben. Entsprechend werden die GNSS-Messungen 2026 ausgewertet 
+(siehe \ref{sec:koordbezsys}). 
+Dies bringt den Vorteil, dass in LHN95 keine Spannungen aus der HTRANS auf die Messungen übertragen werden. Dennoch 
+weicht die erhaltene GNSS-Höhe des Höhenanschlusspunktes 9000 um 11~mm von der bisherigen Höhe ab. Von dieser ist  
+nicht dokumentiert, wie sie entstanden ist. Sie stimmt nicht mit jener der Swisstopo in LN02 überein und ein Vergleich mit derselben Höhe nach 
+LHN95 transformiert ist auch nicht aufschlussreich. Dadurch kann nicht abschliessend festgestellt werden, ob die Differenz aus der 
+GNSS-Messgenauigkeit oder von anderen (systematischen) Einflüssen stammt. Weiter werden die Höhen im Netz aber als Gebrauchshöhen
+behandelt. Einzig in den TPS-Messungen und der THB werden die Lotabweichung und Geoidundulation
+korrigiert. Somit ist das gesamte Netz nun mit ’LN02-Eigenschaften’ auf der Höhe von LHN95 gelagert.
 
-Im Laufe der Auswertungen wurden unterschiedliche Höhenbezüge festgestellt.
-Die bis anhin verwendete Höhe des Punktes 9000 ist nicht nachvollziehbar dokumentiert.
-Sie stimmt nicht mit jener der Swisstopo überein und ein Vergleich mit derselben Höhe in LHN95 ist auch nicht aufschlussreich.
-\todo{Ergänzen wie nun bestimmt wurde welche verwendet}
+Wie die Auswertungen in Kapitel \ref{sec:refstation} zeigen, hat die Wahl der Referenzstation einen Einfluss 
+auf die erhaltenen GNSS-Positionen und Höhe. 
+Welche Referenzstation in den Vorjahren verwendet wurde, ist nicht dokumentiert. Es ist jedoch naheliegend, dass eine 
+AGNES-Station verwendet wurde, da diese näher liegt als die umliegenden Refnet-Stationen. Zudem gab es zur Zeit 
+der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-Stationen in der Schweiz. Dennoch 
+könnten die Differenzen im Punkt 9000 auch auf das Verwenden unterschiedlicher Referenzstationen zurückzuführen sein. 
+Sowohl die erhaltenen Genauigkeiten, als auch das Ziel, eine einheitliche Auswertung für künftige Messkampagnen zu schaffen, 
+sprechen dafür die AGNES-Station HABG als Referenzstation zu verwenden. Diese ist dauerhaft in Betrieb und sämtliche Änderungen 
+werden von der swisstopo dokumentiert. Alternativ wäre eine Auswertung der lokalen Basisstationen als PPP möglich. Dabei 
+entfällt die Abhängigkeit von einer externen Referenzstation und Tabelle \ref{tab:ppp_baseline} zeigt, dass PPP über die lange 
+Messdauer genügend gute Resultate liefert. Ob in der PPP-Auswertung der ZTD besser berücksichtigt wird und dies eine THB überflüssig macht, 
+lässt sich mit den vorliegenden Daten nicht sagen.
 
-Ebenfalls ist unbekannt, in Bezug zu welcher Referenzstation die bisherigen Daten ausgewertet wurden.
-Wie in Kapitel~\ref{sec:refstation} erwähnt wird durch die VRS keine Verbesserung in der Basislinienberechnung erreicht,
-weshalb sich für die AGNES-Station HABG entschieden wurde.
-Es wird davon ausgegangen, dass diese auch bisher verwendet wurde, da sie näher liegt als die umliegenden Refnet-Stationen und
-dass zur Zeit der ersten GNSS-Messungen am Schwanderbärgli vermutlich noch keine anderen Referenzsysteme in der Schweiz vorhanden waren.
+
+
 
 Die Kapitel~\ref{sec:ionosphäre} Ionosphäre und \ref{sec:troposphäre} Troposphäre zeigten auf, dass die jeweilige Methode den grössten Einfluss auf die Höhe hat.
 Pro Modell sind leichte systematische Abweichungen in der Lage erkennbar welche auf die jeweilige Modellierung zurückzuschliessen sind. 
@@ -523,3 +523,12 @@ Dies relativiert jedoch nicht den daraus resultierenden Massstab von 450 bis 535
 Auf die grösseren Höhen Unterschiede wirkt der Massstab von 49 bis 60 ppm weniger ausschlaggebend.
 Infolge dieser Unterschiede in der Bestimmung des Höhenmassstabes wurde sich dazu entschieden, keinen an den GNSS-Messungen anzubringen.
 Die Messungen aus der THB werden somit lediglich als weitere Beobachtungen in die gesamte Netzausgleichung einfliessen.
+
+\subsection{Fazit}
+Ziel dieses Feldkurses war das bestehende Netz 'Überwachung des Schwanderbärgli' zu erneuern und zu vereinfachen.
+Dabei sollten neue Ansätze präsentiert werden, welche jedoch dieselbe Genauigkeit und Vergleichbarkeit aufweisen.
+In dieser Messkampagne wurden deutlich mehr GNSS-Messungen durchgeführt im Vergleich zu den vorjährigen Messungen.
+Das erhoffte Ziel, das innere Netz 'Brunni' lediglich mittels GNSS-Messungen in
+das Gesamtnetz zu integrieren konnte leider nicht erreicht werden.
+Ein ausschlaggebender Grund war, dass der GDOP des Punktes 6011 nahezu permanent den Wert vier übersteigt.
+In Anbetracht der Umliegenden Bewaldung und Abdeckung ist dies auch nicht sehr erstaunlich, wollte jedoch nicht unversucht bleiben.
