@@ -105,7 +105,7 @@ Atmosphäre.
 
 Mapping Functions (MF) rechnen die Zenitverzögerung anhand des Elevationswinkels in eine Schrägverzögerung um.
 Der hydrostatische und der feuchte Anteil werden dabei jeweils mit einer eigenen MF multipliziert.
-Jede MF basiert auf den drei Koeffizienten $a$, $b$ und $c$, wobei $a$ der zu bestimmende Term ist \parencite{landskron2018vmf3}\todo{erklären, was a,b,c für Koeffizienten sind.}.
+Jede MF basiert auf den drei Koeffizienten $a$, $b$ und $c$, wobei $a$ der zu bestimmende Term ist \parencite{landskron_vmf3gpt3_2018}\todo{erklären, was a,b,c für Koeffizienten sind.}.
 
 Die Vienna Mapping Functions \todo{VMW Mapping function für ZWD oder ZHD?} (VMF) leiten den Koeffizienten $a$ aus Ray-Tracing durch numerische Wettermodelle ab, während $b$ und $c$ empirisch bestimmt werden \parencite{boehm_global_2006}.
 Mit VMF3 wurden diese empirischen Koeffizienten überarbeitet.
@@ -113,5 +113,5 @@ Bei $5^\circ$ Elevation verbessert VMF3 die Schrägverzögerung gegenüber VMF1 
 Der Gewinn stammt vor allem aus dem hydrostatischen Anteil und zeigt sich in Gebirgsregionen und bei tiefen Elevationen.\todo{Referenzen einfügen}
 
 Das empirische Modell GPT3 ist mit VMF3 konsistent \todo{was ist konsistent, was anders?} und benötigt nur Zeit und Position.
-Es ist jedoch kaum genauer als GPT2 \parencite{lagler_gpt2_2013} und weicht deutlich stärker vom Ray-Tracing ab als die diskreten VMF \parencite{landskron2018vmf3}.
+Es ist jedoch kaum genauer als GPT2 \parencite{lagler_gpt2_2013} und weicht deutlich stärker vom Ray-Tracing ab als die diskreten VMF \parencite{landskron_vmf3gpt3_2018}.
 Für die ZTD-Modellierung selbst erreicht das Modell GGZTD-P\todo{was ist dies für ein Modell?} einen um \SI{53}{\percent} kleineren RMS als GPT3, mit grösseren Abweichungen in stark reliefiertem Gelände \parencite{huang_global_2023}.
