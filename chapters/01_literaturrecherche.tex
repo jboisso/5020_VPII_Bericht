@@ -99,13 +99,19 @@ sie auseinandergehalten werden. Wird ZTD in Auswertung geschätzt
 
 \subsection{Mapping Functions}
 \label{sec:MappingFunctions}
-oder so
 
-Paper:
-A global grid model for the estimation of zenith tropospheric delay considering the variations at different altitudes
+Mapping Functions (MF) rechnen die Zenitverzögerung anhand des Elevationswinkels in eine Schrägverzögerung um.
+Der hydrostatische und der feuchte Anteil werden dabei jeweils mit einer eigenen MF multipliziert.
+Jede MF basiert auf den drei Koeffizienten $a$, $b$ und $c$, wobei $a$ der bestimmende Term ist \parencite{landskron2018vmf3}.
 
-Zum vergleich vom Wettermodel GPT2 und Co.
+Die Vienna Mapping Functions (VMF) leiten den Koeffizienten $a$ aus Ray-Tracing durch numerische Wettermodelle ab, während $b$ und $c$ empirisch bestimmt werden \parencite{boehm_global_2006}.
+Mit VMF3 wurden diese empirischen Koeffizienten überarbeitet.
+Bei $5^\circ$ Elevation verbessert VMF3 die Schrägverzögerung gegenüber VMF1 um durchschnittlich \SI{1.3}{\milli\metre}, was einer Höhenverbesserung von ca.\ \SI{0.25}{\milli\metre} entspricht.
+Der Gewinn stammt vor allem aus dem hydrostatischen Anteil und zeigt sich in Gebirgsregionen und bei tiefen Elevationen.
 
+Das empirische Modell GPT3 ist mit VMF3 konsistent und benötigt nur Zeit und Position.
+Es ist jedoch kaum genauer als GPT2 \parencite{lagler_gpt2_2013} und weicht deutlich stärker vom Ray-Tracing ab als die diskreten VMF \parencite{landskron2018vmf3}.
+Für die ZTD-Modellierung selbst erreicht das Modell GGZTD-P einen um \SI{53}{\percent} kleineren RMS als GPT3, mit grösseren Abweichungen in stark reliefiertem Gelände \parencite{huang_global_2023}.
 
 \subsection{Notizen zu Papers}
 \textbf{Comparative analysis of real-time precise point positioning zenith total delay estimates}
