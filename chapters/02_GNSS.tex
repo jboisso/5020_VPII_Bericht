@@ -201,6 +201,7 @@ Die Ergebnisse sind in folgender Tabelle~\ref{tab:iono-ber} dokumentiert.
         \rowcolor{lightgray}
         7000 &  6.7 & -2.3 &  \textcolor{red}{17.1} \\
         7004 &  5.6 & -1.8 &  9.5 \\
+        \rowcolor{lightgray}
         7015 &  5.7 & -1.9 & -4.6 \\
         9500 &  5.9 & -1.1 &  5.8 \\
         \bottomrule
@@ -221,6 +222,7 @@ Die Ergebnisse können der Tabelle~\ref{tab:klobuchar-ber} entnommen werden.
         \rowcolor{lightgray}
         7000 & -4.0 &  1.2 &  \textcolor{red}{10.7} \\
         7004 & -3.7 &  0.8 &  1.0 \\
+        \rowcolor{lightgray}
         7015 & -3.5 &  0.4 & -5.4 \\
         9500 & -3.3 & -0.1 &  3.9 \\
         \bottomrule
@@ -263,6 +265,7 @@ variiert widerum der höchste Punkt 7000 um über einem Zentimeter. Die übrigen
         \rowcolor{lightgray}
         7000 &  0.0 &  0.0 &  \textcolor{red}{-11.8} \\
         7004 &  0.1 &  0.0 & -1.6 \\
+        \rowcolor{lightgray}
         7015 &  0.1 &  0.1 &  4.2 \\
         9500 &  0.1 &  0.0 & -5.3 \\
         \bottomrule
@@ -284,6 +287,7 @@ Abweichungen von bis zu einem halben Millimeter zu erkennen. In der Höhe ist da
         \rowcolor{lightgray}
         7000 & -0.5 &  0.1 &  \textcolor{red}{-14.3} \\
         7004 & -0.4 &  0.1 &  0.7 \\
+        \rowcolor{lightgray}
         7015 & -0.3 &  0.2 &  7.5 \\
         9500 & -0.4 &  0.1 & -1.3 \\
         \bottomrule
@@ -358,7 +362,7 @@ in 6011 (siehe Kapitel \ref{sec:bereinigung_gnss}). Um Einflüsse aus dem Geoidm
 der ellipsoidischen Höhen durchgeführt. Die Abweichungen zeigen keine systematischen Effekte aufgrund der Lage oder Höhe 
 der einzelnen Punkte. Auch die Messdauer korreliert nicht mit den erhaltenen Abweichungen. 
 
-\subsection{THB und GNSS}
+\subsection{Trigonometrische Höhenbestimmung (THB)}
 Ziel der THB war es, mögliche Abweichungen aus dem ZTD in den GNSS-Messungen korrigieren zu können. Hierzu wurden in den 
 früheren Messkampagnen zwei Strecken zwischen insgesamt vier GNSS-Punkten mittels THB bestimmt. Aus den Differenzen der THB- und der 
 GNSS-Höhenunterschiede wurde ein Höhenmassstab für die GNSS-Messungen bestimmt und an diesen angebracht. Hierbei resultierten 
@@ -389,7 +393,7 @@ unter Berücksichtigung der Lotabweichung und Geoidundulation.
 \end{equation}
 
 Dabei ist $d$ die meteokorrigierte, gemittelte (I + II Lage) Schrägdistanz, $z_{A,B}$ die reduzierten Zenitwinkel und $I_{A,B}$ respektive 
-$S_{A,B}$ die Instrumenten- und Zielhöhen.
+$S_{A,B}$ die Instrumenten- und Signalhöhen.
 
 
 \subsubsection{Genauigkeiten THB}
@@ -432,6 +436,7 @@ freien Netzausgleich ausgeglichen, um Widersprüche innerhalb der THB auf die ei
 Überbestimmung von 1 und ermöglicht keine zuverlässigen Aussagen über die Genauigkeit. 
 
 \subsubsection{THB und GNSS}
+\label{thb-und-gnss}
 Ein erster Vergleich der unausgeglichenen THB-Höhen (inkl. 6015) mit Höhendifferenzen aus den GNSS-Messungen ergibt 
 Unterschiede von -11~mm bis +40~mm. Diese sind scheinbar zufällig verteilt und es ist keine Korrelation zwischen 
 Höhenunterschied und Differenzen sichtbar.
@@ -463,7 +468,7 @@ der Genauigkeit liegt, ist der Massstab als nicht signifikant zu betrachten.
 
 \subsection{Diskussion}
 \label{sec:diskussion_Schwanderbärgli}
-Ziel dieses Feldkurses war das bestehende Netz Überwachung des Schwanderbärgli zu erneuern und zu vereinfachen.
+Ziel dieses Feldkurses war das bestehende Netz 'Überwachung des Schwanderbärgli' zu erneuern und zu vereinfachen.
 Dabei sollten neue Ansätze präsentiert werden, welche jedoch dieselbe Genauigkeit und Vergleichbarkeit aufweisen.
 In dieser Messkampagne wurden deutlich mehr GNSS-Messungen durchgeführt im Vergleich zu den vorjährigen Messungen.
 Das erhoffte Ziel, das innere Netz 'Brunni' lediglich mittels GNSS-Messungen in
@@ -477,10 +482,10 @@ Da diese Grundlagen nicht oder nur bedingt zur Verfügung standen, mussten gewis
 Wie in Kapitel~\ref{sec:koordbezsys} erläutert kann die Wahl des Koordinatenbezugssystems
 bereits einen systematischen Einfluss von bis über 10 cm erreichen.
 Um Abweichungen aus der HTRANS nicht in das Netz zu integrieren wurden die GNSS-Messungen in LHN95 berechnet.
-Dies soll gemäss Angaben der Kursleitung ebenfalls dem Vorgehen von letzter Auswertung entsprechen.
+Dies soll gemäss Angaben der Kursleitung ebenfalls dem Vorgehen der letzten Auswertung entsprechen.
 Weiter wurden die Höhen im Netz aber als Gebrauchshöhen behandelt.      % bitzali nahezu direkes zitat aus kap koord bez sys
 Einzig in den TPS-Messungen und der THB wurden die Lotabweichung und Geoidundulation korrigiert.
-Somit ist das gesamte Netz nun mit 'LN02-Eigenschaften' auf der Höhe von LHN95 gelagert.
+Somit ist das gesamte Netz nun mit 'LN02-Eigenschaften' auf der Höhe von LHN95 gelagert. % tönt recht gliich wie obe...
 
 Im Laufe der Auswertungen wurden unterschiedliche Höhenbezüge festgestellt.
 Die bis anhin verwendete Höhe des Punktes 9000 ist nicht nachvollziehbar dokumentiert.
@@ -493,14 +498,28 @@ weshalb sich für die AGNES-Station HABG entschieden wurde.
 Es wird davon ausgegangen, dass diese auch bisher verwendet wurde, da sie näher liegt als die umliegenden Refnet-Stationen und
 dass zur Zeit der ersten GNSS-Messungen am Schwanderbärgli vermutlich noch keine anderen Referenzsysteme in der Schweiz vorhanden waren.
 
-% begründung wiso bei thb den massstab nicht verwendet (über 1cm zw. 9000 und ex9500, ergibt unten 500ppm und oben aus rund 3cm nur ca. 60ppm)
-% einheitlicher massstab macht kein sinn -> thb lediglich in ausgleich als zusätzliche beobachtung verwenden als um gnss mess zu korr
+Die Kapitel~\ref{sec:ionosphäre} Ionosphäre und \ref{sec:troposphäre} Troposphäre zeigten auf, dass die jeweilige Methode den grössten Einfluss auf die Höhe hat.
+Pro Modell sind leichte systematische Abweichungen in der Lage erkennbar welche auf die jeweilige Modellierung zurückzuschliessen sind. 
+Die grösseren Höhendifferenzen in den höher gelegenen Punkte sind jedoch nicht restlos zu erklären.
+Es wird davon ausgegangen, dass die berechnete Version die aktuellen Umstände am besten schätzen kann und somit die höchste Genauigkeit aufweist.
+Trotzdem ist weiterhin unklar, wie Infinity diese Werte berechnet.        % tönt recht gliich wie obe...
+Möglicherweise würde eine Aufzeichnung der Meteoparametern pro GNSS-Station eine Verbesserung dieser Modellierung bringen.
+Dennoch ist in Infinity keine individuelle Berechnung mit eigenen Werten und dem Saastamoinen-Modell möglich.
+Gemäss einer Aussage von Lennström, 2026 würde dies, zusammen mit der VMF3 womöglich die besten Resultate liefern.
 
+Grundsätzlich kann die Auswertung der GNSS-Messpunkte als PPP besser erwartet werden, als mit einem empirischen Modell wie GPT-2,
+da in der PPP die tatsächlich herrschenden Meteobeobachtungen während des Messzeitraums verwendet werden anstelle von monatlichen Mittelwerten.
+Nichtsdestotrotz ist die Auflösung des verwendeten PPP-Dienstes ausschlaggebend, wie genau die aufgezeichneten Werte auch wirklich den vor Ort herrschenden Bedingungen entspricht.
+Der verwendete Kanadische CSRS-PPP Dienst benützt VMF3 Grid-Werte, ein Gitter mit 1° x 1° oder 5° x 5° Auflösung \parencite{landskron_vmf3gpt3_2018}.
+Zum Vergleich, die Schweiz hat in Ost-West-Richtung eine geografische Ausdehnung von rund 4° an der breitesten Stelle.
+Bekannterweise können die Metrologischen Parametern dazwischen stark variieren, was zu anderen Messresultaten führt.
 
-%Notitzen:
-%einfluss ionosphäre und troposphäre systematisch, grosse unterschiede nicht erklärbar, berechnet verwendet da empfohlen und sinnvollsten
-%nächstes mal evtl meteo bei gnss aufzeichnen? jedoch nicht in infinity berechenbar (saastamoinen modell mit eigenen werten, da auch offline funktonieren muss)
-
-
-
-
+Bis Anhin wurde aus GNSS-Beobachtungen und unkontrollierten Trigonometrischen Höhenbestimmungen einen Höhenmassstab geschätzt, welcher teils bis zu 300 ppm betrug.
+Die diesjährige Messanordnung lieferte eine Überbestimmte THB, worin jedoch Unstimmigkeiten gefunden wurden.
+Durch die Eliminierung der Messungen auf den Punkt 6015 konnten die Abweichungen im Netz minimiert werden, ohne den gesamten Zusammenhang des Netzes zu verlieren.
+Jedoch bleibt die GNSS-Genauigkeit von rund einem Zentimeter bestehen.
+Wie in Kapitel~\ref{sec:thb-und-gnss} THB und GNSS erwähnt, ist ein leichter Anstieg der GNSS-Abweichungen in Anhängigkeit der Höhenlage ersichtlich.
+Dies relativiert jedoch nicht den daraus resultierenden Massstab von 450 bis 535 ppm im unteren Bereich.
+Auf die grösseren Höhen Unterschiede wirkt der Massstab von 49 bis 60 ppm weniger ausschlaggebend.
+Infolge dieser Unterschiede in der Bestimmung des Höhenmassstabes wurde sich dazu entschieden, keinen an den GNSS-Messungen anzubringen.
+Die Messungen aus der THB werden somit lediglich als weitere Beobachtungen in die gesamte Netzausgleichung einfliessen.
