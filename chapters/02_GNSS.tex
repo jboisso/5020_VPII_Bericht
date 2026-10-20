@@ -419,39 +419,42 @@ Lagen gegenseitig gemessen. Um der Korrelation zwischen den Sätzen Rechnung zu 
     \end{tabular}
 \end{table}
 
-Der Vergleich der redundanten Strecken [9000-7000] - [9000-6015-7000] ergibt eine Höhendifferenz von 28~mm. 
-Auch die Höhe [6003-6015-7000] - [6003-EX6015-7000] weist 15~mm Differenz auf.
-Beide Differenzen liegen deutlich über den erwarteten Genauigkeiten aus a priori Standardabweichung der einzelnen Höhendifferenzen.
-Dies deutet darauf hin, 
-dass weitere, nicht berücksichtigte Einflüsse bestehen, welche nicht durch die gleichzeitig gegenseitigen Messungen 
-eliminiert werden. Da eine exakt gleichzeitige Messung die EDM-Systeme der Tachymeter stören würde, kann ein leichter 
-Einfluss der Refraktion nicht ausgeschlossen werden. Dieser müsste allerdings bereits in der Standardabweichung der 
-Satzmittel sichtbar werden und erklärt somit die hohen Abweichungen nicht. 
-Wie das geometrische Nivellement, ist auch die trigonometrische Höhenbestimmung wegabhängig \cite{elmiger_landesvermessung_1997}. Dieser Effekt dürfte aber 
-deutlich kleiner ausfallen, da das Geoid innerhalb des Messperimeters relativ homogen verläuft. Auch liessen sich 
-hiermit die Differenzen zwischen den fast identischen Strecken 6003-6015-7000 und 6003-EX6015-7000 nicht erklären.
+Aus den gemessenen THB-Strecken lassen sich zusammen mit dem Nivellement zwischen 9000 und EX9500 mehrere Schlaufen 
+berechnen, in denen der Höhenunterschied 0~mm ergeben sollte. Mit Ausnahme einer Schlaufe weisen alle Differenzen von 
+15~mm bis 32~mm auf. Die einzige Schlaufe, die eine Differenz nahe der erwarteten Standardabweichung zeigt, ist der Vergleich 
+von 9000-EX7000-7000 zu 9000-EX9500-EX6015-7000 mit 9~mm. Dabei fällt auf, dass die Station 6015 die einzige ist, welche 
+in allen Schlaufen mit hohen Abweichungen vertreten ist, nicht aber in der passenden. Die Ursache für eine Mögliche 
+Abweichung in 6015 kann nicht identifiziert werden. Die Messungen von und zu dieser Station weisen keine Unregelmässigkeiten auf, 
+die Instrumenten- und Zielhöhen sind gemäss Dokumentation alle richtig gesetzt und die Prismenkonstante ist korrekt ausgewählt. 
 
-Abschliessend sind somit für die THB Genauigkeiten von ca. 2-3~cm anzunehmen für die gemessenen Distanzen von maximal 
-2.4~km und 575 Höhenmeter.
+Für die weiteren Berechnungen werden alle THB-Messungen von und zu 6015 eliminiert. Dennoch ist die Möglichkeit in Betracht zu ziehen, 
+dass es Zufall ist, dass die Messungen ohne 6015 passen. Dies insbesondere, da kein Fehlereinfluss identifiziert werden konnte und 
+kaum Redundanz in den THB-Messungen besteht ohne 6015. Die verbleibenden THB-Messungen werden zusammen mit dem Nivellement in einem 
+freien Netzausgleich ausgeglichen, um Widersprüche innerhalb der THB auf die einzelnen Messungen zu verteilen. Das Netz hat eine 
+Überbestimmung von 1 und ermöglicht keine zuverlässigen Aussagen über die Genauigkeit. 
 
 \subsubsection{THB und GNSS}
-Der Vergleich der Höhendiffernzen aus der THB mit den aus den GNSS-Messungen berechneten Höhen zeigt Abweichungen 
-von -11~mm bis +40~mm (siehe Tabelle \todo{link table}). Dabei ist keine Korrelation von Höhe über Meer des GNSS-Punktes 
-und Abweichung zu erkennen, diese scheinen viel mehr zufällig verteilt zu sein. Die grösste Differenz ist in der längsten 
-Visur, die weiteren Visuren weisen aber auch keinen Zusammenhang zwischen Abweichung und Länge der Visur auf. 
+Ein erster Vergleich der unausgeglichenen THB-Höhen (inkl. 6015) mit Höhendifferenzen aus den GNSS-Messungen ergibt 
+Unterschiede von -11~mm bis +40~mm. Diese sind scheinbar zufällig verteilt und es ist keine Korrelation zwischen 
+Höhenunterschied und Differenzen sichtbar.
+Erst der Vergleich der bereinigten und ausgeglichenen Höhendifferenzen zeigt eine Korrelation der Abweichungen 
+und der GNSS-Höhen (siehe Tabelle \ref{tab:THB_GNSS}).
 
-Ein freier, robuster Netzauslgeich aller Nivellement-, GNSS- und THB-Messungen bestätigt die Spannungen innerhalb der THB. 
-Dabei weisen die kurzen Messungen zu den Exzentren (EX7000-7000 und EX6015-6003) die grössten normierten Verbesserungen 
-($wi \leq 18$) auf. Werden diese deaktiviert, erhalten alle Messungen einen ($wi \leq 3$), es entfällt aber auch jegliche 
-Redundanz aus der THB. Allfällige Wiedersprüche zwischen den GNSS-Höhen, dem Nivellement und der THB werden in den langen Visuren 
-der THB ``verdrückt'' und fallen dort kaum ins Gewicht. Werden die GNSS-Messungen deaktiviert und die Exzenter-Messungen mit 
-Nivellementgenauigkeit eingeführt, lassen sich die Spannungen ebenfalls auf die langen Visuren verteilen. Der Vergleich der 
-ausgeglichenen THB-Höhen mit den GNSS Höhen lässt jedoch auch keine Systematik erkennen. Mit den vorhandenen Messdaten 
-lässt sich keine der THB-Visuren als eindeutig fehlerhaft identifizieren.
-
-Die GNSS-Messungen lassen sich nicht realistisch anhand der THB-Messungen korrigieren. Die THB kann 
-als zusätzliche Kontrolle in einen hybriden Gesamtnetzausgleich eingeführt werden, dabei muss aber darauf geachtet werden, 
-dass die Spannungen aus der THB nicht auf das Netz übergehen und sie einen reinen Kontrolleffekt hat. 
+\begin{table}[h]
+    \centering
+    \caption{Differenzen THB-GNSS Höhendifferenzen und die daraus resultierenden Höhenmassstäbe.}
+    \label{tab:THB_GNSS}
+    \begin{tabular}{rcccc}
+        \toprule
+        \textbf{Strecke} & $\mathbf{GNSS_{BL}}$\textbf{[mm]} & $\mathbf{Mst_{BL}}$ \textbf{[ppm]} & $\mathbf{GNSS_{PPP}}$\textbf{[mm]} & $\mathbf{Mst_{PPP}}$ \textbf{[ppm]}\\
+        \midrule
+        9000 - EX9500 & 13 & 535 & 10 & 450 \\
+        \rowcolor{lightgray}
+        9000 - 6003 & 26 & 51 & 30 & 60 \\
+        9000 - 7000 & 34 & 59 & 28 & 49 \\
+        \bottomrule
+    \end{tabular}
+\end{table} 
 
 
 
