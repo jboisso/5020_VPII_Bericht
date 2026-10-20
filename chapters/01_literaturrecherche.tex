@@ -29,7 +29,7 @@ Frequenzspektrum von GNSS-Trägerfrequenzen gleich aus und kann nicht direkt eli
 Die Troposphäre kann in eine trockene (hydrostatische) und feuchte Komponente unterteilt werden.
 Der trockene Anteil verhält sich relativ vorhersehbar mit der örtlichen Temperatur und Luftdruck, 
 wobei die Schwankung innerhalb weniger Stunden weniger als 1\% beträgt. 
-Wie in \cite{subirana_gnss_2013} erwähnt variiert die feuchte Komponente der Troposphäre zeitlich und räumlich stark,
+Wie in \cite{subirana_gnss_2013} erwähnen, variiert die feuchte Komponente der Troposphäre zeitlich und räumlich stark,
 was sie sehr schwer modellierbar macht.
 
 
@@ -39,12 +39,12 @@ Die troposphärische Laufzeitverzögerung, auch Zenith Total Delay oder Zenith T
 beschreibt die Gesamtheit der Signalverzögerung, welche durch die Troposphäre verursacht wird. 
 Die vom trockenen Anteil verursachte Abweichung, der sogenannte Zenith Hydrostativ Delay (ZHD), ist der anteilsmässig grössere Einfluss.
 Im Zenit beträgt die ZHD bis zu 8~ns, was einer Höhenabweichung von ca. 2.3~m entspricht.
-Die eigentliche Signalverzögerung quer durch die Luftschichten wird Slant Troposphere Delay (STD) genannt.
+Die Signalverzögerung ausserhalb des Zenits wird Slant Troposphere Delay (STD) genannt.
 Mit abnehmender Elevation durchquert das Signal zunehmend grössere Bereiche der Troposphäre, wodurch der Einfluss weiter steigt.
-Dabei sind in der Literatur Abweichungen von bis zu 10~m \parencite{subirana_gnss_2013} oder von bis zu 20~m \parencite{li_unraveling_2024} 
+Dabei sind in der Literatur Abweichungen von bis zu 10~m \parencite{subirana_gnss_2013} oder 20~m \parencite{li_unraveling_2024} 
 anzutreffen. \cite{klaffenbock_tropospharische_2005} spricht sogar von bis zu 25~m in der Vertikalen Komponente.
 Um diese Verzögerung besser zu modellieren werden sogenannte Mapping Functions (MF) eingesetzt.
-Dabei wird die Verzögerung aus dem Zenith Total Delay mittels dem Elevationswinkel zu einer Schrägverzögerung transformiert.
+Dabei wird der ZTD als Funktion des Elevationswinkels zu einer Schrägverzögerung transformiert.
 Im Kapitel~\ref{sec:MappingFunctions} wird weiter darauf eingegangen.
 
 Durch die geringe temporale Variabilität und einfache räumliche Modellierung kann der hydrostatische Anteil anhand globaler 
@@ -63,7 +63,7 @@ Ungenauigkeiten, bessere Modellierungsmöglichkeiten. -> das mit mapping functio
 Gemäss \cite{klaffenbock_tropospharische_2005} sind für die Meteorologie atmosphärische Parameter wie Temperatur, Luftdruck
 und Luftfeuchtigkeit in möglichst guter räumlicher und zeitlicher Auflösung essenziell.
 Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
-Ballonsonden aufstiegen ermittelt, welche jedoch aus Kostengründen weltweit immer seltener stattfinden.
+Ballonsonden aufstiegen ermittelt, was aber Zeit und kostenintensiv ist.
 
 Wie im Journal of Geophysical Research von 1992 erschienen, dokumentierte \citeauthor{bevis_gps_1992} bereits damals die Idee,
 aus GPS-Satellitenbeobachtungen den integrierten Wasserdampf (englisch integrated water vapor, Abkürzung IWV) Abzuleiten.
@@ -71,88 +71,47 @@ Hierzu nutzten sie den Fakt, dass sich bei bekanntem Standpunkt des
 GNSS Empfängers die Gleichung zur Berechnung des ZWD so umstellen lässt, dass der Wasserdampfgehalt bestimmt werden kann.   
 Diese Werte sind in der Wettervorhersage und weiteren Forschungsgebieten von hoher Bedeutung.
 
-Wissenschaftler wie \citeauthor{de_haan_assimilation_2013} stellte im 2013 erschienenen Paper 
-eine deutliche Verbesserung der Regenradar Prognose in den Niederlanden fest.
+Wie \cite{dousa_real-time_2014} berichten, kann seit 
+über 20 Jahren die ZTD anhand mehrerer permanenten GNSS-Stationen und Korrekturdaten des International GNSS Service (IGS) 
+nahezu in Echtzeit berechnet werden. Der daraus abgeleitete Wasserdampfgehalt erreicht die benötigte Genauigkeit für die Verwendung 
+in numerischen Wettervorhersagen (englisch numerical weather prediction, Abkürzung NWP).
+\citeauthor{de_haan_assimilation_2013} zeigt 2013 die Möglichkeit, Regenprognosen in den Niederlanden deutlich zu verbessern, in dem 
+aus GNSS-Messungen berechnete IWV-Werte in die Modelle eingebunden werden. 
 Gemäss \cite{rohm_ground-based_2014} wird erwartet, dass die bodengestützten GNSS-Daten zu einer Verbesserung der Vorhersage von Starkregen
-um 80\% (von 40\%) beitragen werden.
+um 80\% (von 40\%) beitragen werden. 
 
-\todo{Ergänzen: 
-detaillierter ausführen wozu, Paper zu Sturmvorhersage, Vorhersage von lokalen Starkregen  sehr abhängig von Luftfeuchte.}
+Der grosse Vorteil gegenüber herkömmlichen Wetterballons ist die kostengünstige und wetterunabhängige Beobachtungsmöglichkeit. 
+Gleichzeitig betont \cite{klaffenbock_tropospharische_2005} auch, dass keine diskreten Werte entlang des Beobachtungsprofils
+wie bei einem Radiosondenaufstieg möglich sind.Anders als bei terrestrischen Bestimmungen kann eine hohe vertikale Auflösung erreicht werden, ähnlich 
+einem Meteoballon-Profil. Die räumliche Auflösung ist jedoch deutlich schlechter. \parencite{aichinger-rosenberger_tropospheric_2021}
 
-Wie in \cite{dousa_real-time_2014} berichtet, kann seit über 20 Jahren die ZTD anhand von mehreren permanenten
-GNSS-Stationen und Korrekturdaten des International GNSS Service (IGS) nahezu in Echtzeit berechnet werden.
-Diese erreichen die benötigte Genauigkeit für die numerische Wettervorhersage (englisch numerical weather prediction, Abkürzung NWP).
+\subsubsection{GNSS Radio Occultation}
+Eine alternative zur Bestimmung des IWV aus terrestrischen GNSS-Messungen bietet die GNSS Radio Occultation. 
+Erstmals 1997 von \citeauthor{ware_gps_1996} vorgestellt, ermöglicht die Technik die Bestimmung vertikaler 
+Refraktionsprofile der Atmosphäre. Hierzu werden GNSS-Signale von einem Low-Earth-Orbit (LEO) Satelliten 
+empfangen. Signale, welche die Atmosphäre durchqueren, werden gebrochen und abgelenkt (siehe Abbildung 
+\ref{fig:abb_radioocc}). Die Refraktion ist dabei abhängig von Temperatur, Druck und Wasserdampfgehalt der 
+Atmosphäre. 
 
-Als Vorteil gegenüber herkömmlichen Wetterballons kann sicher die wetterunabhängige Beobachtungsmöglichkeit hervorgehoben werden.
-Andererseits betont \cite{klaffenbock_tropospharische_2005}, dass keine diskreten Werte entlang des Beobachtungsprofils
-wie bei einem Radiosondenaufstieg möglich sind.
-
-\subsection{GNSS Radio Occultation}
-oder so
-% aus Notizen zu Papers kopiert
-GNSS Radio Occultation ist Space-based Technik zur Bestimmung von Atmosphärischen Parametern. Hierzu werden 
-GNSS-Signale von LEO Satelliten empfangen. Daraus lässt sich Laufzeitverzögerung und Biegung durch die 
-Troposphäre berechnen. Gute vertikale Auflösung, schlechte Horizontale Auflösung.
-Schätzen von Troposphärischen Parametern aus GNSS-Auswertung: Parameter können in GNSS-Berechnung geschätzt 
-werden. Hierbei ist Höhenfehler und ZTD stark korreliert. Je niedriger der Cut-off angle umso besser können 
-sie auseinandergehalten werden. Wird ZTD in Auswertung geschätzt
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{radio_occultation.jpg}
+    \caption{Funktionsprinzip der GPS Radio Occultation. Abbildung aus \cite{ware_gps_1996}.}
+    \label{fig:abb_radioocc}
+\end{figure}
 
 \subsection{Mapping Functions}
 \label{sec:MappingFunctions}
 
 Mapping Functions (MF) rechnen die Zenitverzögerung anhand des Elevationswinkels in eine Schrägverzögerung um.
 Der hydrostatische und der feuchte Anteil werden dabei jeweils mit einer eigenen MF multipliziert.
-Jede MF basiert auf den drei Koeffizienten $a$, $b$ und $c$, wobei $a$ der bestimmende Term ist \parencite{landskron2018vmf3}.
+Jede MF basiert auf den drei Koeffizienten $a$, $b$ und $c$, wobei $a$ der zu bestimmende Term ist \parencite{landskron2018vmf3}\todo{erklären, was a,b,c für Koeffizienten sind.}.
 
-Die Vienna Mapping Functions (VMF) leiten den Koeffizienten $a$ aus Ray-Tracing durch numerische Wettermodelle ab, während $b$ und $c$ empirisch bestimmt werden \parencite{boehm_global_2006}.
+Die Vienna Mapping Functions \todo{VMW Mapping function für ZWD oder ZHD?} (VMF) leiten den Koeffizienten $a$ aus Ray-Tracing durch numerische Wettermodelle ab, während $b$ und $c$ empirisch bestimmt werden \parencite{boehm_global_2006}.
 Mit VMF3 wurden diese empirischen Koeffizienten überarbeitet.
 Bei $5^\circ$ Elevation verbessert VMF3 die Schrägverzögerung gegenüber VMF1 um durchschnittlich \SI{1.3}{\milli\metre}, was einer Höhenverbesserung von ca.\ \SI{0.25}{\milli\metre} entspricht.
-Der Gewinn stammt vor allem aus dem hydrostatischen Anteil und zeigt sich in Gebirgsregionen und bei tiefen Elevationen.
+Der Gewinn stammt vor allem aus dem hydrostatischen Anteil und zeigt sich in Gebirgsregionen und bei tiefen Elevationen.\todo{Referenzen einfügen}
 
-Das empirische Modell GPT3 ist mit VMF3 konsistent und benötigt nur Zeit und Position.
+Das empirische Modell GPT3 ist mit VMF3 konsistent \todo{was ist konsistent, was anders?} und benötigt nur Zeit und Position.
 Es ist jedoch kaum genauer als GPT2 \parencite{lagler_gpt2_2013} und weicht deutlich stärker vom Ray-Tracing ab als die diskreten VMF \parencite{landskron2018vmf3}.
-Für die ZTD-Modellierung selbst erreicht das Modell GGZTD-P einen um \SI{53}{\percent} kleineren RMS als GPT3, mit grösseren Abweichungen in stark reliefiertem Gelände \parencite{huang_global_2023}.
-
-\subsection{Notizen zu Papers}
-\textbf{Comparative analysis of real-time precise point positioning zenith total delay estimates}
-ZTD ist von Wasserdampf in Atmosphäre abhängig. Kann rückwärts verwendet werden, um den Wasserdampf 
-in der Atmosphäre zu bestimmen. Wird in Wettervorhersage verwendet. Um in schnell-aktualisierenden 
-Wettermodellen ZTD verwenden zu können, müssen diese alle 5-10 mit Genauigkeit von 5-30 mm bestimmt werden. 
-IGS Stellt real time orbit und clock Daten zur Verfügung (boradcast Ephemeriden, Orbit und Uhrkorrekturen). 
-Dies ermöglicht PPP in Realtime zu berechnen, effizienter als Doppeldifferenzen.
-
-In PPP ist ZTD anfällig für die radiale Komponente im Orbitfehler. Ionosphäre-Verzögerungen erster Ordnung 
-werden durch 2-Frequenzen eliminiert. Es bleiben aber Restverzögerungen höhrerer Ordnung, welche im ZTD 
-aufgehen. Diese sind linear abhängig von der Sonnenaktivität. Bei starker Sonnenaktivität steigt somit der 
-ZTD-Fehler aus der Ionosphäre von 0.6 auf 4 mm. Weiter ist er vom Druck an der Erdoberfläche abhängig 
-(-0.1 - -0.2 mm/hPa). Anntenenfehler (Phase center offset, phase center variations, daome geometry) haben auch 
-Einfluss auf ZTD v0n 2-10 mm. Tropospheric mapping functions haben auch Einfluss auf ZTD. Dieser ist kleiner, 
-je grösser der cut-off Winkel.
-
-Je nach Software-Lösung zur Berechnung der PPP ZTD unterschiedliche Genauigkeiten. Es ist erreichbar mit 
-gewissen Lösungen. 
-
-\textbf{tropospheric delay parameters derived from gnss-tracking data of a fast moving fleet of train}
-Aufbau Atmosphäre Trophosphärischer Delay: Aufteilbar in hydrostatischer Anteil (Luftdruck) und feuchter 
-Anteil (Wasserdampf).  Weitere Unterscheidung nach Richtung (Zenith Delay / Slant delay (in line of sight 
-direvtion to satellite))
-
-ZTD Verzögerung in Zenithrichtung aufgrund Troposphäre. Trockener Anteil deutlich grösser als feuchter 
-Anteil. Feuchert Anteil dafür sehr lokal und zeitlich variabel, trockener Anteil besser modellierbar 
-(z.B. Saastamoinen)
-
-Slant delay: Zenithdelay mit mapping functions auf die Elevation hochgerechnet. Vienna Mapping Function 
-aktuell als genaueste Mapping Function angesehen. Auf Relation von hydrostatischer Mappingfunktion zusammen 
-mit Höhe. Aktuell VMF3 neuste Version, insbesondere in tiefen Winkeln besser
-
-Viele Wettermodelle können heute ZTD oder Produkte die daraus abgleitet werden einberechnen. Dabei können 
-entweder Einzelmessungen verwendet werden oder GNSS Tomography gemacht werden. Hier wird über ein Referenznetz 
-alle möglichen ZTD berechnet. Daraus wird ein 3D Feld aus Voxeln berechnet, welche die Atmosphäre darstellt 
-berechnet. 
-
-GNSS Radio Occultation ist Space-based Technik zur Bestimmung von Atmosphärischen Parametern. Hierzu werden 
-GNSS-Signale von LEO Satelliten empfangen. Daraus lässt sich Laufzeitverzögerung und Biegung durch die 
-Troposphäre berechnen. Gute vertikale Auflösung, schlechte Horizontale Auflösung.
-Schätzen von Troposphärischen Parametern aus GNSS-Auswertung: Parameter können in GNSS-Berechnung geschätzt 
-werden. Hierbei ist Höhenfehler und ZTD stark korreliert. Je niedriger der Cut-off angle umso besser können 
-sie auseinandergehalten werden. Wird ZTD in Auswertung geschätzt
+Für die ZTD-Modellierung selbst erreicht das Modell GGZTD-P\todo{was ist dies für ein Modell?} einen um \SI{53}{\percent} kleineren RMS als GPT3, mit grösseren Abweichungen in stark reliefiertem Gelände \parencite{huang_global_2023}.
