@@ -65,7 +65,7 @@ Messdaten geschätzt. Die finalen Koordinaten der Punkte 7000 und 7004 werden no
 (vgl. hierzu auch \cite{walti_vertiefungsprofil_2026}) korrigiert.
 
 Anschliessend werden die Verdichtungspunkte (gelb in Abbildung \ref{fig:abb-gnss}) zu den lokalen Referenzstationen 
-berechnet. Aufgrund erhöhter Abweichungen der Basislinien zur Station 7004 (\todo{verweis auf Vergleichskapitel}) wird 
+berechnet. Aufgrund erhöhter Abweichungen der Basislinien zur Station 7004 (siehe Kapitel \ref{sec:bereinigung_gnss}) wird 
 diese nicht zur finalen Basislinienberechnung verwendet, sondern ebenfalls als Verdichtungspunkt berechnet. 
 In der Zeitreihendarstellung der Messungen im Punkt 6011 
 sind vermehrt Ausreisser im Meterbereich in den 3D-Residuen sichtbar. Diese sind auf starke Abschattung im Punkt 
@@ -183,7 +183,7 @@ Swisstopo in Abbildung~\ref{fig:abb-I95} zeigt.
 
 \FloatBarrier
 
-Im ersten Versuch wurde als Ionosphärenmodell (.ION - File) eine tägliche Berechnung der Uni Bern (CODE) verwendet.
+Im ersten Versuch wird als Ionosphärenmodell (.ION - File) eine tägliche Berechnung der Uni Bern (CODE) verwendet.
 Diese Lösung zeigt in der Lage deutliche systematische Abweichungen zur Modellierung aus den Messungen,
 in welcher der Einfluss mittels Zweifrequenzen eliminiert wurde.
 Die Ergebnisse sind in Tabelle~\ref{tab:iono-ber} dokumentiert.
@@ -227,35 +227,34 @@ Der Vergleich mit dem berechneten Modell ist wiederum in Tabelle~\ref{tab:klobuc
 \end{table}
 
 Der Vergleich zeigt, dass das Ionosphärenmodell systematische Einflüsse auf die Lage hat. Während die Differenzen der 
-beiden Modellen in der Lage unterschiedliche Vorzeichen aufweisen, sind die Veränderungen in der Höhe in beiden Modellen 
-in dieselbe Richtung. Anders als in der Lage ist dort aber keine Systematik innerhalb eines Modells erkennbar.
-Aus diesen beiden Tabellen wird ersichtlich, dass in der Lage systematische Abweichungen vorliegen. 
-Punkt 7000 liegt am höchsten der verglichenen Punkte. Dies allein erklärt jedoch nicht die markant grösseren 
-Abweichungen in beiden Modellen.
-Da die örtlichen Gegebenheiten am besten im berechneten Modell repräsentiert werden,
-wird diesem die beste Genauigkeit zugesprochen und für die weiteren Auswertungen verwendet.
+beiden Modellen in der Lage unterschiedliche Vorzeichen aufweisen, zeigen sie in der Höhe in beiden Modellen 
+in dieselbe Richtung. Anders als in der Lage ist dort aber keine Systematik innerhalb eines Modells erkennbar. 
+Punkt 7000 liegt auf 1220 m.ü.M. und ist damit der höchste der verglichenen Punkte. Dies allein erklärt jedoch nicht die 
+auffällig grossen Abweichungen in der Höhe.
+Da die örtlichen Gegebenheiten im berechneten Modell am besten repräsentiert werden,
+wird dieses als genauestes betrachtet und für die weiteren Auswertungen verwendet.
 
 \subsubsection{Einfluss des Troposphärenmodells}
 \label{sec:troposphäre}
-Die Troposphäre ist kein dispersives Medium, weshalb ihre Verzögerung nicht mittels Mehrfrequenzempfängern eliminiert werden kann.
-Wie in der Literaturrecherche (Kapitel~\ref{sec:literaturrecherche}) behandelt, besteht die Troposphäre aus einem homogenen, gut modellierbaren - sowie einen
-hydrostatischen, schlecht modellierbaren Teil. Je nach Elevationswinkel kann die Signalverzögerung bis zu mehreren Metern betragen,
-was sich stark auf die Positionsgenauigkeit auswirkt. Ziel ist es also, für diese Korrektur das bestmögliche Modell zu verwenden
-oder zu berechnen. In Infinity stehen rund fünf verschiedene Methoden als Auswertestrategie für das Troposphärenmodell zur Verfügung.
-Die wichtigsten beiden sind «Berechnet» und «VMF mit GPT2-Modell» also den Vienna Mapping Functions \parencite{boehm_vienna_2004} mit dem
+Die Troposphäre ist kein dispersives Medium, weshalb Einflüsse nicht mit Mehrfrequenzempfängern eliminiert werden können.
+Wie in Kapitel~\ref{sec:literaturrecherche} beschrieben, besteht die Troposphäre aus einem hydrostatischen, gut modellierbaren und einem
+feuchten, schlecht modellierbaren Teil. Je nach Elevationswinkel kann die Signalverzögerung mehrere Meter betragen,
+was sich stark auf die Positionsgenauigkeit auswirkt. In Infinity stehen fünf verschiedene Modi zur Modellierung der Troposphäre zur Verfügung.
+Die relevantesten sind «Berechnet» und «VMF mit GPT2-Modell», also die Vienna Mapping Function \parencite{boehm_vienna_2004} mit dem
 Global Pressure and Temperature 2 Modell \parencite{lagler_gpt2_2013} aus dem Jahr 2004 und 2013. Die übrigen, namentlich: Essen und Froome (1951),
-Hopfield/Modifiziertes Hopfield (1969) und Saastamoinen (1972) sind bereits etwas veraltet und ziehen einen Qualitätsverlust mit sich.
+Hopfield/Modifiziertes Hopfield (1969) und Saastamoinen (1972) sind ältere Modelle, welche einen Qualitätsverlust mit sich bringen.
 Der automatische Modus von Infinity verwendet für Messungen von weniger als 90~min die Vienna Mapping Functions,
-für längere Messungen wird ein eigenes Troposphärenmodell berechnet.
+für längere Messungen wird ein Troposphärenmodell aus den Messungen geschätzt. Dabei wird für jede berechnete Epoche 
+der ZTD mitgeschätzt \parencite{leica-geosystems_leica_2026}.
 
-Wie im vorangehenden Kapitel~\ref{sec:ionosphäre} wird die Auswirkung dieser Auswertemethoden auf die Koordinaten untersucht.
-Dabei wird das Resultat des berechneten Modells mit jenem der VMF mit GPT2-Modell verglichen. Der Tabelle~\ref{tab:vmf-ber} ist zu entnehmen,
-dass sich die beiden Punkte in der Lage mit einem Wert von weniger als einem Millimeter kaum unterscheiden. In der Höhe jedoch
-variiert widerum der höchste Punkt 7000 um über einem Zentimeter. Die übrigen Punkte bewegen sich im Rahmen von lediglich 1-5 mm.
+Auch hier wird die Auswirkung der Auswertemethoden auf die Koordinaten untersucht.
+Dabei wird das Resultat des berechneten Modells mit jenem der VMF mit GPT2-Modell verglichen. Tabelle~\ref{tab:vmf-ber} zeigt,
+dass die Modelle kaum zu Änderungen in der Lage führen. In der Höhe zeigt 
+widerum der höchste Punkt 7000 Differenzen von über einem Zentimeter. Die übrigen Punkte bewegen sich im Rahmen von lediglich 1-5~mm.
 
 \begin{table}[htbp]
     \centering
-    \caption{Differenzen zwischen den Koordinaten. (VMF - Berechnet)}
+    \caption{Differenzen zwischen den Koordinaten (VMF - Berechnet).}
     \label{tab:vmf-ber}
     \begin{tabular}{rccc}
         \toprule
@@ -272,12 +271,12 @@ variiert widerum der höchste Punkt 7000 um über einem Zentimeter. Die übrigen
 \end{table}
 
 Um die Qualität der alten Modelle besser einschätzen zu können, werden alle Vergleichspunkte noch mit dem Saastamoinen Modell berechnet.
-Dieses wird stellvertretend für alle älteren Modelle verwendet. Gemäss Tabelle~\ref{tab:saas-ber} sind in der Lage hierbei wider minimale systematische
-Abweichungen von bis zu einem halben Millimeter zu erkennen. In der Höhe ist das Modell um 2-4 mm auffallend nahe an der VMF.
+Dieses wird stellvertretend für alle älteren Modelle verwendet. Gemäss Tabelle~\ref{tab:saas-ber} sind in der Lage wiederum minimale systematische
+Abweichungen von bis zu einem halben Millimeter vorhanden. In der Höhe ist das Modell um 2-4~mm auffallend nahe an der VMF.
 
 \begin{table}[htbp]
     \centering
-    \caption{Differenzen zwischen den Koordinaten. (Saastamoinen - Berechnet)}
+    \caption{Differenzen zwischen den Koordinaten (Saastamoinen - Berechnet).}
     \label{tab:saas-ber}
     \begin{tabular}{rccc}
         \toprule
@@ -292,13 +291,6 @@ Abweichungen von bis zu einem halben Millimeter zu erkennen. In der Höhe ist da
         \bottomrule
     \end{tabular}
 \end{table}
-
-Aus demselben Grund wie bei den ionosphärischen Einflüssen kann erklärt werden, wieso die beiden Modelle näher beieinander
-liegen als die berechnete Version. Zur Messzeit herrschte starker Nebel und somit eine hohe relative Luftfeuchtigkeit.
-Dies wird in dem berechneten Modell deutlich besser geschätzt als in den beiden Vergleichsmodellen,
-welche die aktuell herschenden Einflüsse nicht berücksichtigen.
-Wie Infinity jedoch die «berechnete» Version erstellt ist weiterhin unklar.
-Gemäss Empfehlung wird für die finalen GNSS-Koordinaten das Modell «Berechnet» verwendet.
 
 \subsubsection{Auswertung als PPP}
 \label{sec:ppp}
@@ -424,7 +416,7 @@ Aus den gemessenen THB-Strecken lassen sich zusammen mit dem Nivellement zwische
 berechnen, in denen der Höhenunterschied 0~mm ergeben sollte. Mit Ausnahme einer Schlaufe weisen alle Differenzen von 
 15~mm bis 32~mm auf. Die einzige Schlaufe, die eine Differenz nahe der erwarteten Standardabweichung zeigt, ist der Vergleich 
 von 9000-EX7000-7000 zu 9000-EX9500-EX6015-7000 mit 9~mm. Dabei fällt auf, dass die Station 6015 die einzige ist, welche 
-in allen Schlaufen mit hohen Abweichungen vertreten ist, nicht aber in der passenden. Die Ursache für eine Mögliche 
+in allen Schlaufen mit hohen Abweichungen vertreten ist, nicht aber in der passenden. Die Ursache für eine mögliche 
 Abweichung in 6015 kann nicht identifiziert werden. Die Messungen von und zu dieser Station weisen keine Unregelmässigkeiten auf, 
 die Instrumenten- und Zielhöhen sind gemäss Dokumentation alle richtig gesetzt und die Prismenkonstante ist korrekt ausgewählt. 
 
@@ -438,7 +430,7 @@ freien Netzausgleich ausgeglichen, um Widersprüche innerhalb der THB auf die ei
 \label{sec:thb-und-gnss}
 Ein erster Vergleich der unausgeglichenen THB-Höhen (inkl. 6015) mit Höhendifferenzen aus den GNSS-Messungen ergibt 
 Unterschiede von -11~mm bis +40~mm. Diese sind scheinbar zufällig verteilt und es ist keine Korrelation zwischen 
-Höhenunterschied und Differenzen sichtbar.
+Höhenunterschied und Differenz sichtbar.
 Erst der Vergleich der bereinigten und ausgeglichenen Höhendifferenzen zeigt eine Korrelation der Abweichungen 
 und der GNSS-Höhen (siehe Tabelle \ref{tab:THB_GNSS}).
 
@@ -495,40 +487,55 @@ entfällt die Abhängigkeit von einer externen Referenzstation und Tabelle \ref{
 Messdauer genügend gute Resultate liefert. Ob in der PPP-Auswertung der ZTD besser berücksichtigt wird und dies eine THB überflüssig macht, 
 lässt sich mit den vorliegenden Daten nicht sagen.
 
+Die unterschiedlichen Modellierungsansätze für die Berücksichtigung der iono- und troposphärischen Einflüsse haben 
+insbesondere in der Höhe einen grossen Einfluss auf die berechneten GNSS-Koordinaten. Während die Lage meist 
+systematische Effekte aufweist, sind die Differenzen in der Höhe deutlich inkonsistenter verteilt. Weshalb der Punkt 
+7000 in allen Modellen die grösste Differenz der Modelle zu den berechneten Koordinaten hat, lässt sich nicht 
+eindeutig bestimmen. Eine mögliche Ursache ist, dass der Punkt aufgrund der exponierten Lage deutlich mehr 
+Satellitenabdeckung in niedrigen Elevationen hat als die anderen Punkte. Da dies auch die Signale sind, welche am 
+meisten von Modellierungsfunktionen beeinflusst werden, ist es naheliegend, dass unterschiedliche Modelle 
+grössere Einflüsse auf die Koordinaten haben.
 
+Interessant ist der Vergleich der Troposphärenmodelle Saastamoinen und VMF+GPT2. Obwohl das Saastamoinen ein 
+deutlich einfacheres Modell ist als die VMF, sind die Differenzen zwischen den beiden Modellen erstaunlich klein. 
+Auch wenn die in Infinity implementierten Modelle zur Schätzung der iono- und troposphärischen Korrekturen 
+nicht bekannt oder dokumentiert sind, ist doch davon auszugehen, dass diese die aktuellen Verhältnisse am besten 
+abbilden. Während die Ionosphäre keine Besonderheiten während den Messungen aufwies, war in der Troposphäre 
+eine aussergewöhnlich hohe Luftfeuchtigkeit durch Starkregen und Nebel während fast der gesamten Messdauer vorhanden. 
+Solch lokale Ereignisse werden in einem globalen Modell nicht berücksichtigt. Eine weitere Steigerung der Genauigkeit 
+könnte durch das Aufzeichnen der relevanten Meteoparametern an den Stationen erreicht werden. Infinity erlaubt 
+aber zum Zeitpunkt der Auswertung noch keine manuelle Eingabe von Meteoparametern bei der Basislinienberechnung. 
 
-
-Die Kapitel~\ref{sec:ionosphäre} Ionosphäre und \ref{sec:troposphäre} Troposphäre zeigten auf, dass die jeweilige Methode den grössten Einfluss auf die Höhe hat.
-Pro Modell sind leichte systematische Abweichungen in der Lage erkennbar welche auf die jeweilige Modellierung zurückzuschliessen sind. 
-Die grösseren Höhendifferenzen in den höher gelegenen Punkte sind jedoch nicht restlos zu erklären.
-Es wird davon ausgegangen, dass die berechnete Version die aktuellen Umstände am besten schätzen kann und somit die höchste Genauigkeit aufweist.
-Trotzdem ist weiterhin unklar, wie Infinity diese Werte berechnet.        % tönt recht gliich wie obe...
-Möglicherweise würde eine Aufzeichnung der Meteoparametern pro GNSS-Station eine Verbesserung dieser Modellierung bringen.
-Dennoch ist in Infinity keine individuelle Berechnung mit eigenen Werten und dem Saastamoinen-Modell möglich.
-Gemäss einer Aussage von Lennström, 2026 würde dies, zusammen mit der VMF3 womöglich die besten Resultate liefern.
-
-Grundsätzlich kann die Auswertung der GNSS-Messpunkte als PPP besser erwartet werden, als mit einem empirischen Modell wie GPT-2,
-da in der PPP die tatsächlich herrschenden Meteobeobachtungen während des Messzeitraums verwendet werden anstelle von monatlichen Mittelwerten.
-Nichtsdestotrotz ist die Auflösung des verwendeten PPP-Dienstes ausschlaggebend, wie genau die aufgezeichneten Werte auch wirklich den vor Ort herrschenden Bedingungen entspricht.
+Eine Auswertung der lokalen Basisstationen als PPP anstelle von Basislinienauswertung zur HABG bringt 
+den Vorteil, dass keine Einflüsse durch Höhenunterschiede zwischen Basisstation und Rover vorhanden sind. 
+Zudem werden in eingen PPP-Diensten die tatsächlich herrschenden Meteobedingungen während des Messzeitraums verwendet, 
+anstelle von monatlichen Mittelwerten. Nichtsdestotrotz ist die Auflösung des verwendeten PPP-Dienstes 
+ausschlaggebend, wie genau die aufgezeichneten Werte auch wirklich den vor Ort herrschenden Bedingungen entsprechen.
 Der verwendete Kanadische CSRS-PPP Dienst benützt VMF3 Grid-Werte, ein Gitter mit 1° x 1° oder 5° x 5° Auflösung \parencite{landskron_vmf3gpt3_2018}.
 Zum Vergleich, die Schweiz hat in Ost-West-Richtung eine geografische Ausdehnung von rund 4° an der breitesten Stelle.
-Bekannterweise können die Metrologischen Parametern dazwischen stark variieren, was zu anderen Messresultaten führt.
+Wenn auch die Genauigkeit von PPP in der Regel etwas schlechter ist als die von Basislinienberechnungen, zeigen 
+die erhaltenen Standardabweichungen der >~40~h gemessenen Punkte dennoch, dass genügend hohe Genauigkeiten 
+erreicht werden können. Kürzere Messdauern weisen aber deutlich grössere Standardabweichungen auf (siehe Tabelle \ref{tab:ppp_baseline}). 
+Für zukünftige Messkampagnen oder ähnliche Netze dürfte daher ein kombinierter Ansatz interessant sein. 
+So können lokale Basisstationen beliebig platziert und als PPP berechnet werden. Verdichtungspunkte 
+werden anschliessend mit klassischen Basislinien zu den lokalen Referenzstationen ausgewertet, was eine kürzere 
+Messdauer bei gleicher Genauigkeit erlaubt. Zudem können so Einflüsse aus Höhendifferenzen zwischen Basis und 
+Rover minimiert werden. Wie Kapitel \ref{sec:bereinigung_gnss} zeigt, ist der Einfluss der Basisstation 
+auf die Roverhöhe im Schwanderbärgli sehr klein, aber dennoch vorhanden. Ein nach der Höhendifferenz zur 
+Basisstation gewichtetes Mittel der Roverkoordinaten dürfte somit die beste Lösung darstellen. 
 
-Bis Anhin wurde aus GNSS-Beobachtungen und unkontrollierten Trigonometrischen Höhenbestimmungen einen Höhenmassstab geschätzt, welcher teils bis zu 300 ppm betrug.
-Die diesjährige Messanordnung lieferte eine Überbestimmte THB, worin jedoch Unstimmigkeiten gefunden wurden.
-Durch die Eliminierung der Messungen auf den Punkt 6015 konnten die Abweichungen im Netz minimiert werden, ohne den gesamten Zusammenhang des Netzes zu verlieren.
-Jedoch bleibt die GNSS-Genauigkeit von rund einem Zentimeter bestehen.
-Wie in Kapitel~\ref{sec:thb-und-gnss} THB und GNSS erwähnt, ist ein leichter Anstieg der GNSS-Abweichungen in Anhängigkeit der Höhenlage ersichtlich.
-Dies relativiert jedoch nicht den daraus resultierenden Massstab von 450 bis 535 ppm im unteren Bereich.
-Auf die grösseren Höhen Unterschiede wirkt der Massstab von 49 bis 60 ppm weniger ausschlaggebend.
-Infolge dieser Unterschiede in der Bestimmung des Höhenmassstabes wurde sich dazu entschieden, keinen an den GNSS-Messungen anzubringen.
-Die Messungen aus der THB werden somit lediglich als weitere Beobachtungen in die gesamte Netzausgleichung einfliessen.
-
-\subsection{Fazit}
-Ziel dieses Feldkurses war das bestehende Netz 'Überwachung des Schwanderbärgli' zu erneuern und zu vereinfachen.
-Dabei sollten neue Ansätze präsentiert werden, welche jedoch dieselbe Genauigkeit und Vergleichbarkeit aufweisen.
-In dieser Messkampagne wurden deutlich mehr GNSS-Messungen durchgeführt im Vergleich zu den vorjährigen Messungen.
-Das erhoffte Ziel, das innere Netz 'Brunni' lediglich mittels GNSS-Messungen in
-das Gesamtnetz zu integrieren konnte leider nicht erreicht werden.
-Ein ausschlaggebender Grund war, dass der GDOP des Punktes 6011 nahezu permanent den Wert vier übersteigt.
-In Anbetracht der Umliegenden Bewaldung und Abdeckung ist dies auch nicht sehr erstaunlich, wollte jedoch nicht unversucht bleiben.
+Der bisherige Auswerteansatz, aus den Differenzen zwischen den THB und GNSS-Höhen ein Massstab zu 
+berechnen und an die GNSS-Messungen anzubringen, ist aus mehreren Gründen infrage zu stellen. 
+Frühere Messkampagnen enthielten jeweils zwei einzelne THB-Strecken, welche durch ein Nivellement 
+miteinander verbunden wurden. Dies führt dazu, dass die THB-Höhen gänzlich unkontrolliert bleiben. Andere Messungen 
+dann auf diese zu korrigieren ist fragwürdig. Die neue Messanordnung erlaubt eine Kontrolle einzelner THB-Strecken 
+untereinander. Diese zeigt, dass die erwarteten Genauigkeiten nicht erreicht werden und 
+die erhaltenen THB-Höhen bestenfalls der Genauigkeit der GNSS-Höhen entspricht. 
+Weiter verbindet die THB vier GNSS-Punkte miteinander, wovon 9000 und 9500 auf fast derselben Höhe liegen. 
+Somit verbleiben zwei Höhendifferenzen (9000-6003 und 9000-7000) zur Bestimmung eines allfälligen Massstabes. 
+Diesen dann auf alle 14 GNSS-Punkte zu extrapolieren bringt kaum eine Steigerung der Genauigkeit. 
+Mit den vorliegenden Messdaten ist die einzige sinnvolle Verwendung der THB diese in einen hybriden 
+Netzausgleich einzuführen. Dabei können die THB-Höhen zur Kontrolle und Verbesserung der Redundanz verwendet 
+werden. Bei der Integration der GNSS-Messungen in das Netz könnte der Höhenmassstab der GNSS-Sessionen mitgeschätzt werden. 
+Dieser würde dann nicht nur auf den THB-Messungen bestimmt, sondern insbesondere im oberen Teil auch durch 
+TPS-Messungen gestützt.
