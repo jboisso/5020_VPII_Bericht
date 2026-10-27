@@ -1,11 +1,37 @@
 \section{Scanning}
 \label{sec:scanning}
 
-\subsection{Datenaufbereitung}
+Zusätzlich zu den Netzüberwachungen aus GNSS-, Tachymetrischen- und Nivellmentbeobachtungen wird die Schwergewichtsmauer im
+Bereich 'Sperre' noch genauer erfasst. Mittels Laserscanning wird die gesamte Schwergewichtsmauer
+(siehe Abbildung~\ref{fig:abb-schwergewmauer}) von unterschiedlichen Stationen aus Millimeter genau erfasst.
+Um direkt eine georeferenzierte Punktwolke zu erhalten wurden die Aufnahmen mit einer SX12 von Trimble ausgeführt.
+Der gesamte Perimeter konnte mit fünf Stationen abgedeckt werden.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Schwergewichtsmauer.jpg}
+    \caption{Aufnahme Schwergewichtsmauer und Netzmessung im Feldkurs 2026}
+    \label{fig:abb-schwergewmauer}
+\end{figure}
+
+\subsection{Datenaufbereitung und Auswertung}
 \label{sec:datenaufbereitung}
 
-\subsection{Datenauswertung}
-\label{sec:datenauswertung}
+Zu Beginn werden die Scanstationen im Trimble Business Center (TBC) \parencite{noch zitieren TBC} anhand der ausgeglichenen Koordinaten  neu berechnet.
+Danach wird in Trimble RealWorks \parencite{noch zitieren TRW} die Punktwolke bereinigt und so zugeschnitten, dass sie mit der Aufnahme von letzter
+Epoche verglichen werden kann. Die automatische Klassifikation zur Bereinigung ist hier jedoch nicht immer sehr hilfreich,
+da die Mauern 'schräger' sind als normale Mauern oder Wände und somit nicht als diese erkannt werden.
+Somit folgt eine längere manuelle Bereinigung von Vegetation und Fremdobjekten.
+
+Der Vergleich der beiden Punktwolken findet in CloudCompare \parencite{noch zitieren CC} statt.
+
+% pro wolke je 3mm registrierungsgenauigketi
+% m3c2 algorithmus -> vergleich
+% distanzungenauigkeit
+
+% selbes problem aus unserem paper sichtbar:
+% "fassadenseite" weist sichtbare differenzen von bis zu 10 cm aus, obendrauf ist kaum eine verschiebung erkennbar
+% liegt daran, dass m3c2 algorithmus nur verschiebungen zur fläche und nicht parallel dazu erkennen kann
 
 \subsection{Resultate}
 \label{sec:resultate}
