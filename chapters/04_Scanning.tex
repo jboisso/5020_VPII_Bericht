@@ -1,11 +1,9 @@
 \section{Scanning}
 \label{sec:scanning}
 
-Zusätzlich zu den Netzüberwachungen aus GNSS-, Tachymetrischen- und Nivellmentbeobachtungen wird die Schwergewichtsmauer im
-Bereich 'Sperre' noch genauer erfasst. Mittels Laserscanning wird die gesamte Schwergewichtsmauer
-(siehe Abbildung~\ref{fig:abb-schwergewmauer}) von unterschiedlichen Stationen aus Millimeter genau erfasst.
-Um direkt eine georeferenzierte Punktwolke zu erhalten wurden die Aufnahmen mit einer SX12 von Trimble ausgeführt.
-Der gesamte Perimeter konnte mit fünf Stationen abgedeckt werden.
+Zusätzlich zur Netzmessung wurde die Schwergewichtsmauer im Bereich 'Sperre'~\ref{fig:abb-schwergewmauer} 
+mittels terrestrischem Laserscanning (TLS) flächenhaft erfasst. Die Aufnahmen erfolgten von fünf Stationen 
+mittels einer Trimble SX12. Daraus resultieren direkt georeferenzierte Punktwolken.
 
 \begin{figure}[h!]
     \centering
@@ -17,7 +15,8 @@ Der gesamte Perimeter konnte mit fünf Stationen abgedeckt werden.
 \subsection{Datenaufbereitung und Auswertung}
 \label{sec:datenaufbereitung}
 
-Zu Beginn werden die Scanstationen im Trimble Business Center (TBC) \parencite{noch zitieren TBC} anhand der ausgeglichenen Koordinaten  neu berechnet.
+Die Scanstationen werden im Trimble Business Center (TBC) \parencite{noch zitieren TBC} anhand der ausgeglichenen Koordinaten der Netzmessung neu registriert. 
+Dadurch sinkt die Standardabweichung der Lage und Höhe der einzelnen Stationierungen auf $\sigma < 1 mm$.
 Danach wird in Trimble RealWorks \parencite{noch zitieren TRW} die Punktwolke bereinigt und so zugeschnitten, dass sie mit der Aufnahme von letzter
 Epoche verglichen werden kann. Die automatische Klassifikation zur Bereinigung ist hier jedoch nicht immer sehr hilfreich,
 da die Mauern 'schräger' sind als normale Mauern oder Wände und somit nicht als diese erkannt werden.
