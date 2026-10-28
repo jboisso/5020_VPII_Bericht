@@ -15,25 +15,60 @@ mittels einer Trimble SX12. Daraus resultieren direkt georeferenzierte Punktwolk
 \subsection{Datenaufbereitung und Auswertung}
 \label{sec:datenaufbereitung}
 
-Die Scanstationen werden im Trimble Business Center (TBC) \parencite{noch zitieren TBC} anhand der ausgeglichenen Koordinaten der Netzmessung neu registriert. 
-Dadurch sinkt die Standardabweichung der Lage und Höhe der einzelnen Stationierungen auf $\sigma < 1 mm$.
-Danach wird in Trimble RealWorks \parencite{noch zitieren TRW} die Punktwolke bereinigt und so zugeschnitten, dass sie mit der Aufnahme von letzter
-Epoche verglichen werden kann. Die automatische Klassifikation zur Bereinigung ist hier jedoch nicht immer sehr hilfreich,
-da die Mauern 'schräger' sind als normale Mauern oder Wände und somit nicht als diese erkannt werden.
-Somit folgt eine längere manuelle Bereinigung von Vegetation und Fremdobjekten.
+Die Scanstationen werden im Trimble Business Center (TBC) \parencite{trimbleinc.TrimbleBusinessCenter2026} 
+anhand der ausgeglichenen Koordinaten der Netzmessung neu registriert. 
+Dadurch sinkt die Standardabweichung in Lage und Höhe der einzelnen Stationierungen auf $\sigma < 1 mm$.
+Anschliessend wird die Punktwolke in Trimble RealWorks \parencite{trimbleinc.RealWorks2026} bereinigt und zugeschnitten. 
+Der starke Bewuchs der Mauer macht die Bereinigung schwierig und alle getesteten Klassifikationsalgorithmen in TRW 
+und Leica 3DR scheiterten. Schliesslich musste die Bereinigung manuell durchgeführt werden. 
 
-Der Vergleich der beiden Punktwolken findet in CloudCompare \parencite{noch zitieren CC} statt.
+Der Vergleich mit den Punktwolken aus den Vorjahren wird in CloudCompare (CC) \parencite{opensourceCloudCompare2024} berechnet. 
+Die Punktwolken werden sowohl als Cloud to Cloud (C2C), als auch mit dem M3C2 Algorithmus \parencite{Lague et al zitieren} verglichen. 
+Die Punktwolke von 2026 wird sowohl zur letzten Messung 2024, als auch zu den vorhergehenden Scans aus 2022 und 2018 verglichen. 
+In C2C wird zu jedem Punkt des Scans 2026 
+der nächstliegende Punkt aus der Referenzpunktwolke gesucht und die Distanz dazu berechnet. Für die Mauer ist dies 
+insofern problematisch, als das sie sowohl vertikale, als auch horizontale Flächen aufweist. Da C2C nicht gerichtet 
+nach dem nächsten Punkt sucht, ist nicht gewährleistet, dass die richtigen Flächen miteinander verglichen werden an 
+den Übergängen. Zudem führt Rauschen in der Punktwolke zu grösseren Abweichungen und Flächen die im Referenzscan nicht 
+abgedeckt sind, werden als zunehmend grosse Deformationen ausgegeben. CC ermöglicht zwar das Aufteilen der Verschiebungen 
+nach XY und Z, doch auch dann sind viele Ausreisser und Fehlzuordnungen vorhanden.
+Im Gegensatz zu C2C, ist M3C2 ein Algorithmus, welcher gerichtet nach Deformationen sucht. Hierzu werden Verschiebungen 
+entlang der Flächennormalen bestimmt. Zudem werden nicht Einzelpunkte miteinander verglichen, sondern Punkte aus 
+einem Zylinder mit Radius d werden pro Punktwolke gemittelt und miteinander verglichen. Dies reduziert Einflüsse von 
+Ausreissern und Rauschen auf die berechneten Deformationen deutlich. Ein weiterer Vorteil von M3C2 ist, dass 
+er die Bestimmung der Genauigkeit und Signifikanz der detektierten Deformationen erlaubt. Hierzu wird aus 
+den Punkten im Zylinder eine lokale Standardabweichung pro Punktwolke berechnet. Zudem kann eine Registrierungsgenauigkeit für 
+die Punktwolken angegeben werden. Aus diesen Werten berechnet M3C2 eine Standardabweichung der bestimmten Deformation und 
+leitet die Signifikanz der Verschiebungen zum Niveau 95 \% daraus ab. In Gebiete wo im Referenz- oder im Vergleichsscan Daten 
+fehlen, werden keine Deformationen berechnet. Die detaillierte Beschreibung des M3C2-Algorithmus kann in \citeauthor{Lague}, 2013 
+nachgeschlagen werden.
 
-% pro wolke je 3mm registrierungsgenauigketi
-% m3c2 algorithmus -> vergleich
-% distanzungenauigkeit
+Für die Berechnung am Schwanderbärgli wird der Radius d = 0.30 m gewählt. Die Registrierungsgenauigkeit wird 3.4~mm für 
+jede Punktwolke angenommen. Diese setzt sich aus der absoluten Lagegenauigkeit von 3.5~mm und der 3D-Genauigkeit eines 
+Scanpunktes der SX12 (2.5~mm @ 100~m) \parencite{SX12 zitieren} zusammen. Für die Scans der Vorjahre wird dieselbe Genauigkeit angenommen. 
+Die Normalen werden in CC auf der Referenzpunktwolke berechnet und nicht mit M3C2, da dort Fehler in der 
+Ausrichtung der Normalen auftreten aufgrund der komplexen Mauer-Geometrie. 
 
 % selbes problem aus unserem paper sichtbar:
 % "fassadenseite" weist sichtbare differenzen von bis zu 10 cm aus, obendrauf ist kaum eine verschiebung erkennbar
 % liegt daran, dass m3c2 algorithmus nur verschiebungen zur fläche und nicht parallel dazu erkennen kann
 
 \subsection{Resultate}
-\label{sec:resultate}
+\label{sec:scan-resultate}
+
+Die Vergleiche mit C2C zeigen deutlich die schwächen dieses Algorithmus. Rauschen, nicht-bereinigte Punkte und ungleiche 
+Abdeckungen in den Vergleichsepochen führen zu grossen Ausreissern und Scheindeformationen. Dieser Ansatz wird daher nicht 
+weiter verfolgt.
+Abbildung 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Scans_2026 2.jpg}
+    \caption{Deformationsanalyse mittels M3C2 Vergleich zwischen den Punktwolken aus 2024 und 2026. Dargestellt ist die 
+    Vorder- und Draufsicht der Schwergewichtsstaumauer. Oben sind in Blau-Grün sind die Deformationen, in der Mitte die 
+    Genauigkeit der bestimmten Verschiebungen und unten in Gelb die Signifikanz der Verschiebungen dargestellt.}
+    \label{fig:M3C2-2026}
+\end{figure}
 
 \subsection{Diskussion der Resultate}
-\label{sec:diskussion der resultate}
+\label{sec:scan-diskussion}
