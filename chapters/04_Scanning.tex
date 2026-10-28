@@ -77,10 +77,11 @@ Vegetation stammen, werden die Verschiebungen als nicht signifikant betrachtet.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{Scans_2026 2.jpg}
+    \includegraphics[width=\textwidth]{Scans_2026.jpg}
     \caption{Deformationsanalyse mittels M3C2 Vergleich zwischen den Punktwolken aus 2024 und 2026. Dargestellt ist die 
     Vorder- und Draufsicht der Schwergewichtsstaumauer. Oben sind in Blau-Grün die Deformationen, in der Mitte die 
-    Genauigkeit der bestimmten Verschiebungen und unten in Gelb die Signifikanz der Verschiebungen dargestellt.}
+    Genauigkeit der bestimmten Verschiebungen und unten in Gelb die Signifikanz der Verschiebungen dargestellt. P300~-~700 
+    bezeichnet die ungefähre Lage der Einzelpunktprofile.}
     \label{fig:M3C2-2026}
 \end{figure}
 
@@ -90,7 +91,7 @@ kontinuierlich über alle Epochen zu und es gibt kein ``hin-und-her'' zwischen d
 Scan aus 2022. Eine nähere Betrachtung zeigt, dass dieser nicht gleich sauber bereinigt wurde und einiges an Vegetation 
 in der Punktwolke verblieben ist. Zudem weist auch der Scan an sich ein deutlich höheres Rauschen auf als in den anderen Jahren. 
 Die Betrachtung der Genauigkeit ergibt dasselbe Bild. Über die acht Jahre hat sich die Mauer insbesondere im linken Teil um bis zu 
-30~cm talwärts bewegt. Die Setzungen bewegen sich im Bereich von -6-12~cm.
+30~cm talwärts bewegt. Die Setzungen bewegen sich im Bereich von -6~-~-12~cm.
 
 \begin{figure}[h!]
     \centering
@@ -100,12 +101,14 @@ Die Betrachtung der Genauigkeit ergibt dasselbe Bild. Über die acht Jahre hat s
     \label{fig:M3C2-2018-26}
 \end{figure}
 
-\subsection{Diskussion der Resultate}
+\subsection{Diskussion}
 \label{sec:scan-diskussion}
 
 Das Scanning ermöglicht eine flächenhafte Analyse der Mauer. Dadurch können Bereiche detektiert werden, wo erhöhte Verschiebungen 
-bestehen, welche nicht durch Einzelpunkte abgedeckt werden. Der Vergleich mit den Deformationen aus der Netzmessung ermöglicht 
-die Kontrolle der bestimmten Verschiebungen. \todo{werte beschreiben}.
+bestehen, welche nicht durch Einzelpunkte abgedeckt werden. Der Vergleich mit den Verschiebungen der Einzelpunkte bestätigt die Verteilung und 
+Magnitude der Deformationen. So zeigen die äusseren Profile die grössten Deformationen mit Verschiebung in Fallrichtung von 69~-~89~mm in P300 und 
+68~-87~mm in P700. Auch entlang der Profile stimmen die Daten überein, so hat sich der Punkt 540 am Fusse des Profils P500 lediglich 29~mm in 
+Fallrichtung bewegt, während es oben am Profil 63~mm sind. 
 M3C2 ist aktuell der am besten geeignete Algorithmus zur Bestimmung der Deformationen an der Schwergewichtsmauer. Die 
 gerichteten Deformationen und die zusätzliche Aussage über die Genauigkeit ermöglichen eine zuverlässige Bestimmung der 
 Deformationen. Verschiebungen entlang der Flächen können zwar nicht detektiert werden, zusammenhängende horizontale und 
@@ -115,3 +118,25 @@ könnten an den vertikalen Mauerflächen parallel zur Falllinie detektiert werde
 Bedeutung, möglichst alle Flächen abzudecken. Insbesondere die Oberfläche ist in früheren Scans mangelhaft oder ganz fehlend. 
 Da insbesondere im linken Wandteil die höchsten Deformationen ersichtlich sind, dieser aber auch am stärksten überwachsen ist, 
 wäre eine Rodung vor der nächsten Kontrollmessung wünschenswert.
+
+\section{Fazit Schwanderbärgli}
+
+Die im Feldkurs 2026 erfassten GNSS, THB und Scanningdaten konnten alle erfolgreich ausgewertet werden. 
+In der Auswertung der GNSS-Daten zeigte sich, dass verschiedene Effekte grosse Einflüsse auf die resultierenden 
+Koordinaten haben können. Eine konsistente Auswertung von GNSS-Messungen für Monitoring-Anwendungen ist daher 
+unverzichtbar. Mit dem vorliegenden Bericht konnte die Grundlage für künftige GNSS-Auswertungen am Schwanderbärgli geschaffen 
+und gleichzeitig die Limitierung von GNSS im Messgebiet gezeigt werden.
+
+Die redundanten THB-Messungen haben erstmals gezeigt, dass die bisherige Anwendung der THB als Höhenmassstab für 
+die GNSS-Messungen kritisch ist. Die erreichten Genauigkeiten sind deutlich schlechter als erwartet und Wiedersprüche 
+in den redundanten Messungen deuten auf unbekannte, systematische Einflüsse. In nächsten Folgemessungen müsste die THB 
+deutlich ausgeweitet werden, wenn sie zur Korrektur von GNSS-Messungen verwendet werden soll. In der aktuellen Konfiguration 
+konnte sie lediglich als weiteres Element in den hybriden Netzausgleich eingefügt werden, um eine gewisse Kontrolle zu bieten. 
+
+Das Scanning an der Schwergewichtsmauer im Gebiet Sperre zeigte deutlich die Verschiebungen. Auch wenn der 
+flächenhafte Punktwolkenvergleich gewisse Limitationen in der Detektion von Deformationen aufweist, eignet 
+sich die aktuelle Messkonfiguration dennoch gut, Deformationen korrekt und eindeutig zu erfassen. Mit der 
+Signifikanz aus dem M3C2 konnte zudem nachgewiesen werden, dass das Scanning genügend genau ist, um Deformationen 
+zuverlässig zu erfassen. Für weitere Folgemessungen wäre das Zurückschneiden von Vegetation auf- und vor der Mauer 
+wichtig. Insbesondere im westlichen Mauerbereich zeigen sich erhöhte Deformationen, gleichzeitig wird dieser in naher 
+Zukunft vollständig überwachsen und nicht mehr messbar sein.
