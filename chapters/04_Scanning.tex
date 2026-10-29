@@ -23,7 +23,7 @@ Der starke Bewuchs der Mauer macht die Bereinigung schwierig und alle getesteten
 und Leica 3DR scheiterten. Schliesslich musste die Bereinigung manuell durchgeführt werden. 
 
 Der Vergleich mit den Punktwolken aus den Vorjahren wird in CloudCompare (CC) \parencite{opensourceCloudCompare2024} berechnet. 
-Die Punktwolken werden sowohl als Cloud to Cloud (C2C), als auch mit dem M3C2 Algorithmus \parencite{Lague et al zitieren} verglichen. 
+Die Punktwolken werden sowohl als Cloud to Cloud (C2C), als auch mit dem M3C2 Algorithmus \parencite{lagueAccurate3DComparison2013} verglichen. 
 Die Punktwolke von 2026 wird sowohl zur letzten Messung 2024, als auch zu den vorhergehenden Scans aus 2022 und 2018 verglichen. 
 In C2C wird zu jedem Punkt des Scans 2026 
 der nächstliegende Punkt aus der Referenzpunktwolke gesucht und die Distanz dazu berechnet. Für die Mauer ist dies 
@@ -40,12 +40,12 @@ er die Bestimmung der Genauigkeit und Signifikanz der detektierten Deformationen
 den Punkten im Zylinder eine lokale Standardabweichung pro Punktwolke berechnet. Zudem kann eine Registrierungsgenauigkeit für 
 die Punktwolken angegeben werden. Aus diesen Werten berechnet M3C2 eine Standardabweichung der bestimmten Deformation und 
 leitet die Signifikanz der Verschiebungen zum Niveau 95 \% daraus ab. In Gebiete wo im Referenz- oder im Vergleichsscan Daten 
-fehlen, werden keine Deformationen berechnet. Die detaillierte Beschreibung des M3C2-Algorithmus kann in \citeauthor{Lague}, 2013 
+fehlen, werden keine Deformationen berechnet. Die detaillierte Beschreibung des M3C2-Algorithmus kann in \citeauthor{lagueAccurate3DComparison2013}, 2013 
 nachgeschlagen werden.
 
 Für die Berechnung am Schwanderbärgli wird der Durchmesser d = 0.30 m gewählt. Die Registrierungsgenauigkeit wird 3.4~mm für 
 jede Punktwolke angenommen. Diese setzt sich aus der absoluten Lagegenauigkeit von 3.5~mm und der 3D-Genauigkeit eines 
-Scanpunktes der SX12 (2.5~mm @ 100~m) \parencite{SX12 zitieren} zusammen. Für die Scans der Vorjahre wird dieselbe Genauigkeit angenommen. 
+Scanpunktes der SX12 (2.5~mm @ 100~m) \parencite{trimble-inc.TrimbleSX12Datasheet2021} zusammen. Für die Scans der Vorjahre wird dieselbe Genauigkeit angenommen. 
 Die Normalen werden in CC auf der Referenzpunktwolke berechnet und nicht mit M3C2, da dort Fehler in der 
 Ausrichtung der Normalen auftreten aufgrund der komplexen Mauer-Geometrie. 
 
@@ -62,11 +62,11 @@ weiter verfolgt.
 Abbildung \ref{fig:M3C2-2026} zeigt die Deformationsanalyse 2024~-~2026 mit M3C2. Gut erkennbar ist, dass sich die meisten 
 Bereiche zwischen 6 und 9~cm Talwärts bewegt haben. Im linken Wandteil und rund um den markanten vertikalen Riss im rechten Teil 
 sind Deformationen von bis zu 15~cm ersichtlich. Die Mauerflächen parallel zur Fallrichtung und die Oberseite weisen kaum Deformationen 
-auf. Hier zeigt sich der Dimensionsverlust der flächenhaften Vergleiche \parencite{raffl et al}. Verschiebungen entlang einer Fläche können 
+auf. Hier zeigt sich der Dimensionsverlust der flächenhaften Vergleiche \parencite{rafflEntwicklungZweierMethoden2023}. Verschiebungen entlang einer Fläche können 
 nicht detektiert werden. Lediglich eine leichte Setzung von bis zu -3~cm ist auf der Oberseite der Mauer sichtbar.
 
 Die Genauigkeit der berechneten Deformationen bewegen sich in den meisten Bereichen zwischen 7-14~mm. Lokale Oberflächenstrukturen 
-wie einzelne hervorstehende Steine führen zu einer erhöhten Standardabweichung. Mit dem gewählten Durchmesser d~=~0.15~cm werden alle Punkte 
+wie einzelne hervorstehende Steine führen zu einer erhöhten Standardabweichung. Mit dem gewählten Durchmesser d~=~0.15~cm \todo{oben noch 30 cm?} werden alle Punkte 
 in einem Kreis gemittelt vor dem Vergleich. Liegt ein Kreis auf einer Kante, erfolgt dadurch automatisch eine höhere Standardabweichung des 
 gemittelten Punktes, die sich direkt auf die bestimmte Deformation auswirkt.
 
@@ -91,7 +91,7 @@ kontinuierlich über alle Epochen zu und es gibt kein ``hin-und-her'' zwischen d
 Scan aus 2022. Eine nähere Betrachtung zeigt, dass dieser nicht gleich sauber bereinigt wurde und einiges an Vegetation 
 in der Punktwolke verblieben ist. Zudem weist auch der Scan an sich ein deutlich höheres Rauschen auf als in den anderen Jahren. 
 Die Betrachtung der Genauigkeit ergibt dasselbe Bild. Über die acht Jahre hat sich die Mauer insbesondere im linken Teil um bis zu 
-30~cm talwärts bewegt. Die Setzungen bewegen sich im Bereich von -6~-~-12~cm.
+30~cm talwärts bewegt. Die Setzungen bewegen sich im Bereich von -6~-~-12~cm. \todo{wenn von Setzung gesprochen dann Zahl nicht positiv? sonst hebung?}
 
 \begin{figure}[h!]
     \centering
@@ -107,7 +107,7 @@ Die Betrachtung der Genauigkeit ergibt dasselbe Bild. Über die acht Jahre hat s
 Das Scanning ermöglicht eine flächenhafte Analyse der Mauer. Dadurch können Bereiche detektiert werden, wo erhöhte Verschiebungen 
 bestehen, welche nicht durch Einzelpunkte abgedeckt werden. Der Vergleich mit den Verschiebungen der Einzelpunkte bestätigt die Verteilung und 
 Magnitude der Deformationen. So zeigen die äusseren Profile die grössten Deformationen mit Verschiebung in Fallrichtung von 69~-~89~mm in P300 und 
-68~-87~mm in P700. Auch entlang der Profile stimmen die Daten überein, so hat sich der Punkt 540 am Fusse des Profils P500 lediglich 29~mm in 
+68~-~87~mm in P700. Auch entlang der Profile stimmen die Daten überein, so hat sich der Punkt 540 am Fusse des Profils P500 lediglich 29~mm in 
 Fallrichtung bewegt, während es oben am Profil 63~mm sind. 
 M3C2 ist aktuell der am besten geeignete Algorithmus zur Bestimmung der Deformationen an der Schwergewichtsmauer. Die 
 gerichteten Deformationen und die zusätzliche Aussage über die Genauigkeit ermöglichen eine zuverlässige Bestimmung der 
