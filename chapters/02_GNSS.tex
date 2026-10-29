@@ -5,7 +5,7 @@ Eines der Ziele der Netzmessung 2026 des Deformationsnetzes Schwanderbärgli ist
 Messkonzeptes. Im aktuell stark auf terrestrisch tachymetrische Messungen ausgelegten Netz soll untersucht werden, 
 wie der Messaufwand reduziert werden kann. Konkret sollen lange, gegenseitige Visuren wo möglich weggelassen oder 
 durch einseitige Visuren ersetzt werden. Um dennoch eine genügend hohe Redundanz und geometrische Stabilität zu 
-erhalten, wird vermehrt auf GNSS-Messungen gesetzt.
+erhalten, wird vermehrt auf \acrshort{gnss}-Messungen gesetzt.
 
 \begin{figure}[h!]
     \centering
@@ -16,18 +16,18 @@ erhalten, wird vermehrt auf GNSS-Messungen gesetzt.
 
 
 \subsection{Messkampagne 2026}
-Abbildung~\ref{fig:abb-gnss} zeigt das überarbeitete Messkonzept für das GNSS Grundlagennetz 2026.
-Nebst der Punktauswahl für die langstatischen GNSS-Messungen wurde auch der Messaufbau im Vergleich zu früheren 
-Messkampagnen angepasst. Vier der GNSS Punkte (grün in Abbildung~\ref{fig:abb-gnss}) dienen neu als lokale Referenzstationen, 
-zu welchen die Basislinienberechnungen der weiteren GNSS-Stationen (gelb) erfolgt. Dies bringt den Vorteil, dass über 
+Abbildung~\ref{fig:abb-gnss} zeigt das überarbeitete Messkonzept für das \gls{gnss} Grundlagennetz 2026.
+Nebst der Punktauswahl für die langstatischen \acrshort{gnss}-Messungen wurde auch der Messaufbau im Vergleich zu früheren 
+Messkampagnen angepasst. Vier der \gls{gnss} Punkte (grün in Abbildung~\ref{fig:abb-gnss}) dienen neu als lokale Referenzstationen, 
+zu welchen die Basislinienberechnungen der weiteren \acrshort{gnss}-Stationen (gelb) erfolgt. Dies bringt den Vorteil, dass über 
 den gesamten vertikalen Projektperimeter Referenzdaten auf ähnlicher Höhe verfügbar sind. 
 
-Die GNSS-Messungen der Messkampagne 2026 erfolgten zwischen Dienstag und Donnerstag, 08.-10. September 2026. Die 
+Die \acrshort{gnss}-Messungen der Messkampagne 2026 erfolgten zwischen Dienstag und Donnerstag, 08.-10. September 2026. Die 
 lokalen Referenzstationen (9500, 7015, 7004, 7000) wurden durchgängig während 43~-~47~h gemessen. Währenddessen 
 wurden die Verdichtungspunkte in 4~-~22~h Sessionen gemessen. Abbildung~\ref{fig:abb-gnss-zeiten} zeigt 
-die zeitliche Verteilung und Überlappungen der verschiedenen GNSS-Stationen. Alle Messungen erfolgten mit insgesamt 
-acht Leica GS18i Empfängern der FHNW Muttenz. Die Messungen wurden in einem 15~s Intervall, ohne elevations- oder 
-DOP-Abhängigem Cut-off aufgezeichnet.
+die zeitliche Verteilung und Überlappungen der verschiedenen \acrshort{gnss}-Stationen. Alle Messungen erfolgten mit insgesamt 
+acht Leica GS18i Empfängern der \gls{fhnw} Muttenz. Die Messungen wurden in einem 15~s Intervall, ohne elevations- oder 
+\acrshort{dop}-Abhängigem Cut-off aufgezeichnet.
 
 \begin{figure}[h!]
     \centering
@@ -45,22 +45,22 @@ Die Plausibilitätsprüfung und Kontrolle auf Vollständigkeit erfolgte bereits 
 
 \subsection{Datenauswertung}
 \label{sec:datenauswertung}
-Die Auswertung der GNSS Daten setzt sich aus zwei Teilen zusammen. In einem ersten Schritt sollen die definitiven 
-Koordinaten aller langstatischen GNSS Punkte berechnet werden, welche zur Lagerung der tachymetrischen Messungen 
+Die Auswertung der \gls{gnss} Daten setzt sich aus zwei Teilen zusammen. In einem ersten Schritt sollen die definitiven 
+Koordinaten aller langstatischen \gls{gnss} Punkte berechnet werden, welche zur Lagerung der tachymetrischen Messungen 
 dienen. In einem zweiten Schritt werden Einflüsse unterschiedlicher Auswertestrategien auf die 
-Koordinaten der GNSS-Messungen untersucht.
+Koordinaten der \acrshort{gnss}-Messungen untersucht.
 
 Die Berechnung aller Basislinien erfolgt in Leica infinity (v5.1.0) \parencite{leica-geosystemsLeicaInfinity2026}. Die Deformationsmessung 
-Schwanderbärgli wird im Bezugssystem CH1903+ (LV95/LHN95) ausgewertet.
+Schwanderbärgli wird im Bezugssystem CH1903+ (\acrshort{lv95}/\acrshort{lhn95}) ausgewertet.
 
 \subsubsection{Koordinatenberechnung GNSS Grundlagennetz}
 Da für die vier lokalen Referenzstationen nicht ausgeschlossen werden kann, dass sie von Deformationen betroffen sind, 
-werden deren Basislinien zur nächstgelegenen AGNES-Station Hasliberg (HABG) berechnet. Diese liegt 
+werden deren Basislinien zur nächstgelegenen \acrshort{agnes}-Station Hasliberg (HABG) berechnet. Diese liegt 
 rund 10 km vom Projektperimeter entfernt auf 1098 m.ü.M (CH1903+)\parencite{swisstopoHFP1BEO5972026}. 
 
-Die Zeitreihendarstellung des GDOP und der 3D-Residuen zur statischen Lösung weisen keine nennenswerten Ausreisser 
+Die Zeitreihendarstellung des \gls{gdop} und der 3D-Residuen zur statischen Lösung weisen keine nennenswerten Ausreisser 
 auf, weshalb die Messdaten nicht weiter manuell bereinigt werden. Für die Basislinienberechnung werden die präzisen Ephemeriden 
-des Center for Orbit Determination in Europe (CODE) verwendet. Die ionosphärischen sowie die troposphärischen Korrekturen werden jeweils aus den 
+des \gls{code} verwendet. Die ionosphärischen sowie die troposphärischen Korrekturen werden jeweils aus den 
 Messdaten geschätzt. Die finalen Koordinaten der Punkte 7000 und 7004 werden noch um den Offset aus der Dreifusszentrierung 
 (vgl. hierzu auch \cite{waltiVertiefungsprofilGeoSensorikMonitoring2026}) korrigiert.
 
@@ -70,7 +70,7 @@ diese nicht zur finalen Basislinienberechnung verwendet, sondern ebenfalls als V
 In der Zeitreihendarstellung der Messungen im Punkt 6011 
 sind vermehrt Ausreisser im Meterbereich in den 3D-Residuen sichtbar. Diese sind auf starke Abschattung im Punkt 
 und die daraus resultierende schlechte Satellitengeometrie zurückzuführen. Die betreffenden Zeitfenster 
-werden manuell bereinigt. Die Positionsresiduen und der GDOP der 
+werden manuell bereinigt. Die Positionsresiduen und der \gls{gdop} der 
 anderen Punkte sind unauffällig. Zur Berechnung werden die gleichen Einstellungen wie zur Berechnung lokalen Referenzstationen 
 verwendet.
 
@@ -78,18 +78,18 @@ Pro Punkt ergeben sich somit drei Koordinaten, jeweils zu jeder Basisstation. Di
 des Punktes zur entsprechenden Basisstation linear gewichtet gemittelt, wobei die kleinste Höhendifferenz das höchste 
 Gewicht erhält. Die gemittelten Koordinaten werden ebenfalls wo nötig um den 
 Offset der Dreifusszentrierung korrigiert und anschliessend in ein .mes-File konvertiert. Es werden zwei Files erstellt, 
-eines mit ellipsoidischen Höhen zum Vergleich mit der trigonometrischen Höhenbestimmung (THB) und eines mit 
+eines mit ellipsoidischen Höhen zum Vergleich mit der \glsdisp{thb}{trigonometrischen Höhenbestimmung (THB)} und eines mit 
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
 sind in den Anhängen \todo{Anhang referenzieren} beigelegt.
 
 \subsection{Untersuchung von GNSS-Einflüssen}
-Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die GNSS-Messungen diskutiert und deren Einfluss 
-auf die GNSS-Messungen am Schwanderbärgli untersucht.
+Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die \acrshort{gnss}-Messungen diskutiert und deren Einfluss 
+auf die \acrshort{gnss}-Messungen am Schwanderbärgli untersucht.
 
 \subsubsection{Bereinigen Messungen}
 \label{sec:bereinigung_gnss}
 Die Messungen wurden durch das gezielte Ausschalten einzelner Satelliten sowie ganzer Zeitperioden bereinigt und dadurch verbessert.
-Dabei wurden Satelliten mit geringer Elevation, starkem Multipath oder schlechtem Signal-Rausch-Verhältnis (SNR) ausgeschlossen, ebenso Zeitperioden mit ungünstiger Satellitengeometrie (hoher GDOP) oder Signalabschattungen.
+Dabei wurden Satelliten mit geringer Elevation, starkem Multipath oder schlechtem \gls{snr} ausgeschlossen, ebenso Zeitperioden mit ungünstiger Satellitengeometrie (hoher \gls{gdop}) oder Signalabschattungen.
 Dies führte zu einer höheren Anzahl fixierter Ambiguitäten und zu einer geringeren Streuung der Koordinatenlösungen.
 Die resultierenden Abweichungen sind in Tabelle \ref{tab:abweichungen} dargestellt. 
 Die Konvergenzzeit wurde ebenfalls bei jeder Messung abgeschnitten.
@@ -126,8 +126,8 @@ Die Konvergenzzeit wurde ebenfalls bei jeder Messung abgeschnitten.
 Die Lagekoordinaten veränderten sich dadurch nur geringfügig, während sich die Höhe stark änderte (84.5\,mm).
 Zudem wurden alle Messungen so bereinigt, dass nur Epochen berücksichtigt wurden, in denen alle Referenzstationen aktiv waren.
 
-Beim Punkt 6011, der eine schlechte GDOP aufwies, wurde ein grösserer Teil der Messung entfernt, um die Koordinatenlösung bestmöglich zu verbessern.
-Trotz dieser umfangreichen Bereinigung weist die Messung weiterhin einen mittleren GDOP von 3.8 sowie Spitzenwerte von bis zu 7.4 auf.
+Beim Punkt 6011, der eine schlechte \gls{gdop} aufwies, wurde ein grösserer Teil der Messung entfernt, um die Koordinatenlösung bestmöglich zu verbessern.
+Trotz dieser umfangreichen Bereinigung weist die Messung weiterhin einen mittleren \gls{gdop} von 3.8 sowie Spitzenwerte von bis zu 7.4 auf.
 Die Spitzen treten nur kurzzeitig auf und sind auf Zeitfenster mit ungünstiger Satellitengeometrie zurückzuführen. (siehe Abbildung~\ref{fig:dop-basislinie-7000-6011}).
 
 
@@ -141,28 +141,28 @@ Die Spitzen treten nur kurzzeitig auf und sind auf Zeitfenster mit ungünstiger 
 
 \subsubsection{Einfluss des Koordinatenbezugssystem}
 \label{sec:koordbezsys}
-Die Gebrauchshöhen LN02 wurden ausschliesslich aus Nivellementmessungen berechnet, ohne die Lotabweichung oder lokale 
+Die Gebrauchshöhen \gls{ln02} wurden ausschliesslich aus Nivellementmessungen berechnet, ohne die Lotabweichung oder lokale 
 Schwere zu korrigieren. Der neue Höhenreferenzrahmen 
-LHN95 hingegen basiert sowohl auf Nivellement-, GNSS- und Schweremessungen. Die  
+\gls{lhn95} hingegen basiert sowohl auf Nivellement-, \acrshort{gnss}- und Schweremessungen. Die  
 Lotabweichung und die lokale Schwere wurden korrigiert, woraus streng orthometrische Höhen resultieren. Während entlang 
-der Nivellementlinien die Differenzen zwischen LN02 und LHN95 wenige Millimeter betragen, können diese 
+der Nivellementlinien die Differenzen zwischen \gls{ln02} und \gls{lhn95} wenige Millimeter betragen, können diese 
 ausserhalb der Linien auf bis zu 65 cm anwachsen. Zwischen den 
 beiden Referenzrahmen besteht nur eine Näherungstransformation (HTRANS), aber keine streng mathematische Beschreibung. 
 Die Transformation zwischen den beiden Systemen kann somit zu einem Genauigkeitsverlust führen. \parencite{schlatterNeueLandeshohennetzSchweiz2006}
 
-Im Schwanderbärgli beträgt der Höhenoffset zwischen LN02 und LHN95 entlang der Fixpunkte im Tal (9000 - 9500 - TP510) 
+Im Schwanderbärgli beträgt der Höhenoffset zwischen \gls{ln02} und \gls{lhn95} entlang der Fixpunkte im Tal (9000 - 9500 - TP510) 
 rund 2.8 cm. Mit zunehmender Höhe steigt die Differenz bis auf > 10 cm Höhendifferenz auf dem Punkt TP506. 
-Die GNSS-Messungen werden in LHN95 berechnet, um Abweichungen aus der HTRANS nicht in das Netz zu integrieren. 
+Die \acrshort{gnss}-Messungen werden in \gls{lhn95} berechnet, um Abweichungen aus der HTRANS nicht in das Netz zu integrieren. 
 
 \subsubsection{Einfluss der Referenzstation}
 \label{sec:refstation}
-Die vier lokalen Referenzstationen werden zum Vergleich sowohl zur Agnes-Station HABG, als auch zu einer 
-virtuellen Referenzstation (VRS) berechnet. Die VRS wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
-Die Basislinien zur VRS weisen für alle Stationen deutlich mehr und grössere Ausreisser im GDOP über die gesamte Messzeit auf. 
-Während der GDOP der Basislinien zur HABG 4.5 nicht überschreitet, steigt dieser stellenweise auf über 15 für Basislinien zur VRS.
-Die Koordinatendifferenzen zwischen den Berechnungen mit der HABG und mit der VRS betragen im Mittel 1.7 mm in der Lage (2D) und 7.4 mm in der Höhe (RMSE). 
+Die vier lokalen Referenzstationen werden zum Vergleich sowohl zur \acrshort{agnes}-Station HABG, als auch zu einer
+\glsdisp{vrs}{virtuellen Referenzstation (VRS)} berechnet. Die \gls{vrs} wird hierbei auf dem Punkt EX9500 auf einer Höhe von 650 m.ü.M. gewählt. 
+Die Basislinien zur \gls{vrs} weisen für alle Stationen deutlich mehr und grössere Ausreisser im \gls{gdop} über die gesamte Messzeit auf. 
+Während der \gls{gdop} der Basislinien zur HABG 4.5 nicht überschreitet, steigt dieser stellenweise auf über 15 für Basislinien zur \gls{vrs}.
+Die Koordinatendifferenzen zwischen den Berechnungen mit der HABG und mit der \gls{vrs} betragen im Mittel 1.7 mm in der Lage (2D) und 7.4 mm in der Höhe (\acrshort{rmse}). 
 Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
-ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der VRS keine Genauigkeitssteigerung zu 
+ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der \gls{vrs} keine Genauigkeitssteigerung zu 
 erwarten.
 \todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
 \todo{Einfluss der lokalen Referenzstation beschreiben und Boxplots einfügen}
@@ -188,7 +188,7 @@ Swisstopo in Abbildung~\ref{fig:abb-I95} zeigt.
 
 \FloatBarrier
 
-Im ersten Versuch wird als Ionosphärenmodell (.ION - File) eine tägliche Berechnung der Uni Bern (CODE) verwendet.
+Im ersten Versuch wird als Ionosphärenmodell (.ION - File) eine tägliche Berechnung der Uni Bern (\gls{code}) verwendet.
 Diese Lösung zeigt in der Lage deutliche systematische Abweichungen zur Modellierung aus den Messungen,
 in welcher der Einfluss mittels Zweifrequenzen eliminiert wurde.
 Die Ergebnisse sind in Tabelle~\ref{tab:iono-ber} dokumentiert.
@@ -250,10 +250,10 @@ Global Pressure and Temperature 2 Modell \parencite{laglerGPT2EmpiricalSlant2013
 Hopfield/Modifiziertes Hopfield (1969) und Saastamoinen (1972) sind ältere Modelle, welche einen Qualitätsverlust mit sich bringen.
 Der automatische Modus von Infinity verwendet für Messungen von weniger als 90~min die Vienna Mapping Functions,
 für längere Messungen wird ein Troposphärenmodell aus den Messungen geschätzt. Dabei wird für jede berechnete Epoche 
-der ZTD mitgeschätzt \parencite{leica-geosystemsLeicaInfinity2026}.
+der \gls{ztd} mitgeschätzt \parencite{leica-geosystemsLeicaInfinity2026}.
 
 Auch hier wird die Auswirkung der Auswertemethoden auf die Koordinaten untersucht.
-Dabei wird das Resultat des berechneten Modells mit jenem der VMF mit GPT2-Modell verglichen. Tabelle~\ref{tab:vmf-ber} zeigt,
+Dabei wird das Resultat des berechneten Modells mit jenem der \gls{vmf} mit GPT2-Modell verglichen. Tabelle~\ref{tab:vmf-ber} zeigt,
 dass die Modelle kaum zu Änderungen in der Lage führen. In der Höhe zeigt 
 widerum der höchste Punkt 7000 Differenzen von über einem Zentimeter. Die übrigen Punkte bewegen sich im Rahmen von lediglich 1-5~mm.
 
@@ -277,7 +277,7 @@ widerum der höchste Punkt 7000 Differenzen von über einem Zentimeter. Die übr
 
 Um die Qualität der alten Modelle besser einschätzen zu können, werden alle Vergleichspunkte noch mit dem Saastamoinen Modell berechnet.
 Dieses wird stellvertretend für alle älteren Modelle verwendet. Gemäss Tabelle~\ref{tab:saas-ber} sind in der Lage wiederum minimale systematische
-Abweichungen von bis zu einem halben Millimeter vorhanden. In der Höhe ist das Modell um 2-4~mm auffallend nahe an der VMF.
+Abweichungen von bis zu einem halben Millimeter vorhanden. In der Höhe ist das Modell um 2-4~mm auffallend nahe an der \gls{vmf}.
 
 \begin{table}[htbp]
     \centering
@@ -299,15 +299,15 @@ Abweichungen von bis zu einem halben Millimeter vorhanden. In der Höhe ist das 
 
 \subsubsection{Auswertung als PPP}
 \label{sec:ppp}
-Alle GNSS-Messungen werden zum Vergleich auch im Precise Point Positioning (PPP) Verfahren ausgewertet. Hierzu 
+Alle \acrshort{gnss}-Messungen werden zum Vergleich auch im \gls{ppp} Verfahren ausgewertet. Hierzu 
 wird der kanadische online-PPP-Dienst CSRS-PPP \parencite{governmentofcanadaPrecisePointPositioning2026} verwendet. 
-Die Berechnung wird als statischer Punkt im Bezugsrahmen ITRF ausgeführt. 
-Die in ITRF2020 (2026.7) erhaltenen Koordinaten werden gemäss \cite{lennstromUebungPPP40202026}, nach CHTRS95 transformiert.
-CSRS-PPP verarbeitet nur Galileo, GPS und Glonass, Beidou-Satelliten werden nicht berechnet. Zur Modellierung 
+Die Berechnung wird als statischer Punkt im Bezugsrahmen \gls{itrf} ausgeführt. 
+Die in ITRF2020 (2026.7) erhaltenen Koordinaten werden gemäss \cite{lennstromUebungPPP40202026}, nach \gls{chtrs95} transformiert.
+CSRS-PPP verarbeitet nur Galileo, \gls{gps} und Glonass, Beidou-Satelliten werden nicht berechnet. Zur Modellierung 
 der Troposphäre nutzt CSRS-PPP VMF3 Grid-Werte \parencite{governmentofcanadaPrecisePointPositioning2026}. Diese beruhen auf tatsächlichen Meteobeobachtungen 
-während des Messzeitraums, aus welchen ein Raster von Korrekturwerten für die ZTD berechnet werden. Zudem schätzt die PPP-Auswertung 
-immer auch den verbleibenden ZTD-Wert aus den Messdaten mit. Tabelle \ref{tab:ppp_baseline} zeigt die Standardabweichung der einzelnen 
-PPP-Berechnungen. Auffällig sind die erhöhten Werte bei den Punkten mit kürzerer Messdauer wie 6006 und 6010. Die lokalen 
+während des Messzeitraums, aus welchen ein Raster von Korrekturwerten für die \gls{ztd} berechnet werden. Zudem schätzt die \acrshort{ppp}-Auswertung 
+immer auch den verbleibenden \acrshort{ztd}-Wert aus den Messdaten mit. Tabelle \ref{tab:ppp_baseline} zeigt die Standardabweichung der einzelnen 
+\acrshort{ppp}-Berechnungen. Auffällig sind die erhöhten Werte bei den Punkten mit kürzerer Messdauer wie 6006 und 6010. Die lokalen 
 Referenzstationen hingegen weisen besonders in der Lage hohe Genauigkeiten von $ \leq $ 3~mm  auf.
 
 \begin{table}[h!]
@@ -352,16 +352,16 @@ Referenzstationen hingegen weisen besonders in der Lage hohe Genauigkeiten von $
     \end{tabularx}
 \end{table}
 
-Der Vergleich mit den GNSS-Koordinaten aus der Basislinienberechnung zeigt besonders in der Höhe mittlere Differenzen 
+Der Vergleich mit den \acrshort{gnss}-Koordinaten aus der Basislinienberechnung zeigt besonders in der Höhe mittlere Differenzen 
 von 16~mm, mit einer maximalen Differenz von 45~mm im Punkt 6011. Diese resultieren aus der schlechten Messqualität 
 in 6011 (siehe Kapitel \ref{sec:bereinigung_gnss}). Um Einflüsse aus dem Geoidmodell zu vermeiden, wurde der Vergleich anhand 
 der ellipsoidischen Höhen durchgeführt. Die Abweichungen zeigen keine systematischen Effekte aufgrund der Lage oder Höhe 
 der einzelnen Punkte. Auch die Messdauer korreliert nicht mit den erhaltenen Abweichungen. 
 
 \subsection{Trigonometrische Höhenbestimmung (THB)}
-Ziel der THB war es, mögliche Abweichungen aus dem ZTD in den GNSS-Messungen korrigieren zu können. Hierzu wurden in den 
-früheren Messkampagnen zwei Strecken zwischen insgesamt vier GNSS-Punkten mittels THB bestimmt. Aus den Differenzen der THB- und der 
-GNSS-Höhenunterschiede wurde ein Höhenmassstab für die GNSS-Messungen bestimmt und an diesen angebracht. Hierbei resultierten 
+Ziel der \gls{thb} war es, mögliche Abweichungen aus dem \gls{ztd} in den \acrshort{gnss}-Messungen korrigieren zu können. Hierzu wurden in den 
+früheren Messkampagnen zwei Strecken zwischen insgesamt vier \acrshort{gnss}-Punkten mittels \gls{thb} bestimmt. Aus den Differenzen der \acrshort{thb}- und der 
+\acrshort{gnss}-Höhenunterschiede wurde ein Höhenmassstab für die \acrshort{gnss}-Messungen bestimmt und an diesen angebracht. Hierbei resultierten 
 Massstäbe von bis zu 300~ppm.
 
 \begin{figure}[h!]
@@ -372,9 +372,9 @@ Massstäbe von bis zu 300~ppm.
     \label{fig:abb-THB}
 \end{figure}
 
-Abbildung \ref{fig:abb-THB} zeigt den Aufbau der THB aus 2026. Dieser erlaubt erstmals eine Kontrolle der THB Messungen 
+Abbildung \ref{fig:abb-THB} zeigt den Aufbau der \gls{thb} aus 2026. Dieser erlaubt erstmals eine Kontrolle der \gls{thb} Messungen 
 untereinander, in dem sowohl ein Dreieck (7000 - 6015 - 9000), als auch weitere redundante Höhenunterschiede gemessen wurden. 
-Zum Anschluss an die GNSS-Messungen und bilden des Dreiecks wurden die Exzenterpunkte 6003 und EX7000 mitgemessen. Da dies 
+Zum Anschluss an die \acrshort{gnss}-Messungen und bilden des Dreiecks wurden die Exzenterpunkte 6003 und EX7000 mitgemessen. Da dies 
 sehr kurze Visuren sind, wurden sie einseitig in acht Sätzen eingemessen. 
 Die Berechnung der gleichzeitig gegenseitigen Messungen erfolgt nach Gleichung \eqref{eq:delta_h} \parencite{ingensandEinfuehrungGeodaetischeMesstechnik2011} 
 unter Berücksichtigung der Lotabweichung und Geoidundulation. 
@@ -393,7 +393,7 @@ $S_{A,B}$ die Instrumenten- und Signalhöhen.
 
 
 \subsubsection{Genauigkeiten THB}
-Tabelle \ref{tab:THB_Stdabw} zeigt die a priori- und empirischen Standardabweichungen für die THB-Höhen. Der gepaarte t-Test zeigt, dass die 
+Tabelle \ref{tab:THB_Stdabw} zeigt die a priori- und empirischen Standardabweichungen für die \acrshort{thb}-Höhen. Der gepaarte t-Test zeigt, dass die 
 Unterschiede zwischen a priori und a posteriori statistisch nicht signifikant sind. Alle Höhenunterschiede wurden achtfach in beiden 
 Lagen gegenseitig gemessen. Um der Korrelation zwischen den Sätzen Rechnung zu tragen, wurden die a priori Werte mit vier Sätzen berechnet.  
 
@@ -417,7 +417,7 @@ Lagen gegenseitig gemessen. Um der Korrelation zwischen den Sätzen Rechnung zu 
     \end{tabular}
 \end{table}
 
-Aus den gemessenen THB-Strecken lassen sich zusammen mit dem Nivellement zwischen 9000 und EX9500 mehrere Schlaufen 
+Aus den gemessenen \acrshort{thb}-Strecken lassen sich zusammen mit dem Nivellement zwischen 9000 und EX9500 mehrere Schlaufen 
 berechnen, in denen der Höhenunterschied 0~mm ergeben sollte. Mit Ausnahme einer Schlaufe weisen alle Differenzen von 
 15~mm bis 32~mm auf. Die einzige Schlaufe, die eine Differenz nahe der erwarteten Standardabweichung zeigt, ist der Vergleich 
 von 9000-EX7000-7000 zu 9000-EX9500-EX6015-7000 mit 9~mm. Dabei fällt auf, dass die Station 6015 die einzige ist, welche 
@@ -425,19 +425,19 @@ in allen Schlaufen mit hohen Abweichungen vertreten ist, nicht aber in der passe
 Abweichung in 6015 kann nicht identifiziert werden. Die Messungen von und zu dieser Station weisen keine Unregelmässigkeiten auf, 
 die Instrumenten- und Zielhöhen sind gemäss Dokumentation alle richtig gesetzt und die Prismenkonstante ist korrekt ausgewählt. 
 
-Für die weiteren Berechnungen werden alle THB-Messungen von und zu 6015 eliminiert. Dennoch ist die Möglichkeit in Betracht zu ziehen, 
+Für die weiteren Berechnungen werden alle \acrshort{thb}-Messungen von und zu 6015 eliminiert. Dennoch ist die Möglichkeit in Betracht zu ziehen, 
 dass es Zufall ist, dass die Messungen ohne 6015 passen. Dies insbesondere, da kein Fehlereinfluss identifiziert werden konnte und 
-kaum Redundanz in den THB-Messungen besteht ohne 6015. Die verbleibenden THB-Messungen werden zusammen mit dem Nivellement in einem 
-freien Netzausgleich ausgeglichen, um Widersprüche innerhalb der THB auf die einzelnen Messungen zu verteilen. Das Netz hat eine 
+kaum Redundanz in den \acrshort{thb}-Messungen besteht ohne 6015. Die verbleibenden \acrshort{thb}-Messungen werden zusammen mit dem Nivellement in einem 
+freien Netzausgleich ausgeglichen, um Widersprüche innerhalb der \gls{thb} auf die einzelnen Messungen zu verteilen. Das Netz hat eine 
 Überbestimmung von 1 und ermöglicht keine zuverlässigen Aussagen über die Genauigkeit. 
 
 \subsubsection{THB und GNSS}
 \label{sec:thb-und-gnss}
-Ein erster Vergleich der unausgeglichenen THB-Höhen (inkl. 6015) mit Höhendifferenzen aus den GNSS-Messungen ergibt 
+Ein erster Vergleich der unausgeglichenen \acrshort{thb}-Höhen (inkl. 6015) mit Höhendifferenzen aus den \acrshort{gnss}-Messungen ergibt 
 Unterschiede von -11~mm bis +40~mm. Diese sind scheinbar zufällig verteilt und es ist keine Korrelation zwischen 
 Höhenunterschied und Differenz sichtbar.
 Erst der Vergleich der bereinigten und ausgeglichenen Höhendifferenzen zeigt eine Korrelation der Abweichungen 
-und der GNSS-Höhen (siehe Tabelle \ref{tab:THB_GNSS}).
+und der \acrshort{gnss}-Höhen (siehe Tabelle \ref{tab:THB_GNSS}).
 
 \begin{table}[h]
     \centering
@@ -455,10 +455,10 @@ und der GNSS-Höhen (siehe Tabelle \ref{tab:THB_GNSS}).
     \end{tabular}
 \end{table} 
 
-Insgesamt weisen die GNSS-Koordinaten aus der PPP-Berechnung geringere Abweichungen zu den THB-Höhen auf. Aufgrund der 
-kleinen Stichprobe lässt sich jedoch keine zuverlässige Signifikanz bestimmen. Auffällig ist in beiden GNSS-Sätzen der 
+Insgesamt weisen die \acrshort{gnss}-Koordinaten aus der \acrshort{ppp}-Berechnung geringere Abweichungen zu den \acrshort{thb}-Höhen auf. Aufgrund der 
+kleinen Stichprobe lässt sich jedoch keine zuverlässige Signifikanz bestimmen. Auffällig ist in beiden \acrshort{gnss}-Sätzen der 
 grosse Massstab zwischen 9000 und EX9500. Dieser ist aber zu relativieren, da die Höhendifferenz lediglich 23~m beträgt. 
-Bei einer GNSS-Höhengenauigkeit von 10~mm folgt eine Genauigkeit der Höhendifferenz von 14~mm. Da die Abweichung von 13~mm innerhalb 
+Bei einer \acrshort{gnss}-Höhengenauigkeit von 10~mm folgt eine Genauigkeit der Höhendifferenz von 14~mm. Da die Abweichung von 13~mm innerhalb 
 der Genauigkeit liegt, ist der Massstab als nicht signifikant zu betrachten.
 
 
@@ -469,31 +469,31 @@ Auswertungen der Vorjahre. Wie in der Auswertung gezeigt, haben unterschiedliche
 auf die erhaltenen Daten, weshalb eine konsistente Auswertung aller Kontrollmessungen wichtig wäre. Um das bestmögliche 
 Ergebnis zu erzielen, wurde die, nach aktuellem Wissensstand über die früheren Auswertungen, jeweils beste Lösung gewählt.
 
-Der Höhenbezug ist in der Auswertung Schwanderbärgli 2022 als LHN95 angegeben. Entsprechend werden die GNSS-Messungen 2026 ausgewertet 
+Der Höhenbezug ist in der Auswertung Schwanderbärgli 2022 als \gls{lhn95} angegeben. Entsprechend werden die \acrshort{gnss}-Messungen 2026 ausgewertet 
 (siehe \ref{sec:koordbezsys}). 
-Dies bringt den Vorteil, dass in LHN95 keine Spannungen aus der HTRANS auf die Messungen übertragen werden. Dennoch 
-weicht die erhaltene GNSS-Höhe des Höhenanschlusspunktes 9000 um 11~mm von der bisherigen Höhe ab. Von dieser ist  
-nicht dokumentiert, wie sie entstanden ist. Sie stimmt nicht mit jener der Swisstopo in LN02 überein und ein Vergleich mit derselben Höhe nach 
-LHN95 transformiert ist auch nicht aufschlussreich. Dadurch kann nicht abschliessend festgestellt werden, ob die Differenz aus der 
-GNSS-Messgenauigkeit oder von anderen (systematischen) Einflüssen stammt. Weiter werden die Höhen im Netz aber als Gebrauchshöhen
-behandelt. Einzig in den TPS-Messungen und der THB werden die Lotabweichung und Geoidundulation
-korrigiert. Somit ist das gesamte Netz nun mit ’LN02-Eigenschaften’ auf der Höhe von LHN95 gelagert.
+Dies bringt den Vorteil, dass in \gls{lhn95} keine Spannungen aus der HTRANS auf die Messungen übertragen werden. Dennoch 
+weicht die erhaltene \acrshort{gnss}-Höhe des Höhenanschlusspunktes 9000 um 11~mm von der bisherigen Höhe ab. Von dieser ist  
+nicht dokumentiert, wie sie entstanden ist. Sie stimmt nicht mit jener der Swisstopo in \gls{ln02} überein und ein Vergleich mit derselben Höhe nach 
+\gls{lhn95} transformiert ist auch nicht aufschlussreich. Dadurch kann nicht abschliessend festgestellt werden, ob die Differenz aus der 
+\acrshort{gnss}-Messgenauigkeit oder von anderen (systematischen) Einflüssen stammt. Weiter werden die Höhen im Netz aber als Gebrauchshöhen
+behandelt. Einzig in den TPS-Messungen und der \gls{thb} werden die Lotabweichung und Geoidundulation
+korrigiert. Somit ist das gesamte Netz nun mit ’\acrshort{ln02}-Eigenschaften’ auf der Höhe von \gls{lhn95} gelagert.
 
 Wie die Auswertungen in Kapitel \ref{sec:refstation} zeigen, hat die Wahl der Referenzstation einen Einfluss 
-auf die erhaltenen GNSS-Positionen und Höhe. 
+auf die erhaltenen \acrshort{gnss}-Positionen und Höhe. 
 Welche Referenzstation in den Vorjahren verwendet wurde, ist nicht dokumentiert. Es ist jedoch naheliegend, dass eine 
-AGNES-Station verwendet wurde, da diese näher liegt als die umliegenden Refnet-Stationen. Zudem gab es zur Zeit 
-der ersten GNSS-Messungen am Schwanderbärgli vermutlich ausschliesslich AGNES-Stationen in der Schweiz. Dennoch 
+\acrshort{agnes}-Station verwendet wurde, da diese näher liegt als die umliegenden Refnet-Stationen. Zudem gab es zur Zeit 
+der ersten \acrshort{gnss}-Messungen am Schwanderbärgli vermutlich ausschliesslich \acrshort{agnes}-Stationen in der Schweiz. Dennoch 
 könnten die Differenzen im Punkt 9000 auch auf das Verwenden unterschiedlicher Referenzstationen zurückzuführen sein. 
 Sowohl die erhaltenen Genauigkeiten, als auch das Ziel, eine einheitliche Auswertung für künftige Messkampagnen zu schaffen, 
-sprechen dafür die AGNES-Station HABG als Referenzstation zu verwenden. Diese ist dauerhaft in Betrieb und sämtliche Änderungen 
-werden von der swisstopo dokumentiert. Alternativ wäre eine Auswertung der lokalen Basisstationen als PPP möglich. Dabei 
-entfällt die Abhängigkeit von einer externen Referenzstation und Tabelle \ref{tab:ppp_baseline} zeigt, dass PPP über die lange 
-Messdauer genügend gute Resultate liefert. Ob in der PPP-Auswertung der ZTD besser berücksichtigt wird und dies eine THB überflüssig macht, 
+sprechen dafür die \acrshort{agnes}-Station HABG als Referenzstation zu verwenden. Diese ist dauerhaft in Betrieb und sämtliche Änderungen 
+werden von der swisstopo dokumentiert. Alternativ wäre eine Auswertung der lokalen Basisstationen als \gls{ppp} möglich. Dabei 
+entfällt die Abhängigkeit von einer externen Referenzstation und Tabelle \ref{tab:ppp_baseline} zeigt, dass \gls{ppp} über die lange 
+Messdauer genügend gute Resultate liefert. Ob in der \acrshort{ppp}-Auswertung der \gls{ztd} besser berücksichtigt wird und dies eine \gls{thb} überflüssig macht, 
 lässt sich mit den vorliegenden Daten nicht sagen.
 
 Die unterschiedlichen Modellierungsansätze für die Berücksichtigung der iono- und troposphärischen Einflüsse haben 
-insbesondere in der Höhe einen grossen Einfluss auf die berechneten GNSS-Koordinaten. Während die Lage meist 
+insbesondere in der Höhe einen grossen Einfluss auf die berechneten \acrshort{gnss}-Koordinaten. Während die Lage meist 
 systematische Effekte aufweist, sind die Differenzen in der Höhe deutlich inkonsistenter verteilt. Weshalb der Punkt 
 7000 in allen Modellen die grösste Differenz der Modelle zu den berechneten Koordinaten hat, lässt sich nicht 
 eindeutig bestimmen. Eine mögliche Ursache ist, dass der Punkt aufgrund der exponierten Lage deutlich mehr 
@@ -501,8 +501,8 @@ Satellitenabdeckung in niedrigen Elevationen hat als die anderen Punkte. Da dies
 meisten von Modellierungsfunktionen beeinflusst werden, ist es naheliegend, dass unterschiedliche Modelle 
 grössere Einflüsse auf die Koordinaten haben.
 
-Interessant ist der Vergleich der Troposphärenmodelle Saastamoinen und VMF+GPT2. Obwohl das Saastamoinen ein 
-deutlich einfacheres Modell ist als die VMF, sind die Differenzen zwischen den beiden Modellen erstaunlich klein. 
+Interessant ist der Vergleich der Troposphärenmodelle Saastamoinen und \gls{vmf}+GPT2. Obwohl das Saastamoinen ein 
+deutlich einfacheres Modell ist als die \gls{vmf}, sind die Differenzen zwischen den beiden Modellen erstaunlich klein. 
 Auch wenn die in Infinity implementierten Modelle zur Schätzung der iono- und troposphärischen Korrekturen 
 nicht bekannt oder dokumentiert sind, ist doch davon auszugehen, dass diese die aktuellen Verhältnisse am besten 
 abbilden. Während die Ionosphäre keine Besonderheiten während den Messungen aufwies, war in der Troposphäre 
@@ -511,36 +511,36 @@ Solch lokale Ereignisse werden in einem globalen Modell nicht berücksichtigt. E
 könnte durch das Aufzeichnen der relevanten Meteoparametern an den Stationen erreicht werden. Infinity erlaubt 
 aber zum Zeitpunkt der Auswertung noch keine manuelle Eingabe von Meteoparametern bei der Basislinienberechnung. 
 
-Eine Auswertung der lokalen Basisstationen als PPP anstelle von Basislinienauswertung zur HABG bringt 
+Eine Auswertung der lokalen Basisstationen als \gls{ppp} anstelle von Basislinienauswertung zur HABG bringt 
 den Vorteil, dass keine Einflüsse durch Höhenunterschiede zwischen Basisstation und Rover vorhanden sind. 
-Zudem werden in eingen PPP-Diensten die tatsächlich herrschenden Meteobedingungen während des Messzeitraums verwendet, 
-anstelle von monatlichen Mittelwerten. Nichtsdestotrotz ist die Auflösung des verwendeten PPP-Dienstes 
+Zudem werden in eingen \acrshort{ppp}-Diensten die tatsächlich herrschenden Meteobedingungen während des Messzeitraums verwendet, 
+anstelle von monatlichen Mittelwerten. Nichtsdestotrotz ist die Auflösung des verwendeten \acrshort{ppp}-Dienstes 
 ausschlaggebend, wie genau die aufgezeichneten Werte auch wirklich den vor Ort herrschenden Bedingungen entsprechen.
 Der verwendete Kanadische CSRS-PPP Dienst benützt VMF3 Grid-Werte, ein Gitter mit 1° x 1° oder 5° x 5° Auflösung \parencite{landskronVMF3GPT3Refined2018}.
 Zum Vergleich, die Schweiz hat in Ost-West-Richtung eine geografische Ausdehnung von rund 4° an der breitesten Stelle.
-Wenn auch die Genauigkeit von PPP in der Regel etwas schlechter ist als die von Basislinienberechnungen, zeigen 
+Wenn auch die Genauigkeit von \gls{ppp} in der Regel etwas schlechter ist als die von Basislinienberechnungen, zeigen 
 die erhaltenen Standardabweichungen der >~40~h gemessenen Punkte dennoch, dass genügend hohe Genauigkeiten 
 erreicht werden können. Kürzere Messdauern weisen aber deutlich grössere Standardabweichungen auf (siehe Tabelle \ref{tab:ppp_baseline}). 
 Für zukünftige Messkampagnen oder ähnliche Netze dürfte daher ein kombinierter Ansatz interessant sein. 
-So können lokale Basisstationen beliebig platziert und als PPP berechnet werden. Verdichtungspunkte 
+So können lokale Basisstationen beliebig platziert und als \gls{ppp} berechnet werden. Verdichtungspunkte 
 werden anschliessend mit klassischen Basislinien zu den lokalen Referenzstationen ausgewertet, was eine kürzere 
 Messdauer bei gleicher Genauigkeit erlaubt. Zudem können so Einflüsse aus Höhendifferenzen zwischen Basis und 
 Rover minimiert werden. Wie Kapitel \ref{sec:bereinigung_gnss} zeigt, ist der Einfluss der Basisstation 
 auf die Roverhöhe im Schwanderbärgli sehr klein, aber dennoch vorhanden. Ein nach der Höhendifferenz zur 
 Basisstation gewichtetes Mittel der Roverkoordinaten dürfte somit die beste Lösung darstellen. 
 
-Der bisherige Auswerteansatz, aus den Differenzen zwischen den THB und GNSS-Höhen ein Massstab zu 
-berechnen und an die GNSS-Messungen anzubringen, ist aus mehreren Gründen infrage zu stellen. 
-Frühere Messkampagnen enthielten jeweils zwei einzelne THB-Strecken, welche durch ein Nivellement 
-miteinander verbunden wurden. Dies führt dazu, dass die THB-Höhen gänzlich unkontrolliert bleiben. Andere Messungen 
-dann auf diese zu korrigieren ist fragwürdig. Die neue Messanordnung erlaubt eine Kontrolle einzelner THB-Strecken 
+Der bisherige Auswerteansatz, aus den Differenzen zwischen den \gls{thb} und \acrshort{gnss}-Höhen ein Massstab zu 
+berechnen und an die \acrshort{gnss}-Messungen anzubringen, ist aus mehreren Gründen infrage zu stellen. 
+Frühere Messkampagnen enthielten jeweils zwei einzelne \acrshort{thb}-Strecken, welche durch ein Nivellement 
+miteinander verbunden wurden. Dies führt dazu, dass die \acrshort{thb}-Höhen gänzlich unkontrolliert bleiben. Andere Messungen 
+dann auf diese zu korrigieren ist fragwürdig. Die neue Messanordnung erlaubt eine Kontrolle einzelner \acrshort{thb}-Strecken 
 untereinander. Diese zeigt, dass die erwarteten Genauigkeiten nicht erreicht werden und 
-die erhaltenen THB-Höhen bestenfalls der Genauigkeit der GNSS-Höhen entspricht. 
-Weiter verbindet die THB vier GNSS-Punkte miteinander, wovon 9000 und 9500 auf fast derselben Höhe liegen. 
+die erhaltenen \acrshort{thb}-Höhen bestenfalls der Genauigkeit der \acrshort{gnss}-Höhen entspricht. 
+Weiter verbindet die \gls{thb} vier \acrshort{gnss}-Punkte miteinander, wovon 9000 und 9500 auf fast derselben Höhe liegen. 
 Somit verbleiben zwei Höhendifferenzen (9000-6003 und 9000-7000) zur Bestimmung eines allfälligen Massstabes. 
-Diesen dann auf alle 14 GNSS-Punkte zu extrapolieren bringt kaum eine Steigerung der Genauigkeit. 
-Mit den vorliegenden Messdaten ist die einzige sinnvolle Verwendung der THB diese in einen hybriden 
-Netzausgleich einzuführen. Dabei können die THB-Höhen zur Kontrolle und Verbesserung der Redundanz verwendet 
-werden. Bei der Integration der GNSS-Messungen in das Netz könnte der Höhenmassstab der GNSS-Sessionen mitgeschätzt werden. 
-Dieser würde dann nicht nur auf den THB-Messungen bestimmt, sondern insbesondere im oberen Teil auch durch 
+Diesen dann auf alle 14 \acrshort{gnss}-Punkte zu extrapolieren bringt kaum eine Steigerung der Genauigkeit. 
+Mit den vorliegenden Messdaten ist die einzige sinnvolle Verwendung der \gls{thb} diese in einen hybriden 
+Netzausgleich einzuführen. Dabei können die \acrshort{thb}-Höhen zur Kontrolle und Verbesserung der Redundanz verwendet 
+werden. Bei der Integration der \acrshort{gnss}-Messungen in das Netz könnte der Höhenmassstab der \acrshort{gnss}-Sessionen mitgeschätzt werden. 
+Dieser würde dann nicht nur auf den \acrshort{thb}-Messungen bestimmt, sondern insbesondere im oberen Teil auch durch 
 TPS-Messungen gestützt.

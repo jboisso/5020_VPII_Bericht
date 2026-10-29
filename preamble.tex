@@ -79,3 +79,12 @@
 \usepackage{tikz}
 \usepackage{lscape}
 \usepackage{pdflscape}
+
+% --- Glossar / Abkürzungen ---
+% Muss nach hyperref geladen werden. \makenoidxglossaries benötigt kein externes
+% Tool (makeglossaries/Perl), es reichen mehrere pdflatex-Läufe (latexmk macht das automatisch).
+\usepackage[nonumberlist,nopostdot,nogroupskip,toc]{glossaries}
+\setacronymstyle{long-short}    % erste Verwendung: Langform (KURZ), danach KURZ
+\setglossarystyle{long}
+\makenoidxglossaries
+\input{glossary.tex}

@@ -2,7 +2,7 @@
 \label{sec:scanning}
 
 Zusätzlich zur Netzmessung wurde die Schwergewichtsmauer im Bereich 'Sperre'~\ref{fig:abb-schwergewmauer} 
-mittels terrestrischem Laserscanning (TLS) flächenhaft erfasst. Die Aufnahmen erfolgten von fünf Stationen 
+mittels \glsdisp{tls}{terrestrischem Laserscanning (TLS)} flächenhaft erfasst. Die Aufnahmen erfolgten von fünf Stationen 
 mittels einer Trimble SX12. Daraus resultieren direkt georeferenzierte Punktwolken.
 
 \begin{figure}[h!]
@@ -15,38 +15,38 @@ mittels einer Trimble SX12. Daraus resultieren direkt georeferenzierte Punktwolk
 \subsection{Datenaufbereitung und Auswertung}
 \label{sec:datenaufbereitung}
 
-Die Scanstationen werden im Trimble Business Center (TBC) \parencite{trimbleinc.TrimbleBusinessCenter2026} 
+Die Scanstationen werden im \gls{tbc} \parencite{trimbleinc.TrimbleBusinessCenter2026} 
 anhand der ausgeglichenen Koordinaten der Netzmessung neu registriert. 
 Dadurch sinkt die Standardabweichung in Lage und Höhe der einzelnen Stationierungen auf $\sigma < 1 mm$.
-Anschliessend wird die Punktwolke in Trimble RealWorks \parencite{trimbleinc.RealWorks2026} bereinigt und zugeschnitten. 
-Der starke Bewuchs der Mauer macht die Bereinigung schwierig und alle getesteten Klassifikationsalgorithmen in TRW 
+Anschliessend wird die Punktwolke in \gls{trw} \parencite{trimbleinc.RealWorks2026} bereinigt und zugeschnitten. 
+Der starke Bewuchs der Mauer macht die Bereinigung schwierig und alle getesteten Klassifikationsalgorithmen in \gls{trw} 
 und Leica 3DR scheiterten. Schliesslich musste die Bereinigung manuell durchgeführt werden. 
 
-Der Vergleich mit den Punktwolken aus den Vorjahren wird in CloudCompare (CC) \parencite{opensourceCloudCompare2024} berechnet. 
-Die Punktwolken werden sowohl als Cloud to Cloud (C2C), als auch mit dem M3C2 Algorithmus \parencite{Lague et al zitieren} verglichen. 
+Der Vergleich mit den Punktwolken aus den Vorjahren wird in \gls{cc} \parencite{opensourceCloudCompare2024} berechnet. 
+Die Punktwolken werden sowohl als \gls{c2c}, als auch mit dem \gls{m3c2} Algorithmus \parencite{Lague et al zitieren} verglichen. 
 Die Punktwolke von 2026 wird sowohl zur letzten Messung 2024, als auch zu den vorhergehenden Scans aus 2022 und 2018 verglichen. 
-In C2C wird zu jedem Punkt des Scans 2026 
+In \gls{c2c} wird zu jedem Punkt des Scans 2026 
 der nächstliegende Punkt aus der Referenzpunktwolke gesucht und die Distanz dazu berechnet. Für die Mauer ist dies 
-insofern problematisch, als das sie sowohl vertikale, als auch horizontale Flächen aufweist. Da C2C nicht gerichtet 
+insofern problematisch, als das sie sowohl vertikale, als auch horizontale Flächen aufweist. Da \gls{c2c} nicht gerichtet 
 nach dem nächsten Punkt sucht, ist nicht gewährleistet, dass die richtigen Flächen miteinander verglichen werden an 
 den Übergängen. Zudem führt Rauschen in der Punktwolke zu grösseren Abweichungen und Flächen die im Referenzscan nicht 
-abgedeckt sind, werden als zunehmend grosse Deformationen ausgegeben. CC ermöglicht zwar das Aufteilen der Verschiebungen 
+abgedeckt sind, werden als zunehmend grosse Deformationen ausgegeben. \gls{cc} ermöglicht zwar das Aufteilen der Verschiebungen 
 nach XY und Z, doch auch dann sind viele Ausreisser und Fehlzuordnungen vorhanden.
-Im Gegensatz zu C2C, ist M3C2 ein Algorithmus, welcher gerichtet nach Deformationen sucht. Hierzu werden Verschiebungen 
+Im Gegensatz zu \gls{c2c}, ist \gls{m3c2} ein Algorithmus, welcher gerichtet nach Deformationen sucht. Hierzu werden Verschiebungen 
 entlang der Flächennormalen bestimmt. Zudem werden nicht Einzelpunkte miteinander verglichen, sondern Punkte aus 
 einem Zylinder mit Radius d werden pro Punktwolke gemittelt und miteinander verglichen. Dies reduziert Einflüsse von 
-Ausreissern und Rauschen auf die berechneten Deformationen deutlich. Ein weiterer Vorteil von M3C2 ist, dass 
+Ausreissern und Rauschen auf die berechneten Deformationen deutlich. Ein weiterer Vorteil von \gls{m3c2} ist, dass 
 er die Bestimmung der Genauigkeit und Signifikanz der detektierten Deformationen erlaubt. Hierzu wird aus 
 den Punkten im Zylinder eine lokale Standardabweichung pro Punktwolke berechnet. Zudem kann eine Registrierungsgenauigkeit für 
-die Punktwolken angegeben werden. Aus diesen Werten berechnet M3C2 eine Standardabweichung der bestimmten Deformation und 
+die Punktwolken angegeben werden. Aus diesen Werten berechnet \gls{m3c2} eine Standardabweichung der bestimmten Deformation und 
 leitet die Signifikanz der Verschiebungen zum Niveau 95 \% daraus ab. In Gebiete wo im Referenz- oder im Vergleichsscan Daten 
-fehlen, werden keine Deformationen berechnet. Die detaillierte Beschreibung des M3C2-Algorithmus kann in \citeauthor{Lague}, 2013 
+fehlen, werden keine Deformationen berechnet. Die detaillierte Beschreibung des \acrshort{m3c2}-Algorithmus kann in \citeauthor{Lague}, 2013 
 nachgeschlagen werden.
 
 Für die Berechnung am Schwanderbärgli wird der Durchmesser d = 0.30 m gewählt. Die Registrierungsgenauigkeit wird 3.4~mm für 
 jede Punktwolke angenommen. Diese setzt sich aus der absoluten Lagegenauigkeit von 3.5~mm und der 3D-Genauigkeit eines 
 Scanpunktes der SX12 (2.5~mm @ 100~m) \parencite{SX12 zitieren} zusammen. Für die Scans der Vorjahre wird dieselbe Genauigkeit angenommen. 
-Die Normalen werden in CC auf der Referenzpunktwolke berechnet und nicht mit M3C2, da dort Fehler in der 
+Die Normalen werden in \gls{cc} auf der Referenzpunktwolke berechnet und nicht mit \gls{m3c2}, da dort Fehler in der 
 Ausrichtung der Normalen auftreten aufgrund der komplexen Mauer-Geometrie. 
 
 % selbes problem aus unserem paper sichtbar:
@@ -56,10 +56,10 @@ Ausrichtung der Normalen auftreten aufgrund der komplexen Mauer-Geometrie.
 \subsection{Resultate}
 \label{sec:scan-resultate}
 
-Der Vergleich mit C2C zeigt deutlich die schwächen dieses Algorithmus. Rauschen, nicht-bereinigte Punkte und ungleiche 
+Der Vergleich mit \gls{c2c} zeigt deutlich die schwächen dieses Algorithmus. Rauschen, nicht-bereinigte Punkte und ungleiche 
 Abdeckungen in den Vergleichsepochen führen zu grossen Ausreissern und Scheindeformationen. Dieser Ansatz wird daher nicht 
 weiter verfolgt.
-Abbildung \ref{fig:M3C2-2026} zeigt die Deformationsanalyse 2024~-~2026 mit M3C2. Gut erkennbar ist, dass sich die meisten 
+Abbildung \ref{fig:M3C2-2026} zeigt die Deformationsanalyse 2024~-~2026 mit \gls{m3c2}. Gut erkennbar ist, dass sich die meisten 
 Bereiche zwischen 6 und 9~cm Talwärts bewegt haben. Im linken Wandteil und rund um den markanten vertikalen Riss im rechten Teil 
 sind Deformationen von bis zu 15~cm ersichtlich. Die Mauerflächen parallel zur Fallrichtung und die Oberseite weisen kaum Deformationen 
 auf. Hier zeigt sich der Dimensionsverlust der flächenhaften Vergleiche \parencite{raffl et al}. Verschiebungen entlang einer Fläche können 
@@ -109,7 +109,7 @@ bestehen, welche nicht durch Einzelpunkte abgedeckt werden. Der Vergleich mit de
 Magnitude der Deformationen. So zeigen die äusseren Profile die grössten Deformationen mit Verschiebung in Fallrichtung von 69~-~89~mm in P300 und 
 68~-87~mm in P700. Auch entlang der Profile stimmen die Daten überein, so hat sich der Punkt 540 am Fusse des Profils P500 lediglich 29~mm in 
 Fallrichtung bewegt, während es oben am Profil 63~mm sind. 
-M3C2 ist aktuell der am besten geeignete Algorithmus zur Bestimmung der Deformationen an der Schwergewichtsmauer. Die 
+\gls{m3c2} ist aktuell der am besten geeignete Algorithmus zur Bestimmung der Deformationen an der Schwergewichtsmauer. Die 
 gerichteten Deformationen und die zusätzliche Aussage über die Genauigkeit ermöglichen eine zuverlässige Bestimmung der 
 Deformationen. Verschiebungen entlang der Flächen können zwar nicht detektiert werden, zusammenhängende horizontale und 
 vertikale Flächen ermöglichen dennoch Rückschlüsse. So werden Verschiebungen entlang der Falllinie auf der Talseitigen 
@@ -121,22 +121,22 @@ wäre eine Rodung vor der nächsten Kontrollmessung wünschenswert.
 
 \section{Fazit Schwanderbärgli}
 
-Die im Feldkurs 2026 erfassten GNSS, THB und Scanningdaten konnten alle erfolgreich ausgewertet werden. 
-In der Auswertung der GNSS-Daten zeigte sich, dass verschiedene Effekte grosse Einflüsse auf die resultierenden 
-Koordinaten haben können. Eine konsistente Auswertung von GNSS-Messungen für Monitoring-Anwendungen ist daher 
-unverzichtbar. Mit dem vorliegenden Bericht konnte die Grundlage für künftige GNSS-Auswertungen am Schwanderbärgli geschaffen 
-und gleichzeitig die Limitierung von GNSS im Messgebiet gezeigt werden.
+Die im Feldkurs 2026 erfassten \gls{gnss}, \gls{thb} und Scanningdaten konnten alle erfolgreich ausgewertet werden. 
+In der Auswertung der \acrshort{gnss}-Daten zeigte sich, dass verschiedene Effekte grosse Einflüsse auf die resultierenden 
+Koordinaten haben können. Eine konsistente Auswertung von \acrshort{gnss}-Messungen für Monitoring-Anwendungen ist daher 
+unverzichtbar. Mit dem vorliegenden Bericht konnte die Grundlage für künftige \acrshort{gnss}-Auswertungen am Schwanderbärgli geschaffen 
+und gleichzeitig die Limitierung von \gls{gnss} im Messgebiet gezeigt werden.
 
-Die redundanten THB-Messungen haben erstmals gezeigt, dass die bisherige Anwendung der THB als Höhenmassstab für 
-die GNSS-Messungen kritisch ist. Die erreichten Genauigkeiten sind deutlich schlechter als erwartet und Wiedersprüche 
-in den redundanten Messungen deuten auf unbekannte, systematische Einflüsse. In nächsten Folgemessungen müsste die THB 
-deutlich ausgeweitet werden, wenn sie zur Korrektur von GNSS-Messungen verwendet werden soll. In der aktuellen Konfiguration 
+Die redundanten \acrshort{thb}-Messungen haben erstmals gezeigt, dass die bisherige Anwendung der \gls{thb} als Höhenmassstab für 
+die \acrshort{gnss}-Messungen kritisch ist. Die erreichten Genauigkeiten sind deutlich schlechter als erwartet und Wiedersprüche 
+in den redundanten Messungen deuten auf unbekannte, systematische Einflüsse. In nächsten Folgemessungen müsste die \gls{thb} 
+deutlich ausgeweitet werden, wenn sie zur Korrektur von \acrshort{gnss}-Messungen verwendet werden soll. In der aktuellen Konfiguration 
 konnte sie lediglich als weiteres Element in den hybriden Netzausgleich eingefügt werden, um eine gewisse Kontrolle zu bieten. 
 
 Das Scanning an der Schwergewichtsmauer im Gebiet Sperre zeigte deutlich die Verschiebungen. Auch wenn der 
 flächenhafte Punktwolkenvergleich gewisse Limitationen in der Detektion von Deformationen aufweist, eignet 
 sich die aktuelle Messkonfiguration dennoch gut, Deformationen korrekt und eindeutig zu erfassen. Mit der 
-Signifikanz aus dem M3C2 konnte zudem nachgewiesen werden, dass das Scanning genügend genau ist, um Deformationen 
+Signifikanz aus dem \gls{m3c2} konnte zudem nachgewiesen werden, dass das Scanning genügend genau ist, um Deformationen 
 zuverlässig zu erfassen. Für weitere Folgemessungen wäre das Zurückschneiden von Vegetation auf- und vor der Mauer 
 wichtig. Insbesondere im westlichen Mauerbereich zeigen sich erhöhte Deformationen, gleichzeitig wird dieser in naher 
 Zukunft vollständig überwachsen und nicht mehr messbar sein.
