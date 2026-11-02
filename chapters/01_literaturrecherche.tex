@@ -5,7 +5,7 @@
 1980er Jahre zu einer Schlüsseltechnologie entwickelt (\cite{dodelGPSNAVSTAR2009}). Der primäre 
 Anwendungsbereich ist hierbei längst nicht mehr nur die Navigation. Fortschritte in der Sensorik und 
 Auswertung erlauben Anwendungen mit höchsten Präzisionsanforderungen. Dazu zählt beispielsweise die 
-Bestimmung der Alpenhebung von <~3~mm pro Jahr (\cite{serpelloniSurfaceVelocitiesStrainRates2022}), 
+Bestimmung der Alpenhebung mit Bewegungen von <~3~mm pro Jahr (\cite{serpelloniSurfaceVelocitiesStrainRates2022}), 
 die Zeitsynchronisation von Wechselstromnetzen auf eine Genauigkeit von $\pm 1\,\mu\mathrm{s}$ 
 (\cite{crossleyTimeSynchronizationTransmission2016}) oder die Bestimmung der Eigenfrequenz von Vibrationen in der Bauwerksüberwachung 
 (Structural Health Monitoring) (\cite{yuPerformanceAssessmentHighrate2022}). Die Genauigkeitsanforderungen solcher Anwendungen 
@@ -14,21 +14,21 @@ Laufzeitverzögerung und insbesondere der Einfluss der Troposphäre näher betra
 
 
 \subsection{Atmosphärische Laufzeitverzögerung}
-Vom Moment des Aussendens bis zum Empfangen mit einem terrestrischen \acrshort{gnss}-Empfänger legt ein \acrshort{gnss}-Signal 
+Vom Zeitpunkt des Aussendens bis zum Empfangen mit einem terrestrischen \acrshort{gnss}-Empfänger legt ein \acrshort{gnss}-Signal 
 rund 20'200~km Strecke zurück. Dabei durchquert es alle Schichten der Erdatmosphäre 
-sowie Teile des luftleeren Raumes (Exosphäre). Wie Während die Exosphäre vernachlässigbare Einflüsse auf 
-das Signal hat, wird dieses in der Ionosphäre und der Troposphäre stark beeinflusst. \parencite{dodelGPSNAVSTAR2009}
+sowie Teile des luftleeren Raumes, die sogenannte Exosphäre. Während diese vernachlässigbare Einflüsse auf 
+das Signal hat, wird es in der Ionosphäre und der Troposphäre stark beeinflusst. \parencite{dodelGPSNAVSTAR2009}
 
 Da die Ionosphäre als dispersives Medium verschiedene Trägerfrequenzen unterschiedlich beeinflusst, 
 lassen sich die ionosphärischen Einflüsse mit der Nutzung von Zweifrequenzempfängern eliminieren. Alternativ 
 kann auch ein präzises Ionosphärenmodell zur Korrektur von Einfrequenz-Empfängerdaten verwendet werden, wie 
-\cite{boisitsRegiomontanRegionalHigh2020} zeigen. Anders der Einfluss der Troposphäre. Diese wirkt sich auf das gesamte 
-Frequenzspektrum von \acrshort{gnss}-Trägerfrequenzen gleich aus und kann nicht direkt eliminiert werden 
+\cite{boisitsRegiomontanRegionalHigh2020} zeigen. Anders der Einfluss der Troposphäre. Diese wirkt sich auf die gesamte 
+Bandbreite von \acrshort{gnss}-Trägerfrequenzen gleich aus und kann nicht direkt eliminiert werden 
 \parencite{seeberSatelliteGeodesy2003}. 
 
 Die Troposphäre kann in eine trockene (hydrostatische) und feuchte Komponente unterteilt werden.
-Der trockene Anteil verhält sich relativ vorhersehbar mit der örtlichen Temperatur und Luftdruck, 
-wobei die Schwankung innerhalb weniger Stunden weniger als 1\% beträgt. 
+Der trockene Anteil verhält sich abhängig von der örtlichen Temperatur und dem Luftdruck, 
+wobei die Schwankung innerhalb einiger Stunden weniger als 1\% beträgt. 
 Wie in \cite{subiranaGNSSDataProcessing2013} erwähnen, variiert die feuchte Komponente der Troposphäre zeitlich und räumlich stark,
 was sie sehr schwer modellierbar macht.
 
