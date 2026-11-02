@@ -38,17 +38,18 @@ was sie sehr schwer modellierbar macht.
 Die troposphärische Laufzeitverzögerung, auch \gls{ztd} oder Zenith Tropospheric Delay genannt,
 beschreibt die Gesamtheit der Signalverzögerung, welche durch die Troposphäre verursacht wird. 
 Die vom trockenen Anteil verursachte Abweichung, der sogenannte \gls{zhd}, ist der anteilsmässig grössere Einfluss.
-Im Zenit beträgt die \gls{zhd} bis zu 8~ns, was einer Höhenabweichung von ca. 2.3~m entspricht.
+Abhängig von der Mächtigkeit der Troposphäre, sowie von Parametern wie Temperatur und Druck 
+beträgt die \gls{zhd} bis zu 8~ns im Zenit, was einer Höhenabweichung von ca. 2.3~m entspricht \parencite{subiranaGNSSDataProcessing2013}.
 Die Signalverzögerung ausserhalb des Zenits wird \gls{std} genannt.
 Mit abnehmender Elevation durchquert das Signal zunehmend grössere Bereiche der Troposphäre, wodurch der Einfluss weiter steigt.
 Dabei sind in der Literatur Abweichungen von bis zu 10~m \parencite{subiranaGNSSDataProcessing2013} oder 20~m \parencite{liUnravelingAccuracyEnigma2024} 
-anzutreffen. \cite{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} spricht sogar von bis zu 25~m in der Vertikalen Komponente.
+anzutreffen. \cite{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} spricht sogar von bis zu 25~m in der vertikalen Komponente.
 Um diese Verzögerung besser zu modellieren werden sogenannte \glspl{mf} eingesetzt.
 Dabei wird der \gls{ztd} als Funktion des Elevationswinkels zu einer Schrägverzögerung transformiert.
 Im Kapitel~\ref{sec:MappingFunctions} wird weiter darauf eingegangen.
 
 Durch die geringe temporale Variabilität und einfache räumliche Modellierung kann der hydrostatische Anteil anhand globaler 
-Druck- und Temperaturmodelle, englisch \gls{gpt}, ausreichend exakt modelliert werden, um den \gls{zhd} zu korrigieren \parencite{boehmShortNoteGlobal2007}. % de Satz igwie abändere
+Druck- und Temperaturmodelle, englisch \gls{gpt}, modelliert werden, um den \gls{zhd} zu korrigieren \parencite{boehmShortNoteGlobal2007}. % de Satz igwie abändere
 
 Anders der feuchte Anteil der Abweichung, genannt \gls{zwd}. Dieser verursacht zwar nur Abweichungen im Dezimeterbereich, 
 lässt sich aber aufgrund der hohen räumlichen und temporalen Variabilität schwer modellieren \parencite{aichinger-rosenbergerTroposphericDelayParameters2021}. 
@@ -57,13 +58,13 @@ um bis zu 40 \% \parencite{laglerGPT2EmpiricalSlant2013}. Jedoch bleibt eine erh
 
 \subsection{Anwendung in der Meteorologie}
 Gemäss \cite{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} sind für die Meteorologie atmosphärische Parameter wie Temperatur, Luftdruck
-und Luftfeuchtigkeit in möglichst guter räumlicher und zeitlicher Auflösung essenziell.
+und Luftfeuchtigkeit in möglichst hoher räumlicher und zeitlicher Auflösung essenziell.
 Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
-Ballonsonden aufstiegen ermittelt, was aber Zeit und kostenintensiv ist.
+Ballonsondenaufstiegen ermittelt, was aber Zeit- und kostenintensiv ist.
 
 Wie im Journal of Geophysical Research von 1992 erschienen, dokumentierte \citeauthor{bevisGPSMeteorologyRemote1992} bereits damals die Idee,
 aus \acrshort{gps}-Satellitenbeobachtungen den integrierten Wasserdampf, englisch \gls{iwv}, abzuleiten.
-Hierzu nutzten sie den Fakt, dass sich bei bekanntem Standpunkt des 
+Hierzu nutzten sie, dass sich bei bekanntem Standpunkt des 
 \gls{gnss} Empfängers die Gleichung zur Berechnung des \gls{zwd} so umstellen lässt, dass der Wasserdampfgehalt bestimmt werden kann.   
 Diese Werte sind in der Wettervorhersage und weiteren Forschungsgebieten von hoher Bedeutung.
 
@@ -74,15 +75,15 @@ in numerischen Wettervorhersagen, englisch \gls{nwp}.
 \citeauthor{dehaanAssimilationGNSSZTD2013} zeigt 2013 die Möglichkeit, Regenprognosen in den Niederlanden deutlich zu verbessern, in dem 
 aus \acrshort{gnss}-Messungen berechnete \acrshort{iwv}-Werte in die Modelle eingebunden werden. 
 Gemäss \cite{rohmGroundbasedGNSSZTD2014} wird erwartet, dass die bodengestützten \acrshort{gnss}-Daten zu einer Verbesserung der Vorhersage von Starkregen
-um 80\% (von 40\%) beitragen werden. 
+um 80 \% führen werden. 
 
 Der grosse Vorteil gegenüber herkömmlichen Wetterballons ist die kostengünstige und wetterunabhängige Beobachtungsmöglichkeit. 
 Gleichzeitig betont \cite{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} auch, dass keine diskreten Werte entlang des Beobachtungsprofils
 wie bei einem Radiosondenaufstieg möglich sind. 
 
 \subsubsection{GNSS Radio Occultation}
-Eine alternative zur Bestimmung des \gls{iwv} aus terrestrischen \acrshort{gnss}-Messungen bietet die \gls{gnss} Radio Occultation. 
-Erstmals 1997 von \citeauthor{wareGPSSoundingAtmosphere1996} vorgestellt, ermöglicht die Technik die Bestimmung vertikaler 
+Eine Alternative zur Bestimmung des \gls{iwv} aus terrestrischen \acrshort{gnss}-Messungen bietet die \gls{gnss} Radio Occultation. 
+Erstmals 1996 von \citeauthor{wareGPSSoundingAtmosphere1996} vorgestellt, ermöglicht die Technik die Bestimmung vertikaler 
 Refraktionsprofile der Atmosphäre. Hierzu werden \acrshort{gnss}-Signale von einem \gls{leo} Satelliten 
 empfangen welcher nicht mehr in der direkten Sichtlinie liegt. Die Signale empfangen diese \gls{leo} Satelliten nur, da sie in der Atmosphäre gebrochen und abgelenkt werden
 (siehe Abbildung \ref{fig:abb_radioocc}). Die Refraktion ist dabei abhängig von Temperatur, Druck und Wasserdampfgehalt der 
@@ -99,7 +100,7 @@ einem Meteoballon-Profil. Die örtliche Auflösung ist jedoch deutlich schlechte
 \subsection{Mapping Functions}
 \label{sec:MappingFunctions}
 
-\glspl{mf} rechnen die Zenitverzögerung anhand des Elevationswinkels in eine Schrägverzögerung um.
+\gls{mf} rechnen die Zenitverzögerung anhand des Elevationswinkels in eine Schrägverzögerung um.
 Der hydrostatische und der feuchte Anteil werden dabei jeweils mit einer eigenen \gls{mf} multipliziert.
 Jede \gls{mf} ist als Kettenbruch aufgebaut und basiert auf den drei Koeffizienten $a$, $b$ und $c$.
 Diese hängen von den Integralen der Refraktivität der Atmosphäre und somit von deren Dicke ab \parencite{landskronVMF3GPT3Refined2018}.
