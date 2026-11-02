@@ -2,7 +2,7 @@
 \section{Literaturrecherche Zenith Total Delay}
 \label{sec:literaturrecherche}
 \gls{gnss} hat sich seit der Inbetriebnahme des NAVSTAR \gls{gps} Ende der 
-1980er Jahre zu einer Schlüsseltechnologie entwickelt (\cite{dodelGPSNAVSTAR2009}). Der primäre 
+1980er Jahre zu einer Schlüsseltechnologie entwickelt \parencite[S. 3]{dodelGPSNAVSTAR2009}. Der primäre 
 Anwendungsbereich ist hierbei längst nicht mehr nur die Navigation. Fortschritte in der Sensorik und 
 Auswertung erlauben Anwendungen mit höchsten Präzisionsanforderungen. Dazu zählt beispielsweise die 
 Bestimmung der Alpenhebung mit Bewegungen von <~3~mm pro Jahr (\cite{serpelloniSurfaceVelocitiesStrainRates2022}), 
@@ -17,19 +17,19 @@ Laufzeitverzögerung und insbesondere der Einfluss der Troposphäre näher betra
 Vom Zeitpunkt des Aussendens bis zum Empfangen mit einem terrestrischen \acrshort{gnss}-Empfänger legt ein \acrshort{gnss}-Signal 
 rund 20'200~km Strecke zurück. Dabei durchquert es alle Schichten der Erdatmosphäre 
 sowie Teile des luftleeren Raumes, die sogenannte Exosphäre. Während diese vernachlässigbare Einflüsse auf 
-das Signal hat, wird es in der Ionosphäre und der Troposphäre stark beeinflusst. \parencite{dodelGPSNAVSTAR2009}
+das Signal hat, wird es in der Ionosphäre und der Troposphäre stark beeinflusst. \parencite[S. 148]{dodelGPSNAVSTAR2009}
 
 Da die Ionosphäre als dispersives Medium verschiedene Trägerfrequenzen unterschiedlich beeinflusst, 
 lassen sich die ionosphärischen Einflüsse mit der Nutzung von Zweifrequenzempfängern eliminieren. Alternativ 
 kann auch ein präzises Ionosphärenmodell zur Korrektur von Einfrequenz-Empfängerdaten verwendet werden, wie 
 \cite{boisitsRegiomontanRegionalHigh2020} zeigen. Anders der Einfluss der Troposphäre. Diese wirkt sich auf die gesamte 
 Bandbreite von \acrshort{gnss}-Trägerfrequenzen gleich aus und kann nicht direkt eliminiert werden 
-\parencite{seeberSatelliteGeodesy2003}. 
+\parencite[S. 56]{seeberSatelliteGeodesy2003}. 
 
 Die Troposphäre kann in eine trockene (hydrostatische) und feuchte Komponente unterteilt werden.
 Der trockene Anteil verhält sich abhängig von der örtlichen Temperatur und dem Luftdruck, 
 wobei die Schwankung innerhalb einiger Stunden weniger als 1\% beträgt. 
-Wie in \cite{subiranaGNSSDataProcessing2013} erwähnen, variiert die feuchte Komponente der Troposphäre zeitlich und räumlich stark,
+Wie in \textcite[S. 122]{subiranaGNSSDataProcessing2013} erwähnt, variiert die feuchte Komponente der Troposphäre zeitlich und räumlich stark,
 was sie sehr schwer modellierbar macht.
 
 
@@ -39,11 +39,11 @@ Die troposphärische Laufzeitverzögerung, auch \gls{ztd} oder Zenith Tropospher
 beschreibt die Gesamtheit der Signalverzögerung, welche durch die Troposphäre verursacht wird. 
 Die vom trockenen Anteil verursachte Abweichung, der sogenannte \gls{zhd}, ist der anteilsmässig grössere Einfluss.
 Abhängig von der Mächtigkeit der Troposphäre, sowie von Parametern wie Temperatur und Druck 
-beträgt die \gls{zhd} bis zu 8~ns im Zenit, was einer Höhenabweichung von ca. 2.3~m entspricht \parencite{subiranaGNSSDataProcessing2013}.
+beträgt die \gls{zhd} bis zu 8~ns im Zenit, was einer Höhenabweichung von ca. 2.3~m entspricht \parencite[S. 122]{subiranaGNSSDataProcessing2013}.
 Die Signalverzögerung ausserhalb des Zenits wird \gls{std} genannt.
 Mit abnehmender Elevation durchquert das Signal zunehmend grössere Bereiche der Troposphäre, wodurch der Einfluss weiter steigt.
-Dabei sind in der Literatur Abweichungen von bis zu 10~m \parencite{subiranaGNSSDataProcessing2013} oder 20~m \parencite{liUnravelingAccuracyEnigma2024} 
-anzutreffen. \cite{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} spricht sogar von bis zu 25~m in der vertikalen Komponente.
+Dabei sind in der Literatur Abweichungen von bis zu 10~m \parencite[S. 122]{subiranaGNSSDataProcessing2013} oder 20~m \parencite{liUnravelingAccuracyEnigma2024} 
+anzutreffen. \cite[S. 47]{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} spricht sogar von bis zu 25~m in der vertikalen Komponente.
 Um diese Verzögerung besser zu modellieren werden sogenannte \glspl{mf} eingesetzt.
 Dabei wird der \gls{ztd} als Funktion des Elevationswinkels zu einer Schrägverzögerung transformiert.
 Im Kapitel~\ref{sec:MappingFunctions} wird weiter darauf eingegangen.
@@ -52,12 +52,12 @@ Durch die geringe temporale Variabilität und einfache räumliche Modellierung k
 Druck- und Temperaturmodelle, englisch \gls{gpt}, modelliert werden, um den \gls{zhd} zu korrigieren \parencite{boehmShortNoteGlobal2007}. % de Satz igwie abändere
 
 Anders der feuchte Anteil der Abweichung, genannt \gls{zwd}. Dieser verursacht zwar nur Abweichungen im Dezimeterbereich, 
-lässt sich aber aufgrund der hohen räumlichen und temporalen Variabilität schwer modellieren \parencite{aichinger-rosenbergerTroposphericDelayParameters2021}. 
+lässt sich aber aufgrund der hohen räumlichen und temporalen Variabilität schwer modellieren \parencite[S. 29]{aichinger-rosenbergerTroposphericDelayParameters2021}. 
 Globale Troposphären-Modelle wie das GPT2 verbessern die Stabilität in der Höhenbestimmung gegenüber einfacherer Modelle wie dem \gls{gpt} 
 um bis zu 40 \% \parencite{laglerGPT2EmpiricalSlant2013}. Jedoch bleibt eine erhebliche Unsicherheit bestehen.
 
 \subsection{Anwendung in der Meteorologie}
-Gemäss \cite{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} sind für die Meteorologie atmosphärische Parameter wie Temperatur, Luftdruck
+Gemäss \textcite[S. 27]{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} sind für die Meteorologie atmosphärische Parameter wie Temperatur, Luftdruck
 und Luftfeuchtigkeit in möglichst hoher räumlicher und zeitlicher Auflösung essenziell.
 Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
 Ballonsondenaufstiegen ermittelt, was aber Zeit- und kostenintensiv ist.
@@ -78,7 +78,7 @@ Gemäss \cite{rohmGroundbasedGNSSZTD2014} wird erwartet, dass die bodengestützt
 um 80 \% führen werden. 
 
 Der grosse Vorteil gegenüber herkömmlichen Wetterballons ist die kostengünstige und wetterunabhängige Beobachtungsmöglichkeit. 
-Gleichzeitig betont \cite{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} auch, dass keine diskreten Werte entlang des Beobachtungsprofils
+Gleichzeitig betont \textcite[S. 31]{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} auch, dass keine diskreten Werte entlang des Beobachtungsprofils
 wie bei einem Radiosondenaufstieg möglich sind. 
 
 \subsubsection{GNSS Radio Occultation}
@@ -88,7 +88,7 @@ Refraktionsprofile der Atmosphäre. Hierzu werden \acrshort{gnss}-Signale von ei
 empfangen welcher nicht mehr in der direkten Sichtlinie liegt. Die Signale empfangen diese \gls{leo} Satelliten nur, da sie in der Atmosphäre gebrochen und abgelenkt werden
 (siehe Abbildung \ref{fig:abb_radioocc}). Die Refraktion ist dabei abhängig von Temperatur, Druck und Wasserdampfgehalt der 
 Atmosphäre. Anders als bei terrestrischen Bestimmungen kann eine hohe vertikale Auflösung erreicht werden, ähnlich 
-einem Meteoballon-Profil. Die örtliche Auflösung ist jedoch deutlich schlechter. \parencite{aichinger-rosenbergerTroposphericDelayParameters2021}
+einem Meteoballon-Profil. Die örtliche Auflösung ist jedoch deutlich schlechter. \parencite[S. 49-50]{aichinger-rosenbergerTroposphericDelayParameters2021}
 
 \begin{figure}[h!]
     \centering
@@ -103,13 +103,13 @@ einem Meteoballon-Profil. Die örtliche Auflösung ist jedoch deutlich schlechte
 \gls{mf} rechnen die Zenitverzögerung anhand des Elevationswinkels in eine Schrägverzögerung um.
 Der hydrostatische und der feuchte Anteil werden dabei jeweils mit einer eigenen \gls{mf} multipliziert.
 Jede \gls{mf} ist als Kettenbruch aufgebaut und basiert auf den drei Koeffizienten $a$, $b$ und $c$.
-Diese hängen von den Integralen der Refraktivität der Atmosphäre und somit von deren Dicke ab \parencite{landskronVMF3GPT3Refined2018}.
+Diese hängen von den Integralen der Refraktivität der Atmosphäre und somit von deren Dicke ab. \parencite{landskronVMF3GPT3Refined2018}
 
 Vorläufer der \gls{vmf} sind die Mapping Functions von Niell, welche mit den Isobaric Mapping Functions erstmals Informationen aus Ray-Tracing durch Wettermodelle nutzten \parencite{landskronVMF3GPT3Refined2018}.
 Im Vergleich lieferte die Niell Mapping Function leicht ungenauere Zenitverzögerungen,
 insbesondere bei Elevationen unter $10^\circ$ und unter trockenen Bedingungen \parencite{supartaGPSWaterVapor2011}.
 
-Die \gls{vmf} liefern je eine \gls{mf} für den hydrostatischen und den feuchten Anteil \parencite{aichinger-rosenbergerTroposphericDelayParameters2021}.
+Die \gls{vmf} liefern je eine \gls{mf} für den hydrostatischen und den feuchten Anteil \parencite[S. 42-44]{aichinger-rosenbergerTroposphericDelayParameters2021}.
 Sie leiten den Koeffizienten $a$ aus Ray-Tracing durch numerische Wettermodelle ab, während $b$ und $c$ empirisch bestimmt werden \parencite{landskronVMF3GPT3Refined2018}.
 Mit VMF3 wurden diese empirischen Koeffizienten überarbeitet.
 Bei $5^\circ$ Elevation verbessert VMF3 die Schrägverzögerung gegenüber VMF1 um durchschnittlich \SI{1.3}{\milli\metre}, was einer Höhenverbesserung von ca.\ \SI{0.25}{\milli\metre} entspricht.
