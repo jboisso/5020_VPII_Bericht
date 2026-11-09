@@ -1,1 +1,65 @@
 \section{Geomonitoring}
+
+\subsection{TPS-Monitoring}
+Ein weiterer Teil des 'Vertiefungsprofil Geosensorik und Monitoring II' ist das automatische Monitoring mit Leica MS60 Tachymetern.
+Dazu wird das Instrument über ein Python-Skript von einem Raspberry Pi 4 aus angesteuert.
+Im Rahmen des IoT-Workshops wurde ein automatisches Monitoring erstellt und vom 03.11.2026 - 04.11.2026 ausgeführt. 
+
+
+\subsubsection{Einrichten und Aufsetzen}
+Um den ersten Umgang mit dem Raspberry Pi zu erlangen wird er zunächst im Schulzimmer eingerichtet und konfiguriert.
+Dazu werden alle 'Mini-Computer' auf den neusten Stand gebracht, und den Tachymeter über das Y-Kabel an ihn angeschlossen.
+Nachdem zunächst diverse Einstellungen ausprobiert und Tests durchgeführt werden, wird das automatische Monitoring mittels
+dem vorgegebenen Python-Skript vorbereitet.
+Dies liest lediglich die Messdaten der MS60 aus und publiziert sie auf der Webseite von InfluxDB.
+Zudem wird eine Push-Benachrichtigung nach jeder xxx an die Anwendung xxx gesendet. \todo{Push-Benachrichtigung Einfügen}
+Die eigentliche Messung wird am Instrument mit dem Satzmessungsprogramm gestartet. Dies wird über die Zeitsteuerung terminiert. 
+Da maximal 200 Sätze am Stück möglich sind, wird ein Intervall von 7,5 Minuten gewählt, welcher eine Zeitspanne von 25 Stunden abdeckt.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Raspy-Pi.jpg}
+    \caption{Einrichten des Monitorings mit Tachymeter und Raspberry Pi auf dem Dach des Campus Muttenz.}
+    \label{fig:Raspy-Pi-Dach}
+\end{figure}
+
+
+Leider funktionierte der automatische Start auf dem Dach des Campus nicht wie gewünscht, weshalb zu Debugging-Zwecken ein
+Bildschirm und Tastatur für den Raspberry Pi angeschafft werden musste. Die Messung konnte um ca. 14:30 Uhr gestartet werden.
+Abbildung \ref{fig:Raspy-Pi-Dach} zeigt, dass trotz Kälte die Motivation und der Zusammenhalt in der Gruppe sehr hoch war.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{InfluxDB-Graph.png}
+    \caption{Visualisierung der gemessenen Testpunkte in InfluxDB Cloud.}
+    \label{fig:Influx-Graph}
+\end{figure}
+
+Die ausgelesenen Daten werden über das auf dem Raspberry Pi laufende Python Skript direkt an die InfluxDB Cloud gesendet.
+Aus bisher unerklärlichen Gründen erfolgte die online Synchronisation lediglich bis ca. Mitternacht. \todo{Andere Gruppen auch erwähnen?}
+Bei einer erneuten Verbindung mit dem Internet am nächsten Morgen konnten auch noch die restlichen Daten in der InfluxDB Cloud gesichert werden.
+
+Wie die Graph-Visualisierung (siehe Abbildung \ref{fig:Influx-Graph}) aus dem Data Explorer der InfluxDB Cloud zeigen,
+weisen die in diesem Zeitraum überwachten Punkte keine groben Ausreisser auf. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{InfluxDB-Histo.png}
+    \caption{Visualisierung der Anzahl Messungen (Histogramm) pro Punkt in InfluxDB Cloud.}
+    \label{fig:Influx-Histo}
+\end{figure}
+
+In der online-Anwendung gibt es einige Darstellungsmöglichkeiten, jedoch sind die weiteren Einstellungen deutlich begrenzt.
+Eine genaue Analyse der Daten ist somit nicht möglich.
+Ebenfalls ist die Beschreibung der Darstellungsformen unzureichend. 
+In der Abbildung \ref{fig:Influx-Histo} wird beispielsweise ein Histogramm dargestellt.
+Vermutlich eingefärbt nach der Anzahl Messungen in diesem Zeitraum. Eine Definition dazu ist leider nicht auffindbar.
+
+% GEOCOM-Befehle erwähnen well coool :D
+
+
+\subsection{Low Cost GNSS-Monitoring}
+
+
+
+\FloatBarrier
