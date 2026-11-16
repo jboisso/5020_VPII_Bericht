@@ -1,7 +1,7 @@
 \clearpage
-\section{Literaturrecherche Zenith Total Delay}
+\section{Einfluss des Zenith Total Delay \\ in GNSS-Messungen}
 \label{sec:literaturrecherche}
-\gls{gnss} hat sich seit der Inbetriebnahme des NAVSTAR \gls{gps} Ende der 
+Das \gls{gnss} hat sich seit der Inbetriebnahme des NAVSTAR \gls{gps} Ende der 
 1980er Jahre zu einer Schlüsseltechnologie entwickelt \parencite[S. 3]{dodelGPSNAVSTAR2009}. Der primäre 
 Anwendungsbereich ist hierbei längst nicht mehr nur die Navigation. Fortschritte in der Sensorik und 
 Auswertung erlauben Anwendungen mit höchsten Präzisionsanforderungen. Dazu zählt beispielsweise die 
@@ -34,7 +34,7 @@ was sie sehr schwer modellierbar macht.
 
 
 
-\subsection{Zenith Total Delay}
+\subsection{Der Zenith Total Delay}
 Die troposphärische Laufzeitverzögerung, auch \gls{ztd} oder Zenith Tropospheric Delay genannt,
 beschreibt die Gesamtheit der Signalverzögerung, welche durch die Troposphäre verursacht wird. 
 Die vom trockenen Anteil verursachte Abweichung, der sogenannte \gls{zhd}, ist der anteilsmässig grössere Einfluss.
@@ -62,19 +62,19 @@ und Luftfeuchtigkeit in möglichst hoher räumlicher und zeitlicher Auflösung e
 Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
 Ballonsondenaufstiegen ermittelt, was aber Zeit- und kostenintensiv ist.
 
-Wie im Journal of Geophysical Research von 1992 erschienen, dokumentierte \citeauthor{bevisGPSMeteorologyRemote1992} bereits damals die Idee,
+In ihrem im Journal of Geophysical Research von 1992 erschienenen Artikel, dokumentierten \citeauthor{bevisGPSMeteorologyRemote1992} bereits damals die Idee,
 aus \acrshort{gps}-Satellitenbeobachtungen den integrierten Wasserdampf, englisch \gls{iwv}, abzuleiten.
 Hierzu nutzten sie, dass sich bei bekanntem Standpunkt des 
 \gls{gnss} Empfängers die Gleichung zur Berechnung des \gls{zwd} so umstellen lässt, dass der Wasserdampfgehalt bestimmt werden kann.   
 Diese Werte sind in der Wettervorhersage und weiteren Forschungsgebieten von hoher Bedeutung.
 
-Wie \cite{dousaRealtimeZenithTropospheric2014} berichten, kann seit 
+Wie \textcite{dousaRealtimeZenithTropospheric2014} berichten, kann seit 
 über 20 Jahren die \gls{ztd} anhand mehrerer permanenten \acrshort{gnss}-Stationen und Korrekturdaten des \gls{igs} 
 nahezu in Echtzeit berechnet werden. Der daraus abgeleitete Wasserdampfgehalt erreicht die benötigte Genauigkeit für die Verwendung 
 in numerischen Wettervorhersagen, englisch \gls{nwp}.
 \citeauthor{dehaanAssimilationGNSSZTD2013} zeigt 2013 die Möglichkeit, Regenprognosen in den Niederlanden deutlich zu verbessern, in dem 
 aus \acrshort{gnss}-Messungen berechnete \acrshort{iwv}-Werte in die Modelle eingebunden werden. 
-Gemäss \cite{rohmGroundbasedGNSSZTD2014} wird erwartet, dass die bodengestützten \acrshort{gnss}-Daten zu einer Verbesserung der Vorhersage von Starkregen
+Gemäss \textcite{rohmGroundbasedGNSSZTD2014} wird erwartet, dass die bodengestützten \acrshort{gnss}-Daten zu einer Verbesserung der Vorhersage von Starkregen
 um 80 \% führen werden. 
 
 Der grosse Vorteil gegenüber herkömmlichen Wetterballons ist die kostengünstige und wetterunabhängige Beobachtungsmöglichkeit. 
@@ -93,7 +93,7 @@ einem Meteoballon-Profil. Die örtliche Auflösung ist jedoch deutlich schlechte
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{radio_occultation.jpg}
-    \caption{Funktionsprinzip der GPS Radio Occultation. Abbildung aus \cite{wareGPSSoundingAtmosphere1996}.}
+    \caption{Funktionsprinzip der GPS Radio Occultation. Abbildung aus \textcite{wareGPSSoundingAtmosphere1996}.}
     \label{fig:abb_radioocc}
 \end{figure}
 
