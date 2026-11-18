@@ -24,8 +24,7 @@ Sätze gemessen werden können, wird ein Messinterval von 7.5 min eingestellt. S
 beendet wird. Insgesamt werden fünf Punkte im System A'B'B''A'' gemessen. 
 
 Auf dem Server werden die empfangenen Daten mithilfe eines Python-Skripts verarbeitet und in eine lokale SQL-Datenbank geschrieben. 
-Zudem werden die Daten viertelstündlich in eine InfluxDB übertragen. Im vorliegenden Projekt läuft diese ebenfalls auf dem Raspberry Pi, die 
-Daten könnten aber auch an einen anderen Server übertragen werden. Um während dem Monitoring den Status prüfen zu können, wird 
+Zudem werden die Daten viertelstündlich in eine InfluxDB in der Cloud übertragen. Um während dem Monitoring den Status prüfen zu können, wird 
 alle 15~min eine HTTP-POST Nachricht an einen definierten Kanal gesendet. Mit der App 'ntfy' \parencite{heckelntfy2026} kann der 
 Kanal abonniert und die Statusbenachrichtigungen empfangen werden.
 
@@ -87,7 +86,7 @@ Schnitt bei $R^2=0.992$ und zeigt, dass der Trend die vorhandene Streuung fast v
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Zeitreihe_Orig_Trend.png}
-    \caption{Unbereinigte Zeitreihe (hell) und Trendkorrigierte Zeitreihe pro Punkt. Gut ersichtlich ist die starke Korrelation 
+    \caption{Unbereinigte Zeitreihe (hell) und Trendkorrigierte Zeitreihe (dunkel) pro Punkt. Gut ersichtlich ist die starke Korrelation 
     zwischen Zeit und Verschiebung bei allen Punkten.}
     \label{fig:ZRA_korr}
 \end{figure}
@@ -130,7 +129,7 @@ Das umgesetzte Monitoringsystem könnte ohne Schwierigkeiten weiter ausgebaut we
 Definition der Messungen über GeoCOM Befehle und die GSI-Schnittstelle auch über den Computer erfolgen. Dies erlaubt es, Messungen 
 aus der Ferne zu konfigurieren, starten und auszulesen. Zudem fallen Limitierungen des Leica Captivates wie die maximale Anzahl Sätze 
 in einer Satzmessung weg. Weiter könnte das System mit GNSS-Sensoren ergänzt werden, um weitere Daten zu erfassen. Die Low-Cost Sensoren 
-von Ardusimple \todo{zitieren} bieten eine preiswerte Möglichkeit, GNSS Messungen, inklusive Kommunikation in ein System einzubinden. 
+von Ardusimple \href{https://ardusimple.com}{(ardusimple.com)} bieten eine preiswerte Möglichkeit, GNSS Messungen, inklusive Kommunikation in ein System einzubinden. 
 Über die seriellen Kommunikationsschnittstellen und gängige Protokolle wie MQTT könnten auch die GNSS-Daten einfach an den Raspberry Pi 
 gesendet und von diesem als Broker verarbeitet und weitergeleitet werden.
 

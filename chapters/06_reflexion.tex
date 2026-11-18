@@ -1,8 +1,5 @@
 \section{Fazit}
 \label{sec:fazit}
-
-Aufbau gemäss Monika wieder nach Teil A, B und C wie Einleitung.
-
 Die im Feldkurs 2026 erfassten \gls{gnss}, \gls{thb} und Scanningdaten konnten alle erfolgreich ausgewertet werden. 
 In der Auswertung der \acrshort{gnss}-Daten zeigte sich, dass verschiedene Effekte grosse Einflüsse auf die resultierenden 
 Koordinaten haben können. Eine konsistente Auswertung von \acrshort{gnss}-Messungen für Monitoring-Anwendungen ist daher 
@@ -22,3 +19,23 @@ Signifikanz aus dem \gls{m3c2} konnte zudem nachgewiesen werden, dass das Scanni
 zuverlässig zu erfassen. Für weitere Folgemessungen wäre das Zurückschneiden von Vegetation auf- und vor der Mauer 
 wichtig. Insbesondere im westlichen Mauerbereich zeigen sich erhöhte Deformationen, gleichzeitig wird dieser in naher 
 Zukunft vollständig überwachsen und nicht mehr messbar sein.
+
+Im Teil Geomonitoring wurde ein vereinfachter Aufbau eines automatischen Monitorings umgesetzt. Mit dem Versuch konnte gezeigt 
+werden, dass mit bereits wenigen einfachen Mitteln ein Monitoring automatisiert werden kann. Die grösste Herausforderung 
+ist dabei die Kommunikation zwischen den Netzwerkkomponenten. Die verschiedenen Komponenten verwenden unterschiedliche 
+Kommunikationsprotokolle und eine saubere Definition der einzelnen Nachrichten und der Protokoll-Parameter ist überaus wichtig. 
+Zudem darf ein Fehler in der Kommunikation die Messung nicht unterbrechen oder bereits gemessene Messdaten löschen. Hierzu sollte 
+genügend Redundanz einberechnet werden und ein umfassendes Fehlerhandling im Code ist zentral. Wenn die Kommunikation einmal geklärt 
+ist, ist es ein leichtes das Netzwerk mit weiteren Sensoren zu erweitern. Dabei braucht es nicht immer high-end Produkte, gerade 
+im GNSS erreichen low-cost Sensoren vergleichbare Genauigkeiten und bieten oftmals sogar detailliertere Einstellungsmöglichkeiten. 
+Auch das Betreiben einer lokalen Referenzstation für ein Monitoring-Netz ist mit einfachster Hardware bereits möglich und 
+bringt so low-cost GNSS Messungen als mögliche Alternative für eine Vielzahl von Anwendungen ins Spiel.
+
+In den Messungen des Praxisversuches zeigen sich grosse Verschiebungen der beobachteten Punkte in der Lage. 
+Diese zeigen jedoch keine echten Deformationen, sondern resultieren aus einer Teilkreisverdrehung über die gesamte Messzeit. Anhand 
+einfacher Zeitreihenanalysen und einer Trendkorrektur lassen sich die Daten bereinigen. Die sehr hohen Werte des 
+Bestimmtheitsmasses des linearen Trends belegen, dass dieser ein geeignetes Modell für die Datenbereinigung darstellt. Die verbleibende 
+Streuung liegt innerhalb der erwartbaren Genauigkeit der Messung. Verbleibende Schwankungen der Messwerte können nicht restlos 
+erklärt werden. Um zyklische Effekte zu bestätigen oder auszuschliessen wäre eine Messung über längere Zeit erforderlich. Insgesamt 
+liegt die Genauigkeit der bereinigten Daten innerhalb der Messgenauigkeit und würde den Anforderungen für einige Monitoringanwendungen 
+genügen. 
