@@ -80,7 +80,8 @@ Gewicht erhält. Die gemittelten Koordinaten werden ebenfalls wo nötig um den
 Offset der Dreifusszentrierung korrigiert und anschliessend in ein .mes-File konvertiert. Es werden zwei Files erstellt, 
 eines mit ellipsoidischen Höhen zum Vergleich mit der \glsdisp{thb}{trigonometrischen Höhenbestimmung (THB)} und eines mit 
 orthometrischen Höhen zur Verwendung als Lagerungspunkte für die tachymetrischen Messungen. Die finalen Koordinaten 
-sind in den Anhängen \todo{Anhang referenzieren} beigelegt.
+sind in den Anhängen \cref{sec:anhang}
+\todo{Anhang referenzieren} beigelegt.
 
 \subsection{Untersuchung von GNSS-Einflüssen}
 Im folgenden Abschnitt werden unterschiedliche Einflüsse auf die \acrshort{gnss}-Messungen diskutiert und deren Einfluss 
@@ -164,8 +165,25 @@ Die Koordinatendifferenzen zwischen den Berechnungen mit der HABG und mit der \g
 Da abgesehen der HABG alle umliegenden Swipos-Referenzstationen 40 km und weiter entfernt und meist auf Höhen 
 ausserhalb der vertikalen Projektausdehnung liegen, ist durch das Verwenden der \gls{vrs} keine Genauigkeitssteigerung zu 
 erwarten.
-\todo{evtl. Abbildung GDOP Werte (oder in Anhang)}
-\todo{Einfluss der lokalen Referenzstation beschreiben und Boxplots einfügen}
+
+Um den Einfluss der lokalen Referenzstation zu untersuchen, wurden die Punkte jeweils auf eine der vier Referenzstationen (7000, 7004, 7015 und 9500) referenziert und der Höhenversatz bestimmt.
+Die Stationen liegen auf unterschiedlichen Höhen (\SIrange{672}{1224}{\metre}) und decken das Höhenspektrum der Punkte (\SIrange{649}{1218}{\metre}) ab.
+Die Station 7000 liegt über allen Punkten, die Station 9500 unter fast allen, und die Station 7004 befindet sich mit \SI{931}{\metre} etwa in der Mitte des Gebiets.
+Aufgrund der grossen Höhendifferenzen zwischen Referenzstation und Punkten wären grössere Abweichungen zu erwarten.
+\Cref{fig:boxplot_refstation} zeigt die Verteilung der Höhenversätze (Median) je Referenzstation.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{boxplot_refstation_hoehe.png}
+  \caption{Höhenversatz (Median) der Punkte bei Referenzierung auf die jeweilige Referenzstation, sortiert nach Stationshöhe (je Station 10 Punkte). Die Kreise zeigen Ausreisser.}
+  \label{fig:boxplot_refstation}
+\end{figure}
+
+Die Abweichungen sind insgesamt gering und in der Abbildung kaum erkennbar.
+Der Grossteil der Werte liegt innerhalb von etwa \SI{\pm 3}{\milli\metre}.
+Die höchstgelegene Station 7000 zeigt einen leichten negativen Versatz (Median ca.\ \SI{-1.4}{\milli\metre}), die tiefstgelegene Station 9500 einen leichten positiven (ca.\ \SI{+0.8}{\milli\metre}).
+Die Streuung ist jedoch bei 7000 am kleinsten und bei 7004 und 9500 am grössten.
+Ein klarer Zusammenhang zwischen der Stationshöhe und der Grösse der Abweichungen ist daher nicht erkennbar.
+
 
 \subsubsection{Einfluss des Ionosphärenmodells}
 \label{sec:ionosphäre}
