@@ -37,12 +37,17 @@ Aus der knapp 24~h Messung entstanden Zeitreihen von Koordinaten der Messpunkte.
 Messungen sowie systematische Einflüsse (Trends) oder zyklische Veränderungen bestimmt werden. Obwohl die gemessenen Punkte vorgängig 
 als unveränderlich angenommen werden, zeigt Abbildung \ref{fig:ZRA_roh} sehr grosse scheinbare Veränderungen der Punkte in der Lage 
 von bis zu 286~mm. In der Höhe ist lediglich ein Rauschen von <~10~mm ersichtlich.
-
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Koord_roh.png}
     \caption{Zeitreihen der Rohdaten in Lage und Höhe. Gut erkennbar sind die Trends in der Lageverschiebung.}
     \label{fig:ZRA_roh}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Uebersichtsplan.jpg}
+    \caption{Messanordnung und Deformationsvektoren der Lage. Gut erkennbar ist die Auswirkung der Teilkreisverschiebung.}
+    \label{fig:ZRA_plan}
 \end{figure}
 
 Die Visualisierung der Messanordnung sowie der zugehörigen Deformationsvektoren in Abbildung \ref{fig:ZRA_plan} zeigt, 
@@ -50,13 +55,6 @@ dass kaum echte Deformationen gemessen wurden, sondern vielmehr eine Teilkreisve
 durch die Deformationsvektoren, welche alle rechtwinklig zur Visur im Gegenuhrzeigersinn zeigen und mit zunehmender Distanz 
 zur Station grösser werden. Der stetige lineare Trend in den Rohdaten weist zudem darauf hin, dass die Verdrehung regelmässig 
 über die Zeit geschah und nicht auf ein Einzelereignis zurückzuführen ist. 
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{Uebersichtsplan.jpg}
-    \caption{Messanordnung und Deformationsvektoren der Lage. Gut erkennbar ist die Auswirkung der Teilkreisverschiebung.}
-    \label{fig:ZRA_plan}
-\end{figure}
 
 Für alle fünf Messpunkte werden die Lageverschiebungen gegenüber der ersten Epoche zu einer 2D-Deformation verrechnet. Auf dieser 
 wird ein linearer Trend auf Basis einer Geradengleichung $g_t=b_0+b_1~\cdot~t$ geschätzt. Mit der Methode der kleinsten Quadrate 
@@ -120,7 +118,7 @@ gab kaum Temperaturunterschiede zwischen Tag und Nacht. Stärkere, unkorrigierte
 grösseren Messunsicherheiten geführt.
 
 Alle Punkte in Abbildung \ref{fig:ZRA_glatt} zeigen ein „Einschwingen“ in der Lage zu Beginn der Messungen. 
-Eine mögliche Ursache hierfür ist die fehlende Akklimatisierung des Instrumentes vor Beginn der Messungen. Auch die nicht-korrigierten 
+Eine mögliche Ursache ist die fehlende Akklimatisierung des Instrumentes vor Messbeginn. Auch die nicht-korrigierten 
 Meteoparameter könnten einen Teil davon erklären. Ob sich diese Schwingungen nur auf den Beginn der Messungen beschränken oder 
 zyklisch auftreten, lässt sich mit den vorliegenden Daten nicht beurteilen. Hierzu wäre eine Zeitreihe über mehrere Tage oder sogar 
 Wochen nötig. Da sich das Einschwingen nicht durch den linearen Trend abbilden lässt, verbleibt es in den bereinigten Daten bestehen. 
