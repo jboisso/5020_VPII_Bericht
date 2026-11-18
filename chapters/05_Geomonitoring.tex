@@ -1,20 +1,13 @@
 \section{Geomonitoring-Projekt am Campus Muttenz}
 
-\subsection{TPS-Monitoring}
-Ein weiterer Teil des 'Vertiefungsprofil Geosensorik \& Monitoring II' ist das automatische Monitoring mit Leica MS60 Tachymetern.
-Dazu wird das Instrument über ein Python-Skript von einem Raspberry Pi 4 aus angesteuert.
-Im Rahmen des IoT-Workshops wurde ein automatisches Monitoring erstellt und vom 03.11.2026 - 04.11.2026 ausgeführt. 
+Der Teil Geomonitoring beschreibt die Umsetzung und die Komponenten eines stark vereinfachten 
+automatisierten Monitoring. Während 24~h vom 03.-04.11.2026 wurden tachymetrische Messungen automatisiert durchgeführt, 
+registriert und anschliessend ausgewertet. 
 
-
-\subsubsection{Einrichten und Aufsetzen}
-Um den ersten Umgang mit dem Raspberry Pi zu erlangen wird er zunächst im Schulzimmer eingerichtet und konfiguriert.
-Dazu werden alle 'Mini-Computer' auf den neusten Stand gebracht, und den Tachymeter über das Y-Kabel an ihn angeschlossen.
-Nachdem zunächst diverse Einstellungen ausprobiert und Tests durchgeführt werden, wird das automatische Monitoring mittels
-dem vorgegebenen Python-Skript \todo{zitieren?} vorbereitet.
-Dies liest lediglich die Messdaten der MS60 aus und publiziert sie auf der Webseite von InfluxDB.
-Zudem wird eine Push-Benachrichtigung nach jeder xxx an die Benachrichtigungs-App 'ntfy' \parencite{heckelntfy2026} gesendet. \todo{Push-Benachrichtigung Einfügen}
-Die Ausführung der Messung wird am Instrument mit dem Satzmessungsprogramm gestartet. Diese wird über die Zeitsteuerung terminiert. 
-Da mit diesem Programm maximal 200 Sätze am Stück möglich sind, wird ein Intervall von 7,5 Minuten gewählt, welcher eine Zeitspanne von 25 Stunden abdeckt.
+\subsection{Systemkomponenten und Funktionalität}
+Das umgesetzte Monitoring besteht aus einer MS60 Totalstation als Sensor und Publisher, einem Raspberry Pi 4 als Server 
+beziehungsweise Broker und einer Zeitreihendatenbank (InfluxDB \parencite{influxdatainfluxdbcloud2025}) als Subsriber. 
+Abbildung \ref{fig:Raspy-Pi-Dach} zeigt das Set-Up des Monitoringsystems auf dem Dach des FHNW Campus Muttenz. 
 
 \begin{figure}[h!]
     \centering
@@ -23,48 +16,25 @@ Da mit diesem Programm maximal 200 Sätze am Stück möglich sind, wird ein Inte
     \label{fig:Raspy-Pi-Dach}
 \end{figure}
 
+Die Definition der Messintervalle, Messpunkte und weitere Einstellungen werden auf der MS60 vorgenommen. Über die 
+serielle Schnittstelle RS232 ist die MS60 per Kabel mit dem Raspberry Pi verbunden. Alle Messungen werden über den 
+GSI-Output (Geo Serial Interface) automatisiert an den Server (Raspberry Pi) gesendet. Hierbei werden pro Messung die Punktnummer, 
+die E/N/H-Koordinaten und ein Datum mit Zeitstempel übertragen. Da mit dem Instrumenteninternen Satzprogramm maximal 200 
+Sätze gemessen werden können, wird ein Messinterval von 7.5 min eingestellt. Somit können 25 h gemessen werden, bevor die Satzmessung 
+beendet wird. Insgesamt werden fünf Punkte im System A'B'B''A'' gemessen. 
 
-Leider funktioniert der automatische Start auf dem Dach des Campus nicht wie gewünscht, weshalb zu Debugging-Zwecken ein
-Bildschirm und Tastatur für den Raspberry Pi angeschafft werden muss. Die Messung kann um ca. 14:30 Uhr gestartet werden.
-Abbildung \ref{fig:Raspy-Pi-Dach} zeigt, dass trotz Kälte die Motivation und der Zusammenhalt in der Gruppe sehr hoch ist.
+Auf dem Server werden die empfangenen Daten mithilfe eines Python-Skripts verarbeitet und in eine lokale SQL-Datenbank geschrieben. 
+Zudem werden die Daten viertelstündlich in eine InfluxDB übertragen. Im vorliegenden Projekt läuft diese ebenfalls auf dem Raspberry Pi, die 
+Daten könnten aber auch an einen anderen Server übertragen werden. Um während dem Monitoring den Status prüfen zu können, wird 
+alle 15~min eine HTTP-POST Nachricht an einen definierten Kanal gesendet. Mit der App 'ntfy' \parencite{heckelntfy2026} kann der 
+Kanal abonniert und die Statusbenachrichtigungen empfangen werden.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{InfluxDB-Graph.png}
-    \caption{Visualisierung der gemessenen Testpunkte in InfluxDB Cloud.}
-    \label{fig:Influx-Graph}
-\end{figure}
-
-Die ausgelesenen Daten werden über das auf dem Raspberry Pi laufende Python Skript direkt an die InfluxDB Cloud \parencite{influxdatainfluxdbcloud2025} gesendet.
-Aus bisher unerklärlichen Gründen erfolgt die online Synchronisation lediglich bis ca. Mitternacht.
-Bei einer erneuten Verbindung mit dem Internet am nächsten Morgen können auch noch die restlichen Daten in der InfluxDB Cloud gesichert werden.
-
-%% -> hier sinvoll? eig ja systematische verschiebungen...
-%Wie die Graph-Visualisierung (siehe Abbildung \ref{fig:Influx-Graph}) aus dem Data Explorer der InfluxDB Cloud zeigen,
-%weisen die in diesem Zeitraum überwachten Punkte keine groben Ausreisser auf. 
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{InfluxDB-Histo.png}
-    \caption{Visualisierung der Anzahl Messungen (Histogramm) pro Punkt in InfluxDB Cloud.}
-    \label{fig:Influx-Histo}
-\end{figure}
-
-In der online-Anwendung gibt es einige Darstellungsmöglichkeiten, jedoch sind die weiteren Einstellungen deutlich begrenzt.
-Eine genaue Analyse der Daten ist auf InfluxDB Cloud somit nicht möglich.
-Ebenfalls ist die Beschreibung der Darstellungsformen unzureichend. 
-In der Abbildung \ref{fig:Influx-Histo} wird beispielsweise ein Histogramm dargestellt.
-Vermutlich eingefärbt nach der Anzahl Messungen in diesem Zeitraum. Eine Definition dazu ist leider nicht auffindbar.
-
-Als weiterer Bestandteil dieses Projektes wird die Ansteuerung des Leica Tachymeters mittels GeoCOM-Befehlen \todo{zitieren?} näher betrachtet.
-Dabei ist nahezu jede mögliche Bewegung oder Programmschritt der Instruments einzeln Ansteuerbar.
-Zu Testzwecken wird die Initialisierung eines Scans ausgeführt.
-
-Im Rahmen eines Workshops zu Monitoring mit Low-Cost GNSS-Empfängern und Open-Source Software
-kann ebefalls die Handhabung eines solchen Monitoring-Systems geübt werden.
+Das Wegfallen der Internetverbindung während der Messkampagne konnte mit dem Pythonskript aufgefangen werden und die Daten wurden 
+zuverlässig auf dem lokalen Server gespeichert. Insgesamt erwies sich die Verbindung mit dem Netwerk der FHNW aufgrund der aufwändigen Authentifizierung 
+als grösste Schwierigkeit. Vermutlich ist auch diese die Ursache, dass ab Mitternacht keine Statusmeldungen und Daten versendet wurden. 
 
 \subsection{Zeitreihenanalyse}
-Aus der knapp 24~h Messung entstehen Zeitreihen von Koordinaten der Messpunkte. Aus diesen können anschliessend die Genauigkeiten der 
+Aus der knapp 24~h Messung entstanden Zeitreihen von Koordinaten der Messpunkte. Aus diesen können anschliessend die Genauigkeiten der 
 Messungen sowie systematische Einflüsse (Trends) oder zyklische Veränderungen bestimmt werden. Obwohl die gemessenen Punkte vorgängig 
 als unveränderlich angenommen werden, zeigt Abbildung \ref{fig:ZRA_roh} sehr grosse scheinbare Veränderungen der Punkte in der Lage 
 von bis zu 286~mm. In der Höhe ist lediglich ein Rauschen von <~10~mm ersichtlich.
@@ -125,8 +95,8 @@ Schnitt bei $R^2=0.992$ und zeigt, dass der Trend die vorhandene Streuung fast v
 Zuletzt werden ein gleitender Durchschnitt (Moving Average) und eine LOESS Glättung \parencite{Cleveland1979} auf die 
 Trendkorrigierten Zeitreihen angewendet. Um die Vergleichbarkeit sicherzustellen, werden beide mit derselben Breite von 
 $d=7$ berechnet. Somit entsteht beim Messintervall von 7.5~min eine Glättung über knapp eine Stunde. Abbildung \ref{fig:ZRA_glatt} 
-zeigt deutliche Unterschiede zwischen den Glättungsalgorithmen. Obwohl beide dieselbe Breite verwenden, glättet der LOESS durch 
-die höhere Gewichtung näherliegender Punkte lokale Ausreisser weniger stark als der gleitende Durchschnitt. 
+zeigt deutliche Unterschiede zwischen den Glättungsalgorithmen. Obwohl beide dieselbe Breite verwenden, glättet der LOESS, durch 
+die höhere Gewichtung näherliegender Punkte, lokale Ausreisser weniger stark als der gleitende Durchschnitt. 
 
 \begin{figure}[h!]
     \centering
@@ -136,6 +106,32 @@ die höhere Gewichtung näherliegender Punkte lokale Ausreisser weniger stark al
 \end{figure}
 
 \subsection{Diskussion}
+Die beobachtete stetige Teilkreisverschiebung des Horizontalteilkreises liesse sich verhindern, indem vor jeder 
+Satzmessung die Orientierung anhand eines stabilen Punktes neu gesetzt beziehungsweise korrigiert würde. Für Monitoringanwendungen 
+wäre es zudem ratsam, Fixpunkte in jedem Satz mitzumessen und anhand dieser eine Ausgleichung durchzuführen, um ein Wegdriften 
+der Orientierung zu verhindern und allfällige Verschiebungen der Messstation erkennen zu können. Mit den durchgeführten 
+Bereinigungen lassen sich aber auch die vorliegenden Messdaten genügend gut bereinigen, dass sie für gewisse Monitoringanwendungen 
+verwendbar wären. 
 
+Die verbleibende Standardabweichung einer Einzelmessung in den Trendkorrigierten Daten von 7.6~mm auf die 
+weiteste Distanz von 2.3~km ist erstaunlich klein. Dies insbesondere, da bereits aus der Winkelgenauigkeit von 0.3~mgon eine erwartbare 
+Genauigkeit von 11~mm auf diese Distanz resultiert. Auch ist zu beachten, dass alle Distanzen mit einer einheitlichen Meteokorrektur 
+reduziert sind, die den Bedingungen während der Startepoche entspricht. Das Wetter war während der ganzen Messzeit bedeckt und es 
+gab kaum Temperaturunterschiede zwischen Tag und Nacht. Stärkere, unkorrigierte Temperaturschwankungen hätten mit Sicherheit zu 
+grösseren Messunsicherheiten geführt.
+
+Alle Punkte in Abbildung \ref{fig:ZRA_glatt} zeigen ein „Einschwingen“ in der Lage zu Beginn der Messungen. 
+Eine mögliche Ursache hierfür ist die fehlende Akklimatisierung des Instrumentes vor Beginn der Messungen. Auch die nicht-korrigierten 
+Meteoparameter könnten einen Teil davon erklären. Ob sich diese Schwingungen nur auf den Beginn der Messungen beschränken oder 
+zyklisch auftreten, lässt sich mit den vorliegenden Daten nicht beurteilen. Hierzu wäre eine Zeitreihe über mehrere Tage oder sogar 
+Wochen nötig. Da sich das Einschwingen nicht durch den linearen Trend abbilden lässt, verbleibt es in den bereinigten Daten bestehen. 
+
+Das umgesetzte Monitoringsystem könnte ohne Schwierigkeiten weiter ausgebaut werden. So kann die bisher auf dem Tachymeter erfolgte 
+Definition der Messungen über GeoCOM Befehle und die GSI-Schnittstelle auch über den Computer erfolgen. Dies erlaubt es, Messungen 
+aus der Ferne zu konfigurieren, starten und auszulesen. Zudem fallen Limitierungen des Leica Captivates wie die maximale Anzahl Sätze 
+in einer Satzmessung weg. Weiter könnte das System mit GNSS-Sensoren ergänzt werden, um weitere Daten zu erfassen. Die Low-Cost Sensoren 
+von Ardusimple \todo{zitieren} bieten eine preiswerte Möglichkeit, GNSS Messungen, inklusive Kommunikation in ein System einzubinden. 
+Über die seriellen Kommunikationsschnittstellen und gängige Protokolle wie MQTT könnten auch die GNSS-Daten einfach an den Raspberry Pi 
+gesendet und von diesem als Broker verarbeitet und weitergeleitet werden.
 
 \FloatBarrier
