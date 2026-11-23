@@ -19,8 +19,8 @@ Abbildung \ref{fig:Raspy-Pi-Dach} zeigt das Set-Up des Monitoringsystems auf dem
 Die Definition der Messintervalle, Messpunkte und weitere Einstellungen werden auf der MS60 vorgenommen. Über die 
 serielle Schnittstelle RS232 ist die MS60 per Kabel mit dem Raspberry Pi verbunden. Alle Messungen werden über den 
 GSI-Output (Geo Serial Interface) automatisiert an den Server (Raspberry Pi) gesendet. Hierbei werden pro Messung die Punktnummer, 
-die E/N/H-Koordinaten und ein Datum mit Zeitstempel übertragen. Da mit dem Instrumenteninternen Satzprogramm maximal 200 
-Sätze gemessen werden können, wird ein Messinterval von 7.5 min eingestellt. Somit können 25 h gemessen werden, bevor die Satzmessung 
+die E/N/H-Koordinaten und ein Datum mit Zeitstempel übertragen. Da mit dem instrumenteninternen Satzprogramm maximal 200 
+Sätze gemessen werden können, wird ein Messintervall von 7.5 min eingestellt. Somit können 25 h gemessen werden, bevor die Satzmessung 
 beendet wird. Insgesamt werden fünf Punkte im System A'B'B''A'' gemessen. 
 
 Auf dem Server werden die empfangenen Daten mithilfe eines Python-Skripts verarbeitet und in eine lokale SQL-Datenbank geschrieben. 
@@ -29,7 +29,7 @@ alle 15~min eine HTTP-POST Nachricht an einen definierten Kanal gesendet. Mit de
 Kanal abonniert und die Statusbenachrichtigungen empfangen werden.
 
 Das Wegfallen der Internetverbindung während der Messkampagne konnte mit dem Pythonskript aufgefangen werden und die Daten wurden 
-zuverlässig auf dem lokalen Server gespeichert. Insgesamt erwies sich die Verbindung mit dem Netwerk der FHNW aufgrund der aufwändigen Authentifizierung 
+zuverlässig auf dem lokalen Server gespeichert. Insgesamt erwies sich die Verbindung mit dem Netzwerk der FHNW aufgrund der aufwändigen Authentifizierung 
 als grösste Schwierigkeit. Vermutlich ist auch diese die Ursache, dass ab Mitternacht keine Statusmeldungen und Daten versendet wurden. 
 
 \subsection{Zeitreihenanalyse}
@@ -75,7 +75,7 @@ alle Punkte gemäss Gleichung \ref{eq:r} berechnet.
     \label{eq:r}
 \end{equation}
 
-Die Kovarianz ist für alle Punkte sehr stark und beträgt in Schnitt $r~=~0.994$.
+Die Kovarianz ist für alle Punkte sehr stark und beträgt im Schnitt $r~=~0.994$.
 Anhand der Trendgleichung können die erwartbaren Varianzen berechnet und korrigiert werden. Dadurch können die Daten in eine 
 stationäre Zeitreihe zurückgeführt werden. Wie Abbildung \ref{fig:ZRA_korr} zeigt, bleiben Mittelwert und Varianz der korrigierten 
 Zeitreihe konstant. Saisonale (zyklische) Effekte sind keine ersichtlich. Das Bestimmtheitsmass der linearen Trends $R^2$ liegt im 
@@ -84,13 +84,13 @@ Schnitt bei $R^2=0.992$ und zeigt, dass der Trend die vorhandene Streuung fast v
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Zeitreihe_Orig_Trend.png}
-    \caption{Unbereinigte Zeitreihe (hell) und Trendkorrigierte Zeitreihe (dunkel) pro Punkt. Gut ersichtlich ist die starke Korrelation 
+    \caption{Unbereinigte Zeitreihe (hell) und trendkorrigierte Zeitreihe (dunkel) pro Punkt. Gut ersichtlich ist die starke Korrelation 
     zwischen Zeit und Verschiebung bei allen Punkten.}
     \label{fig:ZRA_korr}
 \end{figure}
 
 Zuletzt werden ein gleitender Durchschnitt (Moving Average) und eine LOESS Glättung \parencite{Cleveland1979} auf die 
-Trendkorrigierten Zeitreihen angewendet. Um die Vergleichbarkeit sicherzustellen, werden beide mit derselben Breite von 
+trendkorrigierten Zeitreihen angewendet. Um die Vergleichbarkeit sicherzustellen, werden beide mit derselben Breite von 
 $d=7$ berechnet. Somit entsteht beim Messintervall von 7.5~min eine Glättung über knapp eine Stunde. Abbildung \ref{fig:ZRA_glatt} 
 zeigt deutliche Unterschiede zwischen den Glättungsalgorithmen. Obwohl beide dieselbe Breite verwenden, glättet der LOESS, durch 
 die höhere Gewichtung näherliegender Punkte, lokale Ausreisser weniger stark als der gleitende Durchschnitt. 
@@ -110,23 +110,23 @@ der Orientierung zu verhindern und allfällige Verschiebungen der Messstation er
 Bereinigungen lassen sich aber auch die vorliegenden Messdaten genügend gut bereinigen, dass sie für gewisse Monitoringanwendungen 
 verwendbar wären. 
 
-Die verbleibende Standardabweichung einer Einzelmessung in den Trendkorrigierten Daten von 7.6~mm auf die 
+Die verbleibende Standardabweichung einer Einzelmessung in den trendkorrigierten Daten von 7.6~mm auf die 
 weiteste Distanz von 2.3~km ist erstaunlich klein. Dies insbesondere, da bereits aus der Winkelgenauigkeit von 0.3~mgon eine erwartbare 
 Genauigkeit von 11~mm auf diese Distanz resultiert. Auch ist zu beachten, dass alle Distanzen mit einer einheitlichen Meteokorrektur 
 reduziert sind, die den Bedingungen während der Startepoche entspricht. Das Wetter war während der ganzen Messzeit bedeckt und es 
-gab kaum Temperaturunterschiede zwischen Tag und Nacht. Stärkere, unkorrigierte Temperaturschwankungen hätten mit Sicherheit zu 
-grösseren Messunsicherheiten geführt.
+gab kaum Temperaturunterschiede zwischen Tag und Nacht. Stärkere, unkorrigierte Temperaturschwankungen würden mit Sicherheit zu 
+grösseren Messunsicherheiten führen.
 
 Alle Punkte in Abbildung \ref{fig:ZRA_glatt} zeigen ein „Einschwingen“ in der Lage zu Beginn der Messungen. 
 Eine mögliche Ursache ist die fehlende Akklimatisierung des Instrumentes vor Messbeginn. Auch die nicht-korrigierten 
 Meteoparameter könnten einen Teil davon erklären. Ob sich diese Schwingungen nur auf den Beginn der Messungen beschränken oder 
 zyklisch auftreten, lässt sich mit den vorliegenden Daten nicht beurteilen. Hierzu wäre eine Zeitreihe über mehrere Tage oder sogar 
-Wochen nötig. Da sich das Einschwingen nicht durch den linearen Trend abbilden lässt, verbleibt es in den bereinigten Daten bestehen. 
+Wochen nötig. Da sich das Einschwingen nicht durch den linearen Trend abbilden lässt, bleibt es in den bereinigten Daten bestehen. 
 
 Das umgesetzte Monitoringsystem könnte ohne Schwierigkeiten weiter ausgebaut werden. So kann die bisher auf dem Tachymeter erfolgte 
-Definition der Messungen über GeoCOM Befehle und die GSI-Schnittstelle auch über den Computer erfolgen. Dies erlaubt es, Messungen 
+Definition der Messungen über GeoCOM-Befehle und die GSI-Schnittstelle auch über den Computer erfolgen. Dies erlaubt es, Messungen 
 aus der Ferne zu konfigurieren, starten und auszulesen. Zudem fallen Limitierungen des Leica Captivates wie die maximale Anzahl Sätze 
-in einer Satzmessung weg. Weiter könnte das System mit GNSS-Sensoren ergänzt werden, um weitere Daten zu erfassen. Die Low-Cost Sensoren-Systeme 
+in einer Satzmessung weg. Weiter könnte das System mit GNSS-Sensoren ergänzt werden, um weitere Daten zu erfassen. Die Low-Cost-Sensorsysteme 
 von Ardusimple \href{https://ardusimple.com}{(ardusimple.com)} bieten eine preiswerte Möglichkeit, GNSS Messungen, inklusive Kommunikation in ein System einzubinden. 
 Über die seriellen Kommunikationsschnittstellen und gängige Protokolle wie MQTT könnten auch die GNSS-Daten einfach an den Raspberry Pi 
 gesendet und von diesem als Broker verarbeitet und weitergeleitet werden.

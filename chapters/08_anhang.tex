@@ -2,25 +2,84 @@
 \section{Anhang}
 \label{sec:anhang}
 
-Folgende Dokumente werden separat zum Bericht abgegeben:
-\begin{itemize}
-    \item 01 Definitivekoord\_LHN95\_Orth\_Hoehe
+% Tabellen im Anhang nicht ins Tabellenverzeichnis aufnehmen
+\captionsetup[table]{list=no}
 
-\end{itemize}
+\subsection{Definitive Koordinaten}
+\label{subsec:definitive-koordinaten}
 
-\subsection{Beispiel einer verschachtelten Datenstruktur}
+\begin{table}[htbp]
+    \centering
+    \caption{Definitive Koordinaten der Punkte in LV95 mit orthometrischer Höhe (LHN95) und ellipsoidischer Höhe.}
+    \label{tab:definitive-koordinaten}
+    \begin{tabular}{lrrrr}
+        \toprule
+        \textbf{Nr.} & \textbf{E [m]} & \textbf{N [m]} & \textbf{$\boldsymbol{H_\mathrm{Ortho}}$ [m]} & \textbf{$\boldsymbol{H_\mathrm{Ell}}$ [m]} \\
+        \midrule
+        9000   & 2648358.312 & 1177994.066 &  649.000 &  649.850 \\
+        \rowcolor{lightgray}
+        TP510  & 2647254.674 & 1178640.255 &  653.452 &  654.251 \\
+        EX9500 & 2647764.016 & 1178221.263 &  672.343 &  673.167 \\
+        \rowcolor{lightgray}
+        7015   & 2647956.854 & 1179017.736 &  782.814 &  783.626 \\
+        7004   & 2647373.166 & 1179529.198 &  930.646 &  931.440 \\
+        \rowcolor{lightgray}
+        7003   & 2647499.787 & 1179649.894 &  989.207 &  990.003 \\
+        6012   & 2647502.875 & 1179705.284 & 1000.029 & 1000.825 \\
+        \rowcolor{lightgray}
+        6011   & 2647546.154 & 1179717.940 & 1007.940 & 1008.737 \\
+        6000   & 2647125.209 & 1179762.639 & 1111.801 & 1112.587 \\
+        \rowcolor{lightgray}
+        6010   & 2647484.241 & 1180085.726 & 1147.179 & 1147.972 \\
+        6003   & 2647713.168 & 1179850.629 & 1154.036 & 1154.836 \\
+        \rowcolor{lightgray}
+        6006   & 2647648.279 & 1179951.892 & 1175.059 & 1175.857 \\
+        TP506  & 2647694.043 & 1180084.296 & 1218.196 & 1218.994 \\
+        \rowcolor{lightgray}
+        7000   & 2646852.053 & 1179799.959 & 1223.980 & 1224.759 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Ausgeglichene THB-Höhendifferenzen}
+\label{subsec:hoehendifferenzen}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Ausgeglichene THB-Höhendifferenzen mit empirischer Standardabweichung.}
+    \label{tab:hoehendifferenzen}
+    \begin{tabular}{llrr}
+        \toprule
+        \textbf{Von} & \textbf{Nach} & \textbf{Höhendifferenz [m]} & \textbf{Std. Abw. [mm]} \\
+        \midrule
+        9000   & EX7000 & 574.993 & 6.6 \\
+        \rowcolor{lightgray}
+        EX6015 & 7000   &  71.789 & 1.7 \\
+        EX9500 & EX6015 & 479.869 & 6.9 \\
+        \rowcolor{lightgray}
+        EX6015 & 6003   &   1.837 & 0.7 \\
+        EX7000 & 7000   &   0.021 & 1.0 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Datenablage}
 \label{subsec:datenstruktur}
-Verschachtelte Aufzählungen eignen sich zum Beispiel zur Darstellung einer
-Ordnerstruktur:
-\begin{itemize}
-    \item Projektordner
-    \begin{itemize}
-        \item 10\_Rohdaten
-        \begin{itemize}
-            \item Definitivekoord\_LHN95\_Orth\_Hoehe
-            \item Beispieldatei\_2
-        \end{itemize}
-        \item 20\_Auswertung
-        \item 30\_Ausgabe
-    \end{itemize}
-\end{itemize}
+Die Daten der Auswertung Schwanderbärgli befinden sich auf dem S-Laufwerk. Nachfolgend ist die Ordnerstruktur angegeben.\\[1em]
+
+\dirtree{%
+    .1 \faFolderOpen ~Projektordner/.
+    % erster Ordner
+    .2 \faFolderOpen ~10\_Rohdaten/.
+    .3 \faFileExcelO ~Definitivekoord\_LHN95\_Orth\_Hoehe.
+    .3 \faFileO ~Beispieldatei\_2.
+    % zweiter Ordner
+    .2 \faFolderOpen ~20\_Auswertung/.
+    .3 \faFileCodeO ~Beispielskript.py.
+    .3 \faFileArchiveO ~Beispielarchiv.zip.
+    .3 \faFileText ~README.md.
+    % dritter Ordner
+    .2 \faFolderOpen ~30\_Ausgabe/.
+    .3 \faFilePdfO ~Beispielbericht.pdf.
+    .3 \faFilePowerpointO ~Beispielpraesentation.pptx.
+}

@@ -1,5 +1,5 @@
 \clearpage
-\section[Einfluss des Zenith Total Delays auf GNSS Messungen]{Einfluss des Zenith Total Delays auf GNSS-\\Messungen}
+\section[Einfluss des Zenith Total Delays auf GNSS-Messungen]{Einfluss des Zenith Total Delays auf GNSS-\\Messungen}
 \label{sec:literaturrecherche}
 Das \gls{gnss} hat sich seit der Inbetriebnahme des NAVSTAR \gls{gps} Ende der 
 1980er Jahre zu einer Schlüsseltechnologie entwickelt \parencite[S. 3]{dodelGPSNAVSTAR2009}. Der primäre 
@@ -29,7 +29,7 @@ Bandbreite von \acrshort{gnss}-Trägerfrequenzen gleich aus und kann nicht direk
 Gemäss \textcite[S. 122]{subiranaGNSSDataProcessing2013} kann die Troposphäre in eine trockene (hydrostatische) und feuchte Komponente unterteilt werden.
 Der trockene Anteil verhält sich abhängig von der örtlichen Temperatur und dem Luftdruck, 
 wobei die Schwankung innerhalb einiger Stunden weniger als 1\% beträgt. 
-Wie \citeauthor{subiranaGNSSDataProcessing2013} erwähnt, variiert die feuchte Komponente der Troposphäre zeitlich und räumlich stark,
+Wie \citeauthor{subiranaGNSSDataProcessing2013} erwähnen, variiert die feuchte Komponente der Troposphäre zeitlich und räumlich stark,
 was sie sehr schwer modellierbar macht.
 
 
@@ -43,8 +43,8 @@ beträgt die \gls{zhd} bis zu 8~ns im Zenit, was einer Höhenabweichung von ca. 
 Die Signalverzögerung ausserhalb des Zenits wird \gls{std} genannt.
 Mit abnehmender Elevation durchquert das Signal zunehmend grössere Bereiche der Troposphäre, wodurch der Einfluss weiter steigt.
 Dabei sind in der Literatur Abweichungen von bis zu 10~m \parencite[S. 122]{subiranaGNSSDataProcessing2013} oder 20~m \parencite{liUnravelingAccuracyEnigma2024} 
-anzutreffen. \cite[S. 47]{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} spricht sogar von bis zu 25~m in der vertikalen Komponente.
-Um diese Verzögerung besser zu modellieren werden sogenannte \glspl{mf} eingesetzt.
+anzutreffen. \textcite[S. 47]{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} spricht sogar von bis zu 25~m in der vertikalen Komponente.
+Um diese Verzögerung besser zu modellieren, werden sogenannte \glspl{mf} eingesetzt.
 Dabei wird der \gls{ztd} als Funktion des Elevationswinkels zu einer Schrägverzögerung transformiert.
 Im Kapitel~\ref{sec:MappingFunctions} wird weiter darauf eingegangen.
 
@@ -53,26 +53,26 @@ Druck- und Temperaturmodelle, englisch \gls{gpt}, modelliert werden, um den \gls
 
 Anders der feuchte Anteil der Abweichung, genannt \gls{zwd}. Dieser verursacht zwar nur Abweichungen im Dezimeterbereich, 
 lässt sich aber aufgrund der hohen räumlichen und temporalen Variabilität schwer modellieren \parencite[S. 29]{aichinger-rosenbergerTroposphericDelayParameters2021}. 
-Globale Troposphären-Modelle wie das GPT2 verbessern die Stabilität in der Höhenbestimmung gegenüber einfacherer Modelle wie dem \gls{gpt} 
+Globale Troposphären-Modelle wie das GPT2 verbessern die Stabilität in der Höhenbestimmung gegenüber einfacheren Modellen wie dem \gls{gpt} 
 um bis zu 40 \% \parencite{laglerGPT2EmpiricalSlant2013}. Jedoch bleibt eine erhebliche Unsicherheit bestehen.
 
 \subsection{Anwendung in der Meteorologie}
 Gemäss \textcite[S. 27]{klaffenboeckTroposphaerischeLaufzeitverzoegerungGNSSSignalen2005} sind für die Meteorologie atmosphärische Parameter wie Temperatur, Luftdruck
 und Luftfeuchtigkeit in möglichst hoher räumlicher und zeitlicher Auflösung essenziell.
 Gerade der Wasserdampfgehalt wurde früher hauptsächlich mittels
-Ballonsondenaufstiegen ermittelt, was aber Zeit- und kostenintensiv ist.
+Ballonsondenaufstiegen ermittelt, was aber zeit- und kostenintensiv ist.
 
-In ihrem im Journal of Geophysical Research von 1992 erschienenen Artikel, dokumentierten \citeauthor{bevisGPSMeteorologyRemote1992} bereits damals die Idee,
+In ihrem im Journal of Geophysical Research von 1992 erschienenen Artikel dokumentierten \citeauthor{bevisGPSMeteorologyRemote1992} bereits damals die Idee,
 aus \acrshort{gps}-Satellitenbeobachtungen den integrierten Wasserdampf, englisch \gls{iwv}, abzuleiten.
 Hierzu nutzten sie, dass sich bei bekanntem Standpunkt des 
 \gls{gnss} Empfängers die Gleichung zur Berechnung des \gls{zwd} so umstellen lässt, dass der Wasserdampfgehalt bestimmt werden kann.   
 Diese Werte sind in der Wettervorhersage und weiteren Forschungsgebieten von hoher Bedeutung.
 
 Wie \textcite{dousaRealtimeZenithTropospheric2014} berichten, kann seit 
-über 20 Jahren die \gls{ztd} anhand mehrerer permanenten \acrshort{gnss}-Stationen und Korrekturdaten des \gls{igs} 
+über 20 Jahren die \gls{ztd} anhand mehrerer permanenter \acrshort{gnss}-Stationen und Korrekturdaten des \gls{igs} 
 nahezu in Echtzeit berechnet werden. Der daraus abgeleitete Wasserdampfgehalt erreicht die benötigte Genauigkeit für die Verwendung 
 in numerischen Wettervorhersagen, englisch \gls{nwp}.
-\citeauthor{dehaanAssimilationGNSSZTD2013} zeigt 2013 die Möglichkeit, Regenprognosen in den Niederlanden deutlich zu verbessern, in dem 
+\citeauthor{dehaanAssimilationGNSSZTD2013} zeigt 2013 die Möglichkeit, Regenprognosen in den Niederlanden deutlich zu verbessern, indem 
 aus \acrshort{gnss}-Messungen berechnete \acrshort{iwv}-Werte in die Modelle eingebunden werden. 
 Gemäss \textcite{rohmGroundbasedGNSSZTD2014} wird erwartet, dass die bodengestützten \acrshort{gnss}-Daten zu einer Verbesserung der Vorhersage von Starkregen
 um 80 \% führen werden. 
@@ -85,7 +85,7 @@ wie bei einem Radiosondenaufstieg möglich sind.
 Eine Alternative zur Bestimmung des \gls{iwv} aus terrestrischen \acrshort{gnss}-Messungen bietet die \gls{gnss} Radio Occultation. 
 Erstmals 1996 von \citeauthor{wareGPSSoundingAtmosphere1996} vorgestellt, ermöglicht die Technik die Bestimmung vertikaler 
 Refraktionsprofile der Atmosphäre. Hierzu werden \acrshort{gnss}-Signale von einem \gls{leo} Satelliten 
-empfangen welcher nicht mehr in der direkten Sichtlinie liegt. Die Signale empfangen diese \gls{leo} Satelliten nur, da sie in der Atmosphäre gebrochen und abgelenkt werden
+empfangen, welcher nicht mehr in der direkten Sichtlinie liegt. Die Signale empfangen diese \gls{leo} Satelliten nur, da sie in der Atmosphäre gebrochen und abgelenkt werden
 (siehe Abbildung \ref{fig:abb_radioocc}). Die Refraktion ist dabei abhängig von Temperatur, Druck und Wasserdampfgehalt der 
 Atmosphäre. Anders als bei terrestrischen Bestimmungen kann eine hohe vertikale Auflösung erreicht werden, ähnlich 
 einem Meteoballon-Profil. Die örtliche Auflösung ist jedoch deutlich schlechter. \parencite[S. 49-50]{aichinger-rosenbergerTroposphericDelayParameters2021}
