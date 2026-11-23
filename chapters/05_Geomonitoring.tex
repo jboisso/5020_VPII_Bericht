@@ -1,12 +1,12 @@
 \section{Geomonitoring-Projekt am Campus Muttenz}
 
 Der Teil Geomonitoring beschreibt die Umsetzung und die Komponenten eines stark vereinfachten 
-automatisierten Monitoring. Während 24~h vom 03.-04.11.2026 wurden tachymetrische Messungen automatisiert durchgeführt, 
+automatisierten Monitoring-Systems. Während rund 24~h vom 03.~-~04.11.2026 wurden tachymetrische Messungen automatisiert durchgeführt, 
 registriert und anschliessend ausgewertet. 
 
 \subsection{Systemkomponenten und Funktionalität}
 Das umgesetzte Monitoring besteht aus einer MS60 Totalstation als Sensor und Publisher, einem Raspberry Pi 4 als Server 
-beziehungsweise Broker und einer Zeitreihendatenbank (InfluxDB \parencite{influxdatainfluxdbcloud2025}) als Subsriber. 
+beziehungsweise Broker und einer Zeitreihendatenbank (InfluxDB Cloud \parencite{influxdatainfluxdbcloud2025}) als Subscriber. 
 Abbildung \ref{fig:Raspy-Pi-Dach} zeigt das Set-Up des Monitoringsystems auf dem Dach des FHNW Campus Muttenz. 
 
 \begin{figure}[h!]
@@ -24,7 +24,7 @@ Sätze gemessen werden können, wird ein Messinterval von 7.5 min eingestellt. S
 beendet wird. Insgesamt werden fünf Punkte im System A'B'B''A'' gemessen. 
 
 Auf dem Server werden die empfangenen Daten mithilfe eines Python-Skripts verarbeitet und in eine lokale SQL-Datenbank geschrieben. 
-Zudem werden die Daten viertelstündlich in eine InfluxDB in der Cloud übertragen. Um während dem Monitoring den Status prüfen zu können, wird 
+Zudem werden die Daten viertelstündlich in die InfluxDB Cloud übertragen. Um während dem Monitoring den Status prüfen zu können, wird 
 alle 15~min eine HTTP-POST Nachricht an einen definierten Kanal gesendet. Mit der App 'ntfy' \parencite{heckelntfy2026} kann der 
 Kanal abonniert und die Statusbenachrichtigungen empfangen werden.
 
@@ -126,7 +126,7 @@ Wochen nötig. Da sich das Einschwingen nicht durch den linearen Trend abbilden 
 Das umgesetzte Monitoringsystem könnte ohne Schwierigkeiten weiter ausgebaut werden. So kann die bisher auf dem Tachymeter erfolgte 
 Definition der Messungen über GeoCOM Befehle und die GSI-Schnittstelle auch über den Computer erfolgen. Dies erlaubt es, Messungen 
 aus der Ferne zu konfigurieren, starten und auszulesen. Zudem fallen Limitierungen des Leica Captivates wie die maximale Anzahl Sätze 
-in einer Satzmessung weg. Weiter könnte das System mit GNSS-Sensoren ergänzt werden, um weitere Daten zu erfassen. Die Low-Cost Sensoren 
+in einer Satzmessung weg. Weiter könnte das System mit GNSS-Sensoren ergänzt werden, um weitere Daten zu erfassen. Die Low-Cost Sensoren-Systeme 
 von Ardusimple \href{https://ardusimple.com}{(ardusimple.com)} bieten eine preiswerte Möglichkeit, GNSS Messungen, inklusive Kommunikation in ein System einzubinden. 
 Über die seriellen Kommunikationsschnittstellen und gängige Protokolle wie MQTT könnten auch die GNSS-Daten einfach an den Raspberry Pi 
 gesendet und von diesem als Broker verarbeitet und weitergeleitet werden.

@@ -1,7 +1,7 @@
 \section{Scanning}
 \label{sec:scanning}
 
-Zusätzlich zur Netzmessung wurde die Schwergewichtsmauer im Bereich 'Sperre'~\ref{fig:abb-schwergewmauer} 
+Zusätzlich zur Netzmessung wurde die Schwergewichtsmauer im Bereich 'Sperre'(siehe Abbildung~\ref{fig:abb-schwergewmauer}) 
 mittels \glsdisp{tls}{terrestrischem Laserscanning (TLS)} flächenhaft erfasst. Die Aufnahmen erfolgten von fünf Stationen 
 mittels einer Trimble SX12. Daraus resultieren direkt georeferenzierte Punktwolken.
 
@@ -20,16 +20,15 @@ anhand der ausgeglichenen Koordinaten der Netzmessung neu registriert.
 Dadurch sinkt die Standardabweichung in Lage und Höhe der einzelnen Stationierungen auf $\sigma < 1 mm$.
 Anschliessend wird die Punktwolke in \gls{trw} \parencite{trimbleinc.RealWorks2026} bereinigt und zugeschnitten. 
 Der starke Bewuchs der Mauer macht die Bereinigung schwierig und alle getesteten Klassifikationsalgorithmen in \gls{trw} 
-und Leica 3DR scheiterten. Schliesslich musste die Bereinigung manuell durchgeführt werden. 
+und Leica Cyclone 3DR \parencite{leica-geosystemsLeica3DR2026} scheiterten. Schliesslich musste die Bereinigung manuell durchgeführt werden. 
 
 Der Vergleich mit den Punktwolken aus den Vorjahren wird in \gls{cc} \parencite{opensourceCloudCompare2024} berechnet. 
 Die Punktwolken werden sowohl als \gls{c2c}, als auch mit dem \gls{m3c2} Algorithmus \parencite{lagueAccurate3DComparison2013} verglichen. 
 Die Punktwolke von 2026 wird sowohl zur letzten Messung 2024, als auch zu den vorhergehenden Scans aus 2022 und 2018 verglichen. 
 In \gls{c2c} wird zu jedem Punkt des Scans 2026 
 der nächstliegende Punkt aus der Referenzpunktwolke gesucht und die Distanz dazu berechnet. Für die Mauer ist dies 
-insofern problematisch, als das sie sowohl vertikale, als auch horizontale Flächen aufweist. Da \gls{c2c} nicht gerichtet 
-nach dem nächsten Punkt sucht, ist nicht gewährleistet, dass die richtigen Flächen miteinander verglichen werden an 
-den Übergängen. Zudem führt Rauschen in der Punktwolke zu grösseren Abweichungen und Flächen die im Referenzscan nicht 
+insofern problematisch, als das sie sowohl vertikale als auch horizontale Flächen aufweist. Da \gls{c2c} nicht gerichtet 
+nach dem nächsten Punkt sucht, ist nicht gewährleistet, dass an den Übergängen die richtigen Flächen miteinander verglichen werden. Zudem führt Rauschen in der Punktwolke zu grösseren Abweichungen und Flächen die im Referenzscan nicht 
 abgedeckt sind, werden als zunehmend grosse Deformationen ausgegeben. \gls{cc} ermöglicht zwar das Aufteilen der Verschiebungen 
 nach XY und Z, doch auch dann sind viele Ausreisser und Fehlzuordnungen vorhanden.
 Im Gegensatz zu \gls{c2c}, ist \gls{m3c2} ein Algorithmus, welcher gerichtet nach Deformationen sucht. Hierzu werden Verschiebungen 
@@ -43,7 +42,7 @@ leitet die Signifikanz der Verschiebungen zum Niveau 95 \% daraus ab. In Gebiete
 fehlen, werden keine Deformationen berechnet. Die detaillierte Beschreibung des \acrshort{m3c2}-Algorithmus kann in \citeauthor{lagueAccurate3DComparison2013}, 2013 
 nachgeschlagen werden.
 
-Für die Berechnung am Schwanderbärgli wird der Durchmesser d = 0.30 m gewählt. Die Registrierungsgenauigkeit wird 3.4~mm für 
+Für die Berechnung am Schwanderbärgli wird der Durchmesser d = 30 cm gewählt. Die Registrierungsgenauigkeit wird 3.4~mm für 
 jede Punktwolke angenommen. Diese setzt sich aus der absoluten Lagegenauigkeit von 3.5~mm und der 3D-Genauigkeit eines 
 Scanpunktes der SX12 (2.5~mm @ 100~m) \parencite{trimble-inc.TrimbleSX12Datasheet2021} zusammen. Für die Scans der Vorjahre wird dieselbe Genauigkeit angenommen. 
 Die Normalen werden in \gls{cc} auf der Referenzpunktwolke berechnet und nicht mit \gls{m3c2}, da dort Fehler in der 
@@ -66,7 +65,7 @@ auf. Hier zeigt sich der Dimensionsverlust der flächenhaften Vergleiche \parenc
 nicht detektiert werden. Lediglich eine leichte Setzung von bis zu -3~cm ist auf der Oberseite der Mauer sichtbar.
 
 Die Genauigkeit der berechneten Deformationen bewegen sich in den meisten Bereichen zwischen 7-14~mm. Lokale Oberflächenstrukturen 
-wie einzelne hervorstehende Steine führen zu einer erhöhten Standardabweichung. Mit dem gewählten Durchmesser d~=~0.30~cm werden alle Punkte 
+wie einzelne hervorstehende Steine führen zu einer erhöhten Standardabweichung. Mit dem gewählten Durchmesser d~=~30~cm werden alle Punkte 
 in einem Kreis gemittelt vor dem Vergleich. Liegt ein Kreis auf einer Kante, erfolgt dadurch automatisch eine höhere Standardabweichung des 
 gemittelten Punktes, die sich direkt auf die bestimmte Deformation auswirkt.
 
