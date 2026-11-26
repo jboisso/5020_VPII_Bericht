@@ -46,42 +46,103 @@
 
 \begin{table}[htbp]
     \centering
-    \caption{Ausgeglichene THB-Höhendifferenzen mit empirischer Standardabweichung.}
+    \caption{Ausgeglichene THB-Höhendifferenzen mit der angenommenen Standardabweichung im Netzausgleich.}
     \label{tab:hoehendifferenzen}
     \begin{tabular}{llrr}
         \toprule
         \textbf{Von} & \textbf{Nach} & \textbf{Höhendifferenz [m]} & \textbf{Std. Abw. [mm]} \\
         \midrule
-        9000   & EX7000 & 574.993 & 6.6 \\
+        9000   & EX7000 & 574.993 & 10.0 \\
         \rowcolor{lightgray}
-        EX6015 & 7000   &  71.789 & 1.7 \\
-        EX9500 & EX6015 & 479.869 & 6.9 \\
+        EX6015 & 7000   &  71.789 & 10.0 \\
+        EX9500 & EX6015 & 479.869 & 10.0 \\
         \rowcolor{lightgray}
-        EX6015 & 6003   &   1.837 & 0.7 \\
-        EX7000 & 7000   &   0.021 & 1.0 \\
+        EX6015 & 6003   &   1.837 & 10.0 \\
+        EX7000 & 7000   &   0.021 & 10.0 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
+\newpage
 \subsection{Datenablage}
 \label{subsec:datenstruktur}
-Die Daten der Auswertung Schwanderbärgli befinden sich auf dem S-Laufwerk. Nachfolgend ist die Ordnerstruktur angegeben.
+Die Daten der Auswertung Schwanderbärgli befinden sich auf dem S-Laufwerk unter\\
+\texttt{S:\textbackslash\allowbreak HABG\textbackslash\allowbreak E1364\_IGEO\_Projekte\textbackslash\allowbreak E1364\_G2024\textbackslash\allowbreak 5220\_GeoSensorik\&Monitoring\_II\textbackslash\allowbreak 5050\_Schwanderbärgli}.
+
+% kompaktere Darstellung der Ordnerbäume
+\setlength{\DTbaselineskip}{11.5pt}
+\renewcommand*{\DTstyle}{\small}
+
+\subsubsection*{01\_Datenaufbereitung}
+\vspace{0.6\baselineskip}
 \dirtree{%
-    .1 \faFolderOpen ~Projektordner/.
-    % erster Ordner
-    .2 \faFolderOpen ~01\_Rohdaten/.
-    .3 \faFileExcelO ~Definitivekoord\_LHN95\_Orth\_Hoehe.
-    .3 \faFileO ~Beispieldatei\_2.
-    % zweiter Ordner
-    .2 \faFolderOpen ~02\_Auswertung/.
-    .3 \faFolderO ~Infinity\_Projekt/.
-    .3 \faFileO ~CloudCompare\_Projekt.bin.
-    .3 \faFileCodeO ~Beispielskript.py.
-    .3 \faFileArchiveO ~Beispielarchiv.zip.
-    .3 \faFileText ~README.md.
-    % dritter Ordner
-    .2 \faFolderOpen ~03\_Ausgabe/.
-    .3 \faFileImageO ~Inhalt\_Objekt\_Datum.jpg.
-    .3 \faFileWordO ~Inhalt\_Objekt\_Datum.docx.
-    .3 \faFileExcelO ~Inhalt\_Objekt\_Datum.xlsx.
+    .1 \faFolderOpen ~01\_Datenaufbereitung/.
+    % GNSS
+    .2 \faFolderOpen ~GNSS/.
+    .3 \faFileCodeO ~CSVtoMEAS.ipynb.
+    .3 \faFolderOpen ~Infinity/.
+    .4 \faFileExcelO ~Koordinaten\_Analyse\_Alle\_FINALE.xlsx.
+    .4 \faFolderOpen ~Infinity-Projekte/.
+    % Scanning
+    .2 \faFolderOpen ~Scanning/.
+    .3 \faFolderOpen ~261026\_Bereinigung\_Scans/.
+    .4 \faFileO ~261026\_Bereinigung\_Scans.rwp\DTcomment{Realworks-Projekt}.
+    .4 \faFileO ~261026\_Scans\_Bereinigt.las.
+    .3 \faFolderOpen ~261026\_Registrierung\_Scans/.
+    .4 \faFileTextO ~Schwanderbaergli\_Koord\_Ausgegl.csv.
+    .4 \faFolderO ~261026\_Registrierung\_Scans/\DTcomment{TBC-Projekt}.
+}
+
+\subsubsection*{02\_Auswertung}
+\vspace{0.6\baselineskip}
+\dirtree{%
+    .1 \faFolderOpen ~02\_Auswertung/.
+    % 01 Messdaten
+    .2 \faFolderOpen ~01 Messdaten/.
+    .3 \faFolderOpen ~GNSS-v0/.
+    .4 \faFileTextO ~Definitivekoord\_LHN95\_Ell\_Hoehe.\{csv,mes\}.
+    .4 \faFileTextO ~Definitivekoord\_LHN95\_Ortho\_Hoehe.\{csv,mes\}.
+    .2 \faFolderOpen ~05 GNSS\_THB\_Scanning/.
+    % GNSS PPP
+    .3 \faFolderOpen ~GNSS\_PPP/.
+    .4 \faFolderOpen ~01\_Rohdaten/\DTcomment{RINEX aller Stationen}.
+    .4 \faFolderOpen ~02\_Auswertung/.
+    .5 \faFileCodeO ~PPP\_Transformation.ipynb.
+    .5 \faFileCodeO ~PPP\_Plots.ipynb.
+    .4 \faFolderOpen ~03\_Output\_PPP/.
+    .5 \faFolderO ~\textit{Station}\_full\_output/\DTcomment{CSRS-PPP-Resultate}.
+    .5 \faFileText ~261012\_Koord\_PPP\_Can\_Ell\_Ortho.txt.
+    .5 \faFileText ~00\_Readme.txt.
+    % Scanning
+    .3 \faFolderOpen ~Scanning/.
+    .4 \faFolderOpen ~01\_Rohdaten/.
+    .5 \faFileO ~Sperre2026wolke\_vollstaendig.las\DTcomment{Jahre 2018, 2022, 2024}.
+    .4 \faFolderOpen ~02\_Auswertung/.
+    .5 \faFileO ~261027\_Deformationsanalyse\_Scans.bin\DTcomment{CloudCompare Projekt}.
+    .5 \faFileText ~261027\_README\_Scanauswertung.txt.
+    .5 \faFolderO ~Colorscales/.
+    % THB
+    .3 \faFolderOpen ~THB/.
+    .4 \faFileTextO ~THB\_Niv\_GNSS\_ausgeglichen.mes.
+    .4 \faFolderO ~261015\_THB\_Ausgleich\_LTOP/\DTcomment{LTOP-Projekt}.
+    % Vergleich VRS
+    .3 \faFolderOpen ~VergleichVRS/.
+    .4 \faFolderOpen ~01\_Rohdaten/.
+    .5 \faFileTextO ~\textit{Von}-\textit{Nach}\{,\_Pos\_anderung,\_DOP\_Neu\}.csv.
+    .5 \faFileTextO ~Koordinaten\_Export\_VRS.csv.
+    .4 \faFolderOpen ~02\_Auswertung/.
+    .5 \faFileCodeO ~basisstation\_vergleich\{,\_web\}.py.
+    .4 \faFolderOpen ~03\_Ausgabe/.
+    .5 \faFileExcelO ~Koordinaten\_Vegleich\_VRS.xlsx.
+    .5 \faFilePdfO ~Referenztationen\_VRS\_HABG\_Protokoll.pdf.
+}
+
+\subsubsection*{03\_Abgabe}
+\vspace{0.6\baselineskip}
+\dirtree{%
+    .1 \faFolderOpen ~03\_Abgabe/.
+    .2 \faFolderOpen ~01\_Rohdaten\_Aufbereitet/.
+    .2 \faFolderOpen ~02\_Definitive\_Produkte/.
+    .3 \faFileTextO ~THB\_Niv\_GNSS\_ausgeglichen.mes.
+    .3 \faFileO ~Sperre2026wolke\_vollstaendig.las.
 }
